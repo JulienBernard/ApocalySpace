@@ -16,7 +16,7 @@
 
 ## Informations
 **IDE:** Eclispe for PHP, Notepad++ for HTML and CSS<br>
-**Design Pattern: ** MVC<br>
+**Design Pattern:** MVC<br>
 **Principal programmation langage:** PHP in version 5 for object programming<br>
 
 ## Changelog
