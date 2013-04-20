@@ -15,9 +15,9 @@
 **DEVELOPMENT branch:** in development, posibily unstable version<br>
 
 ## Informations
-** IDE:** Eclispe for PHP, Notepad++ for HTML and CSS
-** Design Pattern: ** MVC
-** Principal programmation langage:** PHP in version 5 for object programming
+** IDE:** Eclispe for PHP, Notepad++ for HTML and CSS<br>
+** Design Pattern: ** MVC<br>
+** Principal programmation langage:** PHP in version 5 for object programming<br>
 
 ## Changelog
 **00/00/13 -** something happens
