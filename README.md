@@ -2,7 +2,7 @@
 ============
 
 ## Informations
-**Autor:** Julien Bernard<br>
+**Author:** Julien Bernard<br>
 **Language:** French
 
 > ApocalySpace est un jeu en ligne jouable gratuitement et directement sur votre navigateur web mêlant stratégie et gestion dans l'espace.
@@ -17,7 +17,7 @@
 ## Informations
 **IDE:** Eclispe for PHP, Notepad++ for HTML and CSS<br>
 **Design Pattern:** MVC<br>
-**Principal programmation langage:** PHP in version 5 for object programming<br>
+**Principal programmation langage:** PHP in version 5 for object-oriented programming<br>
 
 ## Changelog
-**00/00/13 -** something happens
+**17/05/13 -** Commit d'une grosse partie de la phase d'avant-projet / Commit a big part of the planning stage.

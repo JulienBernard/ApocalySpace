@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+
+<!--
+
+	Bonjour,
+	ApocalySpace est un projet distribué sous licence GPL. Retrouver son code source en libre utilisation sur GitHub : https://github.com/JulienBernard/ApocalySpace
+	
+	Hi,
+	ApocalySpace is a project distributed under GPL licence. Find his source code at free use on GitHub: https://github.com/JulienBernard/ApocalySpace
+	
+		 _    _ _   _ _____  ______ _____  	   _____ _____  _         _      _____ _____ ______ _   _  _____ ______ 
+		| |  | | \ | |  __ \|  ____|  __ \ 	  / ____|  __ \| |       | |    |_   _/ ____|  ____| \ | |/ ____|  ____|
+		| |  | |  \| | |  | | |__  | |__) |	 | |  __| |__) | |       | |      | || |    | |__  |  \| | |    | |__   
+		| |  | | . ` | |  | |  __| |  _  / 	 | | |_ |  ___/| |       | |      | || |    |  __| | . ` | |    |  __|  
+		| |__| | |\  | |__| | |____| | \ \ 	 | |__| | |    | |____   | |____ _| || |____| |____| |\  | |____| |____ 
+		 \____/|_| \_|_____/|______|_|  \_\	  \_____|_|    |______|  |______|_____\_____|______|_| \_|\_____|______|
+
+		ApocalySpace Copyright (C) 2012-2013 Julien Bernard
+
+		ApocalySpace is free software: you can redistribute it and/or modify
+		it under the terms of the GNU General Public License as published by
+		the Free Software Foundation, either version 3 of the License, or
+		(at your option) any later version.
+
+		ApocalySpace is distributed in the hope that it will be useful,
+		but WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+		GNU General Public License for more details.
+
+		ApocalySpace is based on "ApocalySpace BETA version" by Etienne Rocipon, Benjamin Crosnier and Julien Bernard (2012).
+		
+		You should have received a copy of the GNU General Public License
+		along with this program.  If not, see <http://www.gnu.org/licenses/>.
+				
+		Contact:
+			jbernard at intechinfo dot fr
+-->
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>ApocalySpace - Accueil</title>
+	<!--
+		Oui, j'utilise Foundation 4 !
+		Yes, I use Foundation 4!
+	-->
+	<link rel="stylesheet" media="screen" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" media="screen" type="text/css" href="css/foundation.css" />
+	<link rel="stylesheet" media="screen" type="text/css" href="css/apocalyspace.css" />
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script>
+	<script src="js/vendor/custom.modernizr.js"></script>
+</head>
+<body>
+
+<!--
+	Section principale qui sépare le header du site du corps du site.
+	Main section to separate the header part with the body part of the website.
+-->
+<section id="main" style="padding-top: 0;">
+
+	<header>
+		<div id="header_infobar">ACCUEIL</div>
+		<a href=""><div id="header_infobar_logo"></div></a>
+		<div id="header_infobar_border"></div>
+		<div id="header_image">
+			<div id="header_image_left"></div>
+			<div id="header_image_right"></div>
+		</div>
+		
+		<!--
+			Affiche flèche + message si le curseur est au dessus du header.
+			Display arrow + message if cursor is hovering the header.
+		-->
+		<div class="row">
+			<div class="large-4 columns"></div>
+			<div class="large-8 columns">
+				<p>POUR AFFICHER, CLIQUER OU ALLER VERS LE BAS<br /><img src="img/arrow.png" /></p>
+			</div>
+		</div>
+	</header>
+	
+	<section>
+		<div class="row">
+			<nav class="large-12 breadcrumbs" id="links">
+				<a href="" class="current">Accueil</a>
+				<a href="">Histoire</a>
+				<a href="">Galerie</a>
+				<a href="" class="unavailable">Contact et Support</a>
+			</nav>
+		</div>
+		<br />
+		<div class="row">
+			<!--
+				Bloc principal du corps du site.
+				Main body of website.
+			-->
+			<article class="large-9 columns">
+				<h1>ACCUEIL</h1>
+				<div id="orbit">
+					<div class="orbit-container">
+						<ul data-orbit="" class="orbit-slides-container" data-options="timer_speed:5000; bullets:false;">
+							<li class="active">
+							   <a href="https://twitter.com/ApocalySpace"><img src="./img/orbit/welcome.png"></a>
+							  <div class="orbit-caption"><a href="https://twitter.com/ApocalySpace">Bienvenue sur ApocalySpace.fr ! Retrouvez toute l'actualité du projet (en cours) sur Twitter !</a></div>
+							</li>
+							<li>
+							  <img src="./img/orbit/developers.png">
+							  <div class="orbit-caption">Pour les joueurs comme pour les développeurs : appuyez sur Ctrl + U !</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div data-alert class="info-box">
+					<span class="important"><span class="bold">ApocalySpace</span> est un <span class="bold">jeu de stratégie et de gestion</span> en ligne gratuit.</span><br />
+					<span class="bold">Space Opéra</span> d'un nouveau genre, <span class="bold">ApocalySpace</span> se démarque par<br />
+					sa <span class="bold">communauté</span>, son <span class="bold">originalité</span> et sa <span class="bold">simplicité</span> !
+					<a href="" class="right close">&times;</a>
+				</div>
+				<p>
+					Forcé de fuir votre planète natale, vous incarnez le nouveau dirigeant d'un groupe de survivant qui vient d'établir une nouvelle colonie sur une planète de ce nouveau système planètaire. Ces années d'érrances vous ayant fait perdre la quasi-totalité de votre savoir, votre peuple a besoin de vous maintenant pour repeupler cette planète et faire revivre votre civilisation !
+				</p>
+				<p class="italic">
+					Conçu et imaginé par une équipe d'étudiants en école informatique puis repris par l'un d'eux, ApocalySpace est désormais disponible dans sa version stable : la 1.0.0 qui est régulièrement mise à jour. Projet sous licence libre GPL, vous pouvez nous retrouver sur <a href="https://github.com/JulienBernard/ApocalySpace">GitHub</a>. Enjoy!
+				</p>
+				<h2><a href="">EN SAVOIR PLUS</a> <a href="">GALERIE</a> <a href="">CONTACT</a></h2>
+			</article>
+			<!--
+				Bloc droit du site.
+				Right block of website.
+			-->
+			<nav class="large-3 columns">
+				<h1>CONNEXION</h1>
+				<div class="row">
+					<form action="index.html" method="POST">
+					<div class="small-1 columns"></div>
+					<div class="small-11 columns">
+						<input type="text" placeholder="Pseudonyme">
+						<input type="password" placeholder="Mot de passe">
+						<input type="submit" value="Se connecter" class="button prefix"/>
+					</div>
+					</form>
+				</div>
+				<h1>INSCRIPTION <small><a href="">Que choisir ?</a></small></h1>
+				<div class="row">
+					<form action="index.html" method="POST" class="custom">
+					<div class="small-1 columns"></div>
+					<div class="small-11 columns">
+						<input type="text" placeholder="Pseudonyme">
+						<input type="password" placeholder="Mot de passe">
+						<select id="customDropdown1" class="medium">
+							<option DISABLED>Choix de faction (choix définitif)</option>
+							<option>Impériaux</option>
+							<option SELECTED>Vagabonds</option>
+							<option>Républicains</option>
+						</select>
+						<input type="submit" value="S'inscrire" class="button prefix"/>
+					</div>
+					</form>
+				</div>
+			</nav>
+		</div>
+	</section>
+</section>
+
+<footer>
+	<header>
+		<div class="row">
+			<div id="returnTop" class="large-1 columns">
+			</div>
+			<p class="large-7 columns">
+				« Ce n’est pas possible ; cela n’est pas français. »<br />
+				<span class="italic small">Citation de Napoléon Bonaparte</span>
+			</p>
+			<p class="large-4 columns">
+				ApocalySpace © 2012-2013 &nbsp;&nbsp;&nbsp; <a href="changelog">Version 1.0.0</a>
+			</p>
+		</div>
+	</header>
+	<section>
+		<div class="row">
+			<nav class="large-8 columns center">
+				<p>
+					<br />
+					<a href="" class="current">Accueil</a> / 
+					<a href="">Histoire</a> /
+					<a href="">Galerie</a> /
+					<a href="" class="unavailable">Contact et Support</a>
+				</p>
+			</nav>
+			<article class="large-4 columns center">
+				<p>
+					Projet sous licence GPL réalisé initialement par
+					<a href="https://twitter.com/ProJibi">Julien Bernard</a>, Benjamin Crosnier et Etienne Rocipon.<br />
+					<br />
+					Le projet est désormais repris par Julien.<br />
+					<a href="">Contact</a> - <a href="">Histoire du projet</a> - <a href="">Mentions légales</a>
+				</p>
+			</article>
+		</div>
+	</section>
+</footer>
+
+	<!--
+		Script de Foundation 4.
+		Foundation 4 script.
+	-->
+	<script>
+		document.write('<script src=' +
+		('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
+		'.js><\/script>')
+	</script>
+	
+	<script src="js/foundation.min.js"></script>
+	<script src="js/foundation/foundation.orbit.js"></script>
+	
+	<script>
+		$(function(){
+			$(document).foundation();    
+		})
+		
+		// JQuery Script: return to the top of the page with a animation
+		$(document).ready( function () {
+			$('#returnTop').click(function() {
+				$('html,body').animate({scrollTop: $("#main").offset().top}, 'slow');
+			});
+		})
+		$(document).ready( function () {
+			$('#header_image').click(function() {
+				$('html,body').animate({scrollTop: $("#links").offset().top}, 'slow');
+			});
+		})
+	</script>
+</body>
+</html>
