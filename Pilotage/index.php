@@ -27,10 +27,14 @@
 	
 	/* Appel des styles */
 	$t_css = array();
-	$t_css[0] = "style.css";
+	$t_css[0] = "normalize.css";
+	$t_css[1] = "foundation.css";
+	$t_css[2] = "apocalyspace.css";
 	
 	/* Appel des scripts */
 	$t_script = array();
+	$t_script[0] = "jquery.min.js";
+	$t_script[1] = "vendor/custom.modernizr.js";
 	
 	/* Appel du template : header */
 	if( isConnected() )

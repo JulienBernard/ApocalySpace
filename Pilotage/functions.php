@@ -63,35 +63,32 @@
 	 */
 	function verifyParams( $array, $strictPositive = NULL )
 	{
-		if( is_array($array) )
+		if( empty($array) ) throw new Exception('(functions.php:verifyParams) La variable $array ne peut être vide !');
+		if( !is_array($array) ) throw new Exception('(functions.php:verifyParams) La variable $array doit être un tableau !');
+
+		$arrayError = array();
+		foreach( $array as $key => $value )
 		{
-			$arrayError = array();
-			foreach( $array as $key => $value )
+			if( $value === '0' OR $value === 0 )
+				$arrayError[$key] = 1;
+			elseif( empty($value) )
+				$arrayError[$key] = 0;
+			else
+				$arrayError[$key] = 1;
+				
+			if( $strictPositive != NULL )
 			{
-				if( $value === '0' OR $value === 0 )
-					$arrayError[$key] = 1;
-				elseif( empty($value) )
+				if( $value < 0 )
 					$arrayError[$key] = 0;
-				else
-					$arrayError[$key] = 1;
-					
-				if( $strictPositive != NULL )
-				{
-					if( $value < 0 )
-						$arrayError[$key] = 0;
-				}
-	
 			}
-			
-			foreach( $arrayError as $key => $value )
-			{				
-				if( !$value )
-					return $arrayError;	// Un des champs est vide, on retourne un tableau contenant le statut des champs (1= OK, 0 = vide)
-			}	
-			
-			return 1;	// OK
 		}
-		return 0; 	// ERREUR
+		
+		foreach( $arrayError as $key => $value )
+		{
+			if( !$value )
+				return $arrayError;	// Un des champs est vide, on retourne un tableau contenant le statut des champs (1= OK, 0 = vide)
+		}	
+		return 1;
 	}
 	
 	function createSession( $name, $content )
