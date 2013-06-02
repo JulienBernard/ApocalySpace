@@ -91,8 +91,15 @@
 		return 1;
 	}
 	
+	/**
+	 * Créé une session en lui attribuant un contenu. Vérifie si la session n'existe pas déjà, si oui renvoie 0 !é
+	 * @param String $name
+	 * @param String $content
+	 */
 	function createSession( $name, $content )
 	{
+		if( empty($name) ) throw new Exception('(functions.php:createSession) La variable $name ne peut être vide !');
+			
 		if( isset($_SESSION[$name]) )
 			return 0;
 		else

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.4"/>
-<title>SpaceEngine:  Fichier source de functions.php</title>
+<title>ApocalySpace:  Fichier source de functions.php</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">SpaceEngine
+   <div id="projectname">ApocalySpace
    &#160;<span id="projectnumber">1.1</span>
    </div>
   </td>
@@ -126,49 +126,48 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">function</span> verifyParams( $array, $strictPositive = NULL )</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">if</span>( is_array($array) )</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            $arrayError = array();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">foreach</span>( $array as $key =&gt; $value )</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordflow">if</span>( $value === <span class="charliteral">&#39;0&#39;</span> OR $value === 0 )</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                    $arrayError[$key] = 1;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                elseif( empty($value) )</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    $arrayError[$key] = 0;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                else</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    $arrayError[$key] = 1;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                if( $strictPositive != NULL )</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    <span class="keywordflow">if</span>( $value &lt; 0 )</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                        $arrayError[$key] = 0;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keywordflow">foreach</span>( $arrayError as $key =&gt; $value )</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            {               </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordflow">if</span>( !$value )</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                    <span class="keywordflow">return</span> $arrayError; <span class="comment">// Un des champs est vide, on retourne un tableau contenant le statut des champs (1= OK, 0 = vide)</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            }   </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordflow">return</span> 1;   <span class="comment">// OK</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">return</span> 0;   <span class="comment">// ERREUR</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keyword">function</span> createSession( $name, $content )</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">if</span>( isset($_SESSION[$name]) )</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            $_SESSION[$name] = $content;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">if</span>( empty($array) ) <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&#39;(functions.php:verifyParams) La variable $array ne peut être vide !&#39;</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">if</span>( !is_array($array) ) <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&#39;(functions.php:verifyParams) La variable $array doit être un tableau !&#39;</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        $arrayError = array();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">foreach</span>( $array as $key =&gt; $value )</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">if</span>( $value === <span class="charliteral">&#39;0&#39;</span> OR $value === 0 )</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                $arrayError[$key] = 1;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            elseif( empty($value) )</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                $arrayError[$key] = 0;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            else</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                $arrayError[$key] = 1;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            if( $strictPositive != NULL )</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordflow">if</span>( $value &lt; 0 )</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    $arrayError[$key] = 0;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">foreach</span>( $arrayError as $key =&gt; $value )</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">if</span>( !$value )</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="keywordflow">return</span> $arrayError; <span class="comment">// Un des champs est vide, on retourne un tableau contenant le statut des champs (1= OK, 0 = vide)</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }   </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">function</span> createSession( $name, $content )</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">if</span>( empty($name) ) <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&#39;(functions.php:createSession) La variable $name ne peut être vide !&#39;</span>);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">if</span>( isset($_SESSION[$name]) )</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            $_SESSION[$name] = $content;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Dimanche Juin 2 2013 19:36:01 pour SpaceEngine par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Dimanche Juin 2 2013 22:00:25 pour ApocalySpace par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

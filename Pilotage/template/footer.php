@@ -11,7 +11,7 @@
 				<span class="italic small">Citation de Napoléon Bonaparte</span>
 			</p>
 			<p class="large-4 columns">
-				ApocalySpace © 2012-2013 &nbsp;&nbsp;&nbsp; <a href="changelog">Version 1.0.0</a>
+				ApocalySpace © 2012-2013 &nbsp;&nbsp;&nbsp; <a href="./docs/html">Version 1.1</a>
 			</p>
 		</div>
 	</header>
@@ -20,10 +20,10 @@
 			<nav class="large-8 columns center">
 				<p>
 					<br />
-					<a href="" class="current">Accueil</a> / 
-					<a href="">Histoire</a> /
-					<a href="">Galerie</a> /
-					<a href="" class="unavailable">Contact et Support</a>
+					<a href="index.php" class="current">Accueil</a> / 
+					<a href="histoire.php">Histoire</a> /
+					<a href="galerie.php">Galerie</a> /
+					<a href="support.php" class="unavailable">Contact et Support</a>
 				</p>
 			</nav>
 			<article class="large-4 columns center">
@@ -32,7 +32,7 @@
 					<a href="https://twitter.com/ProJibi">Julien Bernard</a>, Benjamin Crosnier et Etienne Rocipon.<br />
 					<br />
 					Le projet est désormais repris par Julien.<br />
-					<a href="">Contact</a> - <a href="">Histoire du projet</a> - <a href="">Mentions légales</a>
+					<a href="support.php">Contact</a> - <a href="histoire_projet.php">Histoire du projet</a> - <a href="mentions.php">Mentions légales</a>
 				</p>
 			</article>
 		</div>
