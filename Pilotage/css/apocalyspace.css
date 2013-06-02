@@ -241,6 +241,9 @@ article p {
 	article h2 a:hover {
 		color: #61c2ed;
 	}
+	article .small {
+		font-size: 14px;
+	}
 	
 /* ==========================================================================
    Footer

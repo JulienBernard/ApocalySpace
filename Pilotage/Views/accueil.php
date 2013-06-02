@@ -35,7 +35,7 @@
 				<p class="italic">
 					Conçu et imaginé par une équipe d'étudiants en école informatique puis repris par l'un d'eux, ApocalySpace est désormais disponible dans sa version stable : la 1.0 qui est régulièrement mise à jour. Projet sous licence libre GPL, vous pouvez nous retrouver sur <a href="https://github.com/JulienBernard/ApocalySpace">GitHub</a>. Enjoy!
 				</p>
-				<h2><a href="">EN SAVOIR PLUS</a> <a href="">GALERIE</a> <a href="">CONTACT</a></h2>
+				<h2><a href="histoire.php">EN SAVOIR PLUS</a> <a href="galerie.php">GALERIE</a> <a href="support.php">CONTACT</a></h2>
 			</article>
 			<!--
 				Bloc droit du site.
