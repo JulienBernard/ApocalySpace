@@ -1,0 +1,177 @@
+/* 2013 apocalyspace.css | General overlay on Foundation 4 | Author: Julien Bernard */
+
+
+/* ==========================================================================
+   Fonts
+   ========================================================================== */
+
+@font-face{
+	font-family: 'LCD';
+	src: url('lcd.eot');
+	src: url('lcd.eot?#iefix') format('embedded-opentype'),
+		url('lcd.woff') format('woff'),
+		url('lcd.ttf') format('truetype'),
+		url('lcd.svg#webfont') format('svg');
+	}
+	
+@font-face{
+	font-family: 'MALGUN';
+	src: url('malgun.eot');
+	src: url('malgun.eot?#iefix') format('embedded-opentype'),
+		url('malgun.woff') format('woff'),
+		url('malgun.ttf') format('truetype'),
+		url('malgun.svg#webfont') format('svg');
+	}
+	
+@font-face{
+	font-family: 'FUDD';
+	src: url('fudd.eot');
+	src: url('fudd.eot?#iefix') format('embedded-opentype'),
+		url('fudd.woff') format('woff'),
+		url('fudd.ttf') format('truetype'),
+		url('fudd.svg#webfont') format('svg');
+	}
+
+/* ==========================================================================
+   General design
+   ========================================================================== */
+
+html {
+	background: black;
+}
+
+.bold {
+	font-weight: bold;
+}
+.italic {
+	font-style: italic;
+}
+   
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+header {
+	width: 100%;
+	height: 405px;
+	background-color: black;
+	border-bottom: 5px solid #999999;
+}
+	header #header_infobar {
+		width: 100%;
+		height: 65px;
+		background: url("../img/bg_infobar.png") repeat-x;
+		position: absolute;
+		color: white;
+		font-size: 19px;
+		font-family: LCD;
+		text-align: center;
+		padding-top: 30px;
+		transition: all 1s ease;
+	}
+	header:hover #header_infobar  {
+		color: #dc633d;
+		cursor: pointer;
+		transition: all 1s ease;
+	}
+		header #header_infobar_logo {
+			width: 25%;
+			height: 24px;
+			position: absolute;
+			margin-top: 20px;
+			margin-left: 10%;
+			background: url("../img/logo_header.png") no-repeat;
+		}
+		header #header_infobar_logo:hover {
+			background: url("../img/logo_header_hover.png") no-repeat;
+		}
+		header #header_infobar_border {
+			width: 100%;
+			height: 5px;
+			margin-top: 65px;
+			background: black;
+			position: absolute;
+			opacity : 0.5;
+			filter : alpha(opacity=50);
+		}
+	
+	header #header_image {
+		max-width: 66%;
+		height: 400px;
+		margin: auto;
+		background: url("../img/bg_header.png") no-repeat center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		-ms-background-size: cover;
+		background-size: cover;
+		text-align: center;
+	}
+		header p {
+			font-family: MALGUN;
+			font-size: 18px;
+			color: white;
+			margin-top: -350px;
+			text-align: center;
+			transition: all 0.5s ease-out;
+			opacity: 0;
+		}
+		header:hover p {
+			transition: all 1s ease;
+			margin-top: 30px;
+			margin-bottom: -10px;
+			font-size: 16px;
+			color: black;
+			opacity: 1;
+		}
+		header #header_image_left {
+			width: 50px;
+			height: 400px;
+			float: left;
+			background-image: linear-gradient(to left, rgba(0,0,0,.0) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.9) 100%);
+			background-image: -moz-linear-gradient(to left, rgba(0,0,0,.0) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.9) 100%);
+			background-image: -webkit-linear-gradient(to left, rgba(0,0,0,.0) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.9) 100%);
+			background-image: -o-linear-gradient(to left, rgba(0,0,0,.0) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.9) 100%);
+			background-image: -ms-linear-gradient(to left, rgba(0,0,0,.0) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.9) 100%);
+		}
+		header #header_image_right {
+			width: 50px;
+			height: 400px;
+			float: right;
+			background-image: linear-gradient(to left, rgba(0,0,0,.9) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.0) 100%);
+			background-image: -moz-linear-gradient(to left, rgba(0,0,0,.9) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.0) 100%);
+			background-image: -webkit-linear-gradient(to left, rgba(0,0,0,.9) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.0) 100%);
+			background-image: -o-linear-gradient(to left, rgba(0,0,0,.9) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.0) 100%);
+			background-image: -ms-linear-gradient(to left, rgba(0,0,0,.9) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.0) 100%);
+		}
+		
+/* ==========================================================================
+   Section (body)
+   ========================================================================== */
+
+section {
+	width: 100%;
+	padding-top: 30px;
+	background: #fafafa;
+	transition: all 1s ease-out;
+}
+	section h1 {
+		font-size: 18px;
+		letter-spacing: 1px;
+		font-weight: normal;
+		font-family: MALGUN;
+	}
+	header:hover ~ section {
+		transition: all 1s ease;
+		margin-left: -2000px;
+		opacity: 0.2;
+	}
+	section section:hover #links {
+		opacity: 1;
+		transition: all 1s ease;
+	}
+	#links {
+		opacity: 0.3;
+		transition: all 2s ease;
+	}
+
