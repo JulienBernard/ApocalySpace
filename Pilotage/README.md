@@ -7,7 +7,7 @@
 > ApocalySpace est un jeu en ligne jouable gratuitement et directement sur votre navigateur web mêlant stratégie et gestion dans l'espace.
 
 ## Version
-**Lastest version:** 1.1<br>
+**Lastest version:** 1.2<br>
 **Stability of version:** in development<br>
 <br>
 **MASTER branch:** stable version and project informations<br>
