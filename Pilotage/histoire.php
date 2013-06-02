@@ -1,7 +1,7 @@
 <?php
 	/***
 	 * 
-	 * Point d'entrée de la page d'accueil.
+	 * Point d'entrée de la page histoire.
 	 * @author JulienBernard
 	 * 
 	 */
@@ -12,18 +12,18 @@
 	/* Fonctionnement de ce point d'entrée */
 	if( isConnected() )
 	{
-		$controllerPath = "./Controllers/accueil.connect.php";
-		$viewPath = "./Views/accueil.connect.php";
+		$controllerPath = "./Controllers/histoire.connect.php";
+		$viewPath = "./Views/histoire.connect.php";
 	}
 	else
 	{
-		$controllerPath = "./Controllers/accueil.php";
-		$viewPath = "./Views/accueil.php";
+		$controllerPath = "./Controllers/histoire.php";
+		$viewPath = "./Views/histoire.php";
 	}
 	
 	/* Informations sur la page */
-	$title = "Accueil";
-	$description = "";
+	$title = "Histoire";
+	$description = "Histoire et présentation du jeu en ligne ApocalySpace.";
 	
 	/* Appel des styles */
 	$t_css = array();
