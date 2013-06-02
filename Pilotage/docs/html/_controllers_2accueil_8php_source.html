@@ -90,12 +90,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;    </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    <span class="comment">/* Inclusion de la vue */</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    include_once( $viewPath );</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    <span class="keywordflow">if</span>( isset($_POST[<span class="stringliteral">&#39;subscribe&#39;</span>]) || isset($_POST[<span class="stringliteral">&#39;signin&#39;</span>]) )</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    {</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;        $INFO = <span class="stringliteral">&quot;L&#39;inscription au jeu n&#39;est pas encore activé. Merci de revenir prochainement !&quot;</span>;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    }</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="comment">/* Inclusion de la vue */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    include_once( $viewPath );</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Dimanche Juin 2 2013 22:00:25 pour ApocalySpace par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Dimanche Juin 2 2013 23:27:24 pour ApocalySpace par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>
