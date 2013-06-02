@@ -109,7 +109,7 @@
 				<a href="index.php" <?php if( $title == "Accueil" ) echo 'class="current"'; ?>>Accueil</a>
 				<a href="histoire.php" <?php if( $title == "Histoire" ) echo 'class="current"'; ?>>Histoire</a>
 				<a href="galerie.php" <?php if( $title == "Galerie" ) echo 'class="current"'; ?>>Galerie</a>
-				<a href="support.php" class="unavailable">Contact et Support</a>
+				<a href="support.php" <?php if( $title == "Support" ) echo 'class="current"'; ?>>Contact et Support</a>
 			</nav>
 		</div>
 		<br />

@@ -1,4 +1,39 @@
-﻿	</section>
+﻿			<!--
+				Bloc droit du site.
+				Right block of website.
+			-->
+			<nav class="large-3 columns">
+				<h1>CONNEXION</h1>
+				<div class="row">
+					<form action="index.php" method="POST">
+					<div class="small-1 columns"></div>
+					<div class="small-11 columns">
+						<input type="text" placeholder="Pseudonyme">
+						<input type="password" placeholder="Mot de passe">
+						<input type="submit" name="signin" value="Se connecter" class="button prefix"/>
+					</div>
+					</form>
+				</div>
+				<h1>INSCRIPTION <small><a href="histoire.php#factions">Que choisir ?</a></small></h1>
+				<div class="row">
+					<form action="index.php" method="POST" class="custom">
+					<div class="small-1 columns"></div>
+					<div class="small-11 columns">
+						<input type="text" placeholder="Pseudonyme">
+						<input type="password" placeholder="Mot de passe">
+						<select id="customDropdown1" class="medium">
+							<option DISABLED>Choix de faction (choix définitif)</option>
+							<option>Impériaux</option>
+							<option SELECTED>Vagabonds</option>
+							<option>Républicains</option>
+						</select>
+						<input type="submit" name="subscribe" value="S'inscrire" class="button prefix"/>
+					</div>
+					</form>
+				</div>
+			</nav>
+		</div>
+	</section>
 </section>
 
 <footer>
@@ -29,7 +64,7 @@
 			<article class="large-4 columns center">
 				<p>
 					Projet sous licence GPL réalisé initialement par
-					<a href="https://twitter.com/ProJibi">Julien Bernard</a>, Benjamin Crosnier et Etienne Rocipon.<br />
+					<a href="http://jibidev.fr/a-propos">Julien Bernard</a>, Benjamin Crosnier et Etienne Rocipon.<br />
 					<br />
 					Le projet est désormais repris par Julien.<br />
 					<a href="support.php">Contact</a> - <a href="histoire_projet.php">Histoire du projet</a> - <a href="mentions.php">Mentions légales</a>

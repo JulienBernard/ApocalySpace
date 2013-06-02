@@ -40,7 +40,7 @@
 					- Les <span class="bold">Républicains</span> sont les derniers démocrates de la galaxie, ils ont foi en l'avenir du peuple<br />
 					<br />
 				</p>
-				<h2>Factions</h2>
+				<h2 id="factions">Factions</h2>
 				<p>
 					Chaque faction possède un avantage et un inconvénient (militaire, productif ou démographique). En choisisant votre faction, vous rejoindrez les joueurs y appartennant déjà et vous devrez les aiders pour que votre faction devienne la plus forte !
 				</p>
@@ -59,38 +59,3 @@
 				<br />
 				<h2><a href="histoire_projet.php">HISTOIRE DU PROJET</a> <a href="galerie.php">GALERIE</a> <a href="support.php">CONTACT</a></h2>
 			</article>
-			<!--
-				Bloc droit du site.
-				Right block of website.
-			-->
-			<nav class="large-3 columns">
-				<h1>CONNEXION</h1>
-				<div class="row">
-					<form action="index.php" method="POST">
-					<div class="small-1 columns"></div>
-					<div class="small-11 columns">
-						<input type="text" placeholder="Pseudonyme">
-						<input type="password" placeholder="Mot de passe">
-						<input type="submit" value="Se connecter" class="button prefix"/>
-					</div>
-					</form>
-				</div>
-				<h1>INSCRIPTION <small><a href="">Que choisir ?</a></small></h1>
-				<div class="row">
-					<form action="index.php" method="POST" class="custom">
-					<div class="small-1 columns"></div>
-					<div class="small-11 columns">
-						<input type="text" placeholder="Pseudonyme">
-						<input type="password" placeholder="Mot de passe">
-						<select id="customDropdown1" class="medium">
-							<option DISABLED>Choix de faction (choix définitif)</option>
-							<option>Impériaux</option>
-							<option SELECTED>Vagabonds</option>
-							<option>Républicains</option>
-						</select>
-						<input type="submit" value="S'inscrire" class="button prefix"/>
-					</div>
-					</form>
-				</div>
-			</nav>
-		</div>

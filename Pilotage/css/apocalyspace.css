@@ -55,7 +55,7 @@ a:hover {
 
 .info-box {
 	width: 100%;
-	background: url("../img/bg_infobox_blue.png") repeat;
+	background: url("../img/bg_box_blue.png") repeat;
 	border: 1px solid #61c2ed;
 	padding: 10px;
 	text-align: center;
@@ -65,11 +65,60 @@ a:hover {
 	line-height: 20px;
 	color: #424242;
 	margin-bottom: 20px;
+	letter-spacing: 0.2px;
 }
 	.info-box .important{
 		color: #3d9bd3;
 		font-size: 16px;
 		line-height: 25px;
+	}
+	.info-box a {
+		color: #61c2ed;
+	}
+.error-box {
+	width: 100%;
+	margin: auto;
+	background: url("../img/bg_box_red.png") repeat;
+	border: 1px solid #faa33d;
+	padding: 10px;
+	text-align: center;
+	font-weight: normal;
+	font-size: 15px;
+	font-family: MALGUN;
+	line-height: 20px;
+	color: #424242;
+	margin-bottom: 20px;
+	letter-spacing: 0.2px;
+}
+	.error-box .important{
+		color: #3d9bd3;
+		font-size: 16px;
+		line-height: 25px;
+	}
+	.error-box a {
+		color: #faa33d;
+	}
+.success-box {
+	width: 100%;
+	background: url("../img/bg_box_green.png") repeat;
+	border: 1px solid #7dd37a;
+	padding: 10px;
+	text-align: center;
+	font-weight: normal;
+	font-size: 15px;
+	font-family: MALGUN;
+	line-height: 20px;
+	color: #424242;
+	margin-bottom: 20px;
+	letter-spacing: 0.2px;
+}
+	.success-box .important{
+		color: #3d9bd3;
+		font-size: 16px;
+		line-height: 25px;
+	}
+	.success-box a {
+		color: #7dd37a;
 	}
    
 /* ==========================================================================

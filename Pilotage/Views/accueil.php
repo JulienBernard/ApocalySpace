@@ -3,6 +3,11 @@
 				Bloc principal du corps du site.
 				Main body of website.
 			-->
+			<?php
+				if( $INFO != null ) { echo '<div data-alert class="info-box">'.$INFO.'<a href="" class="right close">&times;</a></div>'; }
+				if( $ERROR != null ) { echo '<div data-alert class="error-box">'.$ERROR.'<a href="" class="right close">&times;</a></div>'; }
+				else if( $SUCCESS != null ) { echo '<div data-alert class="success-box">'.$SUCCESS.'<a href="" class="right close">&times;</a></div>'; }
+			?>
 			<article class="large-9 columns">
 				<h1><?php echo strtoupper($title); ?></h1>
 				<div id="orbit">
@@ -37,38 +42,3 @@
 				</p>
 				<h2><a href="histoire.php">EN SAVOIR PLUS</a> <a href="galerie.php">GALERIE</a> <a href="support.php">CONTACT</a></h2>
 			</article>
-			<!--
-				Bloc droit du site.
-				Right block of website.
-			-->
-			<nav class="large-3 columns">
-				<h1>CONNEXION</h1>
-				<div class="row">
-					<form action="index.php" method="POST">
-					<div class="small-1 columns"></div>
-					<div class="small-11 columns">
-						<input type="text" placeholder="Pseudonyme">
-						<input type="password" placeholder="Mot de passe">
-						<input type="submit" value="Se connecter" class="button prefix"/>
-					</div>
-					</form>
-				</div>
-				<h1>INSCRIPTION <small><a href="">Que choisir ?</a></small></h1>
-				<div class="row">
-					<form action="index.php" method="POST" class="custom">
-					<div class="small-1 columns"></div>
-					<div class="small-11 columns">
-						<input type="text" placeholder="Pseudonyme">
-						<input type="password" placeholder="Mot de passe">
-						<select id="customDropdown1" class="medium">
-							<option DISABLED>Choix de faction (choix définitif)</option>
-							<option>Impériaux</option>
-							<option SELECTED>Vagabonds</option>
-							<option>Républicains</option>
-						</select>
-						<input type="submit" value="S'inscrire" class="button prefix"/>
-					</div>
-					</form>
-				</div>
-			</nav>
-		</div>
