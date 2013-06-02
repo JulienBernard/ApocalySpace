@@ -1,0 +1,162 @@
+/* style.css par Julien Bernard le 20/03/12 */
+
+body {
+	width: 1024px;
+	margin: auto;
+	padding-top: 20px;
+	background-color: #ededed;
+}
+
+a {
+	text-decoration: none;
+	color: #424242;
+}
+	a:hover {
+		color: green;
+	}
+	
+h1 {
+	font-size: 26px;
+	margin: 0;
+	padding: 0;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+h2 {
+	font-size: 20px;
+	margin: 0;
+	padding: 0;
+	letter-spacing: 0.5px;
+	color: #101010;
+}
+
+img {
+	margin-bottom: -4px;
+}
+
+#Top {
+	width: 100%;
+	margin: auto;
+	padding: 10px;
+	background-color: #313131;
+	border-bottom: 1px solid #535353;
+	color: #ededed;
+	font-size: 26px;
+	text-align: center;
+}
+	#Top #SmallOne {
+		display: block;
+		margin-bottom: 20px;
+		margin-top: -30px;
+		font-size: 12px;
+		text-align: left;
+	}
+	#Top #SmallTwo {
+		display: block;
+		margin: 0;
+		font-size: 14px;
+		text-align: right;
+		padding-right: 20%;
+	}
+
+#Link {
+	width: 700px;
+	margin: auto;
+	margin-top: 10px;
+	padding: 5px 0 5px;
+	border-bottom: 1px solid #313131;
+	font-size: 17px;
+	text-align: center;
+	letter-spacing: 2px;
+}
+	#Link p {
+		display: inline;
+	}
+
+#Script {
+	display: block;
+	width: 80%;
+	padding: 2.5%;
+	margin: auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	font-size: 12px;
+	font-family: Verdana;
+	border: 1px solid #999999;
+	background-color: #ebebeb;
+	letter-spacing: 1px;
+}
+#Script2 {
+	display: block;
+	width: 90%;
+	padding: 2.5%;
+	margin: auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	font-size: 12px;
+	font-family: Verdana;
+	border: 1px solid #999999;
+	background-color: #ebebeb;
+	letter-spacing: 1px;
+}
+	
+.Body {
+	display: block;
+	width: 800px;
+	margin: auto;
+	margin-top: 20px;
+	padding: 20px;
+	background-color: #f3f5f7;
+	border: 1px solid #dce2e7;
+}
+
+.Center {
+	display: block;
+	margin: 0;
+	text-align: center;
+}
+
+.Red {
+	color: red;
+}
+.Green {
+	color: green;
+}
+.Blue {
+	color: blue;
+}
+
+.Error {
+	display: block;
+	text-align: center;
+	margin: auto;
+	margin-top: 15px;
+	width: 600px;
+	padding: 5px;
+	background-color: #C96D63;
+	border: 1px solid #C03000;
+	color: white;
+}
+.Info {
+	display: block;
+	text-align: center;
+	margin: auto;
+	margin-top: 15px;
+	width: 600px;
+	padding: 5px;
+	background-color: #77ABD6;
+	border: 1px solid #495CFF;
+	color: white;
+}
+.Success {
+	display: block;
+	text-align: center;
+	margin: auto;
+	margin-top: 15px;
+	width: 600px;
+	padding: 5px;
+	background-color: #78A419;
+	border: 1px solid #456B35;
+	color: white;
+}

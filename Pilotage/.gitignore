@@ -1,0 +1,5 @@
+# Ignorer tous les fichiers suivant
+.project
+.buildpath
+doxygenManifest.Doxyfile
+.settings/
