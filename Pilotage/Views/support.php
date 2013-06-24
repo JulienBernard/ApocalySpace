@@ -4,7 +4,7 @@
 				Main body of website.
 			-->
 			<article class="large-9 columns">
-				<h1><?php echo strtoupper($title); ?></h1>
+				<h1><?php echo strtoupper($Template->getTitle()); ?></h1>
 				<div data-alert class="info-box">
 					<span class="important"><span class="bold">ApocalySpace</span> est un <span class="bold">jeu de stratégie et de gestion</span> en ligne gratuit...</span><br />
 					<span class="bold">...développé bénévolement !</span><br />
