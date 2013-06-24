@@ -10,9 +10,6 @@
 	session_start();
 	$timeStart = microtime(true);	// Temps d'exécution de la page, voir la fonction foot() (functions.php).
 	
-	/* Inclusion des fonctions du moteur */
-	include_once("./functions.php");
-	
 	/* Configuration de la base de données */
 	define("SQL_DSN", "mysql:host=localhost;dbname=apocalyspace");
 	define("SQL_USER", "root");
@@ -31,9 +28,8 @@
 	define("PATH_MODELS", "./Models/");
 	define("PATH_CONTROLLERS", "./Controllers/");
 	define("PATH_VIEWS", "./Views/");
-	
-	/* Gestion des erreurs */
-	$ERROR = null;
-	$SUCCESS = null;
-	$INFO = null;
+		
+	include_once("./SpaceEngine/ISpaceEngine.php");
+	include_once("./SpaceEngine/engine.class.php");
+	include_once("./SpaceEngine/template.class.php");
 	

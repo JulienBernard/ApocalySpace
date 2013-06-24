@@ -39,7 +39,7 @@
 -->
 
 <head>
-	<title><?php echo DEFAULT_TITLE.$title; ?></title>
+	<title><?php echo DEFAULT_TITLE.$Template->getTitle(); ?></title>
 	<meta name="viewport" content="width=device-width" />
 	<meta charset="utf-8" />
 	<meta name="Author" lang="fr" content="Julien BERNARD">
@@ -48,9 +48,10 @@
 	
 	<?php
 		// Chargement de la description
-		if( !empty( $description ) )
+		$rt = $Template->getDescription();
+		if( !empty( $rt ) )
 		{
-			echo '<meta name="description" content="'.$description.'" />
+			echo '<meta name="description" content="'.$Template->getDescription().'" />
 			';
 		}
 		else
@@ -60,14 +61,14 @@
 		}
 		
 		// Chargement des CSS
-		foreach( $t_css as $css )
+		foreach( $Template->getCss() as $css )
 		{
-			echo '<link rel="stylesheet" media="screen" href="./css/'.$css.'" />
+			echo '<link rel="stylesheet" media="screen" href="css/'.$css.'" />
 			';
 		}
 	
 		// Chargement des scripts
-		foreach( $t_script as $script )
+		foreach( $Template->getScript() as $script )
 		{
 			echo '<script type="text/javascript" src="./js/'.$script.'"></script>
 			';
@@ -106,10 +107,10 @@
 	<section>
 		<div class="row">
 			<nav class="large-12 breadcrumbs" id="links">
-				<a href="index.php" <?php if( $title == "Accueil" ) echo 'class="current"'; ?>>Accueil</a>
-				<a href="histoire.php" <?php if( $title == "Histoire" ) echo 'class="current"'; ?>>Histoire</a>
-				<a href="galerie.php" <?php if( $title == "Galerie" ) echo 'class="current"'; ?>>Galerie</a>
-				<a href="support.php" <?php if( $title == "Support" ) echo 'class="current"'; ?>>Contact et Support</a>
+				<a href="index.php" <?php if( $Engine->getNamepage() == "accueil" ) echo 'class="current"'; ?>>Accueil</a>
+				<a href="histoire.php" <?php if( $Engine->getNamepage() == "histoire" ) echo 'class="current"'; ?>>Histoire</a>
+				<a href="galerie.php" <?php if( $Engine->getNamepage() == "galerie" ) echo 'class="current"'; ?>>Galerie</a>
+				<a href="support.php" <?php if( $Engine->getNamepage() == "support" ) echo 'class="current"'; ?>>Contact et Support</a>
 			</nav>
 		</div>
 		<br />

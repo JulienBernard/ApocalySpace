@@ -16,6 +16,6 @@
 			$presentation->setTextFromDatabase( $text, $presentation->getId() );
 		}
 	}
-
+	
 	/* Inclusion de la vue */
-	include_once( $viewPath );
+	include_once( $Engine->getViewPath() );

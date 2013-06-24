@@ -4,7 +4,7 @@
 				Main body of website.
 			-->
 			<article class="large-9 columns">
-				<h1><?php echo strtoupper($title); ?></h1>
+				<h1><?php echo strtoupper($Template->getTitle()); ?></h1>
 				<p>
 					Cette galerie vous permet d'avoir un aperçu de la qualité du jeu.
 				</p>

@@ -1,20 +1,11 @@
-
-	<header>
-		<h1>PRESENTATION</h1>
-	</header>
-	
-	<article>
-		<p>
-			<?php echo nl2br($presentation->getText()); ?>
-		</p>
-		<form action="index.php" method="POST">
-			<input type="submit" name="retrieveText" value="Récuperer le texte" />
-		</form>
-		<br />
-		<h2>Modifier ce texte via PDO :</h2>
-		<form action="index.php" method="POST">
-			<textarea name="text" cols="96" rows="6"><?php echo $presentation->getText(); ?></textarea>
-			<input type="submit" name="updateText" value="Modifier" />
-		</form>
-	</article>
-	
+		<div class="row">
+			<!--
+				Bloc principal du corps du site.
+				Main body of website.
+			-->
+			<article class="large-9 columns">
+				<h1><?php echo strtoupper($Template->getTitle()); ?></h1>
+				<p>
+					A venir...
+				</p>
+			</article>
