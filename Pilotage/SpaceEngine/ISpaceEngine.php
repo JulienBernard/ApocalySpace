@@ -12,6 +12,7 @@ interface IEngine {
 	public function checkParams( $array, $strictPositive );
 	public function getControllerPath();
 	public function getViewPath();
+	public function getNamepage();
 	public function startEngine( $engine, $template );
 }
 
@@ -28,5 +29,5 @@ interface ITemplate {
 	public function getCss();
 	public function addScript( $path );
 	public function getScript();
-	public function startTemplate( $path, $template );
+	public function startTemplate( $path, $template, $engine);
 }

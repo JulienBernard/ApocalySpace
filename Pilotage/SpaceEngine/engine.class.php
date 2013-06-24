@@ -33,23 +33,23 @@ class Engine implements IEngine {
 		if( Engine::isConnected() ) {
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.connect.php');
 			$Engine->setViewPath('./Views/'.strtolower($namePage).'.connect.php');
-			$Template->startTemplate('./template/header.connect.php', $Template);
+			$Template->startTemplate('./template/header.connect.php', $Template, $Engine);
 			include_once($this->_controllerPath);
-			$Template->startTemplate('./template/footer.connect.php', $Template);
+			$Template->startTemplate('./template/footer.connect.php', $Template, $Engine);
 		}
 		else if( Engine::isAdmin() ) {
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.admin.php');
 			$Engine->setViewPath('./Views/'.strtolower($namePage).'.admin.php');
-			$Template->startTemplate('./template/header.admin.php', $Template);
+			$Template->startTemplate('./template/header.admin.php', $Template, $Engine);
 			include_once($this->_controllerPath);
-			$Template->startTemplate('./template/footer.admin.php', $Template);
+			$Template->startTemplate('./template/footer.admin.php', $Template, $Engine);
 		}
 		else {
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.php');
 			$Engine->setViewPath('./Views/'.strtolower($namePage).'.php');
-			$Template->startTemplate('./template/header.php', $Template);
+			$Template->startTemplate('./template/header.php', $Template, $Engine);
 			include_once($this->_controllerPath);
-			$Template->startTemplate('./template/footer.php', $Template);
+			$Template->startTemplate('./template/footer.php', $Template, $Engine);
 		}
 
 	}
@@ -132,6 +132,9 @@ class Engine implements IEngine {
 	}
 	
 	/* Setters et Getters */
+	public function getNamepage() {
+		return $this->_namePage;
+	}
 	private function setControllerPath( $path ) {
 		$this->_controllerPath = $path;
 	}
