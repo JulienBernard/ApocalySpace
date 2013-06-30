@@ -2,29 +2,153 @@
 
 class User
 {
-	private $_login;
+	private $_id;
+	private $_username;
+	private $_faction;
 	
 	/* Constructeur de la classe */
-	public function __construct( $login )
-	{
-		$this->_login = $login;
-	}
-	
-	public function getLogin()
-	{
-		return $this->_login;
+	public function __construct( $id, $username, $faction ) {
+		$this->_id = $id;
+		$this->_username = $username;
+		$this->_faction = $faction;
 	}
 	
 	/**
-	 * Vérifie si le login et le password sont exactes. Attention, dans cet exemple le mdp est en clair (bouhhhh ^^) 
-	 * @param String login
+	 * Vérifie si l'username et le password sont exactes. 
+	 * @param String username
 	 * @param String password
 	 */
-	public static function checkConnection( $login, $password ) {
-		if( (String)$login == "test" && (String)$password == "test" )
-			return 1;
-		else
-			return 0;
+	public static function checkConnection( $username, $password ) {
+		
 	}
 	
+	/**
+	 * Vérifie si l'username n'existe pas déjà dans la bdd.
+	 * @param String username
+	 */
+	public static function checkUsername( $username ) {
+		$sql = MyPDO::get();
+		$rq = $sql->prepare('SELECT id FROM users WHERE username=:username');
+		$data = array(':username' => (String)$username);
+		$rq->execute($data);
+		
+		if( $rq->rowCount() != 0)
+			return false;
+		return true;
+	}
+	
+	/**
+	 * Vérifie si l'username est supérieur à 4 caractères et inférieur à 20.
+	 * @param String username
+	 */
+	public static function checkUsernameLength( $username ) {
+		if( strlen($username) < 4 || strlen($username) > 20 )
+			return false;
+		return true;
+	}
+	
+	/**
+	 * Vérifie si le password est supérieur à 6 caractères.
+	 * @param String password
+	 */
+	public static function checkPasswordLength( $password ) {
+		if( strlen($password) < 6 )
+			return false;
+		return true;
+	}
+	
+	/**
+	 * Enregistre le nouvel utilisateur dans la base de donnée.
+	 * @param String username
+	 * @param String password
+	 * @param String faction
+	 * return int lastInsertId	Retourne le dernier ID inséré dans la bdd, ici l'user id !
+	 */
+	public static function addUser( $username, $password, $faction ) {
+		$sql = MyPDO::get();
+		$req = $sql->prepare('INSERT INTO users VALUES("", :username, :password, :faction)');
+		$result = $req->execute( array(
+			':username' => $username,
+			':password' => md5('apocalyspace'.$password.'aime42'),
+			':faction' => $faction
+		));
+		
+		if( $result )
+			return $sql->lastInsertId();
+		return 0;
+	}
+	
+	/**
+	 * Ajoutes les données du nouveau joueur (modules, bâtiments, technologies ..)
+	 * @param inr userId
+	 * return int userId	Retourne l'id de l'utilisateur.
+	 */
+	public static function addDataForUser( $userId ) {
+		$sql = MyPDO::get();
+		
+		/* Modules */
+		$req = $sql->prepare('INSERT INTO MtoU VALUES
+			(1, :userId, 0, 0),
+			(2, :userId, 0, 0),
+			(3, :userId, 0, 0),
+			(4, :userId, 0, 0),
+			(5, :userId, 0, 0),
+			(6, :userId, 0, 0),
+			(7, :userId, 0, 0),
+			(8, :userId, 1, 0),
+			(9, :userId, 1, 0),
+			(10, :userId, 1, 0),
+			(11, :userId, 1, 0),
+			(12, :userId, 2, 0),
+			(13, :userId, 2, 0),
+			(14, :userId, 2, 0),
+			(15, :userId, 2, 0),
+			(16, :userId, 3, 0),
+			(17, :userId, 3, 0),
+			(18, :userId, 3, 0),
+			(19, :userId, 4, 0),
+			(20, :userId, 4, 0),
+			(21, :userId, 5, 0),
+			(22, :userId, 5, 0),
+			(23, :userId, 5, 0),
+			(24, :userId, 5, 0),
+			(25, :userId, 6, 0),
+			(26, :userId, 6, 0),
+			(27, :userId, 7, 0),
+			(28, :userId, 7, 0),
+			(29, :userId, 7, 0),
+			(30, :userId, 7, 0);'
+		);
+		$result = $req->execute(array(':userId' => $userId));
+		if( !$result )
+			return 0;
+		
+		/* Technologies */
+		$req = $sql->prepare('INSERT INTO TtoU (userId, techId, techLevel, techView) VALUES
+            (:userId, 1, 0, 0),
+			(:userId, 2, 0, 0),
+			(:userId, 3, 0, 0),
+			(:userId, 4, 0, 0),
+			(:userId, 5, 0, 0),
+			(:userId, 6, 0, 0),
+			(:userId, 7, 0, 0),
+			(:userId, 8, 0, 0),
+			(:userId, 9, 0, 0);'
+		);
+		$result = $req->execute(array(':userId' => $userId));
+		if( $result )
+			return $userId;
+		return 0;
+	}
+	
+	/**
+	 *	Retourne le nombre de joueur
+	 */
+	public static function countPlayer() {
+		$sql = MyPDO::get();
+		$req = $sql->prepare('SELECT id FROM users');
+		$req->execute();
+		// On retourne le nombre de message non-lu compté
+		return $req->rowCount();
+	}
 }
