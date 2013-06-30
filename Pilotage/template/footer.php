@@ -8,20 +8,20 @@
 					<form action="index.php" method="POST">
 					<div class="small-1 columns"></div>
 					<div class="small-11 columns">
-						<input type="text" placeholder="Pseudonyme">
-						<input type="password" placeholder="Mot de passe">
+						<input type="text" name="username" placeholder="Pseudonyme">
+						<input type="password" name="password" placeholder="Mot de passe">
 						<input type="submit" name="signin" value="Se connecter" class="button prefix"/>
 					</div>
 					</form>
 				</div>
-				<h1>INSCRIPTION <small><a href="histoire.php#factions">Que choisir ?</a></small></h1>
+				<h1>INSCRIPTION <span class="smaller"><a href="histoire.php#factions">Que choisir ?</a></span></h1>
 				<div class="row">
 					<form action="index.php" method="POST" class="custom">
 					<div class="small-1 columns"></div>
 					<div class="small-11 columns">
-						<input type="text" placeholder="Pseudonyme">
-						<input type="password" placeholder="Mot de passe">
-						<select id="customDropdown1" class="medium">
+						<input type="text" name="username" placeholder="Pseudonyme">
+						<input type="password" name="password" placeholder="Mot de passe">
+						<select id="customDropdown1" name="faction" class="medium">
 							<option DISABLED>Choix de faction (choix définitif)</option>
 							<option>Impériaux</option>
 							<option SELECTED>Vagabonds</option>
@@ -30,6 +30,21 @@
 						<input type="submit" name="subscribe" value="S'inscrire" class="button prefix"/>
 					</div>
 					</form>
+				</div>
+				<h1>INFOS SERVEURS</h1>
+				<div class="row">
+					<div class="small-1 columns"></div>
+					<p class="small-11 columns">
+						<span class='smaller'>
+						<?php
+							date_default_timezone_set('Europe/Paris');
+							include_once(PATH_MODELS."myPDO.class.php");
+							include_once(PATH_MODELS."user.class.php");
+							echo "Il y a ".User::countPlayer()." joueurs actifs.<br />";
+							echo "L'heure du serveur est <span id='serverTime'>".date( "H:i:s", time() )."</span><br />";
+						?>
+						</span>
+					</p>
 				</div>
 			</nav>
 		</div>
@@ -46,7 +61,7 @@
 				<span class="italic small">Citation de Napoléon Bonaparte</span>
 			</p>
 			<p class="large-4 columns">
-				ApocalySpace © 2012-2013 &nbsp;&nbsp;&nbsp; <a href="./docs/">Version 1.3</a>
+				ApocalySpace © 2012-2013 &nbsp;&nbsp;&nbsp; <a href="./docs/">Version 1.4</a>
 			</p>
 		</div>
 	</header>
@@ -103,6 +118,12 @@
 				$('html,body').animate({scrollTop: $("#links").offset().top}, 'slow');
 			});
 		})
+								
+		window.onload = function(){
+			setInterval("displayServerTime()", 1000);
+		}
+		var ctime = '<?php echo date( "F d, Y H:i:s", time() ); ?>';
+		var sdate = new Date(ctime);
 	</script>
 </body>
 </html>

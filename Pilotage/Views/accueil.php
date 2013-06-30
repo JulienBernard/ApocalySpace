@@ -4,9 +4,9 @@
 				Main body of website.
 			-->
 			<?php
-				if( $Engine->getInfo() != null ) { echo '<div data-alert class="info-box">'.$Engine->getInfo().'<a href="" class="right close">&times;</a></div>'; }
 				if( $Engine->getError()!= null ) { echo '<div data-alert class="error-box">'.$Engine->getError().'<a href="" class="right close">&times;</a></div>'; }
 				else if( $Engine->getSuccess() != null ) { echo '<div data-alert class="success-box">'.$Engine->getSuccess().'<a href="" class="right close">&times;</a></div>'; }
+				if( $Engine->getInfo() != null ) { echo '<div data-alert class="info-box">'.$Engine->getInfo().'<a href="" class="right close">&times;</a></div>'; }
 			?>
 			<article class="large-9 columns">
 				<h1><?php echo strtoupper($Template->getTitle()); ?></h1>
