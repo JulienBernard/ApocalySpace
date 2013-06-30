@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ApocalySpace
-   &#160;<span id="projectnumber">1.1</span>
+   &#160;<span id="projectnumber">1.4</span>
    </div>
   </td>
  </tr>
@@ -87,60 +87,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;    <span class="comment">/***</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">     * </span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">     * Point d&#39;entrée de la page histoire.</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">     * @author JulienBernard</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">     * Point d&#39;entrée de la page d&#39;accueil.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">     * @author Julien Bernard</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">     * </span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="comment">/* Fichier de configuration du projet */</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    include_once(<span class="stringliteral">&quot;./config.php&quot;</span>);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">/* Fonctionnement de ce point d&#39;entrée */</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">if</span>( isConnected() )</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        $controllerPath = <span class="stringliteral">&quot;./Controllers/galerie.connect.php&quot;</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        $viewPath = <span class="stringliteral">&quot;./Views/galerie.connect.php&quot;</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    }</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        $controllerPath = <span class="stringliteral">&quot;./Controllers/galerie.php&quot;</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        $viewPath = <span class="stringliteral">&quot;./Views/galerie.php&quot;</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">/* Informations sur la page */</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    $title = <span class="stringliteral">&quot;Galerie&quot;</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    $description = <span class="stringliteral">&quot;Galerie du jeu en ligne ApocalySpace.&quot;</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">/* Appel des styles */</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    $t_css = array();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    $t_css[0] = <span class="stringliteral">&quot;normalize.css&quot;</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    $t_css[1] = <span class="stringliteral">&quot;foundation.css&quot;</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    $t_css[2] = <span class="stringliteral">&quot;apocalyspace.css&quot;</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">/* Appel des scripts */</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    $t_script = array();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    $t_script[0] = <span class="stringliteral">&quot;jquery.min.js&quot;</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    $t_script[1] = <span class="stringliteral">&quot;vendor/custom.modernizr.js&quot;</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">/* Appel du template : header */</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">if</span>( isConnected() )</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        head( $title, $description, $t_css, $t_script, <span class="stringliteral">&quot;connect&quot;</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        head( $title, $description, $t_css, $t_script);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">/* Appel du controller */</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    include_once( $controllerPath );</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">/* Appel du template : footer */</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">if</span>( isConnected() )</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        foot( <span class="stringliteral">&quot;connect&quot;</span> );</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        foot();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;?&gt;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="comment">/* Le namePage permet d&#39;identifier votre page. Il doit être être écrit en minuscule et tenir en un seul mot. */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    $namePage = <span class="stringliteral">&quot;galerie&quot;</span>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">/* Appel du moteur [ne pas modifier] */</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    include_once(<span class="stringliteral">&quot;./config.php&quot;</span>);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    $Engine = <span class="keyword">new</span> <a class="code" href="class_engine.html">Engine</a>( $namePage );</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    $Template = <span class="keyword">new</span> <a class="code" href="class_template.html">Template</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">/* Informations sur la page [valeurs à modifier] */</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    $Template-&gt;setTitle(<span class="stringliteral">&quot;Galerie&quot;</span>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    $Template-&gt;setDescription(<span class="stringliteral">&quot;Galerie du jeu en ligne ApocalySpace.&quot;</span>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    $Template-&gt;addCss(<span class="stringliteral">&quot;normalize.css&quot;</span>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    $Template-&gt;addCss(<span class="stringliteral">&quot;foundation.css&quot;</span>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    $Template-&gt;addCss(<span class="stringliteral">&quot;apocalyspace.css&quot;</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    $Template-&gt;addScript(<span class="stringliteral">&quot;jquery.min.js&quot;</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    $Template-&gt;addScript(<span class="stringliteral">&quot;vendor/custom.modernizr.js&quot;</span>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">/* Lancement du moteur [ne pas modifier] */</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    $Engine-&gt;startEngine( $Engine, $Template );</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;?&gt;</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Mardi Juin 4 2013 02:07:56 pour ApocalySpace par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Lundi Juillet 1 2013 00:36:20 pour ApocalySpace par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>
