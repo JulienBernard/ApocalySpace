@@ -17,24 +17,46 @@ class User
 	 * Vérifie si l'username et le password sont exactes. 
 	 * @param String username
 	 * @param String password
+	 * @return userID or 0 (error)
 	 */
-	public static function checkConnection( $username, $password ) {
+	public static function checkUserAccountMatch( $username, $password ) {
+		$sql = MyPDO::get();
+		
+		$rq = $sql->prepare('SELECT id FROM users WHERE username=:username AND passwordHash=:password');
+		$data = array(':username' => (String)$username, ':password' => (String)md5('apocalyspace'.$password.'aime42'));
+		$rq->execute($data);
+
+		if( $rq->rowCount() != 0)
+		{
+			$row = $rq->fetch();
+			return (int)$row['id'];
+		}
+		else
+			return 0;
+	}
+	
+	/**
+	 * Recupère les données utilisateur depuis la base de données.
+	 * @param int userId
+	 * @return array
+	 */
+	public static function getUserData( $userId ) {
 		
 	}
 	
 	/**
-	 * Vérifie si l'username n'existe pas déjà dans la bdd.
+	 * Vérifie si l'username existe dans la bdd.
 	 * @param String username
 	 */
-	public static function checkUsername( $username ) {
+	public static function checkUsernameExist( $username ) {
 		$sql = MyPDO::get();
 		$rq = $sql->prepare('SELECT id FROM users WHERE username=:username');
 		$data = array(':username' => (String)$username);
 		$rq->execute($data);
 		
 		if( $rq->rowCount() != 0)
-			return false;
-		return true;
+			return true;
+		return false;
 	}
 	
 	/**

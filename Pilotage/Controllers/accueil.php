@@ -1,8 +1,8 @@
 <?php
-	
+	$active = true;
+
 	if( isset($_POST['subscribe']) )
 	{
-		$active = true;
 		echo "<script>$('html,body').animate({scrollTop: $('#links').offset().top}, 'slow');</script>";
 
 		$fields = array('username' => $_POST['username'], 'password' => $_POST['password'], 'faction' => $_POST['faction']);
@@ -18,9 +18,8 @@
 			$password = (String)$_POST['password'];
 			$faction = (String)strtolower($_POST['faction']);
 			
-			
 			/* Cet username n'est pas déjà attribué à un autre joueur. */
-			if( User::checkUsername( $username ) )
+			if( !User::checkUsernameExist( $username ) )
 			{
 				/* Cet username est supérieur à 4 caractères et inférieur à 20. */
 				if( User::checkUsernameLength( $username ) )
@@ -120,6 +119,55 @@
 		echo "<script>$('html,body').animate({scrollTop: $('#links').offset().top}, 'slow');</script>";
 
 		$fields = array('username' => $_POST['username'], 'password' => $_POST['password']);
+		$return = $Engine->checkParams( $fields );
+		
+		/* Champs valides */
+		if( $return == 1 && $active )
+		{
+			include_once(PATH_MODELS."myPDO.class.php");
+			include_once(PATH_MODELS."user.class.php");
+			
+			$username = (String)strtolower($_POST['username']);
+			$password = (String)$_POST['password'];
+			$faction = (String)null;			
+			
+			/* Cet username n'est pas déjà attribué à un autre joueur. */
+			if( User::checkUsernameExist( $username ) )
+			{
+				/* Check des tailles (vérifications) */
+				if( User::checkUsernameLength( $username ) && User::checkPasswordLength( $password ))
+				{
+					/* Check si le compte existe (correspondances du pseudo/mdp) */
+					if( $userId = User::checkUserAccountMatch( $username, $password ) )
+					{
+						/* Destruction de la session au cas où ! */
+						$Engine->destroySession("SpaceEngineConnected");
+						/* Enregistrement de l'ID dans une session. */
+						$Engine->createSession("SpaceEngineConnected", (int)$userId);
+						header('Location: index.php');
+					}
+					else
+						$Engine->setError("Votre PSEUDONYME ou votre MOT DE PASSE ne correspondent pas.");
+				}
+				else
+					$Engine->setError("Votre PSEUDONYME doit être supérieur à 4 caractères et être inférieur à 20 caractères.<br />Votre MOT DE PASSE doit être supérieur à 6 caractères.");
+			}
+			else
+				$Engine->setError("Ce PSEUDONYME n'existe pas dans notre base de données.");
+		}
+		/* Connexion désativée */
+		else if( !$active )
+			$Engine->setInfo("La connexion est momentanément désactivée. Revenez plus tard !");
+		/* Champs invalides */
+		else
+		{
+			$str = "Certains champs sont vides. Vérifier les champs suivants :<br />";
+			if( $return['username'] == 0 )
+				$str = $str."PSEUDONYME, ";
+			if( $return['password'] == 0 )
+				$str = $str."MOT DE PASSE";
+			$Engine->setError($str);
+		}
 	}
 	
 	/* Inclusion de la vue */

@@ -1,12 +1,48 @@
 <!DOCTYPE html>
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
 
-<html lang="fr">
+<!--
+
+	Bonjour,
+	ApocalySpace est un projet distribué sous licence GPL. Retrouver son code source en libre utilisation sur GitHub : https://github.com/JulienBernard/ApocalySpace
+	
+	Hi,
+	ApocalySpace is a project distributed under GPL licence. Find his source code at free use on GitHub: https://github.com/JulienBernard/ApocalySpace
+	
+		 _    _ _   _ _____  ______ _____  	   _____ _____  _         _      _____ _____ ______ _   _  _____ ______ 
+		| |  | | \ | |  __ \|  ____|  __ \ 	  / ____|  __ \| |       | |    |_   _/ ____|  ____| \ | |/ ____|  ____|
+		| |  | |  \| | |  | | |__  | |__) |	 | |  __| |__) | |       | |      | || |    | |__  |  \| | |    | |__   
+		| |  | | . ` | |  | |  __| |  _  / 	 | | |_ |  ___/| |       | |      | || |    |  __| | . ` | |    |  __|  
+		| |__| | |\  | |__| | |____| | \ \ 	 | |__| | |    | |____   | |____ _| || |____| |____| |\  | |____| |____ 
+		 \____/|_| \_|_____/|______|_|  \_\	  \_____|_|    |______|  |______|_____\_____|______|_| \_|\_____|______|
+
+		ApocalySpace Copyright (C) 2012-2013 Julien Bernard
+
+		ApocalySpace is free software: you can redistribute it and/or modify
+		it under the terms of the GNU General Public License as published by
+		the Free Software Foundation, either version 3 of the License, or
+		(at your option) any later version.
+
+		ApocalySpace is distributed in the hope that it will be useful,
+		but WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+		GNU General Public License for more details.
+
+		ApocalySpace is based on "ApocalySpace BETA version" by Etienne Rocipon, Benjamin Crosnier and Julien Bernard (2012).
+		
+		You should have received a copy of the GNU General Public License
+		along with this program.  If not, see <http://www.gnu.org/licenses/>.
+				
+		Contact:
+			jbernard at intechinfo dot fr
+-->
+
 <head>
 	<title><?php echo DEFAULT_TITLE.$Template->getTitle(); ?></title>
+	<meta name="viewport" content="width=device-width" />
 	<meta charset="utf-8" />
-	<meta name="google-site-verification" content="v2Ddq6qw70xR2UAFJGCzfMQhrB-gJQDQjaRlS1J2dts" /> 
 	<meta name="Author" lang="fr" content="Julien BERNARD">
-	<meta name="Publisher" content="Julien BERNARD">
 	
 	<base href="<?php echo BASE_SITE; ?>" />
 	
@@ -38,11 +74,9 @@
 			';
 		}
 	?>
-
 </head>
-
 <body>
-	
+
 <!--
 	Section principale qui sépare le header du site du corps du site.
 	Main section to separate the header part with the body part of the website.
@@ -73,10 +107,10 @@
 	<section>
 		<div class="row">
 			<nav class="large-12 breadcrumbs" id="links">
-				<a href="index.php" <?php if( $title == "Accueil" ) echo 'class="current"'; ?>>Accueil</a>
-				<a href="histoire.php" <?php if( $title == "Histoire" ) echo 'class="current"'; ?>>Histoire</a>
-				<a href="galerie.php" <?php if( $title == "Galerie" ) echo 'class="current"'; ?>>Galerie</a>
-				<a href="support.php" <?php if( $title == "Support" ) echo 'class="current"'; ?>>Contact et Support</a>
+				<a href="index.php" <?php if( $Engine->getNamepage() == "accueil" ) echo 'class="current"'; ?>>Accueil</a>
+				<a href="histoire.php" <?php if( $Engine->getNamepage() == "histoire" ) echo 'class="current"'; ?>>Histoire</a>
+				<a href="galerie.php" <?php if( $Engine->getNamepage() == "galerie" ) echo 'class="current"'; ?>>Galerie</a>
+				<a href="support.php" <?php if( $Engine->getNamepage() == "support" ) echo 'class="current"'; ?>>Contact et Support</a>
 			</nav>
 		</div>
 		<br />
