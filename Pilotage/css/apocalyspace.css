@@ -55,6 +55,18 @@ a:hover {
 .smaller {
 	font-size: 12px;
 }
+.smaller-2 {
+	font-size: 14px;
+}
+	.important-alert {
+		color: #d3563d;
+	}
+	.important-return {
+		color: #d3873d;
+	}
+	.important-send {
+		color: #3d9bd3;
+	}
 
 .info-box {
 	width: 100%;
@@ -240,6 +252,7 @@ a:hover {
 		letter-spacing: 1px;
 		font-weight: normal;
 		font-family: MALGUN;
+		margin-left: -10px;
 	}
 	#main header:hover ~ section {
 		transition: all 1s ease;
@@ -352,4 +365,51 @@ footer {
 	footer header .row div:hover {
 		background: url("../img/arrow_top_hover.png") right no-repeat;
 	}
+
+/* ==========================================================================
+   When player
+   ========================================================================== */
+
+.player-planet{
+	position: relative;
+}
+	.player-planet:hover #player-planet-hidden {
+		opacity: 0.8;
+		background-color: black;
+		transition: all 1s;
+		color: white;
+		padding-top: 43px;
+	}
 	
+#player-planet-hidden {
+	opacity: 0;
+	position: absolute;
+	background-color: black;
+	background-position: center;
+	width: 100%;
+	height: 100%;
+	transition: all 2s;
+	text-align: center;
+	padding-top: 0px;
+}
+
+#player-planet {
+	width: 100%;
+	height: 100px;
+	background-image: url(../img/player_planet.png);
+}
+	#player-planet:hover {
+		background-image: url(../img/player_planet_hover.png);
+	}
+	
+.player-planet-name {
+	color: #3d9bd3;
+	font-size: 16px;
+}
+.player-planet-text {
+	color: #666666;
+	font-size: 14px;
+}
+	.player-planet-text a {
+		color: #424242;
+	}

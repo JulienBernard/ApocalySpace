@@ -52,6 +52,9 @@ a:hover {
 .right {
 	text-align: right;
 }
+.smaller {
+	font-size: 12px;
+}
 
 .info-box {
 	width: 100%;

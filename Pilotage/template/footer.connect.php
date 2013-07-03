@@ -3,47 +3,31 @@
 				Right block of website.
 			-->
 			<nav class="large-3 columns">
-				<h1>CONNEXION</h1>
+				<h1>INFORMATIONS</h1>
 				<div class="row">
-					<form action="index.php" method="POST">
-					<div class="small-1 columns"></div>
-					<div class="small-11 columns">
-						<input type="text" name="username" placeholder="Pseudonyme">
-						<input type="password" name="password" placeholder="Mot de passe">
-						<input type="submit" name="signin" value="Se connecter" class="button prefix"/>
+					<div class="player-planet">
+						<div id="player-planet-hidden">PLANET NAME</div>
+						<p>
+							<img src="img/player_planet.png" alt="[image planète]" />
+						</p>
 					</div>
-					</form>
 				</div>
-				<h1>INSCRIPTION <span class="smaller"><a href="histoire.php#factions">Que choisir ?</a></span></h1>
 				<div class="row">
-					<form action="index.php" method="POST" class="custom">
-					<div class="small-1 columns"></div>
-					<div class="small-11 columns">
-						<input type="text" name="username" placeholder="Pseudonyme">
-						<input type="password" name="password" placeholder="Mot de passe">
-						<select id="customDropdown1" name="faction" class="medium">
-							<option DISABLED>Choix de faction (choix définitif)</option>
-							<option>Impériaux</option>
-							<option SELECTED>Vagabonds</option>
-							<option>Républicains</option>
-						</select>
-						<input type="submit" name="subscribe" value="S'inscrire" class="button prefix"/>
-					</div>
-					</form>
-				</div>
-				<h1>INFOS SERVEURS</h1>
-				<div class="row">
-					<div class="small-1 columns"></div>
-					<p class="small-11 columns">
-						<span class='smaller'>
-						<?php
-							date_default_timezone_set('Europe/Paris');
-							include_once(PATH_MODELS."myPDO.class.php");
-							include_once(PATH_MODELS."user.class.php");
-							echo "Il y a ".User::countPlayer()." joueurs actifs.<br />";
-							echo "L'heure du serveur est <span id='serverTime'>".date( "H:i:s", time() )."</span><br />";
-						?>
+					<p class="smaller">
+						<span class="player-planet-name">My planet</span><br />
+						<span class="player-planet-text">
+							Coord : x 58 | y 80<br />
+							Population : 452 sur 486<br />
+							Natalité : 23 par jour<br />
+							<br />
+							<a href="">Pas de construction en cours</a><br />
+							<a href="">Pas de recherche en cours</a>
 						</span>
+					</p>
+				</div>
+				<div class="row">
+					<p class="smaller">
+						(tableau ressource)
 					</p>
 				</div>
 			</nav>
