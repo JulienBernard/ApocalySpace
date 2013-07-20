@@ -28,14 +28,17 @@ class Engine implements IEngine {
 	/**
 	 * Charge le moteur selon l'activité de l'utilisateur : connecté, admin ou visiteur.
 	 */
-	public function startEngine( $Engine, $Template ) {
+	public function startEngine( $Engine, $Template, $timeStart = null ) {
 		$namePage = $this->_namePage;
 		if( Engine::isConnected() ) {
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.connect.php');
 			$Engine->setViewPath('./Views/'.strtolower($namePage).'.connect.php');
 			$Template->startTemplate('./template/header.connect.php', $Template, $Engine);
 			include_once($this->_controllerPath);
-			$Template->startTemplate('./template/footer.connect.php', $Template, $Engine);
+			if( $timeStart != null )
+				$Template->startTemplate('./template/footer.connect.php', $Template, $Engine, $timeStart);
+			else
+				$Template->startTemplate('./template/footer.connect.php', $Template, $Engine);
 		}
 		else if( Engine::isAdmin() ) {
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.admin.php');

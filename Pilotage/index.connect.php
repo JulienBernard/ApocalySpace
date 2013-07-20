@@ -25,6 +25,9 @@
 	$Template->addScript("jquery.min.js");
 	$Template->addScript("vendor/custom.modernizr.js");
 	
+	global $timeStart;
+	$timeStart = microtime(true);
+	
 	/* Lancement du moteur [ne pas modifier] */
-	$Engine->startEngine( $Engine, $Template );
+	$Engine->startEngine( $Engine, $Template, $timeStart );
 ?>

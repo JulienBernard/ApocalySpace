@@ -47,6 +47,9 @@
 	<base href="<?php echo BASE_SITE; ?>" />
 	
 	<?php
+		global $timeStart;
+		$timeStart = microtime(true);
+	
 		// Chargement de la description
 		$rt = $Template->getDescription();
 		if( !empty( $rt ) )
@@ -74,6 +77,14 @@
 			';
 		}
 	?>
+	
+	<script type="text/javascript">
+	window.onload = function(){
+		setInterval("displayServerTime()", 1000);
+	}
+	var ctime = '<?php echo date( "F d, Y H:i:s", time() ); ?>';
+	var sdate = new Date(ctime);
+</script>
 </head>
 <body>
 
@@ -85,7 +96,7 @@
 
 	<header>
 		<div id="header_infobar"><?php echo $Template->getTitle(); ?></div>
-		<a href=""><div id="header_infobar_logo"></div></a>
+		<a href="index.connect.php"><div id="header_infobar_logo"></div></a>
 		
 		<nav id="nav-board">
 			<a href="#"><img id="img-account" /></a>
@@ -106,14 +117,14 @@
 				<a href="#"><img id="img-account" /></a>
 			</div>
 			<div class="large-3 columns center">
-				<a href="#"><img id="img-account" /></a>
-				<a href="#"><img id="img-account" /></a>
-				<a href="#"><img id="img-account" /></a>
+				<a href="#"><img id="img-message" /></a>
+				<a href="#"><img id="img-message" /></a>
+				<a href="#"><img id="img-message" /></a>
 			</div>
 			<div class="large-4 columns center">
-				<a href="#"><img id="img-account" /></a>
-				<a href="#"><img id="img-account" /></a>
-				<a href="#"><img id="img-account" /></a>
+				<a href="#"><img id="img-exit" /></a>
+				<a href="#"><img id="img-exit" /></a>
+				<a href="#"><img id="img-exit" /></a>
 			</div>
 		</div>
 		
@@ -133,9 +144,10 @@
 		<div class="row">
 			<nav class="large-12 breadcrumbs" id="links">
 				<a href="index.connect.php" <?php if( $Engine->getNamepage() == "accueil" ) echo 'class="current"'; ?>>Accueil</a>
-				<a href="histoire.php" <?php if( $Engine->getNamepage() == "histoire" ) echo 'class="current"'; ?>>Histoire</a>
-				<a href="galerie.php" <?php if( $Engine->getNamepage() == "galerie" ) echo 'class="current"'; ?>>Galerie</a>
-				<a href="support.php" <?php if( $Engine->getNamepage() == "support" ) echo 'class="current"'; ?>>Contact et Support</a>
+				<a href="compte.connect.php" <?php if( $Engine->getNamepage() == "compte" ) echo 'class="current"'; ?>>Compte</a>
+				<a href="communication.php" <?php if( $Engine->getNamepage() == "communication" ) echo 'class="current"'; ?>>Communication</a>
+				<a href="deconnexion.connect.php" <?php if( $Engine->getNamepage() == "deconnexion" ) echo 'class="current"'; ?>>Déconnexion</a>
+				<span id="serverTime" style="display: block; float: right;"><?php echo date( "H:i:s", time() ); ?></span>
 			</nav>
 		</div>
 		<br />

@@ -9,5 +9,5 @@
 					A venir...
 				</p>
 				<br />
-				<h2><a href="histoire.php">HISTOIRE</a> <a href="histoire_projet.php">HISTOIRE DU PROJET</a> <a href="support.php">CONTACT</a></h2>
+				<h2><a href="histoire.php">HISTOIRE</a> <a href="galerie.php">GALERIE</a> <a href="support.php">CONTACT</a></h2>
 			</article>

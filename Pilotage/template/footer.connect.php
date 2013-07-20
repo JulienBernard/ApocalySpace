@@ -84,7 +84,15 @@
 				<span class="italic small">Citation de Napoléon Bonaparte</span>
 			</p>
 			<p class="large-4 columns">
-				ApocalySpace © 2012-2013 &nbsp;&nbsp;&nbsp; <a href="./docs/">Version 1.4</a>
+				ApocalySpace © 2012-2013 &nbsp;&nbsp;&nbsp; <a href="./docs/">Version 1.4</a><br />
+			<?php	
+				if( isset($timeStart) ){
+					$timeend = microtime(true);
+					$mtime = $timeend - $timeStart;
+					$execution = number_format($mtime, 3);
+					echo 'Généré en '.$execution.'s';
+				}
+			?>
 			</p>
 		</div>
 	</header>
@@ -93,10 +101,8 @@
 			<nav class="large-8 columns center">
 				<p>
 					<br />
-					<a href="index.connect.php" class="current">Accueil</a> / 
-					<a href="histoire.php">Histoire</a> /
-					<a href="galerie.php">Galerie</a> /
-					<a href="support.php" class="unavailable">Contact et Support</a>
+					<a href="deconnexion.connect.php">Déconnexion</a> / 
+					<a href="support.connect.php">Contact et Support</a>
 				</p>
 			</nav>
 			<article class="large-4 columns center">
@@ -134,11 +140,6 @@
 		$(document).ready( function () {
 			$('#returnTop').click(function() {
 				$('html,body').animate({scrollTop: $("#main").offset().top}, 'slow');
-			});
-		})
-		$(document).ready( function () {
-			$('#header_image').click(function() {
-				$('html,body').animate({scrollTop: $("#links").offset().top}, 'slow');
 			});
 		})
 								

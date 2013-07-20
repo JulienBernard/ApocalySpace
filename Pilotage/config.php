@@ -8,7 +8,6 @@
 	 */
 	
 	session_start();
-	$timeStart = microtime(true);	// Temps d'exécution de la page, voir la fonction foot() (functions.php).
 	
 	/* Configuration de la base de données */
 	define("SQL_DSN", "mysql:host=localhost;dbname=apocalyspace");
