@@ -25,130 +25,78 @@
 				
 				<ul>
 					<li>
-						<span class="float-left"><img width="100px" height="100px" src="" alt="[IMAGE]" /></span>
+						<span class="float-left"><img src="./img/bat/aucun.png" alt="[IMAGE]" /></span>300 m²
 						<form action="index.connect.php" method="POST">
 							<div class="small-6 columns">
-								<input type="text" placeholder="12">
+								<input type="text" placeholder="13 / 30">
 								<input type="submit" value="Changer" class="button prefix"/>
 							</div>
 						</form>
 						<span class="smaller">
-							Le centre de recherche vous permet de rechercher de nouvelles technologies.
+							Matière première de votre planète, le titane doit être maintenu à un taux de rendement elevé.
 						</span>
-						<br />
-						<span class="right">200 m²</span>
 					</li>
 					<li>
-						<span class="float-left"><img width="100px" height="100px" src="" alt="[IMAGE]" /></span>
+						<span class="float-left"><img src="./img/bat/aucun.png" alt="[IMAGE]" /></span>200 m²
 						<form action="index.connect.php" method="POST">
 							<div class="small-6 columns">
-								<input type="text" placeholder="12">
+								<input type="text" placeholder="10 / 20">
 								<input type="submit" value="Changer" class="button prefix"/>
 							</div>
 						</form>
 						<span class="smaller">
-							Le centre de recherche vous permet de rechercher de nouvelles technologies.
+							Le béryl est un matériau proche du cristal utilisé fréquemment dans les hautes technologies.
 						</span>
-						<br />
-						<span class="right">200 m²</span>
 					</li>
 					<li>
-						<span class="float-left"><img width="100px" height="100px" src="" alt="[IMAGE]" /></span>
+						<span class="float-left"><img src="./img/bat/aucun.png" alt="[IMAGE]" /></span>100 m²
 						<form action="index.connect.php" method="POST">
 							<div class="small-6 columns">
-								<input type="text" placeholder="12">
+								<input type="text" placeholder="7 / 10">
 								<input type="submit" value="Changer" class="button prefix"/>
 							</div>
 						</form>
 						<span class="smaller">
-							Le centre de recherche vous permet de rechercher de nouvelles technologies.
+							Carburant écologique mais difficile à extraire, l'hydrogène doit être condensé avant son utilisation.
 						</span>
-						<br />
-						<span class="right">200 m²</span>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<span class="float-left"><img src="./img/bat/aucun.png" alt="[IMAGE]" /></span>200 m²
+						<form action="index.connect.php" method="POST">
+							<div class="small-6 columns">
+								<input type="text" placeholder="12 / 20">
+								<input type="submit" value="Changer" class="button prefix"/>
+							</div>
+						</form>
+						<span class="smaller">
+							Plus vous aurez d'ouvriers travaillant à l'usine, plus la vitesse de construction de vos vaisseaux sera élevée.
+						</span>
 					</li>
 					<li>
-						<span class="float-left"><img width="100px" height="100px" src="" alt="[IMAGE]" /></span>
+						<span class="float-left"><img src="./img/bat/aucun.png" alt="[IMAGE]" /></span>100 m²
 						<form action="index.connect.php" method="POST">
 							<div class="small-6 columns">
-								<input type="text" placeholder="12">
+								<input type="text" placeholder="10 / 10">
 								<input type="submit" value="Changer" class="button prefix"/>
 							</div>
 						</form>
 						<span class="smaller">
-							Le centre de recherche vous permet de rechercher de nouvelles technologies.
+							Vos pièces et modules sortiraient plus vite de l'atelier si davantage d'ouvriers y était affilié.
 						</span>
-						<br />
-						<span class="right">200 m²</span>
 					</li>
 					<li>
-						<span class="float-left"><img width="100px" height="100px" src="" alt="[IMAGE]" /></span>
+						<span class="float-left"><img src="./img/bat/aucun.png" alt="[IMAGE]" /></span>100 m²
 						<form action="index.connect.php" method="POST">
 							<div class="small-6 columns">
-								<input type="text" placeholder="12">
+								<input type="text" placeholder="2 / 10">
 								<input type="submit" value="Changer" class="button prefix"/>
 							</div>
 						</form>
 						<span class="smaller">
-							Le centre de recherche vous permet de rechercher de nouvelles technologies.
+							Les technologies seront recherchées plus rapidement si le nombre de chercheurs est elevé.
 						</span>
-						<br />
-						<span class="right">200 m²</span>
-					</li>
-					<li>
-						<span class="float-left"><img width="100px" height="100px" src="" alt="[IMAGE]" /></span>
-						<form action="index.connect.php" method="POST">
-							<div class="small-6 columns">
-								<input type="text" placeholder="12">
-								<input type="submit" value="Changer" class="button prefix"/>
-							</div>
-						</form>
-						<span class="smaller">
-							Le centre de recherche vous permet de rechercher de nouvelles technologies.
-						</span>
-						<br />
-						<span class="right">200 m²</span>
-					</li>
-					<li>
-						<span class="float-left"><img width="100px" height="100px" src="" alt="[IMAGE]" /></span>
-						<form action="index.connect.php" method="POST">
-							<div class="small-6 columns">
-								<input type="text" placeholder="12">
-								<input type="submit" value="Changer" class="button prefix"/>
-							</div>
-						</form>
-						<span class="smaller">
-							Le centre de recherche vous permet de rechercher de nouvelles technologies.
-						</span>
-						<br />
-						<span class="right">200 m²</span>
-					</li>
-					<li>
-						<span class="float-left"><img width="100px" height="100px" src="" alt="[IMAGE]" /></span>
-						<form action="index.connect.php" method="POST">
-							<div class="small-6 columns">
-								<input type="text" placeholder="12">
-								<input type="submit" value="Changer" class="button prefix"/>
-							</div>
-						</form>
-						<span class="smaller">
-							Le centre de recherche vous permet de rechercher de nouvelles technologies.
-						</span>
-						<br />
-						<span class="right">200 m²</span>
-					</li>
-					<li>
-						<span class="float-left"><img width="100px" height="100px" src="" alt="[IMAGE]" /></span>
-						<form action="index.connect.php" method="POST">
-							<div class="small-6 columns">
-								<input type="text" placeholder="12">
-								<input type="submit" value="Changer" class="button prefix"/>
-							</div>
-						</form>
-						<span class="smaller">
-							Le centre de recherche vous permet de rechercher de nouvelles technologies.
-						</span>
-						<br />
-						<span class="right">200 m²</span>
 					</li>
 				</ul>
 			</article>

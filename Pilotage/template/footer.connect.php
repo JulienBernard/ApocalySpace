@@ -14,7 +14,7 @@
 				</div>
 				<div class="row">
 					<p class="smaller">
-						<span class="player-planet-name">My planet</span><br />
+						<span class="player-planet-name">My planet ( Jibi )</span><br />
 						<span class="player-planet-text">
 							Coord : x 58 | y 80<br />
 							Population : 452 sur 460<br />
@@ -26,15 +26,14 @@
 					</p>
 				</div>
 
+				<br />
 				<h1>PRODUCTIONS</h1>
 				<div class="row">					
 					<table style="width: 100%;">
 						<thead>
 							<tr>
 								<th></th>
-								<th class="center">R1</th>
-								<th class="center">R2</th>
-								<th class="center">R3</th>
+								<th class="center" colspan="3">Ressources</th>
 							</tr>
 						</thead>
 						
@@ -47,9 +46,9 @@
 							</tr>
 							<tr>
 								<td>Bonus</td>
-								<td class="smaller center">50</td>
-								<td class="smaller center">20</td>
-								<td class="smaller center">0</td>
+								<td class="bonus smaller center">50</td>
+								<td class="bonus smaller center">20</td>
+								<td class="bonus smaller center">0</td>
 							</tr>
 							<tr>
 								<td>Totale</td>
@@ -64,7 +63,38 @@
 								<th></th>
 								<th class="smaller center">Titane</th>
 								<th class="smaller center">Béryl</th>
-								<th class="smaller center">Hydro</th>
+								<th class="smaller center">Hydro.</th>
+							</tr>
+						</tfoot>
+					</table>
+					
+					<table style="width: 100%;">
+						<thead>
+							<tr>
+								<th></th>
+								<th class="center" colspan="3">Rendement</th>
+							</tr>
+						</thead>
+						
+						<tbody>
+							<tr>
+								<td>Usine</td>
+								<td class="smaller center">60</td>
+							</tr>
+							<tr>
+								<td>Atelier</td>
+								<td class="good 	smaller center">100</td>
+							</tr>
+							<tr>
+								<td>Centre Rech.</td>
+								<td class="bad smaller center">20</td>
+							</tr>
+						</tbody>
+	   
+						<tfoot>
+							<tr>
+								<th></th>
+								<th class="smaller center">Pourcentage (%)</th>
 							</tr>
 						</tfoot>
 					</table>

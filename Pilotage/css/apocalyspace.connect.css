@@ -73,6 +73,13 @@ a:hover {
 		color: #3d9bd3;
 	}
 	
+.good {
+	color: #62c917;
+}
+.bad {
+	color: #d3563d;
+}
+	
 .float-left {
 	display: block;
 	float: left;
@@ -488,13 +495,15 @@ article ul {
 	padding: 0;
 	margin: auto;
 	text-align: center;
-	margin-top: 50px;
+	margin-top: 40px;
 	font-size: 15px;
 	font-family: MALGUN;
 }
 article ul li {
 	display: inline-block;
-	width: 30%;
+	width: 31%;
+	min-width: 210px;
+
 	height: 200px;
 	background: #f6f6f6;
 	text-align: center;
@@ -503,22 +512,49 @@ article ul li {
 	z-index: 50;
 	transition: all 0.3s;
 	margin: 5px;
+	-moz-box-shadow: 0px 0px 2px 0px #cfcfcf;
+	-webkit-box-shadow: 0px 0px 2px 0px #cfcfcf;
+	-o-box-shadow: 0px 0px 2px 0px #cfcfcf;
+	box-shadow: 0px 0px 2px 0px #cfcfcf;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#cfcfcf, Direction=NaN, Strength=2);
 }
 	article ul li:hover { 
-		transform: rotateY(0deg) scale(1.2);
+		transform: rotateX(0deg) scale(1.2);
 		background: black;
 		color: white;
 	}
 	article ul li:hover ~ li {
 	}
-	article ul li:hover, article ul li:nth-child(3) ~ li:hover { 
+	article ul li:hover { 
 		z-index: 60;
+		-moz-box-shadow: 0px 0px 5px 2px #424242;
+		-webkit-box-shadow: 0px 0px 5px 2px #424242;
+		-o-box-shadow: 0px 0px 5px 2px #424242;
+		box-shadow: 0px 0px 5px 2px #424242;
+		filter:progid:DXImageTransform.Microsoft.Shadow(color=#424242, Direction=NaN, Strength=5);
 	}
 	article ul:hover li:not(:hover) {
-		transform: rotateX(25deg);
+		-webkit-transform:rotateX(25deg);
+		-moz-transform:rotateX(25deg);
+		-ms-transform:rotateX(25deg);
+		-o-transform:rotateX(25deg);
+		transform:rotateX(25deg);
 		opacity: 0.4;
 	}
 	article ul:hover li:hover ~ li {
-		transform: rotateX(25deg);
+		-webkit-transform:rotateX(25deg);
+		-moz-transform:rotateX(25deg);
+		-ms-transform:rotateX(25deg);
+		-o-transform:rotateX(25deg);
+		transform:rotateX(25deg);
 		opacity: 0.4;
 	}
+article li img {
+	width: 100px;
+	height: 100px;
+	-moz-box-shadow: 0px 0px 4px 0px #ffffff;
+	-webkit-box-shadow: 0px 0px 4px 0px #ffffff;
+	-o-box-shadow: 0px 0px 4px 0px #ffffff;
+	box-shadow: 0px 0px 4px 0px #ffffff;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#ffffff, Direction=NaN, Strength=4);
+}
