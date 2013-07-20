@@ -54,7 +54,7 @@
 			<nav class="large-8 columns center">
 				<p>
 					<br />
-					<a href="index.php" class="current">Accueil</a> / 
+					<a href="index.connect.php" class="current">Accueil</a> / 
 					<a href="histoire.php">Histoire</a> /
 					<a href="galerie.php">Galerie</a> /
 					<a href="support.php" class="unavailable">Contact et Support</a>

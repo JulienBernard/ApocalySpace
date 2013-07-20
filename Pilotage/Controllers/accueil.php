@@ -144,7 +144,7 @@
 						$Engine->destroySession("SpaceEngineConnected");
 						/* Enregistrement de l'ID dans une session. */
 						$Engine->createSession("SpaceEngineConnected", (int)$userId);
-						header('Location: index.php');
+						header('Location: index.connect.php');
 					}
 					else
 						$Engine->setError("Votre PSEUDONYME ou votre MOT DE PASSE ne correspondent pas.");

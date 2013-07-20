@@ -84,12 +84,37 @@
 <section id="main" style="padding-top: 0;">
 
 	<header>
-		<div id="header_infobar">ACCUEIL</div>
+		<div id="header_infobar"><?php echo $Template->getTitle(); ?></div>
 		<a href=""><div id="header_infobar_logo"></div></a>
+		
+		<nav id="nav-board">
+			<a href="#"><img id="img-account" /></a>
+			<a href="#" class="img-message-new"><img id="img-message" /></a>
+			<a href="#"><img id="img-exit" /></a>
+		</nav>
+		
 		<div id="header_infobar_border"></div>
 		<div id="header_image">
 			<div id="header_image_left"></div>
 			<div id="header_image_right"></div>
+		</div>
+		
+		<div class="row" id="second-nav-board">
+			<div class="large-4 columns center">
+				<a href="#"><img id="img-account" /></a>
+				<a href="#"><img id="img-account" /></a>
+				<a href="#"><img id="img-account" /></a>
+			</div>
+			<div class="large-3 columns center">
+				<a href="#"><img id="img-account" /></a>
+				<a href="#"><img id="img-account" /></a>
+				<a href="#"><img id="img-account" /></a>
+			</div>
+			<div class="large-4 columns center">
+				<a href="#"><img id="img-account" /></a>
+				<a href="#"><img id="img-account" /></a>
+				<a href="#"><img id="img-account" /></a>
+			</div>
 		</div>
 		
 		<!--
@@ -99,7 +124,7 @@
 		<div class="row">
 			<div class="large-4 columns"></div>
 			<div class="large-8 columns">
-				<p>POUR AFFICHER, CLIQUER OU ALLER VERS LE BAS<br /><img src="img/arrow.png" /></p>
+				<p>POUR REVENIR, POINTER LE CURSOR VERS LE BAS<br /><img src="img/arrow.png" /></p>
 			</div>
 		</div>
 	</header>
@@ -107,7 +132,7 @@
 	<section>
 		<div class="row">
 			<nav class="large-12 breadcrumbs" id="links">
-				<a href="index.php" <?php if( $Engine->getNamepage() == "accueil" ) echo 'class="current"'; ?>>Accueil</a>
+				<a href="index.connect.php" <?php if( $Engine->getNamepage() == "accueil" ) echo 'class="current"'; ?>>Accueil</a>
 				<a href="histoire.php" <?php if( $Engine->getNamepage() == "histoire" ) echo 'class="current"'; ?>>Histoire</a>
 				<a href="galerie.php" <?php if( $Engine->getNamepage() == "galerie" ) echo 'class="current"'; ?>>Galerie</a>
 				<a href="support.php" <?php if( $Engine->getNamepage() == "support" ) echo 'class="current"'; ?>>Contact et Support</a>
