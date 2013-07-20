@@ -17,7 +17,7 @@
 						<span class="player-planet-name">My planet</span><br />
 						<span class="player-planet-text">
 							Coord : x 58 | y 80<br />
-							Population : 452 sur 486<br />
+							Population : 452 sur 460<br />
 							Natalité : 23 par jour<br />
 							<br />
 							<a href="">Pas de construction en cours</a><br />
@@ -25,10 +25,49 @@
 						</span>
 					</p>
 				</div>
-				<div class="row">
-					<p class="smaller">
-						(tableau ressource)
-					</p>
+
+				<h1>PRODUCTIONS</h1>
+				<div class="row">					
+					<table style="width: 100%;">
+						<thead>
+							<tr>
+								<th></th>
+								<th class="center">R1</th>
+								<th class="center">R2</th>
+								<th class="center">R3</th>
+							</tr>
+						</thead>
+						
+						<tbody>
+							<tr>
+								<td>Actuelle</td>
+								<td class="smaller center">250</td>
+								<td class="smaller center">130</td>
+								<td class="smaller center">50</td>
+							</tr>
+							<tr>
+								<td>Bonus</td>
+								<td class="smaller center">50</td>
+								<td class="smaller center">20</td>
+								<td class="smaller center">0</td>
+							</tr>
+							<tr>
+								<td>Totale</td>
+								<td class="center">300</td>
+								<td class="center">150</td>
+								<td class="center">50</td>
+							</tr>
+						</tbody>
+	   
+						<tfoot>
+							<tr>
+								<th></th>
+								<th class="smaller center">Titane</th>
+								<th class="smaller center">Béryl</th>
+								<th class="smaller center">Hydro</th>
+							</tr>
+						</tfoot>
+					</table>
 				</div>
 			</nav>
 		</div>

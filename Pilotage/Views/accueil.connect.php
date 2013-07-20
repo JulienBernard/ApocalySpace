@@ -23,6 +23,7 @@
 					</p>
 				</div>
 				<p>
-					A venir...
+					A venir...<br />
+					Liste des bâtiments : administration de la population (mise en page : http://www.css3create.com/Effet-coverflow-en-full-CSS ?)
 				</p>
 			</article>
