@@ -22,8 +22,133 @@
 						<a href="" class="right close">&times;</a>
 					</p>
 				</div>
-				<p>
-					A venir...<br />
-					Liste des bâtiments : administration de la population (mise en page : http://www.css3create.com/Effet-coverflow-en-full-CSS ?)
-				</p>
+				
+				<ul>
+					<li>
+						<span class="float-left"><img width="100px" height="100px" src="" alt="[IMAGE]" /></span>
+						<form action="index.connect.php" method="POST">
+							<div class="small-6 columns">
+								<input type="text" placeholder="12">
+								<input type="submit" value="Changer" class="button prefix"/>
+							</div>
+						</form>
+						<span class="smaller">
+							Le centre de recherche vous permet de rechercher de nouvelles technologies.
+						</span>
+						<br />
+						<span class="right">200 m²</span>
+					</li>
+					<li>
+						<span class="float-left"><img width="100px" height="100px" src="" alt="[IMAGE]" /></span>
+						<form action="index.connect.php" method="POST">
+							<div class="small-6 columns">
+								<input type="text" placeholder="12">
+								<input type="submit" value="Changer" class="button prefix"/>
+							</div>
+						</form>
+						<span class="smaller">
+							Le centre de recherche vous permet de rechercher de nouvelles technologies.
+						</span>
+						<br />
+						<span class="right">200 m²</span>
+					</li>
+					<li>
+						<span class="float-left"><img width="100px" height="100px" src="" alt="[IMAGE]" /></span>
+						<form action="index.connect.php" method="POST">
+							<div class="small-6 columns">
+								<input type="text" placeholder="12">
+								<input type="submit" value="Changer" class="button prefix"/>
+							</div>
+						</form>
+						<span class="smaller">
+							Le centre de recherche vous permet de rechercher de nouvelles technologies.
+						</span>
+						<br />
+						<span class="right">200 m²</span>
+					</li>
+					<li>
+						<span class="float-left"><img width="100px" height="100px" src="" alt="[IMAGE]" /></span>
+						<form action="index.connect.php" method="POST">
+							<div class="small-6 columns">
+								<input type="text" placeholder="12">
+								<input type="submit" value="Changer" class="button prefix"/>
+							</div>
+						</form>
+						<span class="smaller">
+							Le centre de recherche vous permet de rechercher de nouvelles technologies.
+						</span>
+						<br />
+						<span class="right">200 m²</span>
+					</li>
+					<li>
+						<span class="float-left"><img width="100px" height="100px" src="" alt="[IMAGE]" /></span>
+						<form action="index.connect.php" method="POST">
+							<div class="small-6 columns">
+								<input type="text" placeholder="12">
+								<input type="submit" value="Changer" class="button prefix"/>
+							</div>
+						</form>
+						<span class="smaller">
+							Le centre de recherche vous permet de rechercher de nouvelles technologies.
+						</span>
+						<br />
+						<span class="right">200 m²</span>
+					</li>
+					<li>
+						<span class="float-left"><img width="100px" height="100px" src="" alt="[IMAGE]" /></span>
+						<form action="index.connect.php" method="POST">
+							<div class="small-6 columns">
+								<input type="text" placeholder="12">
+								<input type="submit" value="Changer" class="button prefix"/>
+							</div>
+						</form>
+						<span class="smaller">
+							Le centre de recherche vous permet de rechercher de nouvelles technologies.
+						</span>
+						<br />
+						<span class="right">200 m²</span>
+					</li>
+					<li>
+						<span class="float-left"><img width="100px" height="100px" src="" alt="[IMAGE]" /></span>
+						<form action="index.connect.php" method="POST">
+							<div class="small-6 columns">
+								<input type="text" placeholder="12">
+								<input type="submit" value="Changer" class="button prefix"/>
+							</div>
+						</form>
+						<span class="smaller">
+							Le centre de recherche vous permet de rechercher de nouvelles technologies.
+						</span>
+						<br />
+						<span class="right">200 m²</span>
+					</li>
+					<li>
+						<span class="float-left"><img width="100px" height="100px" src="" alt="[IMAGE]" /></span>
+						<form action="index.connect.php" method="POST">
+							<div class="small-6 columns">
+								<input type="text" placeholder="12">
+								<input type="submit" value="Changer" class="button prefix"/>
+							</div>
+						</form>
+						<span class="smaller">
+							Le centre de recherche vous permet de rechercher de nouvelles technologies.
+						</span>
+						<br />
+						<span class="right">200 m²</span>
+					</li>
+					<li>
+						<span class="float-left"><img width="100px" height="100px" src="" alt="[IMAGE]" /></span>
+						<form action="index.connect.php" method="POST">
+							<div class="small-6 columns">
+								<input type="text" placeholder="12">
+								<input type="submit" value="Changer" class="button prefix"/>
+							</div>
+						</form>
+						<span class="smaller">
+							Le centre de recherche vous permet de rechercher de nouvelles technologies.
+						</span>
+						<br />
+						<span class="right">200 m²</span>
+					</li>
+				</ul>
 			</article>

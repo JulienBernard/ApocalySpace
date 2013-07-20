@@ -72,6 +72,12 @@ a:hover {
 	.important-send {
 		color: #3d9bd3;
 	}
+	
+.float-left {
+	display: block;
+	float: left;
+	background: red;
+}
 
 .info-box {
 	width: 100%;
@@ -474,4 +480,45 @@ footer {
 }
 	.player-planet-text a {
 		color: #424242;
+	}
+	
+article ul {
+	width: 100%;
+	perspective: 800px;
+	padding: 0;
+	margin: auto;
+	text-align: center;
+	margin-top: 50px;
+	font-size: 15px;
+	font-family: MALGUN;
+}
+article ul li {
+	display: inline-block;
+	width: 30%;
+	height: 200px;
+	background: #f6f6f6;
+	text-align: center;
+	padding: 5px;
+	position: relative;
+	z-index: 50;
+	transition: all 0.3s;
+	margin: 5px;
+}
+	article ul li:hover { 
+		transform: rotateY(0deg) scale(1.2);
+		background: black;
+		color: white;
+	}
+	article ul li:hover ~ li {
+	}
+	article ul li:hover, article ul li:nth-child(3) ~ li:hover { 
+		z-index: 60;
+	}
+	article ul:hover li:not(:hover) {
+		transform: rotateX(25deg);
+		opacity: 0.4;
+	}
+	article ul:hover li:hover ~ li {
+		transform: rotateX(25deg);
+		opacity: 0.4;
 	}
