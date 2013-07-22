@@ -7,7 +7,7 @@
 	 */
 
 	/* Le namePage permet d'identifier votre page. Il doit être être écrit en minuscule et tenir en un seul mot. */
-	$namePage = "accueil";
+	$namePage = "structure";
 	
 	/* Appel du moteur [ne pas modifier] */
 	include_once("./config.php");
@@ -16,7 +16,7 @@
 	$Template = new Template();
 	
 	/* Informations sur la page [valeurs à modifier] */
-	$Template->setTitle("Gestion Planetaire");
+	$Template->setTitle("Structures");
 	//$Template->setDescription("");
 	$Template->addCss("normalize.css");
 	$Template->addCss("foundation.css");

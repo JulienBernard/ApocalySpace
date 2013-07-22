@@ -104,28 +104,28 @@
 			<a href="#"><img id="img-exit" /></a>
 		</nav>
 		
+		<div class="row" id="second-nav-board" class="center">
+			<div class="large-4 columns center">
+				<a href="#"><img id="img-friend" /></a>
+				<a href="#"><img id="img-map" /></a>
+				<a href="#"><img id="img-top" /></a>
+			</div>
+			<div class="large-4 columns center">
+				<a href="#"><img id="img-techno" /></a>
+				<a href="index.connect.php"><img id="img-general" /></a>
+				<a href="structure.connect.php"><img id="img-build" /></a>
+			</div>
+			<div class="large-4 columns center">
+				<a href="#"><img id="img-shed" /></a>
+				<a href="#"><img id="img-fleet" /></a>
+				<a href="#"><img id="img-factory" /></a>
+			</div>
+		</div>
+		
 		<div id="header_infobar_border"></div>
 		<div id="header_image">
 			<div id="header_image_left"></div>
 			<div id="header_image_right"></div>
-		</div>
-		
-		<div class="row" id="second-nav-board">
-			<div class="large-4 columns center">
-				<a href="#"><img id="img-account" /></a>
-				<a href="#"><img id="img-account" /></a>
-				<a href="#"><img id="img-account" /></a>
-			</div>
-			<div class="large-3 columns center">
-				<a href="#"><img id="img-message" /></a>
-				<a href="#"><img id="img-message" /></a>
-				<a href="#"><img id="img-message" /></a>
-			</div>
-			<div class="large-4 columns center">
-				<a href="#"><img id="img-exit" /></a>
-				<a href="#"><img id="img-exit" /></a>
-				<a href="#"><img id="img-exit" /></a>
-			</div>
 		</div>
 		
 		<!--
@@ -133,9 +133,8 @@
 			Display arrow + message if cursor is hovering the header.
 		-->
 		<div class="row">
-			<div class="large-4 columns"></div>
-			<div class="large-8 columns">
-				<p>POUR REVENIR, POINTER LE CURSOR VERS LE BAS<br /><img src="img/arrow.png" /></p>
+			<div class="large-12 columns">
+				<p class="center" style="width: 100%;">POUR REVENIR, POINTER LE CURSOR VERS LE BAS<br /><img src="img/arrow.png" /></p>
 			</div>
 		</div>
 	</header>

@@ -1,0 +1,64 @@
+.ac-container{
+    width: 100%;
+}
+
+.ac-container label{
+	font-family: MALGUN;
+    padding: 5px 20px;
+    position: relative;
+    z-index: 20;
+    display: block;
+    height: 30px;
+    cursor: pointer;
+    color: #777;
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+    line-height: 33px;
+	margin-bottom: 0px;
+}
+
+.ac-container input[type=radio]:checked + label,
+.ac-container input[type=radio]:checked + label:hover {
+	font-family: MALGUN;
+    color: #424242;
+	font-weight: bold;
+    text-shadow: 0px 1px 1px rgba(255,255,255, 0.6);
+}
+
+.ac-container label:hover:after,
+.ac-container input[type=radio]:checked + label:hover:after{
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: 13px;
+    top: 7px;
+}
+
+.ac-container input[type=radio]{
+    display: none;
+}
+
+.ac-container article{
+    margin-top: -1px;
+    overflow: hidden;
+    height: 0px;
+    position: relative;
+    z-index: 10;
+    transition:
+        height 0.3s ease-in-out,
+        box-shadow 0.6s linear;
+}
+.ac-container input:checked ~ article{
+    transition: height 0.5s ease-in-out;
+}
+
+.ac-container input:checked ~ article.ac-small{
+    height: 140px;
+}
+.ac-container input:checked ~ article.ac-medium{
+    height: 180px;
+}
+.ac-container input:checked ~ article.ac-large {
+    height: 340px;
+	padding: 35px;
+}

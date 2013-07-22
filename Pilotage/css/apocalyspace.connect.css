@@ -264,7 +264,7 @@ a:hover {
 		height: 30px;
 		position: absolute;
 		margin-top: 20px;
-		margin-left: 80%;
+		margin-left: 75%;
 	}
 	
 	#img-account {
@@ -297,12 +297,92 @@ a:hover {
 		}
 		
 	#main header #second-nav-board {
-		width: 100%;
-		margin: auto;
-		height: 50px;
-		margin-top: -40px;
-		opacity: 0;
+		width: 75%;
+		left: 50%;
+		margin-left: -25.5%;
+		position: absolute;
 	}
+	#img-friend {
+		width: 50px;
+		height: 50px;
+		background: url("../img/friend.png") no-repeat;
+	}
+		#img-friend:hover, .img-current #img-friend {
+			background: url("../img/friend_hover.png") no-repeat;
+		}
+	#img-map {
+		width: 50px;
+		height: 50px;
+		margin-top: -30px;
+		background: url("../img/map.png") no-repeat;
+	}
+		#img-map:hover, .img-current #img-map {
+			background: url("../img/map_hover.png") no-repeat;
+		}
+	#img-top {
+		width: 50px;
+		height: 50px;
+		background: url("../img/top.png") no-repeat;
+	}
+		#img-top:hover, .img-current #img-top {
+			background: url("../img/top_hover.png") no-repeat;
+		}
+	
+	#img-techno {
+		width: 50px;
+		height: 50px;
+		margin-right: -5px;
+		background: url("../img/techno.png") no-repeat;
+	}
+		#img-techno:hover, .img-current #img-techno {
+			background: url("../img/techno_hover.png") no-repeat;
+		}
+	#img-general {
+		width: 50px;
+		height: 50px;
+		margin-top: -30px;
+		background: url("../img/general.png") no-repeat;
+	}
+		#img-general:hover, .img-current #img-general {
+			background: url("../img/general_hover.png") no-repeat;
+		}
+	#img-build {
+		width: 50px;
+		height: 50px;
+		background: url("../img/build.png") no-repeat;
+	}
+		#img-build:hover, .img-current #img-build {
+			background: url("../img/build_hover.png") no-repeat;
+		}
+		
+	#img-shed {
+		width: 50px;
+		height: 50px;
+		margin-right: -5px;
+		margin-top: 5px;
+		background: url("../img/shed.png") no-repeat;
+	}
+		#img-shed:hover, .img-current #img-shed {
+			background: url("../img/shed_hover.png") no-repeat;
+		}
+	#img-fleet {
+		width: 50px;
+		height: 50px;
+		margin-top: -25px;
+		background: url("../img/fleet.png") no-repeat;
+	}
+		#img-fleet:hover, .img-current #img-fleet {
+			background: url("../img/fleet_hover.png") no-repeat;
+		}
+	#img-factory {
+		width: 50px;
+		height: 50px;
+		margin-top: 5px;
+		background: url("../img/factory.png") no-repeat;
+	}
+		#img-factory:hover, .img-current #img-factory {
+			background: url("../img/factory_hover.png") no-repeat;
+		}
 	
 /* ==========================================================================
    Section (body)
@@ -325,17 +405,27 @@ a:hover {
 		transition: all 1s ease;
 		opacity: 0.1;
 	}
-	#main header:hover {
+	#main header  #second-nav-board {
 		transition: all 1s ease;
+		opacity: 0;
+		margin-top: 20px;
+	}
+		#main header:hover  #second-nav-board {
+			transition: all 0.8s ease;
+			opacity: 1;
+			margin-top: 330px;
+		}
+	#main header:hover {
+		transition: all 0.8s ease;
 		height: 405px;
 	}
 	#main header:hover #header_image, #main header:hover #header_image_left, #main header:hover #header_image_right {
-		transition: all 1s ease;
+		transition: all 0.8s ease;
 		height: 400px;
 	}
 	section section:hover #links {
 		opacity: 1;
-		transition: all 1s ease;
+		transition: all 0.8s ease;
 	}
 
 #links {
@@ -503,8 +593,7 @@ article ul li {
 	display: inline-block;
 	width: 31%;
 	min-width: 210px;
-
-	height: 200px;
+	height: 220px;
 	background: #f6f6f6;
 	text-align: center;
 	padding: 5px;
@@ -518,6 +607,13 @@ article ul li {
 	box-shadow: 0px 0px 2px 0px #cfcfcf;
 	filter:progid:DXImageTransform.Microsoft.Shadow(color=#cfcfcf, Direction=NaN, Strength=2);
 }
+	article .large-ul {
+		margin-top: 20px;
+	}
+	article .large-ul li {
+		height: 260px;
+	}
+	
 	article ul li:hover { 
 		transform: rotateX(0deg) scale(1.2);
 		background: black;
