@@ -15,6 +15,7 @@ class Planet extends User
 	private $_planetProduction1;
 	private $_planetProduction2;
 	private $_planetProduction3;
+	private $_planetProductionPR;	// Point Recherche
 	private $_planetProductionTime;	// Dernière interaction avec la planète (pour le calcul de production).
 	private $_primaryPlanet;		// Si 1, cette planète est la planète primaire d'un joueur.
 	
@@ -40,7 +41,7 @@ class Planet extends User
 		$initialY = (rand(0, 5) - 2)*2;
 		$coords = Map::getPlanetSlot( $initialX, $initialY );
 		
-		$req = $sql->prepare('INSERT INTO planets VALUES(null, :name, :size, :population, :userId, :posX, :posY, :res1, :res2, :res3, :prod_res1, :prod_res2, :prod_res3, :prod_time, :primary)');
+		$req = $sql->prepare('INSERT INTO planets VALUES(null, :name, :size, :population, :userId, :posX, :posY, :res1, :res2, :res3, :prod_res1, :prod_res2, :prod_res3, :prod_respr, :prod_time, :primary)');
 		$result = $req->execute( array(
 			':name' => $name,
 			':size' => 100,
@@ -54,6 +55,7 @@ class Planet extends User
 			':prod_res1' => 100,
 			':prod_res2' => 60,
 			':prod_res3' => 0,
+			':prod_respr' => 0,
 			':prod_time' => time(),
 			':primary' => $primary,
 		));

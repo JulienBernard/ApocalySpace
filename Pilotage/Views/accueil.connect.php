@@ -101,7 +101,7 @@
 						</form>
 						<span class="smaller">
 							<span class="bold">Centre de Recherche</span><br />
-							Les technologies seront recherchées plus rapidement si le nombre de chercheurs est elevé.
+							Vous produirez plus de Point Recherche (PR) si le nombre de chercheurs est elevé.
 						</span>
 					</li>
 				</ul>

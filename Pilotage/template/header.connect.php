@@ -111,7 +111,7 @@
 				<a href="#"><img id="img-top" /></a>
 			</div>
 			<div class="large-4 columns center">
-				<a href="#"><img id="img-techno" /></a>
+				<a href="recherche.connect.php"><img id="img-techno" /></a>
 				<a href="index.connect.php"><img id="img-general" /></a>
 				<a href="structure.connect.php"><img id="img-build" /></a>
 			</div>

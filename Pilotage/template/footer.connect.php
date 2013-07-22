@@ -20,7 +20,7 @@
 							Population : 452 sur 460<br />
 							Natalité : 23 par jour<br />
 							<br />
-							<a href="">Pas de construction en cours</a><br />
+							<a href="structure.connect.php">Pas de construction en cours</a><br />
 							<a href="">Pas de recherche en cours</a>
 						</span>
 					</p>
@@ -32,8 +32,7 @@
 					<table style="width: 100%;">
 						<thead>
 							<tr>
-								<th></th>
-								<th class="center" colspan="3">Ressources</th>
+								<th class="center" colspan="4">Ressources ( en 1h )</th>
 							</tr>
 						</thead>
 						
@@ -71,8 +70,29 @@
 					<table style="width: 100%;">
 						<thead>
 							<tr>
+								<th class="center" colspan="2">Recherche ( en 1h )</th>
+							</tr>
+						</thead>
+						
+						<tbody>
+							<tr>
+								<td>Centre Rech.</td>
+								<td class="bad smaller center">20</td>
+							</tr>
+						</tbody>
+	   
+						<tfoot>
+							<tr>
 								<th></th>
-								<th class="center" colspan="3">Rendement</th>
+								<th class="smaller center">Point Recherche (PR)</th>
+							</tr>
+						</tfoot>
+					</table>
+					
+					<table style="width: 100%;">
+						<thead>
+							<tr>
+								<th class="center" colspan="2">Rendement</th>
 							</tr>
 						</thead>
 						
@@ -84,10 +104,6 @@
 							<tr>
 								<td>Atelier</td>
 								<td class="good 	smaller center">100</td>
-							</tr>
-							<tr>
-								<td>Centre Rech.</td>
-								<td class="bad smaller center">20</td>
 							</tr>
 						</tbody>
 	   
