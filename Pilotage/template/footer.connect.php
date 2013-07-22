@@ -12,6 +12,7 @@
 						</p>
 					</div>
 				</div>
+				
 				<div class="row">
 					<p class="smaller">
 						<span class="player-planet-name">My planet ( Jibi )</span><br />
@@ -21,81 +22,77 @@
 							Natalité : 23 par jour<br />
 							<br />
 							<a href="structure.connect.php">Pas de construction en cours</a><br />
-							<a href="">Pas de recherche en cours</a>
+							<a href="index.connect.php">Aucune activité spatiale détectée</a>
 						</span>
 					</p>
 				</div>
 
-				<br />
-				<h1>PRODUCTIONS</h1>
 				<div class="row">					
 					<table style="width: 100%;">
-						<thead>
-							<tr>
-								<th class="center" colspan="4">Ressources ( en 1h )</th>
-							</tr>
-						</thead>
-						
 						<tbody>
 							<tr>
-								<td>Actuelle</td>
-								<td class="smaller center">250</td>
-								<td class="smaller center">130</td>
-								<td class="smaller center">50</td>
-							</tr>
-							<tr>
-								<td>Bonus</td>
-								<td class="bonus smaller center">50</td>
-								<td class="bonus smaller center">20</td>
-								<td class="bonus smaller center">0</td>
-							</tr>
-							<tr>
-								<td>Totale</td>
-								<td class="center">300</td>
-								<td class="center">150</td>
-								<td class="center">50</td>
+								<td class="center">3000</td>
+								<td class="center">2000</td>
+								<td class="center">1000</td>
+								<td class="center">210</td>
 							</tr>
 						</tbody>
-	   
+						
 						<tfoot>
 							<tr>
-								<th></th>
 								<th class="smaller center">Titane</th>
 								<th class="smaller center">Béryl</th>
 								<th class="smaller center">Hydro.</th>
+								<th class="smaller center">Pts. Rech.</th>
 							</tr>
 						</tfoot>
 					</table>
-					
-					<table style="width: 100%;">
-						<thead>
-							<tr>
-								<th class="center" colspan="2">Recherche ( en 1h )</th>
-							</tr>
-						</thead>
-						
+				</div>
+				
+				<h1>PRODUCTION</h1>
+				<div class="row">					
+					<table style="width: 100%;">						
 						<tbody>
 							<tr>
-								<td>Centre Rech.</td>
-								<td class="bad smaller center">20</td>
+								<td>Titane</td>
+								<td class="smaller center">250</td>
+								<td class="smaller center">50</td>
+								<td class="center">300</td>
+							</tr>
+							<tr>
+								<td>Béryl</td>
+								<td class="smaller center">130</td>
+								<td class="smaller center">20</td>
+								<td class="center">150</td>
+							</tr>
+							<tr>
+								<td>Hydro</td>
+								<td class="smaller center">50</td>
+								<td class="smaller center">0</td>
+								<td class="center">50</td>
+							</tr>
+							<tr>
+								<td>Pts. Rech.</td>
+								<td class="smaller center">20</td>
+								<td class="smaller center">-</td>
+								<td class="center">20</td>
 							</tr>
 						</tbody>
 	   
 						<tfoot>
 							<tr>
 								<th></th>
-								<th class="smaller center">Point Recherche (PR)</th>
+								<th class="smaller center">Normal</th>
+								<th class="smaller center">Bonus</th>
+								<th class="smaller center">TOTAL</th>
 							</tr>
 						</tfoot>
 					</table>
-					
+				</div>
+				
+				<h1>RENDEMENT</h1>
+				<div class="row">
 					<table style="width: 100%;">
-						<thead>
-							<tr>
-								<th class="center" colspan="2">Rendement</th>
-							</tr>
-						</thead>
-						
 						<tbody>
 							<tr>
 								<td>Usine</td>
