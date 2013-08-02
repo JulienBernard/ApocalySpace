@@ -12,6 +12,7 @@ class Planet extends User
 	private $_planetResource1;
 	private $_planetResource2;
 	private $_planetResource3;
+	private $_planetPR;
 	private $_planetProduction1;
 	private $_planetProduction2;
 	private $_planetProduction3;
@@ -20,9 +21,46 @@ class Planet extends User
 	private $_primaryPlanet;		// Si 1, cette planète est la planète primaire d'un joueur.
 	
 	/* Constructeur de la classe */
-	public function __construct()
+	public function __construct( $dataPlanet, $dataUser )
 	{
+		$this->_planetId = (int)$dataPlanet['pl_id'];
+		$this->_planetName = (string)$dataPlanet['pl_name'];
+		$this->_planetSize = (int)$dataPlanet['pl_planetSize'];
+		$this->_planetPopulation = (int)$dataPlanet['pl_population'];
+		$this->_planetUserId = (int)$dataPlanet['pl_userId'];
+		$this->_planetPosX = (int)$dataPlanet['pl_posX'];
+		$this->_planetPosY = (int)$dataPlanet['pl_posY'];
+		$this->_planetResource1 = (int)$dataPlanet['pl_res1'];
+		$this->_planetResource2 = (int)$dataPlanet['pl_res2'];
+		$this->_planetResource3 = (int)$dataPlanet['pl_res2'];
+		$this->_planetPR = (int)$dataPlanet['pl_pr'];
+		$this->_planetProduction1 = (int)$dataPlanet['pl_prod_res1'];
+		$this->_planetProduction2 = (int)$dataPlanet['pl_prod_res2'];
+		$this->_planetProduction3 = (int)$dataPlanet['pl_prod_res3'];
+		$this->_planetProductionPR = (int)$dataPlanet['pl_prod_pr'];
+		$this->_planetProductionTime = (int)$dataPlanet['pl_prod_time'];
+		$this->_primaryPlanet = (int)$dataPlanet['pl_primary'];
 		
+		User::setId( (int)$dataUser['id'] );
+		User::setUsername( (string)$dataUser['username'] );
+		User::setFaction( (string)$dataUser['factionName'] );
+	}
+	
+	/**
+	 * Recupère les données d'une planète depuis la base de données.
+	 * @param int planetId
+	 * @return array or 0 (error)
+	 */
+	public static function getPlanetData( $planetId ) {
+		$sql = MyPDO::get();
+
+		$rq = $sql->prepare('SELECT * FROM planets WHERE pl_id=:idPlanet');
+        $data = array(':idPlanet' => (int)$planetId );
+		$rq->execute($data);
+						
+		if( $rq->rowCount() == 0 ) throw new Exception('Une importante erreur est survenue : Impossible de récupérer les données de cette planète !');
+		$row = $rq->fetch();
+		return $row;
 	}
 	
 	/**
@@ -41,7 +79,7 @@ class Planet extends User
 		$initialY = (rand(0, 5) - 2)*2;
 		$coords = Map::getPlanetSlot( $initialX, $initialY );
 		
-		$req = $sql->prepare('INSERT INTO planets VALUES(null, :name, :size, :population, :userId, :posX, :posY, :res1, :res2, :res3, :prod_res1, :prod_res2, :prod_res3, :prod_respr, :prod_time, :primary)');
+		$req = $sql->prepare('INSERT INTO planets VALUES(null, :name, :size, :population, :userId, :posX, :posY, :res1, :res2, :res3, :pr, :prod_res1, :prod_res2, :prod_res3, :prod_respr, :prod_time, :primary)');
 		$result = $req->execute( array(
 			':name' => $name,
 			':size' => 100,
@@ -52,6 +90,7 @@ class Planet extends User
 			':res1' => 900,
 			':res2' => 600,
 			':res3' => 0,
+			':pr' => 0,
 			':prod_res1' => 100,
 			':prod_res2' => 60,
 			':prod_res3' => 0,
@@ -129,5 +168,22 @@ class Planet extends User
 		}
 		
 		return true;
+	}
+	
+	/**	Permet de récupérer l'id de la planète primaire du joueur (utilisé pour la connexion notamment -> on arrive sur la première planète du joueur)
+	 *@param int $userId	:	id du joueur
+	 Retourne l'id de la planète primaire du joueur.
+	 */
+	public static function getUserPrimaryPlanet( $userId )
+	{
+		$sql = MyPDO::get();
+
+		$rq = $sql->prepare('SELECT pl_id FROM planets WHERE pl_userId=:idUser AND pl_primary=:statut');
+		$data = array(':idUser' => $userId, ':statut' => (int)1 );
+		$rq->execute( $data );
+	
+		if( $rq->rowCount() == 0 ) throw new Exception('Une importante erreur est survenue : Impossible de récupérer les données de cette planète !');
+		$row = $rq->fetch();
+		return $row['pl_id'];
 	}
 }

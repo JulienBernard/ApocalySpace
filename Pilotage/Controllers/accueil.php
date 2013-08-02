@@ -126,6 +126,7 @@
 		{
 			include_once(PATH_MODELS."myPDO.class.php");
 			include_once(PATH_MODELS."user.class.php");
+			include_once(PATH_MODELS."planet.class.php");
 			
 			$username = (String)strtolower($_POST['username']);
 			$password = (String)$_POST['password'];
@@ -142,8 +143,11 @@
 					{
 						/* Destruction de la session au cas où ! */
 						$Engine->destroySession("SpaceEngineConnected");
+						$Engine->destroySession("ApocalySpaceCurrentPlanet");
 						/* Enregistrement de l'ID dans une session. */
+						$Engine->createSession("ApocalySpaceCurrentPlanet", (int)Planet::getUserPrimaryPlanet($userId) );
 						$Engine->createSession("SpaceEngineConnected", (int)$userId);
+						
 						header('Location: index.connect.php');
 					}
 					else

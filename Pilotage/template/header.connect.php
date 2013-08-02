@@ -50,7 +50,7 @@
 		global $timeStart;
 		$timeStart = microtime(true);
 	
-		// Chargement de la description
+		/* Chargement de la description */
 		$rt = $Template->getDescription();
 		if( !empty( $rt ) )
 		{
@@ -63,19 +63,30 @@
 			';
 		}
 		
-		// Chargement des CSS
+		/* Chargement des CSS */
 		foreach( $Template->getCss() as $css )
 		{
 			echo '<link rel="stylesheet" media="screen" href="css/'.$css.'" />
 			';
 		}
 	
-		// Chargement des scripts
+		/* Chargement des scripts */
 		foreach( $Template->getScript() as $script )
 		{
 			echo '<script type="text/javascript" src="./js/'.$script.'"></script>
 			';
 		}
+		
+		/* Chargement des données du compte */
+		include_once(PATH_MODELS."myPDO.class.php");
+		include_once(PATH_MODELS."user.class.php");
+		include_once(PATH_MODELS."planet.class.php");
+		//include_once(PATH_MODELS."data.class.php");
+
+		$userData = User::getUserData( (int)$_SESSION['SpaceEngineConnected'] );
+		$planetData = Planet::getPlanetData( (int)$_SESSION['ApocalySpaceCurrentPlanet'] );		
+		$Planet = new Planet( (array)$planetData, (array)$userData );
+		var_dump($Planet);
 	?>
 	
 	<script type="text/javascript">
@@ -144,7 +155,7 @@
 			<nav class="large-12 breadcrumbs" id="links">
 				<a href="index.connect.php" <?php if( $Engine->getNamepage() == "accueil" ) echo 'class="current"'; ?>>Accueil</a>
 				<a href="compte.connect.php" <?php if( $Engine->getNamepage() == "compte" ) echo 'class="current"'; ?>>Compte</a>
-				<a href="communication.php" <?php if( $Engine->getNamepage() == "communication" ) echo 'class="current"'; ?>>Communication</a>
+				<a href="communication.connect.php" <?php if( $Engine->getNamepage() == "communication" ) echo 'class="current"'; ?>>Communication</a>
 				<a href="deconnexion.connect.php" <?php if( $Engine->getNamepage() == "deconnexion" ) echo 'class="current"'; ?>>Déconnexion</a>
 				<span id="serverTime" style="display: block; float: right;"><?php echo date( "H:i:s", time() ); ?></span>
 			</nav>

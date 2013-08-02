@@ -7,10 +7,10 @@ class User
 	private $_faction;
 	
 	/* Constructeur de la classe */
-	public function __construct( $id, $username, $faction ) {
-		$this->_id = $id;
-		$this->_username = $username;
-		$this->_faction = $faction;
+	public function __construct( $data ) {
+		$this->_id = (int)$data['id'];
+		$this->_username = (string)$data['username'];
+		$this->_faction = (string)$data['factionName'];
 	}
 	
 	/**
@@ -38,10 +38,18 @@ class User
 	/**
 	 * Recupère les données utilisateur depuis la base de données.
 	 * @param int userId
-	 * @return array
+	 * @return array or 0 (error)
 	 */
 	public static function getUserData( $userId ) {
+		$sql = MyPDO::get();
+
+		$rq = $sql->prepare('SELECT id, username, factionName FROM users WHERE id=:idUser');
+        $data = array(':idUser' => $userId );
+		$rq->execute($data);
 		
+		if( $rq->rowCount() == 0 ) throw new Exception('Une importante erreur est survenue : Impossible de récupérer les données de cet utilisateur !');
+		$row = $rq->fetch();
+		return $row;
 	}
 	
 	/**
@@ -172,5 +180,24 @@ class User
 		$req->execute();
 		// On retourne le nombre de message non-lu compté
 		return $req->rowCount();
+	}
+	
+	public function getId() {
+		return $this->_id;
+	}
+	protected function setId( $data ) {
+		$this->_id = $data;
+	}
+	public function getUsername() {
+		return $this->_username;
+	}
+	protected function setUsername( $data ) {
+		$this->_username = $data;
+	}
+	public function getFaction() {
+		return $this->_faction;
+	}
+	protected function setFaction( $data ) {
+		$this->_faction = $data;
 	}
 }
