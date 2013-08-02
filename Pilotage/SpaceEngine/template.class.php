@@ -13,7 +13,7 @@ class Template implements ITemplate {
 	/**
 	 * Inclusion du fichier selon son chemin d'accès ($path)
 	 */
-	public function startTemplate( $path, $Template, $Engine, $timeStart = null ) {			
+	public function startTemplate( $path, $Template, $Engine, $Data, $timeStart = null ) {			
 		include_once( $path );
 	}
 	

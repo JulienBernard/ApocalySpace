@@ -1,6 +1,6 @@
 <?php
 
-class Planet extends User
+class Planet
 {
 	private $_planetId;
 	private $_planetName;
@@ -22,7 +22,7 @@ class Planet extends User
 	private $_primaryPlanet;		// Si 1, cette planète est la planète primaire d'un joueur.
 	
 	/* Constructeur de la classe */
-	public function __construct( $dataPlanet, $dataUser )
+	public function __construct( $dataPlanet )
 	{
 		$this->_planetId = (int)$dataPlanet['pl_id'];
 		$this->_planetName = (string)$dataPlanet['pl_name'];
@@ -42,10 +42,6 @@ class Planet extends User
 		$this->_planetProductionTime = (int)$dataPlanet['pl_prod_time'];
 		$this->_planetNatality = (int)$dataPlanet['pl_natality'];
 		$this->_primaryPlanet = (int)$dataPlanet['pl_primary'];
-		
-		User::setId( (int)$dataUser['id'] );
-		User::setUsername( (string)$dataUser['username'] );
-		User::setFaction( (string)$dataUser['factionName'] );
 	}
 	
 	/**
@@ -188,5 +184,45 @@ class Planet extends User
 		if( $rq->rowCount() == 0 ) throw new Exception('Une importante erreur est survenue : Impossible de récupérer les données de cette planète !');
 		$row = $rq->fetch();
 		return $row['pl_id'];
+	}
+	
+	public function getPlanetName() {
+		return $this->_planetName;
+	}
+	public function getPosX() {
+		return $this->_planetPosX;
+	}
+	public function getPosY() {
+		return $this->_planetPosY;
+	}
+	public function getPopulation() {
+		return $this->_planetPopulation;
+	}
+	public function getNatality() {
+		return $this->_planetNatality;
+	}
+	public function getRes1() {
+		return $this->_planetResource1;
+	}
+	public function getRes2() {
+		return $this->_planetResource2;
+	}
+	public function getRes3() {
+		return $this->_planetResource3;
+	}
+	public function getPR() {
+		return $this->_planetPR;
+	}
+	public function getProdRes1() {
+		return $this->_planetProduction1;
+	}
+	public function getProdRes2() {
+		return $this->_planetProduction2;
+	}
+	public function getProdRes3() {
+		return $this->_planetProduction3;
+	}
+	public function getProdResPR() {
+		return $this->_planetProductionPR;
 	}
 }

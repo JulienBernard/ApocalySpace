@@ -77,16 +77,8 @@
 			';
 		}
 		
-		/* Chargement des données du compte */
-		include_once(PATH_MODELS."myPDO.class.php");
-		include_once(PATH_MODELS."user.class.php");
-		include_once(PATH_MODELS."planet.class.php");
-		//include_once(PATH_MODELS."data.class.php");
+		var_dump($Data);
 
-		$userData = User::getUserData( (int)$_SESSION['SpaceEngineConnected'] );
-		$planetData = Planet::getPlanetData( (int)$_SESSION['ApocalySpaceCurrentPlanet'] );		
-		$Planet = new Planet( (array)$planetData, (array)$userData );
-		var_dump($Planet);
 	?>
 	
 	<script type="text/javascript">

@@ -6,7 +6,7 @@
 				<h1>INFORMATIONS</h1>
 				<div class="row">
 					<div class="player-planet">
-						<div id="player-planet-hidden">PLANET NAME</div>
+						<div id="player-planet-hidden"><?php echo strtoupper($Data->getPlanetName()); ?></div>
 						<p>
 							<img src="img/player_planet.png" alt="[image planète]" />
 						</p>
@@ -15,11 +15,11 @@
 				
 				<div class="row">
 					<p class="smaller">
-						<span class="player-planet-name">My planet ( Jibi )</span><br />
+						<span class="player-planet-name"><?php echo ucwords($Data->getPlanetName()); ?> ( <?php echo ucwords($Data->getUsername()); ?> )</span><br />
 						<span class="player-planet-text">
-							Coord : x 58 | y 80<br />
-							Population : 452 sur 460<br />
-							Natalité : 23 par jour<br />
+							Coord : x <?php echo $Data->getPosX(); ?> | y <?php echo $Data->getPosY(); ?><br />
+							Population : <?php echo $Data->getPopulation(); ?> sur 460<br />
+							Natalité : <?php echo $Data->getNatality(); ?> par jour<br />
 							<br />
 							<a href="structure.connect.php">Pas de construction en cours</a><br />
 							<a href="index.connect.php">Aucune activité spatiale détectée</a>
@@ -31,10 +31,10 @@
 					<table style="width: 100%;">
 						<tbody>
 							<tr>
-								<td class="center">3000</td>
-								<td class="center">2000</td>
-								<td class="center">1000</td>
-								<td class="center">210</td>
+								<td class="center"><?php echo $Data->getRes1(); ?></td>
+								<td class="center"><?php echo $Data->getRes2(); ?></td>
+								<td class="center"><?php echo $Data->getRes3(); ?></td>
+								<td class="center"><?php echo $Data->getPR(); ?></td>
 							</tr>
 						</tbody>
 						
@@ -55,27 +55,27 @@
 						<tbody>
 							<tr>
 								<td>Titane</td>
-								<td class="smaller center">250</td>
-								<td class="smaller center">50</td>
-								<td class="center">300</td>
+								<td class="smaller center"><?php echo $Data->getProdRes1(); ?></td>
+								<td class="smaller center"><?php echo $Data->getProdRes1Bonus(); ?></td>
+								<td class="center"><?php echo $Data->getTotalProdRes1(); ?></td>
 							</tr>
 							<tr>
 								<td>Béryl</td>
-								<td class="smaller center">130</td>
-								<td class="smaller center">20</td>
-								<td class="center">150</td>
+								<td class="smaller center"><?php echo $Data->getProdRes2(); ?></td>
+								<td class="smaller center"><?php echo $Data->getProdRes2Bonus(); ?></td>
+								<td class="center"><?php echo $Data->getTotalProdRes2(); ?></td>
 							</tr>
 							<tr>
 								<td>Hydro</td>
-								<td class="smaller center">50</td>
-								<td class="smaller center">0</td>
-								<td class="center">50</td>
+								<td class="smaller center"><?php echo $Data->getProdRes3(); ?></td>
+								<td class="smaller center"><?php echo $Data->getProdRes3Bonus(); ?></td>
+								<td class="center"><?php echo $Data->getTotalProdRes3(); ?></td>
 							</tr>
 							<tr>
 								<td>Pts. Rech.</td>
-								<td class="smaller center">20</td>
+								<td class="smaller center"><?php echo $Data->getProdPR(); ?></td>
 								<td class="smaller center">-</td>
-								<td class="center">20</td>
+								<td class="center"><?php echo $Data->getTotalProdResPR(); ?></td>
 							</tr>
 						</tbody>
 	   

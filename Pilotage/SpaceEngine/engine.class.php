@@ -30,15 +30,24 @@ class Engine implements IEngine {
 	 */
 	public function startEngine( $Engine, $Template, $timeStart = null ) {
 		$namePage = $this->_namePage;
+		
+		/* Chargement des données du compte */
+		include_once(PATH_MODELS."myPDO.class.php");
+		include_once(PATH_MODELS."user.class.php");
+		include_once(PATH_MODELS."planet.class.php");
+		include_once(PATH_MODELS."data.class.php");
+
+		$Data = new Data();
+		
 		if( Engine::isConnected() ) {
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.connect.php');
 			$Engine->setViewPath('./Views/'.strtolower($namePage).'.connect.php');
-			$Template->startTemplate('./template/header.connect.php', $Template, $Engine);
+			$Template->startTemplate('./template/header.connect.php', $Template, $Engine, $Data);
 			include_once($this->_controllerPath);
 			if( $timeStart != null )
-				$Template->startTemplate('./template/footer.connect.php', $Template, $Engine, $timeStart);
+				$Template->startTemplate('./template/footer.connect.php', $Template, $Engine, $Data, $timeStart);
 			else
-				$Template->startTemplate('./template/footer.connect.php', $Template, $Engine);
+				$Template->startTemplate('./template/footer.connect.php', $Template, $Engine, $Data);
 		}
 		else if( Engine::isAdmin() ) {
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.admin.php');

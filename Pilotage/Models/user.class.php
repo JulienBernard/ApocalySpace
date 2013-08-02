@@ -185,19 +185,10 @@ class User
 	public function getId() {
 		return $this->_id;
 	}
-	protected function setId( $data ) {
-		$this->_id = $data;
-	}
 	public function getUsername() {
 		return $this->_username;
 	}
-	protected function setUsername( $data ) {
-		$this->_username = $data;
-	}
 	public function getFaction() {
 		return $this->_faction;
-	}
-	protected function setFaction( $data ) {
-		$this->_faction = $data;
 	}
 }
