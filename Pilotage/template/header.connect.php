@@ -101,7 +101,7 @@
 		<nav id="nav-board">
 			<a href="#"><img id="img-account" /></a>
 			<a href="#" class="img-message-new"><img id="img-message" /></a>
-			<a href="#"><img id="img-exit" /></a>
+			<a href="deconnexion.connect.php"><img id="img-exit" /></a>
 		</nav>
 		
 		<div class="row" id="second-nav-board" class="center">
