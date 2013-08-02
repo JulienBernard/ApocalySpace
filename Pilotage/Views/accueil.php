@@ -14,6 +14,10 @@
 					<div class="orbit-container">
 						<ul data-orbit="" class="orbit-slides-container" data-options="timer_speed:5000; bullets:false;">
 							<li class="active">
+							   <a href="http://jibidev.fr/etat-sur-lavancement-dapocalyspace/"><img src="./img/orbit/01.08.13.png"></a>
+							  <div class="orbit-caption"><a href="http://jibidev.fr/etat-sur-lavancement-dapocalyspace/">État sur l'avancement du projet : découvrez les pages principales du jeu !</a></div>
+							</li>
+							<li>
 							   <a href="http://jibidev.fr/category/apocalyspace/"><img src="./img/orbit/hackathon.png"></a>
 							  <div class="orbit-caption"><a href="http://jibidev.fr/category/apocalyspace/">Lancement de la phase de développement : suivez les 2 premiers jours sur le dév blog !</a></div>
 							</li>
