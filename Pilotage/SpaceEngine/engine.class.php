@@ -38,8 +38,19 @@ class Engine implements IEngine {
 			include_once(PATH_MODELS."planet.class.php");
 			include_once(PATH_MODELS."message.class.php");
 			include_once(PATH_MODELS."data.class.php");
-
-			$Data = new Data();
+			
+			/* Chargement des données sur les bâtiments et les technologies : dépend de la page (gain ressource) */
+			if( $this->_namePage == "structure" OR $this->_namePage == "accueil" )
+			{
+				include_once(PATH_MODELS."building.class.php");
+				$Data = new Data( true, false );
+			}
+			else if( $this->_namePage == "recherche" )
+			{
+				$Data = new Data( false, true );
+			}
+			else
+				$Data = new Data( false, false );
 		
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.connect.php');
 			$Engine->setViewPath('./Views/'.strtolower($namePage).'.connect.php');

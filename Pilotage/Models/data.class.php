@@ -7,7 +7,9 @@
 class Data {
 	private $_user;
 	private $_planet;
+	private $_buildingsList = array();	// Liste des bâtiments
 	
+	/* Données de la planète */
 	private $_prodRes1Bonus;
 	private $_prodRes2Bonus;
 	private $_prodRes3Bonus;
@@ -16,28 +18,46 @@ class Data {
 	private $_totalProdRes3;
 	private $_totalProdResPR;
 	
+	/* Données sur l'utilisateur */
 	private $_nbMessageNoRead;
+	
+	/* Configuration générale */
+	private $_mapSize;					// [NE PAS METTRE A : 0][DEFAUT : 100] Taille de la carte
+	private $_globalSpeedMult;			// [NE PAS METTRE A : 0][DEFAUT : 1] Multiplicateur de la vitesse globale du jeu (temps de construction, vitesse des flottes .etc)
 	
 	/**
 	 * Constructeur de la classe.
 	 */
-	public function __construct() {
+	public function __construct( $viewBuildings, $viewTechnologies ) {
 		$userData = User::getUserData( (int)$_SESSION['SpaceEngineConnected'] );
 		$planetData = Planet::getPlanetData( (int)$_SESSION['ApocalySpaceCurrentPlanet'] );		
 		$User = new User( (array)$userData );
 		$Planet = new Planet( (array)$planetData );
-		
 		$this->_user = $User;
 		$this->_planet = $Planet;
+		
+		/* On force le premier élément à null,
+		   histoire d'avoir les indices du tableau correspondant aux id des bâtiments */
+		$this->_buildingsList[] = null;
+		if( $viewBuildings )
+			for( $i = 1 ; $i < 12 ; $i++ )
+				$this->_buildingsList[] = new Building( $i, $this->getPlanetId() );
+		
+		/* Données de la planète */
 		$this->_prodRes1Bonus = 0;	// TO DO : ajouter la gestion de la techno production
 		$this->_prodRes2Bonus = 0;
 		$this->_prodRes3Bonus = 0;
-		$this->_totalProdRes1 = $this->getProdRes1() + $this->getProdRes1Bonus();
-		$this->_totalProdRes2 = $this->getProdRes2() + $this->getProdRes2Bonus();
-		$this->_totalProdRes3 = $this->getProdRes3() + $this->getProdRes3Bonus();
-		$this->_totalProdResPR = $this->getProdPr();
+		$this->_totalProdRes1 = (int)$this->getProdRes1() + (int)$this->getProdRes1Bonus();
+		$this->_totalProdRes2 = (int)$this->getProdRes2() + (int)$this->getProdRes2Bonus();
+		$this->_totalProdRes3 = (int)$this->getProdRes3() + (int)$this->getProdRes3Bonus();
+		$this->_totalProdResPR = (int)$this->getProdPr();
 		
+		/* Données sur l'utilisateur */
 		$this->_nbMessageNoRead = Message::countUserMessage( (int)$_SESSION['SpaceEngineConnected'] );
+		
+		/* Configuration générale */
+		$this->_mapSize = 100;
+		$this->_globalSpeedMult = 1;
 	}
 	
 	public function calculProdRes( $normal, $bonus ) {
@@ -82,6 +102,9 @@ class Data {
 	}
 	
 	/* Getters Planet */
+	public function getPlanetId() {
+		return $this->_planet->getPlanetId();
+	}
 	public function getPlanetName() {
 		return $this->_planet->getPlanetName();
 	}

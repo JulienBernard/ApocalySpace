@@ -183,6 +183,9 @@ class Planet
 		return $row['pl_id'];
 	}
 	
+	public function getPlanetId() {
+		return $this->_planetId;
+	}
 	public function getPlanetName() {
 		return $this->_planetName;
 	}
