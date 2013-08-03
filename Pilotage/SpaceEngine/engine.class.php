@@ -31,15 +31,15 @@ class Engine implements IEngine {
 	public function startEngine( $Engine, $Template, $timeStart = null ) {
 		$namePage = $this->_namePage;
 		
-		/* Chargement des données du compte */
-		include_once(PATH_MODELS."myPDO.class.php");
-		include_once(PATH_MODELS."user.class.php");
-		include_once(PATH_MODELS."planet.class.php");
-		include_once(PATH_MODELS."data.class.php");
-
-		$Data = new Data();
-		
 		if( Engine::isConnected() ) {
+			/* Chargement des données du compte */
+			include_once(PATH_MODELS."myPDO.class.php");
+			include_once(PATH_MODELS."user.class.php");
+			include_once(PATH_MODELS."planet.class.php");
+			include_once(PATH_MODELS."data.class.php");
+
+			$Data = new Data();
+		
 			$Engine->setControllerPath('./Controllers/'.strtolower($namePage).'.connect.php');
 			$Engine->setViewPath('./Views/'.strtolower($namePage).'.connect.php');
 			$Template->startTemplate('./template/header.connect.php', $Template, $Engine, $Data);

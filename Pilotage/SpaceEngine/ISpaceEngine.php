@@ -29,5 +29,5 @@ interface ITemplate {
 	public function getCss();
 	public function addScript( $path );
 	public function getScript();
-	public function startTemplate( $path, $template, $engine, $data, $timeStart = null);
+	public function startTemplate( $path, $template, $engine, $data = null, $timeStart = null);
 }
