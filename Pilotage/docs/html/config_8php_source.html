@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ApocalySpace
-   &#160;<span id="projectnumber">1.4</span>
+   &#160;<span id="projectnumber">1.5</span>
    </div>
   </td>
  </tr>
@@ -94,35 +94,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    session_start();</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    $timeStart = microtime(<span class="keyword">true</span>);   <span class="comment">// Temps d&#39;exécution de la page, voir la fonction foot() (functions.php).</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="comment">/* Configuration de la base de données */</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    define(<span class="stringliteral">&quot;SQL_DSN&quot;</span>, <span class="stringliteral">&quot;mysql:host=localhost;dbname=apocalyspace&quot;</span>);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    define(<span class="stringliteral">&quot;SQL_USER&quot;</span>, <span class="stringliteral">&quot;root&quot;</span>);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    define(<span class="stringliteral">&quot;SQL_PASS&quot;</span>, <span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    define(<span class="stringliteral">&quot;SQL_ENCODE&quot;</span>, <span class="stringliteral">&quot;utf8&quot;</span>);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">/* Chemin d&#39;accès du site */</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    define(<span class="stringliteral">&quot;BASE_SITE&quot;</span>, <span class="stringliteral">&quot;http://localhost:8000/Julien/ApocalySpace/ApocalySpace/Pilotage/&quot;</span>);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    define(<span class="stringliteral">&#39;BASE_PATH&#39;</span>, <span class="stringliteral">&#39;/Julien/ApocalySpace/ApocalySpace/Pilotage/&#39;</span>);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">/* Informations par défaut */</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    define(<span class="stringliteral">&quot;DEFAULT_DESCRIPTION&quot;</span>, <span class="stringliteral">&quot;ApocalySpace est un jeu en ligne jouable gratuitement et directement sur votre navigateur web mêlant stratégie et gestion dans l&#39;espace.&quot;</span>);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    define(<span class="stringliteral">&quot;DEFAULT_TITLE&quot;</span>, <span class="stringliteral">&quot;ApocalySpace - &quot;</span>);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">/* Chemin d&#39;accès MVC */</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    define(<span class="stringliteral">&quot;PATH_MODELS&quot;</span>, <span class="stringliteral">&quot;./Models/&quot;</span>);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    define(<span class="stringliteral">&quot;PATH_CONTROLLERS&quot;</span>, <span class="stringliteral">&quot;./Controllers/&quot;</span>);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    define(<span class="stringliteral">&quot;PATH_VIEWS&quot;</span>, <span class="stringliteral">&quot;./Views/&quot;</span>);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    include_once(<span class="stringliteral">&quot;./SpaceEngine/ISpaceEngine.php&quot;</span>);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    include_once(<span class="stringliteral">&quot;./SpaceEngine/engine.class.php&quot;</span>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    include_once(<span class="stringliteral">&quot;./SpaceEngine/template.class.php&quot;</span>);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">/* Configuration de la base de données */</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    define(<span class="stringliteral">&quot;SQL_DSN&quot;</span>, <span class="stringliteral">&quot;mysql:host=localhost;dbname=apocalyspace&quot;</span>);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    define(<span class="stringliteral">&quot;SQL_USER&quot;</span>, <span class="stringliteral">&quot;root&quot;</span>);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    define(<span class="stringliteral">&quot;SQL_PASS&quot;</span>, <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    define(<span class="stringliteral">&quot;SQL_ENCODE&quot;</span>, <span class="stringliteral">&quot;utf8&quot;</span>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">/* Chemin d&#39;accès du site */</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    define(<span class="stringliteral">&quot;BASE_SITE&quot;</span>, <span class="stringliteral">&quot;http://localhost:8000/Julien/ApocalySpace/ApocalySpace/Pilotage/&quot;</span>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    define(<span class="stringliteral">&#39;BASE_PATH&#39;</span>, <span class="stringliteral">&#39;/Julien/ApocalySpace/ApocalySpace/Pilotage/&#39;</span>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">/* Informations par défaut */</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    define(<span class="stringliteral">&quot;DEFAULT_DESCRIPTION&quot;</span>, <span class="stringliteral">&quot;ApocalySpace est un jeu en ligne jouable gratuitement et directement sur votre navigateur web mêlant stratégie et gestion dans l&#39;espace.&quot;</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    define(<span class="stringliteral">&quot;DEFAULT_TITLE&quot;</span>, <span class="stringliteral">&quot;ApocalySpace - &quot;</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">/* Chemin d&#39;accès MVC */</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    define(<span class="stringliteral">&quot;PATH_MODELS&quot;</span>, <span class="stringliteral">&quot;./Models/&quot;</span>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    define(<span class="stringliteral">&quot;PATH_CONTROLLERS&quot;</span>, <span class="stringliteral">&quot;./Controllers/&quot;</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    define(<span class="stringliteral">&quot;PATH_VIEWS&quot;</span>, <span class="stringliteral">&quot;./Views/&quot;</span>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    include_once(<span class="stringliteral">&quot;./SpaceEngine/ISpaceEngine.php&quot;</span>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    include_once(<span class="stringliteral">&quot;./SpaceEngine/engine.class.php&quot;</span>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    include_once(<span class="stringliteral">&quot;./SpaceEngine/template.class.php&quot;</span>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    </div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi Juillet 1 2013 00:36:20 pour ApocalySpace par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Samedi Août 3 2013 21:41:14 pour ApocalySpace par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>
