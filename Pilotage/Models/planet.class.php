@@ -113,8 +113,7 @@ class Planet
 	public static function initializePlanet( $planetId )
 	{
 		global $commandCenterId, $titaneMineId, $berylMineId, $hydrogeneExtractorId, $habitationId,
-				$titaneStorageId, $berylStorageId, $hydrogeneStorageId, $atelierId, $usineId, $researchCenterId,
-				$planetaryCongressId;
+				$titaneStorageId, $berylStorageId, $hydrogeneStorageId, $atelierId, $usineId, $researchCenterId;
 
 		$pdo = MyPDO::get();
 		
@@ -131,8 +130,7 @@ class Planet
 		(:stock1BID, :planetId, 0, 0, 1), -- Entrepôts
 		(:stock2BID, :planetId, 0, 0, 1),
 		(:stock3BID, :planetId, 0, 0, 1),
-		(:rechercheBID, :planetId, 0, 0, 0), -- Centre de recherche
-		(:congresBID, :planetId, 0, 0, 0); -- Congrès
+		(:rechercheBID, :planetId, 0, 0, 0); -- Centre de recherche
 		';
 		$queryData = array(
 		':planetId' => $planetId,
@@ -146,8 +144,7 @@ class Planet
 		':stock1BID' => $titaneStorageId,
 		':stock2BID' => $berylStorageId,
 		':stock3BID' => $hydrogeneStorageId,
-		':rechercheBID' => $researchCenterId,
-		':congresBID' => $planetaryCongressId,
+		':rechercheBID' => $researchCenterId
 		);
 		
 		$query = $pdo->prepare($queryString);

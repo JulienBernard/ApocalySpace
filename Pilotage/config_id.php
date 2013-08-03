@@ -12,8 +12,7 @@
 	//if( !defined("FACTION_WANDERERS") ) define("FACTION_WANDERERS", 3);
 
 	global $commandCenterId, $titaneMineId, $berylMineId, $hydrogeneExtractorId, $habitationId,
-		$titaneStorageId, $berylStorageId, $hydrogeneStorageId, $atelierId, $usineId, $researchCenterId,
-		$planetaryCongressId;
+		$titaneStorageId, $berylStorageId, $hydrogeneStorageId, $atelierId, $usineId, $researchCenterId;
 		
 	$commandCenterId = 1;
 	$habitationId = 2;
@@ -26,7 +25,6 @@
 	$berylStorageId = 9;
 	$hydrogeneStorageId = 10;
 	$researchCenterId = 11;
-	$planetaryCongressId = 12;
 	
 	global $medicalResearchId, $weaponResearchId, $shieldResearchId, $shellReinforcmentResearchId,
 	$energyResearchId, $fleetControlResearchId, $propulsionResearchId, $constructionEngineeringResearchId,

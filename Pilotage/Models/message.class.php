@@ -40,4 +40,19 @@ class Message
 			return 1;
 	}
 	
+	/** Retourne le nombre de message non-lu par le joueur
+	 *@param int $id	: id du joueur
+	 */
+	public static function countUserMessage( $id )
+	{
+		$sql = MyPDO::get();
+
+		$rq = $sql->prepare('SELECT com_recipientId FROM communications WHERE com_recipientId=:idUser AND com_view=:status');
+		$data = array(':idUser' => $id, ':status' => 0);
+		$rq->execute($data);
+
+		// On retourne le nombre de message non-lu compté
+		return $rq->rowCount();
+	}
+	
 }

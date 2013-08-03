@@ -78,7 +78,6 @@
 		}
 		
 		var_dump($Data);
-
 	?>
 	
 	<script type="text/javascript">
@@ -102,8 +101,8 @@
 		<a href="index.connect.php"><div id="header_infobar_logo"></div></a>
 		
 		<nav id="nav-board">
-			<a href="#"><img id="img-account" /></a>
-			<a href="#" class="img-message-new"><img id="img-message" /></a>
+			<a href="compte.connect.php"><img id="img-account" /></a>
+			<a href="communication.connect.php" <?php if( $Data->getNbMessageNoRead() != 0 ) echo 'class="img-message-new"'; else echo 'class="img-message"'; ?>><img id="img-message" /></a>
 			<a href="deconnexion.connect.php"><img id="img-exit" /></a>
 		</nav>
 		

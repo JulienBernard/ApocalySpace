@@ -7,6 +7,7 @@
 class Data {
 	private $_user;
 	private $_planet;
+	
 	private $_prodRes1Bonus;
 	private $_prodRes2Bonus;
 	private $_prodRes3Bonus;
@@ -14,6 +15,8 @@ class Data {
 	private $_totalProdRes2;
 	private $_totalProdRes3;
 	private $_totalProdResPR;
+	
+	private $_nbMessageNoRead;
 	
 	/**
 	 * Constructeur de la classe.
@@ -26,13 +29,15 @@ class Data {
 		
 		$this->_user = $User;
 		$this->_planet = $Planet;
-		$this->_prodRes1Bonus = 0;	// TO DO : ajouter la gestion de la techn production
+		$this->_prodRes1Bonus = 0;	// TO DO : ajouter la gestion de la techno production
 		$this->_prodRes2Bonus = 0;
 		$this->_prodRes3Bonus = 0;
 		$this->_totalProdRes1 = $this->getProdRes1() + $this->getProdRes1Bonus();
 		$this->_totalProdRes2 = $this->getProdRes2() + $this->getProdRes2Bonus();
 		$this->_totalProdRes3 = $this->getProdRes3() + $this->getProdRes3Bonus();
 		$this->_totalProdResPR = $this->getProdPr();
+		
+		$this->_nbMessageNoRead = Message::countUserMessage( (int)$_SESSION['SpaceEngineConnected'] );
 	}
 	
 	public function calculProdRes( $normal, $bonus ) {
@@ -60,6 +65,9 @@ class Data {
 	}
 	public function getTotalProdResPR() {
 		return $this->_totalProdResPR;
+	}
+	public function getNbMessageNoRead() {
+		return $this->_nbMessageNoRead;
 	}
 	
 	/* Getters User */

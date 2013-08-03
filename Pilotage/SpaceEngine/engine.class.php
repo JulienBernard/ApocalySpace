@@ -36,6 +36,7 @@ class Engine implements IEngine {
 			include_once(PATH_MODELS."myPDO.class.php");
 			include_once(PATH_MODELS."user.class.php");
 			include_once(PATH_MODELS."planet.class.php");
+			include_once(PATH_MODELS."message.class.php");
 			include_once(PATH_MODELS."data.class.php");
 
 			$Data = new Data();
