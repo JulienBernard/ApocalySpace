@@ -41,17 +41,21 @@ class Planet
 		$this->_primaryPlanet = (int)$dataPlanet['pl_primary'];
 		
 		/* Ressources */
+		
+		// TODO : ajouter dans la fct checkRessource les bonus (techno prod)
+		
 		$benefitRes1 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes1() );
 		$benefitRes2 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes2() );
 		$benefitRes3 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes3() );
 		$benefitResPR = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdResPR() );
+		
 		/* Ressources réelles */
 		$this->_planetResource1 = (int)$dataPlanet['pl_res1'] + $benefitRes1;
 		$this->_planetResource2 = (int)$dataPlanet['pl_res2'] + $benefitRes2;
 		$this->_planetResource3 = (int)$dataPlanet['pl_res3'] + $benefitRes3;
 		$this->_planetPR = (int)$dataPlanet['pl_pr'] + $benefitResPR;
 		/* Modification dans la base de données, si il y a modification ! */
-		if( $benefitRes1 > 1 OR $benefitRes2 > 1 OR $benefitRes3 > 1 OR $benefitResPR > 1 )
+		if( $benefitRes1 >= 1 OR $benefitRes2 >= 1 OR $benefitRes3 >= 1 OR $benefitResPR >= 1 )
 			$this->updateRessource( $this->_planetId, $this->_planetResource1, $this->_planetResource2, $this->_planetResource3, $this->_planetPR );
 	}
 	
@@ -202,8 +206,8 @@ class Planet
 	 */
 	public function checkRessource( $dbTime, $productionPerHour )
 	{
-		$productionPerSecond = round($productionPerHour / 3600, 4);
-		$differentTime = round(time() - $dbTime, 4);
+		$productionPerSecond = round($productionPerHour / 3600, 6);
+		$differentTime = round(time() - $dbTime, 6);
 		$benefit = $differentTime * $productionPerSecond;
 		
 		if( $benefit > 1 )
