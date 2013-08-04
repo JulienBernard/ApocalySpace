@@ -1,4 +1,5 @@
 <?php
+		
 	$active = true;
 
 	if( isset($_POST['subscribe']) )

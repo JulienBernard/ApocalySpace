@@ -31,4 +31,7 @@
 	
 	/* Lancement du moteur [ne pas modifier] */
 	$Engine->startEngine( $Engine, $Template, $timeStart );
+	
+	if( !Engine::isConnected() )
+		header('Location: ./index.php');
 ?>

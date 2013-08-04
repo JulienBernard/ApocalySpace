@@ -27,4 +27,7 @@
 	
 	/* Lancement du moteur [ne pas modifier] */
 	$Engine->startEngine( $Engine, $Template );
+	
+	if( !Engine::isConnected() )
+		header('Location: ./support.php');
 ?>

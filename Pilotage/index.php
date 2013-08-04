@@ -27,4 +27,8 @@
 	
 	/* Lancement du moteur [ne pas modifier] */
 	$Engine->startEngine( $Engine, $Template );
+
+	/* Sécurité de connexion */
+	if( Engine::isConnected() )
+		header('Location: ./index.connect.php');
 ?>
