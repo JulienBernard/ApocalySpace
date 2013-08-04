@@ -77,7 +77,7 @@
 			';
 		}
 		
-		var_dump($Data);
+		//var_dump($Data);
 	?>
 	
 	<script type="text/javascript">

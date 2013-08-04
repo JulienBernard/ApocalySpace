@@ -36,9 +36,7 @@ class Data {
 		$this->_user = $User;
 		$this->_planet = $Planet;
 		
-		/* On force le premier élément à null,
-		   histoire d'avoir les indices du tableau correspondant aux id des bâtiments */
-		$this->_buildingsList[] = null;
+		/* Insère les données des bâtiments dans le dictionnaire $_buildingsList */
 		if( $viewBuildings )
 			for( $i = 1 ; $i < 12 ; $i++ )
 				$this->_buildingsList[] = new Building( $i, $this->getPlanetId() );
@@ -89,6 +87,12 @@ class Data {
 	public function getNbMessageNoRead() {
 		return $this->_nbMessageNoRead;
 	}
+	public function getBuildingsList( $type = null ) {
+		if( $type != null )
+			return $this->sortBuildingListByType( $this->_buildingsList, $type );
+		else
+			return $this->_buildingsList;
+		}
 	
 	/* Getters User */
 	public function getId() {
@@ -143,5 +147,16 @@ class Data {
 	}
 	public function getProdPr() {
 		return $this->_planet->getProdResPr();
+	}
+	
+	public function sortBuildingListByType( $array, $type )
+	{
+		$newArray = array();
+		for( $i = 0 ; $i < count($array) ; $i++ )
+		{
+			if( $array[$i]->getType() == $type)
+				$newArray[] = $array[$i];
+		}
+		return $newArray;
 	}
 }

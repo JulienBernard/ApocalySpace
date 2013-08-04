@@ -24,85 +24,55 @@
 				</div>
 				
 				<ul>
-					<li>
-						<span class="float-left"><img src="./img/bat/aucun.png" alt="[IMAGE]" /></span>300 m²
-						<form action="index.connect.php" method="POST">
-							<div class="small-6 columns">
-								<input type="text" class="center" placeholder="13 / 30">
-								<input type="submit" value="Changer" class="button prefix"/>
-							</div>
-						</form>
-						<span class="smaller">
-							<span class="bold">Mine de Titane</span><br />
-							Matière première de votre planète, le titane doit être maintenu à un taux de rendement assez elevé.
-						</span>
-					</li>
-					<li>
-						<span class="float-left"><img src="./img/bat/aucun.png" alt="[IMAGE]" /></span>200 m²
-						<form action="index.connect.php" method="POST">
-							<div class="small-6 columns">
-								<input type="text" class="center" placeholder="10 / 20">
-								<input type="submit" value="Changer" class="button prefix"/>
-							</div>
-						</form>
-						<span class="smaller">
-							<span class="bold">Mine de Béryl</span><br />
-							Le béryl est un matériau proche du cristal utilisé fréquemment dans les technologies de pointes.
-						</span>
-					</li>
-					<li>
-						<span class="float-left"><img src="./img/bat/aucun.png" alt="[IMAGE]" /></span>100 m²
-						<form action="index.connect.php" method="POST">
-							<div class="small-6 columns">
-								<input type="text" class="center" placeholder="7 / 10">
-								<input type="submit" value="Changer" class="button prefix"/>
-							</div>
-						</form>
-						<span class="smaller">
-							<span class="bold">Extracteur d'Hydrogène</span><br />
-							Carburant écologique mais difficile à extraire, l'hydrogène doit être condensé avant son utilisation.
-						</span>
-					</li>
+					<?php
+					$buildings = $Data->getBuildingsList( 2 );
+					for( $j = 0 ; $j < count($buildings) ; $j++ )
+					{
+						$canChange = false;
+						if( (int)$buildings[$j]->getSuperficie() != 0 )
+							$canChange = true;
+					?>
+						<li>
+							<span class="float-left"><img src="./img/bat/<?php echo (String)$buildings[$j]->getPicture(); ?>" alt="[IMAGE]" /></span><?php echo (int)$buildings[$j]->getSuperficie(); ?> m²<br />
+							<form action="index.connect.php" method="POST">
+								<div class="small-6 columns">
+									<input type="text" class="center" placeholder="<?php echo (int)$buildings[$j]->getPopulation(); ?> / <?php echo (int)$buildings[$j]->getMaxPopulation(); ?>">
+									<input type="submit" <?php if( !$canChange ) echo 'disabled="disabled"'; ?> value="Changer" class="button prefix"/>
+								</div>
+							</form>
+							<span class="smaller">
+								<span class="bold"><?php echo (String)$buildings[$j]->getName(); ?></span><br />
+								<?php echo (String)$buildings[$j]->getDescription(); ?>
+							</span>
+						</li>
+					<?php
+					}
+					?>
 				</ul>
 				<ul>
-					<li>
-						<span class="float-left"><img src="./img/bat/aucun.png" alt="[IMAGE]" /></span>200 m²
-						<form action="index.connect.php" method="POST">
-							<div class="small-6 columns">
-								<input type="text" class="center" placeholder="12 / 20">
-								<input type="submit" value="Changer" class="button prefix"/>
-							</div>
-						</form>
-						<span class="smaller">
-							<span class="bold">Usine d'Assemblage</span><br />
-							Plus vous aurez d'ouvriers travaillant à l'usine, plus la vitesse de construction de vos vaisseaux sera élevée.
-						</span>
-					</li>
-					<li>
-						<span class="float-left"><img src="./img/bat/aucun.png" alt="[IMAGE]" /></span>100 m²
-						<form action="index.connect.php" method="POST">
-							<div class="small-6 columns">
-								<input type="text" class="center" placeholder="10 / 10">
-								<input type="submit" value="Changer" class="button prefix"/>
-							</div>
-						</form>
-						<span class="smaller">
-							<span class="bold">Atelier de Production</span><br />
-							Vos pièces et modules sortiraient plus vite de l'atelier si davantage d'ouvriers y était affilié.
-						</span>
-					</li>
-					<li>
-						<span class="float-left"><img src="./img/bat/aucun.png" alt="[IMAGE]" /></span>100 m²
-						<form action="index.connect.php" method="POST">
-							<div class="small-6 columns">
-								<input type="text" class="center" placeholder="2 / 10">
-								<input type="submit" value="Changer" class="button prefix"/>
-							</div>
-						</form>
-						<span class="smaller">
-							<span class="bold">Centre de Recherche</span><br />
-							Vous produirez plus de Point Recherche (PR) si le nombre de chercheurs est elevé.
-						</span>
-					</li>
+					<?php
+					$buildings = $Data->getBuildingsList( 4 );
+					for( $j = 0 ; $j < count($buildings) ; $j++ )
+					{
+						$canChange = false;
+						if( (int)$buildings[$j]->getSuperficie() != 0 )
+							$canChange = true;
+					?>
+						<li>
+							<span class="float-left"><img src="./img/bat/<?php echo (String)$buildings[$j]->getPicture(); ?>" alt="[IMAGE]" /></span><?php echo (int)$buildings[$j]->getSuperficie(); ?> m²<br />
+							<form action="index.connect.php" method="POST">
+								<div class="small-6 columns">
+									<input type="text" class="center" placeholder="<?php echo (int)$buildings[$j]->getPopulation(); ?> / <?php echo (int)$buildings[$j]->getMaxPopulation(); ?>">
+									<input type="submit" <?php if( !$canChange ) echo 'disabled="disabled"'; ?> value="Changer" class="button prefix"/>
+								</div>
+							</form>
+							<span class="smaller">
+								<span class="bold"><?php echo (String)$buildings[$j]->getName(); ?></span><br />
+								<?php echo (String)$buildings[$j]->getDescription(); ?>
+							</span>
+						</li>
+					<?php
+					}
+					?>
 				</ul>
 			</article>
