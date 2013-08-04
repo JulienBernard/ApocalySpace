@@ -31,9 +31,6 @@ class Planet
 		$this->_planetUserId = (int)$dataPlanet['pl_userId'];
 		$this->_planetPosX = (int)$dataPlanet['pl_posX'];
 		$this->_planetPosY = (int)$dataPlanet['pl_posY'];
-		$this->_planetResource1 = (int)$dataPlanet['pl_res1'];
-		$this->_planetResource2 = (int)$dataPlanet['pl_res2'];
-		$this->_planetResource3 = (int)$dataPlanet['pl_res2'];
 		$this->_planetPR = (int)$dataPlanet['pl_pr'];
 		$this->_planetProduction1 = (int)$dataPlanet['pl_prod_res1'];
 		$this->_planetProduction2 = (int)$dataPlanet['pl_prod_res2'];
@@ -42,6 +39,20 @@ class Planet
 		$this->_planetProductionTime = (int)$dataPlanet['pl_prod_time'];
 		$this->_planetNatality = (int)$dataPlanet['pl_natality'];
 		$this->_primaryPlanet = (int)$dataPlanet['pl_primary'];
+		
+		/* Ressources */
+		$benefitRes1 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes1() );
+		$benefitRes2 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes2() );
+		$benefitRes3 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes3() );
+		$benefitResPR = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdResPR() );
+		/* Ressources réelles */
+		$this->_planetResource1 = (int)$dataPlanet['pl_res1'] + $benefitRes1;
+		$this->_planetResource2 = (int)$dataPlanet['pl_res2'] + $benefitRes2;
+		$this->_planetResource3 = (int)$dataPlanet['pl_res3'] + $benefitRes3;
+		$this->_planetPR = (int)$dataPlanet['pl_pr'] + $benefitResPR;
+		/* Modification dans la base de données, si il y a modification ! */
+		if( $benefitRes1 > 1 OR $benefitRes2 > 1 OR $benefitRes3 > 1 OR $benefitResPR > 1 )
+			$this->updateRessource( $this->_planetId, $this->_planetResource1, $this->_planetResource2, $this->_planetResource3, $this->_planetPR );
 	}
 	
 	/**
@@ -183,6 +194,39 @@ class Planet
 		return $row['pl_id'];
 	}
 	
+	/**
+	 * Vérifie si un changement de ressource a eu lieu (par seconde !).
+	 * @param int dbTime
+	 * @param int productionPerHour
+	 * @return int benefit				:	retourne le gain en ressource à rajouter
+	 */
+	public function checkRessource( $dbTime, $productionPerHour )
+	{
+		$productionPerSecond = round($productionPerHour / 3600, 4);
+		$differentTime = round(time() - $dbTime, 4);
+		$benefit = $differentTime * $productionPerSecond;
+		
+		if( $benefit > 1 )
+			return round($benefit);
+		else
+			return 0;
+	}
+	
+	/**
+	 * Modifie dans la base de données les ressources et le timer de la planète
+	 * @param int planetId
+	 * @param int newRes1, newRes2, newRes3, newResPR
+	 */
+	public function updateRessource( $planetId, $newRes1, $newRes2, $newRes3, $newResPR )
+	{
+		$newTime = time();
+		$sql = MyPDO::get();
+
+		$rq = $sql->prepare('UPDATE planets SET pl_prod_time=:newTime, pl_res1=:newRes1, pl_res2=:newRes2, pl_res3=:newRes3, pl_pr=:newResPR WHERE pl_id=:idPlanet');
+        $data = array(':idPlanet' => (int)$planetId, ':newTime' => (int)$newTime, ':newRes1' => (int)$newRes1, ':newRes2' => (int)$newRes2, ':newRes3' => (int)$newRes3, ':newResPR' => (int)$newResPR );
+		$rq->execute($data);
+	}
+	
 	public function getPlanetId() {
 		return $this->_planetId;
 	}
@@ -224,5 +268,8 @@ class Planet
 	}
 	public function getProdResPR() {
 		return $this->_planetProductionPR;
+	}
+	public function getProductionTime() {
+		return $this->_planetProductionTime;
 	}
 }

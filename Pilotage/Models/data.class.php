@@ -124,6 +124,7 @@ class Data {
 	public function getNatality() {
 		return $this->_planet->getNatality();
 	}
+	/* Calcul si il y a eu une modification de la ressources (timer actuel - timer dans bdd) */
 	public function getRes1() {
 		return $this->_planet->getRes1();
 	}
@@ -149,6 +150,11 @@ class Data {
 		return $this->_planet->getProdResPr();
 	}
 	
+	/** Tri une liste de bâtiment par type.
+	 * @param array $array	:	liste de tous les bâtiments 
+	 * @param int $type		:	id du type de bâtiment à trier
+	 * @return arrayt		:	Retourne la liste de bâtiment triée
+	 */
 	public function sortBuildingListByType( $array, $type )
 	{
 		$newArray = array();
