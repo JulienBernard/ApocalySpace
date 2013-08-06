@@ -60,7 +60,7 @@ class Building
 	 * @param int planetId
 	 * @return array or throw an exception!
 	 */
-	private static function getBuildingData( $buildingId, $planetId ) {
+	private function getBuildingData( $buildingId, $planetId ) {
 		$sql = MyPDO::get();
 		
 		$rq = $sql->prepare('SELECT * FROM buildings JOIN BtoP ON buildingId=bl_id WHERE bl_id=:buildingId AND planetId=:planetId');
@@ -70,6 +70,24 @@ class Building
 		if( $rq->rowCount() == 0 ) throw new Exception('Une importante erreur est survenue : Impossible de récupérer les données de cette structure !');
 		$row = $rq->fetch();
 		return $row;
+	}
+	
+	/**
+	 * Recupère le niveau d'un bâtiment depuis la base de données.
+	 * @param int buildingId
+	 * @param int planetId
+	 * @return int or throw an exception!
+	 */
+	public static function getBuildingLevel( $buildingId, $planetId ) {
+		$sql = MyPDO::get();
+		
+		$rq = $sql->prepare('SELECT buildingLevel FROM BtoP WHERE buildingId=:buildingId AND planetId=:planetId');
+		$data = array(':buildingId' => (int)$buildingId, ':planetId' => (int)$planetId);
+		$rq->execute($data);
+
+		if( $rq->rowCount() == 0 ) throw new Exception('Une importante erreur est survenue : Impossible de récupérer le niveau de cette structure !');
+		$row = $rq->fetch();
+		return $row["buildingLevel"];
 	}
 	
 	public function timeToString( $seconds )

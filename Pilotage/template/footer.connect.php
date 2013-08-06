@@ -1,3 +1,8 @@
+			<?php
+				/* Fichier des id des bâtiments */
+				include("./config_id.php");
+			?>
+
 			<!--
 				Bloc droit du site.
 				Right block of website.
@@ -35,6 +40,12 @@
 								<td class="center"><?php echo $Data->getRes2(); ?></td>
 								<td class="center"><?php echo $Data->getRes3(); ?></td>
 								<td class="center"><?php echo $Data->getPR(); ?></td>
+							</tr>
+							<tr class="smaller">
+								<td class="center">&nbsp;/ <?php echo pow(2, Building::getBuildingLevel($titaneStorageId, $Data->getPlanetId()))*$titaneStorageSizePerLevel; ?></td>
+								<td class="center">&nbsp;/ <?php echo pow(2, Building::getBuildingLevel($berylStorageId, $Data->getPlanetId()))*$berylStorageSizePerLevel; ?></td>
+								<td class="center">&nbsp;/ <?php echo pow(2, Building::getBuildingLevel($hydrogeneStorageId, $Data->getPlanetId()))*$hydrogeneStorageSizePerLevel; ?></td>
+								<td class="center">-</td>
 							</tr>
 						</tbody>
 						

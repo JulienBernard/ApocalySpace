@@ -49,11 +49,21 @@ class Planet
 		$benefitRes3 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes3() );
 		$benefitResPR = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdResPR() );
 		
+		/* Fichier des id des bâtiments */
+		include_once("./config_id.php");
+
 		/* Ressources réelles */
 		$this->_planetResource1 = (int)$dataPlanet['pl_res1'] + $benefitRes1;
 		$this->_planetResource2 = (int)$dataPlanet['pl_res2'] + $benefitRes2;
 		$this->_planetResource3 = (int)$dataPlanet['pl_res3'] + $benefitRes3;
 		$this->_planetPR = (int)$dataPlanet['pl_pr'] + $benefitResPR;
+		
+		if( $this->_planetResource1 > pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$titaneStorageSizePerLevel )
+			$this->_planetResource1 = pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$titaneStorageSizePerLevel;
+		if( $this->_planetResource2 > pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$berylStorageSizePerLevel )
+			$this->_planetResource2 = pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$berylStorageSizePerLevel;
+		if( $this->_planetResource3 > pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$hydrogeneStorageSizePerLevel )
+			$this->_planetResource3 = pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$hydrogeneStorageSizePerLevel;
 		/* Modification dans la base de données, si il y a modification ! */
 		if( $benefitRes1 >= 1 OR $benefitRes2 >= 1 OR $benefitRes3 >= 1 OR $benefitResPR >= 1 )
 			$this->updateRessource( $this->_planetId, $this->_planetResource1, $this->_planetResource2, $this->_planetResource3, $this->_planetPR );

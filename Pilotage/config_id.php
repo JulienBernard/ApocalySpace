@@ -2,7 +2,7 @@
 
 	/***
 	 * 
-	 * Configuration des id des différents bâtiments, modules et tecnologies du jeu.
+	 * Configuration des id des différents bâtiments, modules et technologies du jeu.
 	 * @author Julien Bernard
 	 * 
 	 */
@@ -25,6 +25,11 @@
 	$berylStorageId = 9;
 	$hydrogeneStorageId = 10;
 	$researchCenterId = 11;
+	
+	$titaneStorageSizePerLevel = 3000;
+	$berylStorageSizePerLevel = 2500;
+	$hydrogeneStorageSizePerLevel = 2000;
+	
 	
 	global $medicalResearchId, $weaponResearchId, $shieldResearchId, $shellReinforcmentResearchId,
 	$energyResearchId, $fleetControlResearchId, $propulsionResearchId, $constructionEngineeringResearchId,

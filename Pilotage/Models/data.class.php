@@ -17,6 +17,9 @@ class Data {
 	private $_totalProdRes2;
 	private $_totalProdRes3;
 	private $_totalProdResPR;
+	private $_stockMaxRes1;
+	private $_stockMaxRes2;
+	private $_stockMaxRes3;
 	
 	/* Données sur l'utilisateur */
 	private $_nbMessageNoRead;
