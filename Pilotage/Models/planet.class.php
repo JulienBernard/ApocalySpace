@@ -112,7 +112,7 @@ class Planet
 			':posY' => $coords[1],
 			':res1' => 900,
 			':res2' => 600,
-			':res3' => 0,
+			':res3' => 100,
 			':pr' => 0,
 			':prod_res1' => 100,
 			':prod_res2' => 60,
@@ -239,6 +239,35 @@ class Planet
 		$rq = $sql->prepare('UPDATE planets SET pl_prod_time=:newTime, pl_res1=:newRes1, pl_res2=:newRes2, pl_res3=:newRes3, pl_pr=:newResPR WHERE pl_id=:idPlanet');
         $data = array(':idPlanet' => (int)$planetId, ':newTime' => (int)$newTime, ':newRes1' => (int)$newRes1, ':newRes2' => (int)$newRes2, ':newRes3' => (int)$newRes3, ':newResPR' => (int)$newResPR );
 		$rq->execute($data);
+	}
+	
+	/**
+	 * Récupère la liste des structures en cours d'agrandisement
+	 * @param int planetId
+	 * @param int constructionType
+	 */
+	public function getPlanetBuildTime( $planetId, $constructionType = NULL )
+	{
+		$sql = MyPDO::get();
+	
+		if( !empty($constructionType) )
+		{
+			$req = $sql->prepare('SELECT * FROM ongoingBuilds WHERE gb_planetId=:planetId AND gb_buildType=:constructionType ORDER BY gb_endTime');
+			$req->execute( array(':planetId' => $planetId, ':constructionType' => $constructionType) );
+		}
+		else
+		{
+			$req = $sql->prepare('SELECT * FROM ongoingBuilds WHERE gb_planetId=:planetId ORDER BY gb_endTime');
+			$req->execute( array(':planetId' => $planetId) );
+		}
+		
+		$array = array();
+		while( $row = $req->fetch() )
+		{
+			$array[] = $row;
+		}
+
+		return $array;
 	}
 	
 	public function getPlanetId() {

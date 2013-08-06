@@ -30,7 +30,7 @@
 								<form action="<?php echo $namePage; ?>.connect.php" method="POST">
 									<div class="small-12 columns">
 										<input type="hidden" name="extendBuilding" value="<?php echo (int)$buildings[$j]->getId(); ?>" />
-										<input type="submit" <?php if( !$canBuy ) echo 'disabled="disabled"'; ?> value="Agrandir (<?php echo (String)$buildings[$j]->timeToString($buildings[$j]->getTime()); ?>)" class="button prefix" name="building" />
+										<input type="submit" <?php if( !$canBuy ) echo 'disabled="disabled"'; ?> value="Agrandir (<?php echo (String)$buildings[$j]->timeToString($buildings[$j]->getTime()); ?>)" class="button prefix" />
 									</div>
 								</form>
 							</li>

@@ -60,7 +60,7 @@ class Building
 	 * @param int planetId
 	 * @return array or throw an exception!
 	 */
-	private function getBuildingData( $buildingId, $planetId ) {
+	private static function getBuildingData( $buildingId, $planetId ) {
 		$sql = MyPDO::get();
 		
 		$rq = $sql->prepare('SELECT * FROM buildings JOIN BtoP ON buildingId=bl_id WHERE bl_id=:buildingId AND planetId=:planetId');
@@ -145,13 +145,13 @@ class Building
 		return $this->_maxPopulation;
 	}
 	public function getCost1() {
-		return $this->_cost1;
+		return (int)$this->_cost1;
 	}
 	public function getCost2() {
-		return $this->_cost2;
+		return (int)$this->_cost2;
 	}
 	public function getCost3() {
-		return $this->_cost3;
+		return (int)$this->_cost3;
 	}
 	public function getTime() {
 		return $this->_time;
