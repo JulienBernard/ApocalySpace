@@ -270,6 +270,67 @@ class Planet
 		return $array;
 	}
 	
+	/** Fonction qui ajoute à la liste des constructions en cours un bâtiment ou une tech ou un module ou un vaisseau ou une défense
+	 * @param int $planetId				: id de la planète sélectionné
+	 * @param int $userId				: id du joueur
+	 * @param int $constructionType		: 1 => bâtiment, 2 => technologie, 3 => modules, 4 => vaisseaux
+ 	 * @param int $constructionId		: id du module sélectionné
+	 * @param int $constructionTime		: temps de construction du module
+	 * @param int $constructionQuantity	: nombre de module à "acheter"
+	 */
+	public function addBuildTime( $planetId, $userId, $constructionType, $constructionId, $constructionTime, $constructionQuantity )
+	{
+		// On check si une construction n'est pas en cours de construction
+		$check = $this->getPlanetBuildTime( $planetId, $constructionType );
+	
+		$checkSize = count($check);
+		if(!empty($check))
+			$startTime = $check[$checkSize-1]['gb_endTime'];
+		else
+			$startTime = time();
+		$endTime = $startTime + $constructionTime;
+	
+		$sql = MyPDO::get();
+
+		$req = $sql->prepare('INSERT INTO ongoingBuilds VALUES(null, :type, :id, :quantity, :planetId, :userId, :startTime, :endTime)');
+		$result = $req->execute( array(
+			':type' => $constructionType,
+			':id' => $constructionId,
+			':quantity' => $constructionQuantity,
+			':planetId' => $planetId,
+			':userId' => $userId,
+			':startTime' => $startTime,
+			':endTime' => $endTime
+			));
+			
+		if( !$result )
+		{
+			$errorInfo = $req->errorInfo();
+			
+			die("<h1 style='color: white'>Oups !</h1>
+			<p  style='color: white'>
+				Une erreur est survenue pendant l'ajout du module à la liste des constructions.<br />
+				[".$errorInfo[0].' - '.$errorInfo[1].'] '.$errorInfo[2]."
+			</p>");
+		}
+		else
+			return 1;
+	}
+	
+	/** Supprime de la table "ongoingbuilds" l'entré correspondant à une construction terminée.
+	 * @param int $gbId		:	id de la construction
+	 */
+	public function delBuildTime( $gbId )
+	{
+		$sql = MyPDO::get();
+
+		$rq = $sql->prepare('DELETE FROM ongoingBuilds WHERE gb_id=:gbId');
+		$result = $rq->execute(array(':gbId' => $gbId));
+		
+		if( !$result ) throw new Exception('Une importante erreur est survenue : Impossible de supprimer le temps de construction de cette structure !');
+		return 1;
+	}
+	
 	public function getPlanetId() {
 		return $this->_planetId;
 	}

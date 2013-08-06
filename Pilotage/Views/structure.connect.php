@@ -6,6 +6,37 @@
 			<article class="large-9 columns">
 				<h1>STRUCTURES</h1>
 				
+			<?php
+			if(!empty($arrayConstruction))
+			{
+			?>
+				<div data-alert class="info-box">
+					<p class="small">
+						<?php
+						for($i = 0; $i < count($arrayConstruction); $i++)
+						{
+							?>
+							<span class="important-send">
+								L'agrandisement de la structure "<?php echo $arrayConstruction[$i]['name']; ?>" se terminera dans 
+								<?php
+								echo "<span class='ModuleProductionTime' id='countdown".$i."'>".date('d/m à H\hi', $arrayConstruction[$i]['endTime'])."</span>
+									<script type=\"text/javascript\">
+									endRedirect = 1;
+									stripGetRedirect = 1;
+									createCountdown('countdown".$i."', ".(int)($arrayConstruction[$i]['endTime'] - time() ).");
+									</script>";
+								?>
+							</span>
+							<a href="" class="right close">&times;</a>
+						<?php
+						}
+						?>
+					</p>
+				</div>
+			<?php
+			}
+		?>
+				
 				<?php
 					for( $i = 1 ; $i <= 4 ; $i++ )
 					{	?>

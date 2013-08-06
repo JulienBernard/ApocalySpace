@@ -116,6 +116,62 @@ class Building
 		return $time;
 	}
 	
+	/* Ajout d'un niveau au batiment d'une planète
+		*@param integer $buildingId		: ID batiment
+		*@param integer $planetId		: ID planète
+		Retourne false si il y a un problème, sinon true
+		*/
+	public static function addBuildingLevel( $buildingId, $planetId )
+	{
+		/* Validation des paramètres */
+		if( !is_numeric($buildingId) || !is_numeric($planetId) ||
+		$buildingId < 0 || $planetId < 0 )
+			return false;
+		
+		$pdo = MyPDO::get();
+		
+		/* Récupération du niveau de bâtiment de l'utilisateur */
+		$queryString = '
+			SELECT buildingId, buildingLevel
+			FROM BtoP
+			WHERE planetId = :planetId;
+		';
+		$queryData = array(':planetId' => (int)$planetId);
+		
+		$query = $pdo->prepare($queryString);
+		$query->execute($queryData);
+		
+		$row = $query->fetch(PDO::FETCH_ASSOC);
+		if( $row === false )
+		{
+			/* Le batiment n'existe pas dans BtoP; level = 1 */
+			$queryString = '
+				INSERT INTO BtoP
+				(buildingId, planetId, buildingLevel, buildingPopulation)
+				VALUES (:buildingId, :planetId, 1, 0);
+			';
+		} else {
+			/* Le batiment existe déja dans BtoP; level++ */
+			$queryString = '
+				UPDATE BtoP
+				SET buildingLevel = (buildingLevel + 1)
+				WHERE planetId = :planetId AND buildingId = :buildingId;
+			';
+		}
+		$queryData = array(':planetId' => (int)$planetId, ':buildingId' => (int)$buildingId);
+		
+		$query = $pdo->prepare($queryString);
+		if( $query->execute($queryData) )
+		{
+			return true;
+		}
+		else
+		{
+			var_dump($query->errorInfo());
+			return false;
+		}
+	}
+	
 	/* Getters */
 	public function getId() {
 		return $this->_id;

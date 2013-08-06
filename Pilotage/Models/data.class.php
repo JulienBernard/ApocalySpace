@@ -66,6 +66,12 @@ class Data {
 	}
 	
 	/* Getters Data */
+	public function getUser() {
+		return $this->_user;
+	}
+	public function getPlanet() {
+		return $this->_planet;
+	}
 	public function getProdRes1Bonus() {
 		return $this->_prodRes1Bonus;
 	}
@@ -127,7 +133,6 @@ class Data {
 	public function getNatality() {
 		return $this->_planet->getNatality();
 	}
-	/* Calcul si il y a eu une modification de la ressources (timer actuel - timer dans bdd) */
 	public function getRes1() {
 		return $this->_planet->getRes1();
 	}
@@ -151,6 +156,9 @@ class Data {
 	}
 	public function getProdPr() {
 		return $this->_planet->getProdResPr();
+	}
+	public function getProductionTime() {
+		return $this->_planet->getProductionTime();
 	}
 	
 	/** Tri une liste de bâtiment par type.
