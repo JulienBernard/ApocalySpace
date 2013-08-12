@@ -172,6 +172,30 @@ class Building
 		}
 	}
 	
+	/**
+	 * Modifie dans la base de données le nombre d'ouvriers d'un bâtiment.
+	 * @param int planetId
+	 * @param int buildingId
+	 * @param int newValue
+	 */
+	public function updateBuildingPopulation( $planetId, $buildingId, $newValue )
+	{
+		$newTime = time();
+		$sql = MyPDO::get();
+
+		$rq = $sql->prepare('UPDATE BtoP SET buildingPopulation=:values WHERE planetId=:planetId AND buildingId=:idBuilding');
+        $data = array(':idBuilding' => $buildingId, ':planetId' => $planetId, ':values' => $newValue);
+	
+		if( !$rq->execute($data) )
+		{
+			die("<p>Une erreur est survenue pendant la modification des données sur la population.</p>");
+		}
+		else
+		{
+			return 1;
+		}
+	}
+	
 	/* Getters */
 	public function getId() {
 		return $this->_id;

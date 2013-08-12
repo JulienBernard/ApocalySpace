@@ -23,7 +23,7 @@
 						<span class="player-planet-name"><?php echo ucwords($Data->getPlanetName()); ?> ( <?php echo ucwords($Data->getUsername()); ?> )</span><br />
 						<span class="player-planet-text">
 							Coord : x <?php echo $Data->getPosX(); ?> | y <?php echo $Data->getPosY(); ?><br />
-							Population : <?php echo $Data->getPopulation(); ?> sur 460<br />
+							Population : <?php echo $Data->getPopulation(); ?> sur <?php echo $Data->getManagePopulationMax(); ?><br />
 							Natalité : <?php echo $Data->getNatality(); ?> par jour<br />
 							<br />
 							<a href="structure.connect.php">Pas de construction en cours</a><br />

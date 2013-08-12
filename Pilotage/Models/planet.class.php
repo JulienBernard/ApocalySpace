@@ -58,6 +58,7 @@ class Planet
 		$this->_planetResource3 = (int)$dataPlanet['pl_res3'] + $benefitRes3;
 		$this->_planetPR = (int)$dataPlanet['pl_pr'] + $benefitResPR;
 		
+		include_once(PATH_MODELS."building.class.php");
 		if( $this->_planetResource1 > pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$titaneStorageSizePerLevel )
 			$this->_planetResource1 = pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$titaneStorageSizePerLevel;
 		if( $this->_planetResource2 > pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$berylStorageSizePerLevel )
@@ -239,6 +240,29 @@ class Planet
 		$rq = $sql->prepare('UPDATE planets SET pl_prod_time=:newTime, pl_res1=:newRes1, pl_res2=:newRes2, pl_res3=:newRes3, pl_pr=:newResPR WHERE pl_id=:idPlanet');
         $data = array(':idPlanet' => (int)$planetId, ':newTime' => (int)$newTime, ':newRes1' => (int)$newRes1, ':newRes2' => (int)$newRes2, ':newRes3' => (int)$newRes3, ':newResPR' => (int)$newResPR );
 		$rq->execute($data);
+	}
+	
+	/**
+	 * Modifie dans la base de données les ressources et le timer de la planète
+	 * @param int planetId
+	 * @param int newProd
+	 * @param int resId		:	ressources classées par position (1: titane, 2: béryl, 3: hydro, 4: pts rech)
+	 */
+	public function updateProduction( $planetId, $newProd, $resId )
+	{
+		$sql = MyPDO::get();
+
+		if( $resId == 1 )
+			$rq = $sql->prepare('UPDATE planets SET pl_prod_res1=:newProd WHERE pl_id=:planetId');
+		if( $resId == 2 )
+			$rq = $sql->prepare('UPDATE planets SET pl_prod_res2=:newProd WHERE pl_id=:planetId');
+		if( $resId == 3 )
+			$rq = $sql->prepare('UPDATE planets SET pl_prod_res3=:newProd WHERE pl_id=:planetId');
+		if( $resId == 4 )
+			$rq = $sql->prepare('UPDATE planets SET pl_prod_pr=:newProd WHERE pl_id=:planetId');
+		
+		$data = array(':planetId' => $planetId, ':newProd' => $newProd);
+		$result = $rq->execute( $data );
 	}
 	
 	/**

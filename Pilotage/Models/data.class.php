@@ -27,6 +27,7 @@ class Data {
 	/* Configuration générale */
 	private $_mapSize;					// [NE PAS METTRE A : 0][DEFAUT : 100] Taille de la carte
 	private $_globalSpeedMult;			// [NE PAS METTRE A : 0][DEFAUT : 1] Multiplicateur de la vitesse globale du jeu (temps de construction, vitesse des flottes .etc)
+	private $_managePopulationMax;
 	
 	/**
 	 * Constructeur de la classe.
@@ -52,13 +53,17 @@ class Data {
 		$this->_totalProdRes2 = (int)$this->getProdRes2() + (int)$this->getProdRes2Bonus();
 		$this->_totalProdRes3 = (int)$this->getProdRes3() + (int)$this->getProdRes3Bonus();
 		$this->_totalProdResPR = (int)$this->getProdPr();
-		
+
 		/* Données sur l'utilisateur */
 		$this->_nbMessageNoRead = Message::countUserMessage( (int)$_SESSION['SpaceEngineConnected'] );
+		
+		/* Fichier des id des bâtiments */
+		include("./config_id.php");
 		
 		/* Configuration générale */
 		$this->_mapSize = 100;
 		$this->_globalSpeedMult = 1;
+		$this->_managePopulationMax = (Building::getBuildingLevel($officeAreas, $this->getPlanetId()) * 40) * 1.4;
 	}
 	
 	public function calculProdRes( $normal, $bonus ) {
@@ -133,6 +138,9 @@ class Data {
 	public function getNatality() {
 		return $this->_planet->getNatality();
 	}
+	public function getManagePopulationMax() {
+		return $this->_managePopulationMax;
+	}
 	public function getRes1() {
 		return $this->_planet->getRes1();
 	}
@@ -164,7 +172,7 @@ class Data {
 	/** Tri une liste de bâtiment par type.
 	 * @param array $array	:	liste de tous les bâtiments 
 	 * @param int $type		:	id du type de bâtiment à trier
-	 * @return arrayt		:	Retourne la liste de bâtiment triée
+	 * @return array		:	Retourne la liste de bâtiment triée
 	 */
 	public function sortBuildingListByType( $array, $type )
 	{
@@ -175,5 +183,26 @@ class Data {
 				$newArray[] = $array[$i];
 		}
 		return $newArray;
+	}
+	
+	/** Récupère le nombre d'habitants déjà administrés.
+	 * @param int $buildingId	:	id du bâtiment en cours de modification (gestion population)
+	 * @return int				:	Somme de tous les habitants déjà administrés
+	 * Note						:	superNomDeLaMortQuiTue!
+	*/
+	public function getNumberOfPopulationWhoAreManagedNow( $buildingId = null )
+	{
+		$array = $this->getBuildingsList();
+		$sum = 0;
+
+		for( $i = 0 ; $i < count($array) ; $i++ )
+		{
+			$sum += $array[$i]->getPopulation();
+		}
+		
+		if( !empty($buildingId) )
+			$sum -= $array[$buildingId-1]->getPopulation();
+		
+		return $sum;
 	}
 }

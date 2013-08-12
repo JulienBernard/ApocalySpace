@@ -47,6 +47,7 @@ class Engine implements IEngine {
 			}
 			else if( $this->_namePage == "recherche" )
 			{
+				//include_once(PATH_MODELS."recherche.class.php");
 				$Data = new Data( false, true );
 			}
 			else
