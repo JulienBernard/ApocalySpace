@@ -11,11 +11,11 @@
 	//if( !defined("FACTION_COALITION") ) define("FACTION_COALITION", 2);
 	//if( !defined("FACTION_WANDERERS") ) define("FACTION_WANDERERS", 3);
 
-	global $commandCenterId, $titaneMineId, $berylMineId, $hydrogeneExtractorId, $habitationId,
+	global $capital, $titaneMineId, $berylMineId, $hydrogeneExtractorId, $officeAreas,
 		$titaneStorageId, $berylStorageId, $hydrogeneStorageId, $atelierId, $usineId, $researchCenterId;
 		
-	$commandCenterId = 1;
-	$habitationId = 2;
+	$capital = 1;
+	$officeAreas = 2;
 	$titaneMineId = 3;
 	$berylMineId = 4;
 	$hydrogeneExtractorId = 5;
