@@ -7,7 +7,8 @@
 class Data {
 	private $_user;
 	private $_planet;
-	private $_buildingsList = array();	// Liste des bâtiments
+	private $_buildingsList = array();		// Liste des bâtiments
+	private $_technologiesList = array();	// Liste des technologies
 	
 	/* Données de la planète */
 	private $_prodRes1Bonus;
@@ -31,6 +32,7 @@ class Data {
 	
 	/**
 	 * Constructeur de la classe.
+	 * Charge les donnés selon les arguments disponible (bâtiments et technologies)
 	 */
 	public function __construct( $viewBuildings, $viewTechnologies ) {
 		$userData = User::getUserData( (int)$_SESSION['SpaceEngineConnected'] );
@@ -44,6 +46,11 @@ class Data {
 		if( $viewBuildings )
 			for( $i = 1 ; $i < 12 ; $i++ )
 				$this->_buildingsList[] = new Building( $i, $this->getPlanetId() );
+				
+		/* Insère les données des technologies dans le dictionnaire $_technologiesList */
+		if( $viewTechnologies )
+			for( $i = 1 ; $i < 10 ; $i++ )
+				$this->_technologiesList[] = new Technology( $i, $this->_user->getId() );
 		
 		/* Données de la planète */
 		$this->_prodRes1Bonus = 0;	// TO DO : ajouter la gestion de la techno production
@@ -106,7 +113,10 @@ class Data {
 			return $this->sortBuildingListByType( $this->_buildingsList, $type );
 		else
 			return $this->_buildingsList;
-		}
+	}
+	public function getTechnologiesList() {
+		return $this->_technologiesList;
+	}
 	
 	/* Getters User */
 	public function getId() {
