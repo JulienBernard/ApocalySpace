@@ -42,6 +42,55 @@ class Technology
 		return $row;
 	}
 	
+	/* Ajout d'un niveau à la technologie d'un joueur
+		*@param integer $technologyId	: ID technologie
+		*@param integer $userId			: ID user
+		Retourne false si il y a un problème, sinon true
+		*/
+	public static function addTechnologyLevel( $technologyId, $userId )
+	{
+		/* Validation des paramètres */
+		if( !is_numeric($technologyId) || !is_numeric($userId) || $technologyId < 0 || $userId < 0 )
+			return false;
+		
+		$pdo = MyPDO::get();
+		
+		$queryString = 'SELECT techId, techLevel FROM TtoU WHERE userId =:userId AND techId = :techId;';
+		$queryData = array(':userId' => (int)$userId, ':techId' => (int)$technologyId);
+		$query = $pdo->prepare($queryString);
+		$query->execute($queryData);
+		
+		$row = $query->fetch(PDO::FETCH_ASSOC);
+		if( $row === false )
+		{
+			/* Le batiment n'existe pas dans BtoP; level = 1 */
+			$queryString = '
+				INSERT INTO TtoU
+				(userId, techId, techLevel)
+				VALUES (:userId, :techId, 1);
+			';
+		} else {
+			/* Le batiment existe déja dans BtoP; level++ */
+			$queryString = '
+				UPDATE TtoU
+				SET techLevel = (techLevel + 1)
+				WHERE userId = :userId AND techId = :techId;
+			';
+		}
+		$queryData = array(':userId' => (int)$userId, ':techId' => (int)$technologyId);
+		
+		$query = $pdo->prepare($queryString);
+		if( $query->execute($queryData) )
+		{
+			return true;
+		}
+		else
+		{
+			var_dump($query->errorInfo());
+			return false;
+		}
+	}
+	
 	/* Getters */
 	public function getId() {
 		return $this->_id;
@@ -70,6 +119,6 @@ class Technology
 	
 	/* Setters */
 	public function setCost( $totalLevel, $costMultiplier ) {
-		$this->_cost = 120 * $totalLevel * $costMultiplier;
+		$this->_cost = (182 * $totalLevel * $costMultiplier) + 100;
 	}
 }

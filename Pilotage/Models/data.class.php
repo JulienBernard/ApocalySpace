@@ -58,7 +58,7 @@ class Data {
 			}
 			for( $i = 1 ; $i < 10 ; $i++ )
 			{
-				$this->_technologiesList[$i-1]->setCost( $countLevel, 1.6 );
+				$this->_technologiesList[$i-1]->setCost( $countLevel, 3.2 );
 			}
 		}
 		

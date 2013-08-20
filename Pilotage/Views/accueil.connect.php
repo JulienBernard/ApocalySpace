@@ -5,6 +5,7 @@
 			-->
 			<article class="large-9 columns">
 				<h1>GESTION PLANETAIRE</h1>
+				<!--
 				<div data-alert class="info-box">
 					<p class="smaller-2">
 						<span class="important-alert">Une flotte en provenance de Prometheus entrera dans votre système planétaire dans 3h et 47min</span><br />
@@ -13,6 +14,7 @@
 						<a href="" class="right close">&times;</a>
 					</p>
 				</div>
+				-->
 				
 				<div data-alert class="success-box">
 					<p class="smaller">

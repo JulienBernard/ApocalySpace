@@ -124,8 +124,7 @@ class Building
 	public static function addBuildingLevel( $buildingId, $planetId )
 	{
 		/* Validation des paramètres */
-		if( !is_numeric($buildingId) || !is_numeric($planetId) ||
-		$buildingId < 0 || $planetId < 0 )
+		if( !is_numeric($buildingId) || !is_numeric($planetId) || $buildingId < 0 || $planetId < 0 )
 			return false;
 		
 		$pdo = MyPDO::get();

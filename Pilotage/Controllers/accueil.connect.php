@@ -16,7 +16,7 @@
 			include("./config_id.php");
 			/* Si on modifie un bâtiment de production, on modifie sa production ! */
 			if( $buildingId == $titaneMineId )
-			{
+			{	
 				$newProd = 100 + $changeValue * 16; // Production initiale + valeur selon population
 				$Data->getPlanet()->updateProduction( $Data->getPlanetId(), $newProd, 1 );
 			}
@@ -38,11 +38,13 @@
 			
 			$buildingData->updateBuildingPopulation( $Data->getPlanetId(), $buildingId, $changeValue );
 
-			$ERROR = $Engine->setSuccess("<span class=\"bold\">Modification de gestion effectuée !</span><br />La gestion de cette structure a été correctement modifié.<br />Les modifications seront visibles dès l'actualisation de la page !<br /><br /><a href=\"index.connect.php\">Ne pas attendre : actualiser la page maintenant !</a>");
+			$Engine->setSuccess("<span class=\"bold\">Modification de gestion effectuée !</span><br />La gestion de cette structure a été correctement modifié.<br />Les modifications seront visibles dès l'actualisation de la page !<br /><span class=\"smaller\"><a href=\"index.connect.php\">(Ne pas attendre la redirection)</a></span>");
+			$Engine->setInfo("Vous administrez ".$populationManageNow." habitant(s) sur ".$Data->getPopulation()." habitant(s) maximum.");
 		}
 		else
 		{
-			$ERROR = $Engine->setError("<span class=\"bold\">Mauvaise gestion détectée !</span><br />- Vous ne pouvez pas attribuer à une structure plus d'ouvriers qu'elle ne peut en accueilir<br />- Vous ne pouvez pas attribuer plus d'habitants que vous permet votre population totale");
+			$Engine->setError("<span class=\"bold\">Mauvaise gestion détectée !</span><br />- Vous ne pouvez pas attribuer à une structure plus d'ouvriers qu'elle ne peut en accueilir<br />- Vous ne pouvez pas attribuer plus d'habitants que vous permet votre population totale");
+			$Engine->setInfo("Vous tentez d'administrer ".$populationManageNow." habitant(s) contre ".$Data->getPopulation()." habitant(s) au maximum.");
 		}
 	}
 

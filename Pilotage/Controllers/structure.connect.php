@@ -45,7 +45,8 @@
 					<p class="smaller">
 						<br />
 						Vos ouvriers se mettent au travail !<br />
-							<span class="bold">L'agrandisement de la superficie de la structure "<?php echo $buildingData->getName(); ?>" prendra environ <?php echo (String)$buildingData->timeToString($buildingData->getTime()); ?>.</span><br />
+						<span class="bold">L'agrandisement de la superficie de la structure "<?php echo $buildingData->getName(); ?>" prendra environ <?php echo (String)$buildingData->timeToString($buildingData->getTime()); ?>.</span><br />
+						<span class="smaller"><a href="structure.connect.php">(Ne pas attendre la redirection)</a></span>
 					</p>
 				</div>
 				
@@ -63,6 +64,7 @@
 						<br />
 						Vos ouvriers refusent de travailler !<br />
 						<span class="bold">Vous n'avez pas les ressources nécessaire pour agrandir la superficie de cette structure.</span><br />
+						<span class="smaller"><a href="structure.connect.php">(Ne pas attendre la redirection)</a></span>
 					</p>
 				</div>
 				<script type="text/javascript">
@@ -80,6 +82,7 @@
 					<br />
 					Vos ouvriers travaillent déjà sur une autre structure !<br />
 					<span class="bold">Vous ne pouvez pas agrandir plus d'une structure à la fois.</span><br />
+					<span class="smaller"><a href="structure.connect.php">(Ne pas attendre la redirection)</a></span>
 				</p>
 			</div>
 			<script type="text/javascript">
