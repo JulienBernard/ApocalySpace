@@ -61,10 +61,10 @@ class Planet
 		include_once(PATH_MODELS."building.class.php");
 		if( $this->_planetResource1 > pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$titaneStorageSizePerLevel )
 			$this->_planetResource1 = pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$titaneStorageSizePerLevel;
-		if( $this->_planetResource2 > pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$berylStorageSizePerLevel )
-			$this->_planetResource2 = pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$berylStorageSizePerLevel;
-		if( $this->_planetResource3 > pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$hydrogeneStorageSizePerLevel )
-			$this->_planetResource3 = pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$hydrogeneStorageSizePerLevel;
+		if( $this->_planetResource2 > pow(2, Building::getBuildingLevel($berylStorageId, $this->_planetId))*$berylStorageSizePerLevel )
+			$this->_planetResource2 = pow(2, Building::getBuildingLevel($berylStorageId, $this->_planetId))*$berylStorageSizePerLevel;
+		if( $this->_planetResource3 > pow(2, Building::getBuildingLevel($hydrogeneStorageId, $this->_planetId))*$hydrogeneStorageSizePerLevel )
+			$this->_planetResource3 = pow(2, Building::getBuildingLevel($hydrogeneStorageId, $this->_planetId))*$hydrogeneStorageSizePerLevel;
 		/* Modification dans la base de données, si il y a modification ! */
 		if( $benefitRes1 >= 1 OR $benefitRes2 >= 1 OR $benefitRes3 >= 1 OR $benefitResPR >= 1 )
 			$this->updateRessource( $this->_planetId, $this->_planetResource1, $this->_planetResource2, $this->_planetResource3, $this->_planetPR );
