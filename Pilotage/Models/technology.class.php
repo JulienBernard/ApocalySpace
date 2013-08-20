@@ -5,12 +5,11 @@ class Technology
 	private $_id;
 	private $_userId;
 	private $_name;
+	private $_pitch;
 	private $_description;
-	private $_costMultiplier;
+	private $_informations;
 	private $_level;
-	private $_cost1;
-	private $_cost2;
-	private $_cost3;
+	private $_cost;
 	
 	public function __construct( $technologyId, $userId ) {
 		$dataFromDb = $this->getTechnologyData( $technologyId, $userId );
@@ -18,22 +17,11 @@ class Technology
 		$this->_id = (int)$dataFromDb['th_id'];
 		$this->_userId = (int)$dataFromDb['userId'];
 		$this->_name = (String)$dataFromDb['th_name'];
+		$this->_pitch = (String)$dataFromDb['th_pitch'];
 		$this->_description = (String)$dataFromDb['th_description'];
-		$this->_costMultiplier = (double)$dataFromDb['th_costMultiplier'];
+		$this->_informations = (String)$dataFromDb['th_informations'];
 		$this->_level = (int)$dataFromDb['techLevel'];
-		
-		if( $this->_level == 0 )
-		{
-			$this->_cost1 = (int)$dataFromDb['th_cost1'];
-			$this->_cost2 = (int)$dataFromDb['th_cost2'];
-			$this->_cost3 = (int)$dataFromDb['th_cost3'];
-		}
-		else
-		{
-			$this->_cost1 = (int)$dataFromDb['th_cost1'] * (int)$this->_level * (double)$this->_costMultiplier;
-			$this->_cost2 = (int)$dataFromDb['th_cost2'] * (int)$this->_level * (double)$this->_costMultiplier;
-			$this->_cost3 = (int)$dataFromDb['th_cost3'] * (int)$this->_level * (double)$this->_costMultiplier;
-		}
+		$this->_cost = 120;		// Le coût est défini après calcul du nombre de niveau de recherche total !
 	}
 	
 	/**
@@ -52,5 +40,36 @@ class Technology
 		if( $rq->rowCount() == 0 ) throw new Exception('Une importante erreur est survenue : Impossible de récupérer les données de cette technologie !');
 		$row = $rq->fetch();
 		return $row;
+	}
+	
+	/* Getters */
+	public function getId() {
+		return $this->_id;
+	}
+	public function getUserId() {
+		return $this->_userId;
+	}
+	public function getName() {
+		return $this->_name;
+	}
+	public function getPitch() {
+		return $this->_pitch;
+	}
+	public function getDescription() {
+		return $this->_description;
+	}
+	public function getInformations() {
+		return $this->_informations;
+	}
+	public function getCost() {
+		return (int)$this->_cost;
+	}
+	public function getLevel() {
+		return (int)$this->_level;
+	}
+	
+	/* Setters */
+	public function setCost( $totalLevel, $costMultiplier ) {
+		$this->_cost = 120 * $totalLevel * $costMultiplier;
 	}
 }

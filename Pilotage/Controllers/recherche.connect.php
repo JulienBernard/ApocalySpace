@@ -3,7 +3,9 @@
 	if( isset($_POST["researchTechnology"]) && is_numeric($_POST["researchTechnology"]) && $_POST["researchTechnology"] > 0 )
 	{
 		$technologyId = (int)$_POST["researchTechnology"];
-		$buildingData = $Data->getBuildingsList()[$buildingId-1];
+		$technologyData = $Data->getTechnologiesList()[$technologyId-1];
+		
+		// TODO : recherche de la techno (level+1) si PR suffisant !
 	}
 	else
 	{

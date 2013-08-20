@@ -49,8 +49,18 @@ class Data {
 				
 		/* Insère les données des technologies dans le dictionnaire $_technologiesList */
 		if( $viewTechnologies )
+		{
+			$countLevel = 0;
 			for( $i = 1 ; $i < 10 ; $i++ )
+			{
 				$this->_technologiesList[] = new Technology( $i, $this->_user->getId() );
+				$countLevel += $this->_technologiesList[$i-1]->getLevel();
+			}
+			for( $i = 1 ; $i < 10 ; $i++ )
+			{
+				$this->_technologiesList[$i-1]->setCost( $countLevel, 1.6 );
+			}
+		}
 		
 		/* Données de la planète */
 		$this->_prodRes1Bonus = 0;	// TO DO : ajouter la gestion de la techno production
