@@ -106,7 +106,7 @@ class Data {
 		$this->_totalProdResPR = round((int)$this->getProdPr());
 
 		/* Données sur l'utilisateur */
-		$this->_nbMessageNoRead = Message::countUserMessage( (int)$_SESSION['SpaceEngineConnected'] );
+		$this->_nbMessageNoRead = Communication::countUserMessage( (int)$_SESSION['SpaceEngineConnected'] );
 		
 		/* Configuration générale */
 		$officeAreasLevel = Building::getBuildingLevel($officeAreas, $this->getPlanetId());

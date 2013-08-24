@@ -36,7 +36,7 @@ class Engine implements IEngine {
 			include_once(PATH_MODELS."myPDO.class.php");
 			include_once(PATH_MODELS."user.class.php");
 			include_once(PATH_MODELS."planet.class.php");
-			include_once(PATH_MODELS."message.class.php");
+			include_once(PATH_MODELS."communication.class.php");
 			include_once(PATH_MODELS."data.class.php");
 			
 			/* Chargement des données sur les bâtiments et les technologies : dépend de la page (gain ressource) */
