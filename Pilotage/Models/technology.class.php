@@ -42,6 +42,24 @@ class Technology
 		return $row;
 	}
 	
+	/**
+	 * Recupère le niveau d'une technologie depuis la base de données.
+	 * @param int technologyId
+	 * @param int userId
+	 * @return int or throw an exception!
+	 */
+	public static function getTechnologyLevel( $technologyId, $userId ) {
+		$sql = MyPDO::get();
+		
+		$rq = $sql->prepare('SELECT techLevel FROM TtoU WHERE techId=:technologyId AND userId=:userId');
+		$data = array(':technologyId' => (int)$technologyId, ':userId' => (int)$userId);
+		$rq->execute($data);
+
+		if( $rq->rowCount() == 0 ) throw new Exception('Une importante erreur est survenue : Impossible de récupérer le niveau de cette technologie !');
+		$row = $rq->fetch();
+		return $row["techLevel"];
+	}
+	
 	/* Ajout d'un niveau à la technologie d'un joueur
 		*@param integer $technologyId	: ID technologie
 		*@param integer $userId			: ID user
