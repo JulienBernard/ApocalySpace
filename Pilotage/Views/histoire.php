@@ -46,15 +46,18 @@
 				</p>
 				<h1>Les Impériaux</h1>
 				<p class="small">
-					A venir ...
-				</p>
-				<h1>Les Vagabonds</h1>
-				<p class="small">
-					A venir ...
+					- <span class="bold">Puissance de feu : <span class="good">+10 (%)</span></span><br />
+					- Taux de natalité : <span class="bad bold">-5 (%)</span>
 				</p>
 				<h1>Les Républicains</h1>
 				<p class="small">
-					A venir ...
+					- <span class="bold">Taux de natalité : <span class="good">+10 (%)</span></span><br />
+					- Temps de construction : <span class="bad bold">-5 (%)</span>
+				</p>
+				<h1>Les Vagabonds</h1>
+				<p class="small">
+					- <span class="bold">Bonus de production : <span class="good">+10 (%)</span></span><br />
+					- Temps de construction : <span class="bad bold">-5 (%)</span>
 				</p>
 				<br />
 				<h2><a href="histoire_projet.php">HISTOIRE DU PROJET</a> <a href="galerie.php">GALERIE</a> <a href="support.php">CONTACT</a></h2>

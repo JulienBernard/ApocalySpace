@@ -67,6 +67,13 @@ a:hover {
 	.important-send {
 		color: #3d9bd3;
 	}
+	
+.good {
+	color: #62c917;
+}
+.bad {
+	color: #d3563d;
+}
 
 .info-box {
 	width: 100%;
