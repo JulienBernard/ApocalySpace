@@ -27,7 +27,6 @@ class Planet
 		$this->_planetId = (int)$dataPlanet['pl_id'];
 		$this->_planetName = (string)$dataPlanet['pl_name'];
 		$this->_planetSize = (int)$dataPlanet['pl_planetSize'];
-		$this->_planetPopulation = (int)$dataPlanet['pl_population'];
 		$this->_planetUserId = (int)$dataPlanet['pl_userId'];
 		$this->_planetPosX = (int)$dataPlanet['pl_posX'];
 		$this->_planetPosY = (int)$dataPlanet['pl_posY'];
@@ -40,14 +39,21 @@ class Planet
 		$this->_planetNatality = (int)$dataPlanet['pl_natality'];
 		$this->_primaryPlanet = (int)$dataPlanet['pl_primary'];
 		
-		/* Ressources */
+		/* Ressources & Population */
 		
-		// TODO : ajouter dans la fct checkRessource les bonus (techno prod)
+		
+		
+		
+		
+		//		/!\ IMPORTANT /!\
+		// 	TODO : ajouter dans la fct checkRessource les bonus (techno prod)
+
 		
 		$benefitRes1 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes1() );
 		$benefitRes2 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes2() );
 		$benefitRes3 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes3() );
 		$benefitResPR = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdResPR() );
+		$benefitPopulation = (int)$this->checkRessource( $this->getProductionTime(), $this->getNatality() );
 		
 		/* Fichier des id des bâtiments */
 		include_once("./config_id.php");
@@ -57,6 +63,7 @@ class Planet
 		$this->_planetResource2 = (int)$dataPlanet['pl_res2'] + $benefitRes2;
 		$this->_planetResource3 = (int)$dataPlanet['pl_res3'] + $benefitRes3;
 		$this->_planetPR = (int)$dataPlanet['pl_pr'] + $benefitResPR;
+		$this->_planetPopulation = (int)$dataPlanet['pl_population'] + $benefitPopulation;
 		
 		include_once(PATH_MODELS."building.class.php");
 		if( $this->_planetResource1 > pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$titaneStorageSizePerLevel )
@@ -68,6 +75,8 @@ class Planet
 		/* Modification dans la base de données, si il y a modification ! */
 		if( $benefitRes1 >= 1 OR $benefitRes2 >= 1 OR $benefitRes3 >= 1 OR $benefitResPR >= 1 )
 			$this->updateRessource( $this->_planetId, $this->_planetResource1, $this->_planetResource2, $this->_planetResource3, $this->_planetPR );
+		if( $benefitPopulation >= 1 )
+			$this->updatePopulation( $this->_planetId, $this->_planetPopulation );
 	}
 	
 	/**
@@ -260,10 +269,14 @@ class Planet
 	/**
 	 * Modifie dans la base de données la population d'une planète
 	 */
-	public function updatePopulation(  )
+	public function updatePopulation( $planetId, $newPopulation )
 	{
-		// CALCUL COMME LES RESSOURCES : on calcul le bénéfice, s'il y en a on modifie les données puis la bdd !
-	}
+		$newTime = time();
+		$sql = MyPDO::get();
+
+		$rq = $sql->prepare('UPDATE planets SET pl_prod_time=:newTime, pl_population=:newPopulation WHERE pl_id=:idPlanet');
+        $data = array(':idPlanet' => (int)$planetId, ':newTime' => (int)$newTime, ':newPopulation' => (int)$newPopulation );
+		$rq->execute($data);	}
 	
 	/**
 	 * Modifie dans la base de données les ressources et le timer de la planète

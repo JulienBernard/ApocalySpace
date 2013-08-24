@@ -24,7 +24,7 @@
 						<span class="player-planet-text">
 							Coord : x <?php echo $Data->getPosX(); ?> | y <?php echo $Data->getPosY(); ?><br />
 							Population : <?php echo $Data->getPopulation(); ?> sur <?php echo $Data->getManagePopulationMax(); ?><br />
-							Natalité : <?php echo $Data->getNatality(); ?> par jour<br />
+							Natalité : <?php if( $Data->getPopulation() >= $Data->getManagePopulationMax() ) echo "<span class='bad'>"; echo $Data->getNatality(); ?> par jour<?php if( $Data->getPopulation() >= $Data->getManagePopulationMax() ) echo "</span>"; ?><br />
 							<br />
 							<a href="structure.connect.php">Pas de construction en cours</a><br />
 							<a href="index.connect.php">Aucune activité spatiale détectée</a>
@@ -107,11 +107,11 @@
 						<tbody>
 							<tr>
 								<td>Usine</td>
-								<td class="smaller center">60</td>
+								<td class="bad smaller center">(a venir)</td>
 							</tr>
 							<tr>
 								<td>Atelier</td>
-								<td class="good 	smaller center">100</td>
+								<td class="good smaller center">(a venir)</td>
 							</tr>
 						</tbody>
 	   
