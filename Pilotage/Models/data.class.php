@@ -29,6 +29,12 @@ class Data {
 	private $_mapSize;					// [NE PAS METTRE A : 0][DEFAUT : 100] Taille de la carte
 	private $_globalSpeedMult;			// [NE PAS METTRE A : 0][DEFAUT : 1] Multiplicateur de la vitesse globale du jeu (temps de construction, vitesse des flottes .etc)
 	private $_managePopulationMax;
+	private $_natalityProduction;
+		/* Valeur selon faction */
+		private $_birthrateMultiplier;
+		private $_productionMultiplier;
+		private $_attackPowerMultiplier;
+		private $_buildTimeMultiplier;
 	
 	/**
 	 * Constructeur de la classe.
@@ -41,6 +47,39 @@ class Data {
 		$Planet = new Planet( (array)$planetData );
 		$this->_user = $User;
 		$this->_planet = $Planet;
+		
+		
+		
+		
+		
+		
+		/*				/!\ IMPORTANT /!^
+		 *
+ 		 * TODO : selon la faction, changez les gains (birthrateMultiplier, productionMultiplier, buildTimeMultiplier, attackPowerMultiplier, fleetSpeedMultiplier)
+		 * GERER la prise en charge de ses variables !
+		 *
+		 */
+		if( $this->_user->getFaction() == "imperiaux" )
+		{
+			$this->_birthrateMultiplier = 0.95;		/* -5% */
+			$this->_productionMultiplier = 1;
+			$this->_attackPowerMultiplier = 1.05;	/* +5% */
+			$this->_buildTimeMultiplier = 1.05;		/* +5% */
+		}
+		else if( $this->_user->getFaction() == "republicains" )
+		{
+			$this->_birthrateMultiplier = 1.1;		/* +10% */
+			$this->_productionMultiplier = 1.1;		/* +10% */
+			$this->_attackPowerMultiplier = 1;
+			$this->_buildTimeMultiplier = 1;
+		}
+		else
+		{
+			$this->_birthrateMultiplier = 1;		/* Neutre */
+			$this->_productionMultiplier = 1;
+			$this->_attackPowerMultiplier = 1;
+			$this->_buildTimeMultiplier = 1;
+		}
 		
 		/* Insère les données des bâtiments dans le dictionnaire $_buildingsList */
 		if( $viewBuildings )
@@ -80,9 +119,34 @@ class Data {
 		/* Configuration générale */
 		$this->_mapSize = 100;
 		$this->_globalSpeedMult = 1;
-		$this->_managePopulationMax = (Building::getBuildingLevel($officeAreas, $this->getPlanetId()) * 40) * 1.4;
+		$this->_managePopulationMax = (Building::getBuildingLevel($officeAreas, $this->getPlanetId()) * 40) * 1.4;	/* Taux arbitraire (40 par niveau, multiplicateur de 1.4) */
+		$capitalLevel = Building::getBuildingLevel($capital, $this->getPlanetId());
+		$this->_natalityProduction = ($capitalLevel * 12) + ($this->getTechnologyLevel($medicalResearchId, $this->getId()) * (0.05*12*);				/* Taux arbitraire (12 par niveau) */
 	}
 	
+	/**
+	 * Recupère le niveau d'une technologie depuis la base de données.
+	 * CETTE FONCTION EST PRESENTE ICI POUR DES GAINS DE PERFORMANCE : inclure la classe Technology à chaque page serait plus couteux que de faire la fonction ici !
+	 *
+	 * @param int technologyId
+	 * @param int userId
+	 * @return int or throw an exception!
+	 */
+	private function getTechnologyLevel( $technologyId, $userId ) {
+		$sql = MyPDO::get();
+		
+		$rq = $sql->prepare('SELECT techLevel FROM TtoU WHERE techId=:technologyId AND userId=:userId');
+		$data = array(':technologyId' => (int)$technologyId, ':userId' => (int)$userId);
+		$rq->execute($data);
+
+		if( $rq->rowCount() == 0 ) throw new Exception('Une importante erreur est survenue : Impossible de récupérer le niveau de cette technologie !');
+		$row = $rq->fetch();
+		return $row["techLevel"];
+	}
+	
+	/*
+	 * Simple fonction de calcul :)
+	 */
 	public function calculProdRes( $normal, $bonus ) {
 		return $normal + $bonus;
 	}
