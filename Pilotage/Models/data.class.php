@@ -47,18 +47,7 @@ class Data {
 		$Planet = new Planet( (array)$planetData );
 		$this->_user = $User;
 		$this->_planet = $Planet;
-		
-		
-		
-		
-		
-		
-		/*				/!\ IMPORTANT /!^
-		 *
- 		 * TODO : selon la faction, changez les gains (attackPowerMultiplier)
-		 * GERER la prise en charge de ses variables !
-		 *
-		 */
+
 		if( $this->_user->getFaction() == "imperiaux" )
 		{
 			$this->_birthrateMultiplier = 0.95;
@@ -101,20 +90,21 @@ class Data {
 			}
 		}
 		
+		/* Fichier des id des bâtiments */
+		include("./config_id.php");
+		
 		/* Données de la planète */
-		$this->_prodRes1Bonus = 0;	// TO DO : ajouter la gestion de la techno production
-		$this->_prodRes2Bonus = 0;
-		$this->_prodRes3Bonus = 0;
-		$this->_totalProdRes1 = ((int)$this->getProdRes1() + (int)$this->getProdRes1Bonus()) * $this->_productionMultiplier;
-		$this->_totalProdRes2 = ((int)$this->getProdRes2() + (int)$this->getProdRes2Bonus()) * $this->_productionMultiplier;
-		$this->_totalProdRes3 = ((int)$this->getProdRes3() + (int)$this->getProdRes3Bonus()) * $this->_productionMultiplier;
-		$this->_totalProdResPR = (int)$this->getProdPr();
+		$productionTechnologyLevel = $this->getTechnologyLevel($mineProductionResearchId, $this->getId());
+		$this->_prodRes1Bonus = round(((int)$this->getProdRes1()*(5*$productionTechnologyLevel)/100));
+		$this->_prodRes2Bonus = round(((int)$this->getProdRes2()*(5*$productionTechnologyLevel)/100));
+		$this->_prodRes3Bonus = round(((int)$this->getProdRes3()*(5*$productionTechnologyLevel)/100));
+		$this->_totalProdRes1 = round(((int)$this->getProdRes1() + (int)$this->getProdRes1Bonus()) * $this->_productionMultiplier);
+		$this->_totalProdRes2 = round(((int)$this->getProdRes2() + (int)$this->getProdRes2Bonus()) * $this->_productionMultiplier);
+		$this->_totalProdRes3 = round(((int)$this->getProdRes3() + (int)$this->getProdRes3Bonus()) * $this->_productionMultiplier);
+		$this->_totalProdResPR = round((int)$this->getProdPr());
 
 		/* Données sur l'utilisateur */
 		$this->_nbMessageNoRead = Message::countUserMessage( (int)$_SESSION['SpaceEngineConnected'] );
-		
-		/* Fichier des id des bâtiments */
-		include("./config_id.php");
 		
 		/* Configuration générale */
 		$officeAreasLevel = Building::getBuildingLevel($officeAreas, $this->getPlanetId());
