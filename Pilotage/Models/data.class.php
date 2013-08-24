@@ -117,11 +117,23 @@ class Data {
 		include("./config_id.php");
 		
 		/* Configuration générale */
+		$officeAreasLevel = Building::getBuildingLevel($officeAreas, $this->getPlanetId());
+		$capitalLevel = Building::getBuildingLevel($capital, $this->getPlanetId());
+		
 		$this->_mapSize = 100;
 		$this->_globalSpeedMult = 1;
-		$this->_managePopulationMax = (Building::getBuildingLevel($officeAreas, $this->getPlanetId()) * 40) * 1.4;	/* Taux arbitraire (40 par niveau, multiplicateur de 1.4) */
-		$capitalLevel = Building::getBuildingLevel($capital, $this->getPlanetId());
-		$this->_natalityProduction = ($capitalLevel * 12) + ($this->getTechnologyLevel($medicalResearchId, $this->getId()) * (0.05*12*);				/* Taux arbitraire (12 par niveau) */
+		$this->_managePopulationMax = ($officeAreasLevel * 40) * 1.4;	/* Taux arbitraire (40 par niveau, multiplicateur de 1.4) */
+		
+		/* Gestion de la natalité */
+		$overcrowding = 0;
+		/* Si il y a surpopulation */
+		if( $this->_planet->getPopulation() > $this->_managePopulationMax )
+			$overcrowding = round(($this->_planet->getPopulation() - $this->_managePopulationMax) + ($officeAreasLevel*2.5) * $this->_globalSpeedMult);
+		
+		$this->_natalityProduction = round(($capitalLevel * 12) + ($this->getTechnologyLevel($medicalResearchId, $this->getId()) * (0.05*12*$capitalLevel)) * $this->_birthrateMultiplier * $this->_globalSpeedMult - $overcrowding);				/* Taux arbitraire (12 par niveau) */
+		/* Si le taux a changé, on modifie dans la base de données */
+		if( $this->_natalityProduction != $this->getNatality() )
+			$this->_planet->updateNatality( $this->getPlanetId(), $this->_natalityProduction );
 	}
 	
 	/**

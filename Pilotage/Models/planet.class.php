@@ -243,6 +243,29 @@ class Planet
 	}
 	
 	/**
+	 * Modifie dans la base de données le taux de natalité d'une planète
+	 * @param int planetId
+	 * @param int newNatality
+	 */
+	public function updateNatality( $planetId, $newNatality )
+	{
+		$newTime = time();
+		$sql = MyPDO::get();
+
+		$rq = $sql->prepare('UPDATE planets SET pl_prod_time=:newTime, pl_natality=:newNatality WHERE pl_id=:idPlanet');
+        $data = array(':idPlanet' => (int)$planetId, ':newTime' => (int)$newTime, ':newNatality' => (int)$newNatality );
+		$rq->execute($data);
+	}
+	
+	/**
+	 * Modifie dans la base de données la population d'une planète
+	 */
+	public function updatePopulation(  )
+	{
+		// CALCUL COMME LES RESSOURCES : on calcul le bénéfice, s'il y en a on modifie les données puis la bdd !
+	}
+	
+	/**
 	 * Modifie dans la base de données les ressources et le timer de la planète
 	 * @param int planetId
 	 * @param int newProd
