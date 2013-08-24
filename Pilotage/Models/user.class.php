@@ -20,6 +20,11 @@ class User
 	 * @return userID or 0 (error)
 	 */
 	public static function checkUserAccountMatch( $username, $password ) {
+		
+		/* Validation des paramètres */
+		if( !is_string($username) || !is_string($password) || empty($username) || empty($password) )
+			return false;
+		
 		$sql = MyPDO::get();
 		
 		$rq = $sql->prepare('SELECT id FROM users WHERE username=:username AND passwordHash=:password');
@@ -41,6 +46,11 @@ class User
 	 * @return array or 0 (error)
 	 */
 	public static function getUserData( $userId ) {
+		
+		/* Validation des paramètres */
+		if( !is_numeric($userId) || $userId < 0 )
+			return false;
+		
 		$sql = MyPDO::get();
 
 		$rq = $sql->prepare('SELECT id, username, factionName FROM users WHERE id=:idUser');
@@ -57,6 +67,11 @@ class User
 	 * @param String username
 	 */
 	public static function checkUsernameExist( $username ) {
+		
+		/* Validation des paramètres */
+		if( !is_string($username) || empty($username) )
+			return false;
+			
 		$sql = MyPDO::get();
 		$rq = $sql->prepare('SELECT id FROM users WHERE username=:username');
 		$data = array(':username' => (String)$username);
@@ -95,6 +110,11 @@ class User
 	 * return int lastInsertId	Retourne le dernier ID inséré dans la bdd, ici l'user id !
 	 */
 	public static function addUser( $username, $password, $faction ) {
+		
+		/* Validation des paramètres */
+		if( !is_string($username) || !is_string($password) || !is_string($faction) || empty($username) || empty($password) || empty($faction)  )
+			return false;
+		
 		$sql = MyPDO::get();
 		$req = $sql->prepare('INSERT INTO users VALUES("", :username, :password, :faction)');
 		$result = $req->execute( array(

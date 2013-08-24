@@ -47,7 +47,7 @@ abstract class Map extends Planet
 	
 		$sql = MyPDO::get();
 	
-		$req = $sql->prepare('SELECT id, username, clanId, pl_id, pl_name, pl_posX, pl_posY, pl_population FROM planets JOIN users ON id=pl_userId WHERE pl_posX BETWEEN :xMin AND :xMax AND pl_posY BETWEEN :yMin AND :yMax ORDER BY pl_posY ASC, pl_posX ASC');
+		$req = $sql->prepare('SELECT id, username, factionName, pl_id, pl_name, pl_posX, pl_posY, pl_population FROM planets JOIN users ON id=pl_userId WHERE pl_posX BETWEEN :xMin AND :xMax AND pl_posY BETWEEN :yMin AND :yMax ORDER BY pl_posY ASC, pl_posX ASC');
 		$result = $req->execute( array(':xMin' => $xMin, ':xMax' => $xMax, ':yMin' => $yMin, ':yMax' => $yMax) );
 		
 		// Si PDO renvoie une erreur
@@ -62,14 +62,6 @@ abstract class Map extends Planet
 			while( $row = $req->fetch() )
 			{
 				$array[$i] = $row;
-				
-				if( !empty($row['clanId']) )
-				{
-					$rq = $sql->prepare('SELECT cl_name FROM clans WHERE cl_id=:clanId');
-					$rq->execute( array(':clanId' => $row['clanId']) );
-					$rw = $rq->fetch();
-					$array[$i]['clanName'] = $rw['cl_name'];
-				}
 				$i++;
 			}
 			// Retourne un tableau de données

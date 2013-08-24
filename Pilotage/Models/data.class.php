@@ -270,7 +270,7 @@ class Data {
 	public function sortBuildingListByType( $array, $type )
 	{
 		/* Validation des paramètres */
-		if( !is_array($array) || !is_numeric($type) || !empty($technologyId) || $type < 0 )
+		if( !is_array($array) || !is_numeric($type) || empty($array) || $type < 0 )
 			return false;
 	
 		$newArray = array();

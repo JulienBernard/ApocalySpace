@@ -19,7 +19,7 @@ class Message
 	public static function addCommunications( $message, $subject, $preview, $recipientId, $senderId )
 	{
 		/* Validation des paramètres */
-		if( !is_string($message) || !is_string($subject) || !is_string($preview) || !is_numeric($recipientId) || !is_numeric($senderId) || $recipientId < 0 || $senderId < 0 )
+		if( !is_string($message) || !is_string($subject) || !is_string($preview) || !is_numeric($recipientId) || !is_numeric($senderId) || empty($message) || $recipientId < 0 || $senderId < 0 )
 			return false;
 			
 		$sql = MyPDO::get();

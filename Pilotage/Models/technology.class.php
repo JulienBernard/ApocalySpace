@@ -31,6 +31,10 @@ class Technology
 	 * @return array or throw an exception!
 	 */
 	private static function getTechnologyData( $technologyId, $userId ) {
+		/* Validation des paramètres */
+		if( !is_numeric($userId) || !is_numeric($technologyId) || $technologyId < 0 || $userId < 0 )
+			return false;
+		
 		$sql = MyPDO::get();
 		
 		$rq = $sql->prepare('SELECT * FROM technologies JOIN TtoU ON techId=th_id WHERE th_id=:technologyId AND userId=:userId');
@@ -49,6 +53,10 @@ class Technology
 	 * @return int or throw an exception!
 	 */
 	public static function getTechnologyLevel( $technologyId, $userId ) {
+		/* Validation des paramètres */
+		if( !is_numeric($userId) || !is_numeric($technologyId) || $technologyId < 0 || $userId < 0 )
+			return false;
+			
 		$sql = MyPDO::get();
 		
 		$rq = $sql->prepare('SELECT techLevel FROM TtoU WHERE techId=:technologyId AND userId=:userId');
