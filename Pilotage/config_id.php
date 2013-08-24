@@ -35,8 +35,8 @@
 	$energyResearchId, $fleetControlResearchId, $propulsionResearchId, $constructionEngineeringResearchId,
 	$mineProductionResearchId;
 	
-	$mineProductionResearchId = 1;
-	$energyResearchId = 2;
+	$energyResearchId = 1;
+	$mineProductionResearchId = 2;
 	$medicalResearchId = 3;
 	$fleetControlResearchId = 4;
 	$constructionEngineeringResearchId = 5;
