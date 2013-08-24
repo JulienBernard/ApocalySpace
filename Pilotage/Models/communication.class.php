@@ -1,6 +1,6 @@
 <?php
 
-abstract class Communication
+class Communication
 {
 	/** Fonction qui ajoute une communication
 		*@param string $message	:	contenu du message
@@ -66,7 +66,7 @@ abstract class Communication
 			for( $i = 0 ; $row = $req->fetch() ; $i++ )
 			{
 				$array[$i] = $row;
-				$array[$i]['com_username'] = getUsernameById( $row['com_senderId'] );
+				$array[$i]['com_username'] = self::getUsernameById( $row['com_senderId'] );
 			}
 			
 			// Retourne un tableau de données
@@ -100,7 +100,7 @@ abstract class Communication
 			$array = array();
 			$row = $req->fetch();
 			$array[0] = $row;
-			$array[0]['com_username'] = getUsernameById( $row['com_senderId'] );
+			$array[0]['com_username'] = self::getUsernameById( $row['com_senderId'] );
 			
 			if( $row['com_recipientId'] != $userId )
 			{

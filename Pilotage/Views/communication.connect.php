@@ -15,11 +15,18 @@
 				
 				<table style="width: 100%;">
 					<tbody>
-						<tr>
-							<td>lol</td>
-							<td>lol</td>
-							<td>lol</td>
-						</tr>
+						<?php
+						for( $i = 0 ; $i < count($communications) ; $i++ )
+						{
+						?>
+							<tr>
+								<td width="60%"><a href="communication.connect.php?id=<?php echo $communications[$i]['com_id']; ?>" <?php if( !$communications[$i]['com_view'] ) echo 'class="bold"'; ?>><?php echo htmlentities($communications[$i]['com_subject'], NULL, 'utf-8'); ?></a></td>
+								<td class="center"><a href="#" data-dropdown="dropInfo"><?php echo htmlentities(ucwords($communications[$i]['com_username']), NULL, 'utf-8'); ?></a></td>
+								<td class="center"><?php echo date('d/m/y - H\hi', $communications[$i]['com_sendTime']); ?></td>
+							</tr>
+						<?php
+						}
+						?>
 					</tbody>
 					<tfoot>
 						<tr>
@@ -29,5 +36,7 @@
 						</tr>
 					</tfoot>
 				</table>
-				
+				<ul id="dropInfo" class="f-dropdown content" data-dropdown-content>
+				<p><span class="bold">Profil Joueur</span><br /><br />Fonctionnalité à venir<br /><span class="italic">Priorité faible</span></p>
+				</ul>
 			</article>
