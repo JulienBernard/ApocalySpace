@@ -55,36 +55,36 @@ class Data {
 		
 		/*				/!\ IMPORTANT /!^
 		 *
- 		 * TODO : selon la faction, changez les gains (birthrateMultiplier, productionMultiplier, buildTimeMultiplier, attackPowerMultiplier, fleetSpeedMultiplier)
+ 		 * TODO : selon la faction, changez les gains (attackPowerMultiplier)
 		 * GERER la prise en charge de ses variables !
 		 *
 		 */
 		if( $this->_user->getFaction() == "imperiaux" )
 		{
-			$this->_birthrateMultiplier = 0.95;		/* -5% */
+			$this->_birthrateMultiplier = 0.95;
 			$this->_productionMultiplier = 1;
-			$this->_attackPowerMultiplier = 1.05;	/* +5% */
-			$this->_buildTimeMultiplier = 1.05;		/* +5% */
+			$this->_attackPowerMultiplier = 1.1;
+			$this->_buildTimeMultiplier = 1;
 		}
 		else if( $this->_user->getFaction() == "republicains" )
 		{
-			$this->_birthrateMultiplier = 1.1;		/* +10% */
-			$this->_productionMultiplier = 1.1;		/* +10% */
+			$this->_birthrateMultiplier = 1.1;
+			$this->_productionMultiplier = 1;
 			$this->_attackPowerMultiplier = 1;
-			$this->_buildTimeMultiplier = 1;
+			$this->_buildTimeMultiplier = 1.05;
 		}
 		else
 		{
-			$this->_birthrateMultiplier = 1;		/* Neutre */
-			$this->_productionMultiplier = 1;
+			$this->_birthrateMultiplier = 1;
+			$this->_productionMultiplier = 1.1;
 			$this->_attackPowerMultiplier = 1;
-			$this->_buildTimeMultiplier = 1;
+			$this->_buildTimeMultiplier = 1.05;
 		}
 		
 		/* Insère les données des bâtiments dans le dictionnaire $_buildingsList */
 		if( $viewBuildings )
 			for( $i = 1 ; $i < 12 ; $i++ )
-				$this->_buildingsList[] = new Building( $i, $this->getPlanetId() );
+				$this->_buildingsList[] = new Building( $i, $this->getPlanetId(), $this->_buildTimeMultiplier );
 				
 		/* Insère les données des technologies dans le dictionnaire $_technologiesList */
 		if( $viewTechnologies )
@@ -105,9 +105,9 @@ class Data {
 		$this->_prodRes1Bonus = 0;	// TO DO : ajouter la gestion de la techno production
 		$this->_prodRes2Bonus = 0;
 		$this->_prodRes3Bonus = 0;
-		$this->_totalProdRes1 = (int)$this->getProdRes1() + (int)$this->getProdRes1Bonus();
-		$this->_totalProdRes2 = (int)$this->getProdRes2() + (int)$this->getProdRes2Bonus();
-		$this->_totalProdRes3 = (int)$this->getProdRes3() + (int)$this->getProdRes3Bonus();
+		$this->_totalProdRes1 = ((int)$this->getProdRes1() + (int)$this->getProdRes1Bonus()) * $this->_productionMultiplier;
+		$this->_totalProdRes2 = ((int)$this->getProdRes2() + (int)$this->getProdRes2Bonus()) * $this->_productionMultiplier;
+		$this->_totalProdRes3 = ((int)$this->getProdRes3() + (int)$this->getProdRes3Bonus()) * $this->_productionMultiplier;
 		$this->_totalProdResPR = (int)$this->getProdPr();
 
 		/* Données sur l'utilisateur */
