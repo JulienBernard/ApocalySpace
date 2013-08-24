@@ -11,9 +11,6 @@ class Data {
 	private $_technologiesList = array();	// Liste des technologies
 	
 	/* Données de la planète */
-	private $_prodRes1Bonus;
-	private $_prodRes2Bonus;
-	private $_prodRes3Bonus;
 	private $_totalProdRes1;
 	private $_totalProdRes2;
 	private $_totalProdRes3;
@@ -41,6 +38,11 @@ class Data {
 	 * Charge les donnés selon les arguments disponible (bâtiments et technologies)
 	 */
 	public function __construct( $viewBuildings, $viewTechnologies ) {
+	
+		/* Validation des SESSIONS */
+		if( !is_numeric($_SESSION['SpaceEngineConnected']) || !is_numeric($_SESSION['ApocalySpaceCurrentPlanet']) || $_SESSION['SpaceEngineConnected'] < 0 || $_SESSION['ApocalySpaceCurrentPlanet'] < 0 )
+			return false;
+	
 		$userData = User::getUserData( (int)$_SESSION['SpaceEngineConnected'] );
 		$planetData = Planet::getPlanetData( (int)$_SESSION['ApocalySpaceCurrentPlanet'] );		
 		$User = new User( (array)$userData );
@@ -95,9 +97,9 @@ class Data {
 		
 		/* Données de la planète */
 		$productionTechnologyLevel = $this->getTechnologyLevel($mineProductionResearchId, $this->getId());
-		$this->_prodRes1Bonus = round(((int)$this->getProdRes1()*(5*$productionTechnologyLevel)/100));
-		$this->_prodRes2Bonus = round(((int)$this->getProdRes2()*(5*$productionTechnologyLevel)/100));
-		$this->_prodRes3Bonus = round(((int)$this->getProdRes3()*(5*$productionTechnologyLevel)/100));
+		$this->_planet->setProdRes1Bonus( round(((int)$this->getProdRes1()*(5*$productionTechnologyLevel)/100)) );
+		$this->_planet->setProdRes2Bonus( round(((int)$this->getProdRes2()*(5*$productionTechnologyLevel)/100)) );
+		$this->_planet->setProdRes3Bonus( round(((int)$this->getProdRes3()*(5*$productionTechnologyLevel)/100)) );
 		$this->_totalProdRes1 = round(((int)$this->getProdRes1() + (int)$this->getProdRes1Bonus()) * $this->_productionMultiplier);
 		$this->_totalProdRes2 = round(((int)$this->getProdRes2() + (int)$this->getProdRes2Bonus()) * $this->_productionMultiplier);
 		$this->_totalProdRes3 = round(((int)$this->getProdRes3() + (int)$this->getProdRes3Bonus()) * $this->_productionMultiplier);
@@ -135,6 +137,11 @@ class Data {
 	 * @return int or throw an exception!
 	 */
 	private function getTechnologyLevel( $technologyId, $userId ) {
+		
+		/* Validation des paramètres */
+		if( !is_numeric($technologyId) || !is_numeric($userId) || $technologyId < 0 || $userId < 0 )
+			return false;
+	
 		$sql = MyPDO::get();
 		
 		$rq = $sql->prepare('SELECT techLevel FROM TtoU WHERE techId=:technologyId AND userId=:userId');
@@ -161,13 +168,13 @@ class Data {
 		return $this->_planet;
 	}
 	public function getProdRes1Bonus() {
-		return $this->_prodRes1Bonus;
+		return $this->_planet->getProdRes1Bonus();
 	}
 	public function getProdRes2Bonus() {
-		return $this->_prodRes2Bonus;
+		return $this->_planet->getProdRes2Bonus();
 	}
 	public function getProdRes3Bonus() {
-		return $this->_prodRes3Bonus;
+		return $this->_planet->getProdRes3Bonus();
 	}
 	public function getTotalProdRes1() {
 		return $this->_totalProdRes1;
@@ -262,6 +269,10 @@ class Data {
 	 */
 	public function sortBuildingListByType( $array, $type )
 	{
+		/* Validation des paramètres */
+		if( !is_array($array) || !is_numeric($type) || !empty($technologyId) || $type < 0 )
+			return false;
+	
 		$newArray = array();
 		for( $i = 0 ; $i < count($array) ; $i++ )
 		{
@@ -278,6 +289,10 @@ class Data {
 	*/
 	public function getNumberOfPopulationWhoAreManagedNow( $buildingId = null )
 	{
+		/* Validation des paramètres */
+		if( !is_numeric($buildingId) || $buildingId < 0 )
+			return false;
+	
 		$array = $this->getBuildingsList();
 		$sum = 0;
 

@@ -18,6 +18,10 @@ class Message
 	*/
 	public static function addCommunications( $message, $subject, $preview, $recipientId, $senderId )
 	{
+		/* Validation des paramètres */
+		if( !is_string($message) || !is_string($subject) || !is_string($preview) || !is_numeric($recipientId) || !is_numeric($senderId) || $recipientId < 0 || $senderId < 0 )
+			return false;
+			
 		$sql = MyPDO::get();
 		
 		$message .= '
@@ -26,11 +30,11 @@ class Message
 		
 		$req = $sql->prepare('INSERT INTO communications VALUES("", :senderId, :recipientId, :subject, :message, :sendTime, :view)');
 		$result = $req->execute( array(
-			':senderId' => $senderId,
-			':recipientId' => $recipientId,
-			':subject' => $subject,
-			':message' => $message,
-			':sendTime' => time(),
+			':senderId' => (int)$senderId,
+			':recipientId' => (int)$recipientId,
+			':subject' => (String)$subject,
+			':message' => (String)$message,
+			':sendTime' => (int)time(),
 			':view' => 0
 			));
 		// Si PDO renvoie une erreur
@@ -45,10 +49,14 @@ class Message
 	 */
 	public static function countUserMessage( $id )
 	{
+		/* Validation des paramètres */
+		if( !is_numeric($id) ||  $id < 0 )
+			return false;
+	
 		$sql = MyPDO::get();
 
 		$rq = $sql->prepare('SELECT com_recipientId FROM communications WHERE com_recipientId=:idUser AND com_view=:status');
-		$data = array(':idUser' => $id, ':status' => 0);
+		$data = array(':idUser' => (int)$id, ':status' => (int)0);
 		$rq->execute($data);
 
 		// On retourne le nombre de message non-lu compté

@@ -61,6 +61,11 @@ class Building
 	 * @return array or throw an exception!
 	 */
 	private static function getBuildingData( $buildingId, $planetId ) {
+		
+		/* Validation des paramètres */
+		if( !is_numeric($planetId) || !is_numeric($buildingId) || $buildingId < 0 || $planetId < 0 )
+			return false;
+			
 		$sql = MyPDO::get();
 		
 		$rq = $sql->prepare('SELECT * FROM buildings JOIN BtoP ON buildingId=bl_id WHERE bl_id=:buildingId AND planetId=:planetId');
@@ -79,6 +84,11 @@ class Building
 	 * @return int or throw an exception!
 	 */
 	public static function getBuildingLevel( $buildingId, $planetId ) {
+		
+		/* Validation des paramètres */
+		if( !is_numeric($planetId) || !is_numeric($buildingId) || $buildingId < 0 || $planetId < 0 )
+			return false;
+		
 		$sql = MyPDO::get();
 		
 		$rq = $sql->prepare('SELECT buildingLevel FROM BtoP WHERE buildingId=:buildingId AND planetId=:planetId');
@@ -179,6 +189,10 @@ class Building
 	 */
 	public function updateBuildingPopulation( $planetId, $buildingId, $newValue )
 	{
+		/* Validation des paramètres */
+		if( !is_numeric($planetId) || !is_numeric($buildingId) || !is_numeric($newValue) || $buildingId < 0 || $planetId < 0 || $newValue < 0 )
+			return false;
+	
 		$newTime = time();
 		$sql = MyPDO::get();
 

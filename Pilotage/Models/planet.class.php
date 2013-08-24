@@ -13,6 +13,9 @@ class Planet
 	private $_planetResource2;
 	private $_planetResource3;
 	private $_planetPR;
+	private $_prodRes1Bonus;
+	private $_prodRes2Bonus;
+	private $_prodRes3Bonus;
 	private $_planetProduction1;
 	private $_planetProduction2;
 	private $_planetProduction3;
@@ -49,9 +52,9 @@ class Planet
 		// 	TODO : ajouter dans la fct checkRessource les bonus (techno prod)
 
 		
-		$benefitRes1 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes1() );
-		$benefitRes2 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes2() );
-		$benefitRes3 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes3() );
+		$benefitRes1 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes1(), $this->getProdRes1Bonus() );
+		$benefitRes2 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes2(), $this->getProdRes2Bonus() );
+		$benefitRes3 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes3(), $this->getProdRes3Bonus() );
 		$benefitResPR = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdResPR() );
 		$benefitPopulation = (int)$this->checkRessource( $this->getProductionTime(), $this->getNatality() );
 		
@@ -224,9 +227,9 @@ class Planet
 	 * @param int productionPerHour
 	 * @return int benefit				:	retourne le gain en ressource à rajouter
 	 */
-	public function checkRessource( $dbTime, $productionPerHour )
+	public function checkRessource( $dbTime, $productionPerHour, $bonus = 0 )
 	{
-		$productionPerSecond = round($productionPerHour / 3600, 6);
+		$productionPerSecond = round(($productionPerHour+$bonus) / 3600, 6);
 		$differentTime = round(time() - $dbTime, 6);
 		$benefit = $differentTime * $productionPerSecond;
 		
@@ -391,6 +394,20 @@ class Planet
 		return 1;
 	}
 	
+	/* Setters */
+	
+	public function setProdRes1Bonus( $value ) {
+		$this->_prodRes1Bonus = $value;
+	}
+	public function setProdRes2Bonus( $value ) {
+		$this->_prodRes2Bonus = $value;
+	}
+	public function setProdRes3Bonus( $value ) {
+		$this->_prodRes3Bonus = $value;
+	}
+	
+	/* Getters */
+	
 	public function getPlanetId() {
 		return $this->_planetId;
 	}
@@ -420,6 +437,15 @@ class Planet
 	}
 	public function getPR() {
 		return $this->_planetPR;
+	}
+	public function getProdRes1Bonus() {
+		return $this->_prodRes1Bonus;
+	}
+	public function getProdRes2Bonus() {
+		return $this->_prodRes2Bonus;
+	}
+	public function getProdRes3Bonus() {
+		return $this->_prodRes3Bonus;
 	}
 	public function getProdRes1() {
 		return $this->_planetProduction1;

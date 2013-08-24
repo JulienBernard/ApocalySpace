@@ -41,6 +41,10 @@ abstract class Map extends Planet
 	*/
 	public static function getPlanetsCoordonnees( $xMin, $xMax, $yMin, $yMax )
 	{
+		/* Validation des paramètres */
+		if( !is_numeric($xMin) || !is_numeric($xMax) || !is_numeric($yMin) || !is_numeric($yMax) )
+			return false;
+	
 		$sql = MyPDO::get();
 	
 		$req = $sql->prepare('SELECT id, username, clanId, pl_id, pl_name, pl_posX, pl_posY, pl_population FROM planets JOIN users ON id=pl_userId WHERE pl_posX BETWEEN :xMin AND :xMax AND pl_posY BETWEEN :yMin AND :yMax ORDER BY pl_posY ASC, pl_posX ASC');
@@ -81,6 +85,10 @@ abstract class Map extends Planet
 	 */
 	public static function getPlanetFromCoords( $coordX, $coordY )
 	{
+		/* Validation des paramètres */
+		if( !is_numeric($coordX) || !is_numeric($coordY) )
+			return false;
+			
 		$pdo = MyPDO::get();
 		
 		$queryString = 'SELECT
