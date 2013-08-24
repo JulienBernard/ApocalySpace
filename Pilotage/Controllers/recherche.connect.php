@@ -2,7 +2,7 @@
 
 	if( isset($_POST["researchTechnology"]) && is_numeric($_POST["researchTechnology"]) && $_POST["researchTechnology"] > 0 )
 	{
-		$technologyId = (int)$_POST["researchTechnology"];
+		$technologyId = (int)htmlspecialchars($_POST["researchTechnology"]);
 		$technologyData = $Data->getTechnologiesList()[$technologyId-1];
 		
 		if( (int)$Data->getPr() >= (int)$technologyData->getCost() )

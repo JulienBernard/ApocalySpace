@@ -29,7 +29,7 @@
 
 	if( isset($_POST["extendBuilding"]) && is_numeric($_POST["extendBuilding"]) && $_POST["extendBuilding"] > 0 )
 	{
-		$buildingId = (int)$_POST["extendBuilding"];
+		$buildingId = (int)htmlspecialchars($_POST["extendBuilding"]);
 		$buildingData = $Data->getBuildingsList()[$buildingId-1];
 		
 		if( empty($onGoingBuilds) )

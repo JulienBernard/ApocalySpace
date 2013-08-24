@@ -4,8 +4,8 @@
 	if( isset($_POST["changePopulation"]) && is_numeric($_POST["changePopulation"]) && $_POST["changePopulation"] > 0
 		&& isset($_POST["changeValue"]) && is_numeric($_POST["changeValue"]) && $_POST["changeValue"] >= 0)
 	{
-		$changeValue = (int)$_POST["changeValue"];
-		$buildingId = (int)$_POST["changePopulation"];
+		$changeValue = (int)htmlspecialchars($_POST["changeValue"]);
+		$buildingId = (int)htmlspecialchars($_POST["changePopulation"]);
 		$buildingData = $Data->getBuildingsList()[$buildingId-1];
 		$populationManageNow = $Data->getNumberOfPopulationWhoAreManagedNow( $buildingId );
 		$populationManageNow += $changeValue;

@@ -15,9 +15,9 @@
 			include_once(PATH_MODELS."myPDO.class.php");
 			include_once(PATH_MODELS."user.class.php");
 			
-			$username = (String)strtolower($_POST['username']);
-			$password = (String)$_POST['password'];
-			$faction = (String)strtolower($_POST['faction']);
+			$username = (String)htmlspecialchars(strtolower($_POST['username']));
+			$password = (String)htmlspecialchars($_POST['password']);
+			$faction = (String)htmlspecialchars(strtolower($_POST['faction']));
 			
 			/* Cet username n'est pas déjà attribué à un autre joueur. */
 			if( !User::checkUsernameExist( $username ) )
@@ -129,8 +129,8 @@
 			include_once(PATH_MODELS."user.class.php");
 			include_once(PATH_MODELS."planet.class.php");
 			
-			$username = (String)strtolower($_POST['username']);
-			$password = (String)$_POST['password'];
+			$username = (String)htmlspecialchars(strtolower($_POST['username']));
+			$password = (String)htmlspecialchars($_POST['password']);
 			$faction = (String)null;			
 			
 			/* Cet username n'est pas déjà attribué à un autre joueur. */
