@@ -24,6 +24,7 @@
 								<td width="60%"><a href="communication.connect.php?id=<?php echo $communications[$i]['com_id']; ?>" <?php if( !$communications[$i]['com_view'] ) echo 'class="bold"'; ?>><?php echo htmlentities($communications[$i]['com_subject'], NULL, 'utf-8'); ?></a></td>
 								<td class="center"><a href="#" data-dropdown="dropInfo1"><?php echo htmlentities(ucwords($communications[$i]['com_username']), NULL, 'utf-8'); ?></a></td>
 								<td class="center"><?php echo date('d/m/y - H\hi', $communications[$i]['com_sendTime']); ?></td>
+								<td class="center"><a href="#" data-dropdown="dropInfo2">X</a></td>
 							</tr>
 						<?php
 						}
@@ -40,19 +41,22 @@
 						<tr>
 							<th class="smaller center">Titre de la communication</th>
 							<th class="smaller center" id="step3">Expéditeur</th>
-							<th class="smaller center">Date</th>
+							<th class="smaller center" colspan="2" id="step4">Date</th>
 						</tr>
 					</tfoot>
 				</table>
 				
 				<p>
-					<a href="#" data-dropdown="dropInfo2" id="step4">Envoyer une communication à un joueur</a>
+					<a href="#" data-dropdown="dropInfo3" id="step5">Envoyer une communication à un joueur</a>
 				</p>
 				
 				<ul id="dropInfo1" class="f-dropdown content" data-dropdown-content>
 					<p><span class="bold">Profil Joueur</span><br /><br />Fonctionnalité à venir<br /><span class="italic">Priorité faible</span></p>
 				</ul>
 				<ul id="dropInfo2" class="f-dropdown content" data-dropdown-content>
+					<p><span class="bold">Supprimer Communication</span><br /><br />Fonctionnalité à venir<br /><span class="italic">Priorité moyenne</span></p>
+				</ul>
+				<ul id="dropInfo3" class="f-dropdown content" data-dropdown-content>
 					<p><span class="bold">Envoyer Communication</span><br /><br />Fonctionnalité à venir<br /><span class="italic">Priorité haute</span></p>
 				</ul>
 			</article>
@@ -75,6 +79,10 @@
 			</li>
 			<li data-id="step4" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
 				<h4>Info #3</h4>
+				<p>Histoire de ranger un peu, vous pouvez <span class="bad">supprimer une communication</span> d'un <span class="good">simple clic sur la 'X'</span> correspondante !</p>
+			</li>
+			<li data-id="step5" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
+				<h4>Info #4</h4>
 				<p>Vous pouvez à tout moment <span class="bad">envoyer un message à un joueur</span> en suivant le lien ci-dessous.</p>
 			</li>
 			<li data-button="Merci !">
