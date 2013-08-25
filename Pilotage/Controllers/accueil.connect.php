@@ -10,7 +10,7 @@
 		$populationManageNow = $Data->getNumberOfPopulationWhoAreManagedNow( $buildingId );
 		$populationManageNow += $changeValue;
 		
-		if( $changeValue <= (int)$buildingData->getMaxPopulation() && $populationManageNow <= $Data->getPopulation() )
+		if( $changeValue <= (int)$buildingData->getMaxPopulation() && $populationManageNow <= (int)$Data->getPopulation() && (int)$Data->getPopulation() < (int)$Data->getManagePopulationMax() )
 		{
 			/* Fichier des id des bâtiments */
 			include("./config_id.php");
@@ -40,6 +40,10 @@
 
 			$Engine->setSuccess("<span class=\"bold\">Modification de gestion effectuée !</span><br />La gestion de cette structure a été correctement modifié.<br />Les modifications seront visibles dès l'actualisation de la page !<br /><span class=\"smaller\"><a href=\"index.connect.php\">(Ne pas attendre la redirection)</a></span>");
 			$Engine->setInfo("Vous administrez ".$populationManageNow." habitant(s) sur ".$Data->getPopulation()." habitant(s) maximum.");
+		}
+		else if( (int)$Data->getPopulation() >= (int)$Data->getManagePopulationMax() )
+		{
+			$Engine->setError("<span class=\"bold\">Surpopulation détectée !</span><br />- En cas de surpopulation, tous vos privilièges technologiques sont stoppés net et vous ne pouvez plus administrer vos structures.");
 		}
 		else
 		{
