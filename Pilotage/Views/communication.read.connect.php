@@ -64,3 +64,4 @@
 				<p>Encore besoin d'aide :<br />- <a data-reveal-id="FAQ">Lire la F.A.Q.</a><br />- <a href="communication.connect.php">Contactez Jibi !</a></p>
 			</li>
 		</ol>
+		<?php include_once(PATH_VIEWS."faq.php"); ?>
