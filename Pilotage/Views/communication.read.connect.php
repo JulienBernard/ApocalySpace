@@ -61,6 +61,6 @@
 			<li data-button="Merci !">
 				<h4>A vous de jouer !</h4><br />
 				<p>Vous savez tout sur cette page.</p>
-				<p>Encore besoin d'aide ?<br /><a href="communication.connect.php">Contactez Jibi !</a></p>
+				<p>Encore besoin d'aide :<br />- <a data-reveal-id="FAQ">Lire la F.A.Q.</a><br />- <a href="communication.connect.php">Contactez Jibi !</a></p>
 			</li>
 		</ol>
