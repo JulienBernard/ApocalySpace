@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ApocalySpace
-   &#160;<span id="projectnumber">1.5</span>
+   &#160;<span id="projectnumber">1.6</span>
    </div>
   </td>
  </tr>
@@ -113,11 +113,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">/* Lancement du moteur [ne pas modifier] */</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    $Engine-&gt;startEngine( $Engine, $Template );</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;?&gt;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">if</span>( !<a class="code" href="class_engine.html#a1c57e240e9982d2b02c791b4aa67f02b">Engine::isConnected</a>() )</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        header(<span class="stringliteral">&#39;Location: ./support.php&#39;</span>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;?&gt;</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Samedi Août 3 2013 21:41:14 pour ApocalySpace par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Dimanche Août 25 2013 23:19:13 pour ApocalySpace par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

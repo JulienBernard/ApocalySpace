@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ApocalySpace
-   &#160;<span id="projectnumber">1.5</span>
+   &#160;<span id="projectnumber">1.6</span>
    </div>
   </td>
  </tr>
@@ -88,14 +88,84 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="title">recherche.connect.php</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;﻿&lt;?php</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    <span class="comment">/* Inclusion de la vue */</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    include_once( $Engine-&gt;getViewPath() );</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    <span class="keywordflow">if</span>( isset($_POST[<span class="stringliteral">&quot;researchTechnology&quot;</span>]) &amp;&amp; is_numeric($_POST[<span class="stringliteral">&quot;researchTechnology&quot;</span>]) &amp;&amp; $_POST[<span class="stringliteral">&quot;researchTechnology&quot;</span>] &gt; 0 )</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    {</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;        $technologyId = (int)htmlspecialchars($_POST[<span class="stringliteral">&quot;researchTechnology&quot;</span>]);</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;        $technologyData = $Data-&gt;getTechnologiesList()[$technologyId-1];</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;        </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        <span class="keywordflow">if</span>( (<span class="keywordtype">int</span>)$Data-&gt;getPr() &gt;= (int)$technologyData-&gt;getCost() )</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;            <span class="keywordflow">if</span>( $technologyData-&gt;getLevel() &lt; 10 )</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;            {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;                <span class="comment">/* Mise à jour des ressources de la planète */</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                $Data-&gt;getPlanet()-&gt;updateRessource( (<span class="keywordtype">int</span>)$Data-&gt;getPlanetId(), (int)$Data-&gt;getRes1(), (int)$Data-&gt;getRes2(), (int)$Data-&gt;getRes3(), (int)$Data-&gt;getPR() - (int)$technologyData-&gt;getCost(), (int)$Data-&gt;getProductionTime() );</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                <span class="comment">/* Ajout d&#39;un niveau à cette technologie */</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                $technologyData-&gt;addTechnologyLevel( $technologyData-&gt;getId(), $technologyData-&gt;getUserId() );</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            ?&gt;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                &lt;div data-alert <span class="keyword">class</span>=<span class="stringliteral">&quot;success-box&quot;</span>&gt;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                    &lt;p <span class="keyword">class</span>=<span class="stringliteral">&quot;smaller&quot;</span>&gt;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                        &lt;br /&gt;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                        Vos chercheurs viennent de découvrir quelque chose !&lt;br /&gt;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                        &lt;span <span class="keyword">class</span>=<span class="stringliteral">&quot;bold&quot;</span>&gt;Votre compréhension sur la technologie <span class="stringliteral">&quot;&lt;?php echo $technologyData-&gt;getName(); ?&gt;&quot;</span> évolue.&lt;/span&gt;&lt;br /&gt;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                        &lt;span <span class="keyword">class</span>=<span class="stringliteral">&quot;smaller&quot;</span>&gt;&lt;a href=<span class="stringliteral">&quot;recherche.connect.php&quot;</span>&gt;(Ne pas attendre la redirection)&lt;/a&gt;&lt;/span&gt;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                    &lt;/p&gt;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                &lt;/div&gt;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                &lt;script type=<span class="stringliteral">&quot;text/javascript&quot;</span>&gt;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                    <span class="comment">// Appel du script de redirection vers la page index.php (3 secondes)</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                    redirection(3, <span class="stringliteral">&#39;recherche.connect.php&#39;</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                &lt;/script&gt;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            &lt;?php</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            ?&gt;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                &lt;div data-alert <span class="keyword">class</span>=<span class="stringliteral">&quot;error-box&quot;</span>&gt;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                    &lt;p <span class="keyword">class</span>=<span class="stringliteral">&quot;smaller&quot;</span>&gt;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                        &lt;br /&gt;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                        Vos chercheurs refusent de travailler !&lt;br /&gt;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                        &lt;span <span class="keyword">class</span>=<span class="stringliteral">&quot;bold&quot;</span>&gt;Ils disent en savoir suffisamment à propos de cette technologie.&lt;/span&gt;&lt;br /&gt;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                        &lt;span <span class="keyword">class</span>=<span class="stringliteral">&quot;smaller&quot;</span>&gt;&lt;a href=<span class="stringliteral">&quot;recherche.connect.php&quot;</span>&gt;(Ne pas attendre la redirection)&lt;/a&gt;&lt;/span&gt;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                    &lt;/p&gt;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                &lt;/div&gt;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                &lt;script type=<span class="stringliteral">&quot;text/javascript&quot;</span>&gt;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                    <span class="comment">// Appel du script de redirection vers la page index.php (3 secondes)</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                    redirection(3, <span class="stringliteral">&#39;recherche.connect.php&#39;</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                &lt;/script&gt;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            &lt;?php</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        ?&gt;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            &lt;div data-alert <span class="keyword">class</span>=<span class="stringliteral">&quot;error-box&quot;</span>&gt;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                &lt;p <span class="keyword">class</span>=<span class="stringliteral">&quot;smaller&quot;</span>&gt;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                    &lt;br /&gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                    Vos chercheurs n<span class="stringliteral">&#39;ont pas assez d&#39;</span>expérience !&lt;br /&gt;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                    &lt;span <span class="keyword">class</span>=<span class="stringliteral">&quot;bold&quot;</span>&gt;Vous n<span class="stringliteral">&#39;avez pas les ressources nécessaire pour améliorer votre recherche scientifique.&lt;/span&gt;&lt;br /&gt;</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="stringliteral">                    &lt;span class=&quot;smaller&quot;&gt;&lt;a href=&quot;recherche.connect.php&quot;&gt;(Ne pas attendre la redirection)&lt;/a&gt;&lt;/span&gt;</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="stringliteral">                &lt;/p&gt;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="stringliteral">            &lt;/div&gt;</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="stringliteral">            &lt;script type=&quot;text/javascript&quot;&gt;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="stringliteral">                // Appel du script de redirection vers la page index.php (3 secondes)</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="stringliteral">                redirection(3, &#39;</span>recherche.connect.php<span class="stringliteral">&#39;);</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="stringliteral">            &lt;/script&gt;</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="stringliteral">        &lt;?php</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="stringliteral">        }</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="stringliteral">    }</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="stringliteral">    else</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="stringliteral">    {</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="stringliteral">    </span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="stringliteral">    }</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="stringliteral"></span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="stringliteral">    /* Inclusion de la vue */</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="stringliteral">    include_once( $Engine-&gt;getViewPath() );</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Samedi Août 3 2013 21:41:14 pour ApocalySpace par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Dimanche Août 25 2013 23:19:13 pour ApocalySpace par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

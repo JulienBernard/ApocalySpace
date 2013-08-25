@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">ApocalySpace
-   &#160;<span id="projectnumber">1.5</span>
+   &#160;<span id="projectnumber">1.6</span>
    </div>
   </td>
  </tr>
@@ -91,27 +91,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <p>Liste complète des membres de <a class="el" href="class_planet.html">Planet</a>, y compris les membres hérités :</p>
 <table class="directory">
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>__construct</b>($dataPlanet) (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_planet.html#a2a1ff7dba4ca482f0a2b7148066b95a7">addPlanet</a>($userId, $primary=0, $name= 'P042')</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getNatality</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_planet.html#a72eb0d52ab4e1b477c9492572dba71f6">addBuildTime</a>($planetId, $userId, $constructionType, $constructionId, $constructionTime, $constructionQuantity)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_planet.html#a863093de5bf727dacf0fb885c7a37c32">addPlanet</a>($userId, $faction, $primary=0, $name= 'P042')</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_planet.html#a0ec6a3a16ce39c368365b00f128ef1d9">checkRessource</a>($dbTime, $productionPerHour, $bonus=0)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_planet.html#af0dd8ceb168b0ecfe4a71b8ddd5a97f9">delBuildTime</a>($gbId)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getNatality</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_planet.html#ab92fd40c390bb2e1f41e285916298f67">getPlanetBuildTime</a>($planetId, $constructionType=NULL)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_planet.html#a78f40ee377512d1b5e3439e842c157f2">getPlanetData</a>($planetId)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getPlanetName</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getPopulation</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getPosX</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getPosY</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getPR</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getProdRes1</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getPlanetId</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getPlanetName</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getPopulation</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getPosX</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getPosY</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getPR</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getProdRes1</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getProdRes1Bonus</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getProdRes2</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getProdRes3</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getProdRes2Bonus</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getProdRes3</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getProdRes3Bonus</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getProdResPR</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getRes1</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getRes2</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getRes3</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_planet.html#aadef22e3b80660b43f857a3d679453d6">getUserPrimaryPlanet</a>($userId)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>initializePlanet</b>($planetId) (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getProductionTime</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getRes1</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getRes2</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getRes3</b>() (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_planet.html#aadef22e3b80660b43f857a3d679453d6">getUserPrimaryPlanet</a>($userId)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>initializePlanet</b>($planetId) (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>setNatality</b>($value) (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setProdRes1Bonus</b>($value) (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>setProdRes2Bonus</b>($value) (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setProdRes3Bonus</b>($value) (défini dans <a class="el" href="class_planet.html">Planet</a>)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_planet.html#a9078716e01f9c367191fd2f9bcca1ca2">updateNatality</a>($planetId, $newNatality)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_planet.html#aa19b4d150d3e5cb1c698d358ed990acf">updatePopulation</a>($planetId, $newPopulation)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_planet.html#a7712e07a22606cbb55643a5753929e9f">updateProduction</a>($planetId, $newProd, $resId)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_planet.html#a7f5647ab915ad8057d1bd7087ba1b632">updateRessource</a>($planetId, $newRes1, $newRes2, $newRes3, $newResPR)</td><td class="entry"><a class="el" href="class_planet.html">Planet</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Samedi Août 3 2013 21:41:14 pour ApocalySpace par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Dimanche Août 25 2013 23:19:13 pour ApocalySpace par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>
