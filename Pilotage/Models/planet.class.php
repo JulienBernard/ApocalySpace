@@ -42,16 +42,7 @@ class Planet
 		$this->_planetNatality = (int)$dataPlanet['pl_natality'];
 		$this->_primaryPlanet = (int)$dataPlanet['pl_primary'];
 		
-		/* Ressources & Population */
-		
-		
-		
-		
-		
-		//		/!\ IMPORTANT /!\
-		// 	TODO : ajouter dans la fct checkRessource les bonus (techno prod)
-
-		
+		/* Ressources & Population */		
 		$benefitRes1 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes1(), $this->getProdRes1Bonus() );
 		$benefitRes2 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes2(), $this->getProdRes2Bonus() );
 		$benefitRes3 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes3(), $this->getProdRes3Bonus() );
