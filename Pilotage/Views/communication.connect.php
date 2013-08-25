@@ -71,7 +71,7 @@
 			</li>
 			<li data-id="step3" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
 				<h4>Info #2</h4>
-				<p>En cliquant sur le <span class="bad">nom de l'expéditeur</span> vous accederez à son profil de joueur.</p>
+				<p>En cliquant sur le <span class="bad">nom de l'expéditeur</span> vous accéderez à son profil de joueur.</p>
 			</li>
 			<li data-id="step4" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
 				<h4>Info #3</h4>
