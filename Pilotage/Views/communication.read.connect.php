@@ -15,13 +15,12 @@
 				<table style="margin: auto; width: 90%;">
 					<tbody>
 						<tr>
-							<td colspan="2"><?php echo nl2br(htmlentities(htmlspecialchars($communication['com_message']), NULL, 'utf-8')); ?></td>
+							<td><?php echo nl2br(htmlentities(htmlspecialchars($communication['com_message']), NULL, 'utf-8')); ?></td>
 						</tr>
 					</tbody>
 					<tfoot>
 						<tr>
-							<th class="smaller center">Titre de la communication</th>
-							<th class="smaller center">??</th>
+							<th class="smaller center"><?php echo htmlentities($communication['com_subject'], NULL, 'utf-8'); ?></th>
 						</tr>
 					</tfoot>
 				</table>
