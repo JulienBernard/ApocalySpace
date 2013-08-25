@@ -4,7 +4,7 @@
 				Main body of website.
 			-->
 			<article class="large-9 columns">
-				<h1>GESTION PLANETAIRE</h1>
+				<h1><?php echo strtoupper($Template->getTitle()); ?></h1>
 				<!--
 				<div data-alert class="info-box">
 					<p class="smaller-2">

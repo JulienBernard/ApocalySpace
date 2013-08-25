@@ -4,7 +4,9 @@
 				Main body of website.
 			-->
 			<article class="large-9 columns">
+				<br />
 				<h1><?php echo strtoupper($Template->getTitle()); ?></h1>
+				
 				<div data-alert class="success-box">
 					<p class="small">
 						Les communications subspatiales utilisent des fréquences plus basses que la lumière,<br />

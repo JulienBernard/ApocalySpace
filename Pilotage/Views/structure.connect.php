@@ -4,7 +4,7 @@
 				Main body of website.
 			-->
 			<article class="large-9 columns">
-				<h1>STRUCTURES</h1>
+				<h1><?php echo strtoupper($Template->getTitle()); ?></h1>
 				
 			<?php
 			if(!empty($arrayConstruction))

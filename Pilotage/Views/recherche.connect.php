@@ -4,7 +4,7 @@
 				Main body of website.
 			-->
 			<article class="large-9 columns">
-				<h1>RECHERCHES TECHNOLOGIQUES</h1>
+				<h1><?php echo strtoupper($Template->getTitle()); ?></h1>
 				<div data-alert class="success-box">
 					<p class="smaller">
 						Que ce soit pour l'armement ou pour la médecine, la recherche scientifique est primordiale pour l'évolution d'un empire.<br />
