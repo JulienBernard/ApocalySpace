@@ -51,7 +51,7 @@
 				</p>
 				<h1>Les Républicains</h1>
 				<p class="small">
-					- <span class="bold">Taux de natalité : <span class="good">+10 (%)</span></span><br />
+					- <span class="bold">Taux de natalité : <span class="good">+5 (%)</span></span><br />
 					- Temps de construction : <span class="bad bold">-5 (%)</span>
 				</p>
 				<h1>Les Vagabonds</h1>

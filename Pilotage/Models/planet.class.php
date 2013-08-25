@@ -78,7 +78,7 @@ class Planet
 		/* Modification dans la base de données, si il y a modification ! */
 		if( $benefitRes1 >= 1 OR $benefitRes2 >= 1 OR $benefitRes3 >= 1 OR $benefitResPR >= 1 )
 			$this->updateRessource( $this->_planetId, $this->_planetResource1, $this->_planetResource2, $this->_planetResource3, $this->_planetPR );
-		if( $benefitPopulation >= 1 )
+		if( $benefitPopulation != 0 )
 			$this->updatePopulation( $this->_planetId, $this->_planetPopulation );
 	}
 	
@@ -105,15 +105,20 @@ class Planet
 	 *
 	 * @param int userId
 	 * @param String name
+	 * @param String faction	nécessaire pour le taux de natalité de départ
 	 * @param String primary	Vaut 1 si cette planète est la planète primaire du joueur (inscription).
 	 * return int lastInsertId	Retourne le dernier ID inséré dans la bdd, ici l'user id !
 	 */
-	public static function addPlanet( $userId, $primary = 0, $name = 'P042' ) {
+	public static function addPlanet( $userId, $faction, $primary = 0, $name = 'P042' ) {
 		$sql = MyPDO::get();
 		
 		$initialX = (rand(0, 5) - 2)*2; 
 		$initialY = (rand(0, 5) - 2)*2;
 		$coords = Map::getPlanetSlot( $initialX, $initialY );
+		if( $faction == "impériaux" )
+			$natality = 11;
+		else
+			$natality = 12;
 		
 		$req = $sql->prepare('INSERT INTO planets VALUES(null, :name, :size, :population, :userId, :posX, :posY, :res1, :res2, :res3, :pr, :prod_res1, :prod_res2, :prod_res3, :prod_respr, :prod_time, :natality, :primary)');
 		$result = $req->execute( array(
@@ -132,7 +137,7 @@ class Planet
 			':prod_res3' => 0,
 			':prod_respr' => 0,
 			':prod_time' => time(),
-			':natality' => 10,
+			':natality' => $natality,
 			':primary' => $primary
 		));
 		
@@ -404,6 +409,9 @@ class Planet
 	}
 	public function setProdRes3Bonus( $value ) {
 		$this->_prodRes3Bonus = $value;
+	}
+	public function setNatality( $value ) {
+		$this->_planetNatality = $value;
 	}
 	
 	/* Getters */

@@ -50,16 +50,16 @@ class Data {
 		$this->_user = $User;
 		$this->_planet = $Planet;
 
-		if( $this->_user->getFaction() == "imperiaux" )
+		if( $this->_user->getFaction() == "impériaux" )
 		{
 			$this->_birthrateMultiplier = 0.95;
 			$this->_productionMultiplier = 1;
 			$this->_attackPowerMultiplier = 1.1;
 			$this->_buildTimeMultiplier = 1;
 		}
-		else if( $this->_user->getFaction() == "republicains" )
+		else if( $this->_user->getFaction() == "républicains" )
 		{
-			$this->_birthrateMultiplier = 1.1;
+			$this->_birthrateMultiplier = 1.05;
 			$this->_productionMultiplier = 1;
 			$this->_attackPowerMultiplier = 1;
 			$this->_buildTimeMultiplier = 1.05;
@@ -118,14 +118,31 @@ class Data {
 		
 		/* Gestion de la natalité */
 		$overcrowding = 0;
+		$difPopulation = $this->_planet->getPopulation() - $this->_managePopulationMax;
 		/* Si il y a surpopulation */
 		if( $this->_planet->getPopulation() > $this->_managePopulationMax )
-			$overcrowding = round(($this->_planet->getPopulation() - $this->_managePopulationMax) + ($officeAreasLevel*2.5) * $this->_globalSpeedMult);
+		{
+			$overcrowdingRate = 3.4;
+			if( $difPopulation > 100 && $difPopulation <= 100 )
+				$overcrowdingRate = 7.2;	
+			else if( $difPopulation > 100 && $difPopulation <= 200 )
+				$overcrowdingRate = 15;
+			else if( $difPopulation > 200 && $difPopulation <= 300 )
+				$overcrowdingRate = 22.1;
+			else if( $difPopulation > 300 )
+				$overcrowdingRate = 29;
+				
+			$overcrowding = round(($this->_planet->getPopulation() - $this->_managePopulationMax) + ($officeAreasLevel*$overcrowdingRate) * $this->_globalSpeedMult);
+		}
 		
-		$this->_natalityProduction = round(($capitalLevel * 12) + ($this->getTechnologyLevel($medicalResearchId, $this->getId()) * (0.05*12*$capitalLevel)) * $this->_birthrateMultiplier * $this->_globalSpeedMult - $overcrowding);				/* Taux arbitraire (12 par niveau) */
+		$this->_natalityProduction = round(($capitalLevel * 12) + ($this->getTechnologyLevel($medicalResearchId, $this->getId()) * (0.05*12*$capitalLevel)) * $this->_globalSpeedMult - $overcrowding) * $this->_birthrateMultiplier;				/* Taux arbitraire (12 par niveau) */
 		/* Si le taux a changé, on modifie dans la base de données */
+
 		if( $this->_natalityProduction != $this->getNatality() )
+		{
 			$this->_planet->updateNatality( $this->getPlanetId(), $this->_natalityProduction );
+			$this->_planet->setNatality( $this->_natalityProduction );
+		}
 	}
 	
 	/**

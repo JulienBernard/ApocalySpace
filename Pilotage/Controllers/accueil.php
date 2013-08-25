@@ -49,7 +49,7 @@
 								include_once(PATH_MODELS."planet.class.php");
 								include_once(PATH_MODELS."map.class.php");
 								/* Ajout de la planète dans la base de donnée en tant que planète primaire du joueur. */
-								$result = Planet::addPlanet( $userId, 1 );
+								$result = Planet::addPlanet( $userId, $faction, 1 );
 								
 								if( $result == 0 )
 									$Engine->setError("Une erreur est survenue lors de la création de votre planète.<br />Merci de bien vouloir contacter l'équipe et signaler cette erreur !");
