@@ -72,7 +72,7 @@
 										
 										Certains de nos camarades on d'ors et déjà commencer à installer notre camp.										
 										
-										Bien des années ont passé mon commandant, alors si vous avez besoin de conseils n'hésitez pas à cliquer sur le lien 'Aide' qui se trouve à côté de l'heure sur le menu du haut !										
+										Bien des années ont passé mon commandant. Si vous avez besoin de conseils n'hésitez pas à cliquer sur le bouton symbolisant un '?' qui se trouve en dessous de l'heure sur la droite !										
 										
 										Bonne chance !
 										

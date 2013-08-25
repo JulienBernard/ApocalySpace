@@ -148,7 +148,7 @@
 				<a href="compte.connect.php" <?php if( $Engine->getNamepage() == "compte" ) echo 'class="current"'; ?>>Compte</a>
 				<a href="communication.connect.php" <?php if( $Engine->getNamepage() == "communication" ) echo 'class="current"'; ?>>Communication <?php if( $Data->getNbMessageNoRead() != 0 ) echo "(".$Data->getNbMessageNoRead().")"; ?></a>
 				<a href="deconnexion.connect.php" <?php if( $Engine->getNamepage() == "deconnexion" ) echo 'class="current"'; ?>>Déconnexion</a>
-				<span id="serverTime" style="display: block; float: right;"><?php echo date( "H:i:s", time() ); ?></span>
+				<span id="serverTime" class="right"><?php echo date( "H:i:s", time() ); ?></span>
 			</nav>
 		</div>
 		<br />

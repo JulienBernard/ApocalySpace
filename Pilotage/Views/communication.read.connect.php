@@ -28,7 +28,7 @@
 				
 				<p>
 					<br />
-					<a href="#" data-dropdown="dropInfo2">Répondre à ce joueur</a>
+					<a href="communication.connect.php">Retour aux communications</a> - <a href="#" data-dropdown="dropInfo2">Répondre à ce joueur</a>
 				</p>
 				
 				<ul id="dropInfo1" class="f-dropdown content" data-dropdown-content>
