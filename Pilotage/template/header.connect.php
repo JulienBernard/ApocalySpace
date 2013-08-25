@@ -101,7 +101,7 @@
 		<a href="index.connect.php"><div id="header_infobar_logo"></div></a>
 		
 		<nav id="nav-board">
-			<a href="compte.connect.php"><img id="img-account" /></a>
+			<a><img id="img-account" /></a>
 			<a href="communication.connect.php" <?php if( $Data->getNbMessageNoRead() != 0 ) echo 'class="img-message-new"'; else echo 'class="img-message"'; ?>><img id="img-message" /></a>
 			<a href="deconnexion.connect.php"><img id="img-exit" /></a>
 		</nav>
@@ -145,11 +145,14 @@
 		<div class="row">
 			<nav class="large-12 breadcrumbs" id="links">
 				<a href="index.connect.php" <?php if( $Engine->getNamepage() == "accueil" ) echo 'class="current"'; ?>>Accueil</a>
-				<a href="compte.connect.php" <?php if( $Engine->getNamepage() == "compte" ) echo 'class="current"'; ?>>Compte</a>
+				<a data-dropdown="dropSetting" <?php if( $Engine->getNamepage() == "compte" ) echo 'class="current"'; ?>>Compte</a>
 				<a href="communication.connect.php" <?php if( $Engine->getNamepage() == "communication" ) echo 'class="current"'; ?>>Communication <?php if( $Data->getNbMessageNoRead() != 0 ) echo "(".$Data->getNbMessageNoRead().")"; ?></a>
 				<a href="deconnexion.connect.php" <?php if( $Engine->getNamepage() == "deconnexion" ) echo 'class="current"'; ?>>Déconnexion</a>
 				<span id="serverTime" class="right"><?php echo date( "H:i:s", time() ); ?></span>
 			</nav>
 		</div>
+		<ul id="dropSetting" class="f-dropdown content" data-dropdown-content>
+			<p><span class="bold">Mon compte</span><br /><br />Fonctionnalité à venir<br /><span class="italic">Priorité moyenne</span></p>
+		</ul>
 		<br />
 	
