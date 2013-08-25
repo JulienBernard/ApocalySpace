@@ -7,8 +7,8 @@
 > ApocalySpace est un jeu en ligne jouable gratuitement et directement sur votre navigateur web mêlant stratégie et gestion dans l'espace.
 
 ## Version
-**Lastest version:** 1.5<br>
-**Stability of version:** in development<br>
+**Lastest version:** 1.6<br>
+**Stability of version:** CLOSED BETA<br>
 <br>
 **MASTER branch:** stable version and project informations<br>
 **DEVELOPMENT branch:** in development, posibily unstable version<br>
@@ -19,8 +19,10 @@
 **Principal programmation langage:** PHP in version 5+ for object-oriented programming<br>
 
 ## Changelog
-**01/07/13 -** Ajout des classes User, Planet et Map / Add User, Planet and Map class.<br>
-**24/06/13 -** Intégration du nouveau moteur du SpaceEngine / Integration of the new SpaceEngine engine.<br>
-**02/06/13 -** Ajout du SpaceEngine / Add SpaceEngine.<br>
-**17/05/13 -** Commit d'une grosse partie de la phase d'avant-projet / Commit a big part of the planning stage.<br>
-**03/08/13 -** Début de l'intégration du code aux pages "Gestion de population", "Structures" et "Technologies". / Beginning of the code integration for the pages "Population management", "Buildings" and "Technology."
+**(1.6) 25/08/13 : Mise en service de la BETA FERME. / CLOSED BETA start.
+**(1.5) 03/08/13 : Ajout de la classe Data, début de l'intégration du code. / Add Data class, beginning of code integration.
+**(1.4) 01/07/13 : Ajout des classes User, Planet et Map / Add User, Planet and Map class.
+**(1.3) 24/06/13 : Intégration du nouveau moteur du SpaceEngine. / New SpaceEngine integrated.
+**(1.2) 02/06/13 : Ajout des pages Accueil / Histoire / Galerie / Support / Mentions / Histoire du projet. / Add some page.
+**(1.1) 02/06/13 : Intégration du SpaceEngine sur ApocalySpace. Intégration de Foundation4 sur le moteur. / SpaceEngine integrated to ApocalySpace.
+**(1.0) 01/06/13 : Développement du SpaceEngine, le moteur du site internet. / SpaceEngine developed.
