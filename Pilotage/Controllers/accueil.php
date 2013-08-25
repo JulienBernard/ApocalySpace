@@ -62,7 +62,7 @@
 									
 									if( $result )
 									{
-										include_once(PATH_MODELS."message.class.php");
+										include_once(PATH_MODELS."communication.class.php");
 										$subject = "Bonjour commandant !";
 										$message = "Commandant ".$username.",
 										
@@ -78,7 +78,7 @@
 										
 										Votre conseiller, Jibi.";
 										
-										Message::addCommunications( $message, $subject, null, $userId, 1);
+										Communication::addCommunications( $message, $subject, "", $userId, 1);
 									
 										/* Message de confirmation */
 										$Engine->setSuccess("Votre inscription a été validée.");

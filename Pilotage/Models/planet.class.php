@@ -150,30 +150,30 @@ class Planet
 	*/
 	public static function initializePlanet( $planetId )
 	{
-		global $commandCenterId, $titaneMineId, $berylMineId, $hydrogeneExtractorId, $habitationId,
+		global $capital, $titaneMineId, $berylMineId, $hydrogeneExtractorId, $officeAreas,
 				$titaneStorageId, $berylStorageId, $hydrogeneStorageId, $atelierId, $usineId, $researchCenterId;
 
 		$pdo = MyPDO::get();
 		
 		$queryString = 'INSERT INTO BtoP
-		(`buildingId`, `planetId`, `buildingLevel`, `buildingPopulation`, `buildingView`)
+		(`buildingId`, `planetId`, `buildingLevel`, `buildingPopulation`)
 		VALUES
-		(:commandCenterBID, :planetId, 1, 0, 1), -- Centre de commande niveau 1
-		(:habitationBID, :planetId, 1, 0, 1), -- Habitation
-		(:mine1BID, :planetId, 0, 0, 1), -- Mines
-		(:mine2BID, :planetId, 0, 0, 1),
-		(:mine3BID, :planetId, 0, 0, 1), 
-		(:atelierBID, :planetId, 0, 0, 0), -- Atelier
-		(:usineBID, :planetId, 0, 0, 0), -- Usine
-		(:stock1BID, :planetId, 0, 0, 1), -- Entrepôts
-		(:stock2BID, :planetId, 0, 0, 1),
-		(:stock3BID, :planetId, 0, 0, 1),
-		(:rechercheBID, :planetId, 0, 0, 0); -- Centre de recherche
+		(:capital, :planetId, 1, 0), -- Centre de commande niveau 1
+		(:officeAreas, :planetId, 1, 0), -- Habitation
+		(:mine1BID, :planetId, 0, 0), -- Mines
+		(:mine2BID, :planetId, 0, 0),
+		(:mine3BID, :planetId, 0, 0), 
+		(:atelierBID, :planetId, 0, 0), -- Atelier
+		(:usineBID, :planetId, 0, 0), -- Usine
+		(:stock1BID, :planetId, 0, 0), -- Entrepôts
+		(:stock2BID, :planetId, 0, 0),
+		(:stock3BID, :planetId, 0, 0),
+		(:rechercheBID, :planetId, 0, 0); -- Centre de recherche
 		';
 		$queryData = array(
 		':planetId' => $planetId,
-		':commandCenterBID' => $commandCenterId,
-		':habitationBID' => $habitationId,
+		':capital' => $capital,
+		':officeAreas' => $officeAreas,
 		':mine1BID' => $titaneMineId,
 		':mine2BID' => $berylMineId,
 		':mine3BID' => $hydrogeneExtractorId,
@@ -191,7 +191,7 @@ class Planet
 			// Gestion d'erreurs PDO
 			$errorInfo = $query->errorInfo();
 			
-			$errorText = '<p class="Error">';
+			$errorText = '<p data-alert class="error-box">';
 			$errorText .= 'initializePlanet: Une erreur SQL est survenue (bâtiments).<br />';
 			$errorText .= '['.$errorInfo[0].' - '.$errorInfo[1].'] '.$errorInfo[2].'<br />';
 			$errorText .= 'Requête: '.var_export($queryString, true) . '<br />';

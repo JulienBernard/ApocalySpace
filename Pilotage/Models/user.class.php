@@ -174,16 +174,16 @@ class User
 			return 0;
 		
 		/* Technologies */
-		$req = $sql->prepare('INSERT INTO TtoU (userId, techId, techLevel, techView) VALUES
-            (:userId, 1, 0, 0),
-			(:userId, 2, 0, 0),
-			(:userId, 3, 0, 0),
-			(:userId, 4, 0, 0),
-			(:userId, 5, 0, 0),
-			(:userId, 6, 0, 0),
-			(:userId, 7, 0, 0),
-			(:userId, 8, 0, 0),
-			(:userId, 9, 0, 0);'
+		$req = $sql->prepare('INSERT INTO TtoU (userId, techId, techLevel) VALUES
+            (:userId, 1, 0),
+			(:userId, 2, 0),
+			(:userId, 3, 0),
+			(:userId, 4, 0),
+			(:userId, 5, 0),
+			(:userId, 6, 0),
+			(:userId, 7, 0),
+			(:userId, 8, 0),
+			(:userId, 9, 0);'
 		);
 		$result = $req->execute(array(':userId' => $userId));
 		if( $result )
