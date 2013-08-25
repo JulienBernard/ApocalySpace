@@ -66,16 +66,17 @@
 										$subject = "Bonjour commandant !";
 										$message = "Commandant ".$username.",
 										
-										Bonjour et bienvenu dans vos nouveaux quartiers, j'éspère qu'ils vous conviendront.
+										Bonjour et bienvenu dans vos nouveaux quartiers, j'espère qu'ils vous conviendront.
 										
-										Nous avons très peu de chose à notre disposition mais l'équipage et moi-même avons foi en vous commandant : notre peuple va enfin pouvoir revivre !
-										Certaines personnes souhaitent déjà se mettre au travail, alors que nous venons tous juste d'arriver.
+										Nous avons très peu de choses à notre disposition mais l'équipage et moi-même avons foi en vous commandant. Oui, notre peuple va enfin pouvoir revivre !
 										
-										Je vous propose de commencer par suivre le tutoriel qui vous apportera de nombreux conseil et astuces pour apprendre à gérer correctement notre futur empire.
+										Certains de nos camarades on d'ors et déjà commencer à installer notre camp.										
 										
-										Bonne chance commandant.
+										Bien des années ont passé mon commandant, alors si vous avez besoin de conseils n'hésitez pas à cliquer sur le lien 'Aide' qui se trouve à côté de l'heure sur le menu du haut !										
 										
-										Julius Bengals, votre conseiller.";
+										Bonne chance !
+										
+										Votre conseiller, Jibi.";
 										
 										Message::addCommunications( $message, $subject, null, $userId, 1);
 									

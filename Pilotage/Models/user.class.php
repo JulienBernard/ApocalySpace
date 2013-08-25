@@ -198,7 +198,6 @@ class User
 		$sql = MyPDO::get();
 		$req = $sql->prepare('SELECT id FROM users');
 		$req->execute();
-		// On retourne le nombre de message non-lu compté
 		return $req->rowCount();
 	}
 	
