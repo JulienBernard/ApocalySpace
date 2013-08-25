@@ -4,7 +4,6 @@
 				Main body of website.
 			-->
 			<article class="large-9 columns">
-				<br />
 				<h1><?php echo strtoupper($Template->getTitle()); ?></h1>
 				<div data-alert class="info-box">
 					<p class="small">

@@ -25,6 +25,7 @@
 	$Template->addScript("jquery.min.js");
 	$Template->addScript("vendor/custom.modernizr.js");
 	$Template->addScript("foundation/foundation.dropdown.js");
+	$Template->addScript("foundation/foundation.joyride.js");
 	$Template->addScript("redirection.js");
 
 	global $timeStart;

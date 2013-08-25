@@ -8,7 +8,7 @@
 				Right block of website.
 			-->
 			<nav class="large-3 columns">
-				<h1>INFORMATIONS <img style="width: 25px;" class="right" src="./img/aide.png" alt="[AIDE]" /></h1>
+				<h1>INFORMATIONS <img id="help" style="width: 25px; cursor: pointer;" class="right" src="./img/aide.png" alt="[AIDE]" /></h1>
 				<div class="row">
 					<div class="player-planet">
 						<div id="player-planet-hidden"><?php echo strtoupper($Data->getPlanetName()); ?></div>
@@ -189,12 +189,17 @@
 		$(function(){
 			$(document).foundation();    
 		})
+		// Start Joyride
 		
 		// JQuery Script: return to the top of the page with a animation
 		$(document).ready( function () {
 			$('#returnTop').click(function() {
 				$('html,body').animate({scrollTop: $("#main").offset().top}, 'slow');
 			});
+			$('#help').click(function() {
+				$(document).foundation('joyride', 'start');
+			});
+			
 		})
 								
 		window.onload = function(){
