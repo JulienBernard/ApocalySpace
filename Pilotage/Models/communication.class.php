@@ -99,8 +99,7 @@ class Communication
 		
 			$array = array();
 			$row = $req->fetch();
-			$array[0] = $row;
-			$array[0]['com_username'] = self::getUsernameById( $row['com_senderId'] );
+			$row['com_username'] = self::getUsernameById( $row['com_senderId'] );
 			
 			if( $row['com_recipientId'] != $userId )
 			{
@@ -108,7 +107,7 @@ class Communication
 			}
 			
 			// Retourne un tableau de données
-			return $array;
+			return $row;
 		}
 	}
 	
