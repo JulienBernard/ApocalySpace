@@ -30,5 +30,11 @@
 	$Engine->startEngine( $Engine, $Template );
 	
 	if( !Engine::isConnected() )
-		header('Location: ./support.php');
+	{
+		?>
+		<script type="text/javascript">
+			redirection(0, 'support.php');
+		</script>
+		<?php
+	}
 ?>

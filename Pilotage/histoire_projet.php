@@ -29,5 +29,10 @@
 	
 	/* Sécurité de connexion */
 	if( Engine::isConnected() )
-		header('Location: ./index.connect.php');
-?>
+	{
+		?>
+		<script type="text/javascript">
+			redirection(0, 'index.connect.php');
+		</script>
+		<?php
+	}?>

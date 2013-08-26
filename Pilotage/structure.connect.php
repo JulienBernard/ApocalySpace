@@ -34,5 +34,11 @@
 	$Engine->startEngine( $Engine, $Template, $timeStart );
 	
 	if( !Engine::isConnected() )
-		header('Location: ./index.php');
+	{
+		?>
+		<script type="text/javascript">
+			redirection(0, 'index.php');
+		</script>
+		<?php
+	}
 ?>
