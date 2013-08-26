@@ -14,6 +14,10 @@
 					<div class="orbit-container">
 						<ul data-orbit="" class="orbit-slides-container" data-options="timer_speed:5000; bullets:false;">
 							<li class="active">
+							   <a href="http://jibidev.fr/apocalyspace-ouverture-de-la-beta-fermee/"><img src="./img/orbit/26.08.13.png"></a>
+							  <div class="orbit-caption"><a href="http://jibidev.fr/apocalyspace-ouverture-de-la-beta-fermee/">Sortie de la V1.6 : participez dès maintenant à la bêta fermée !</a></div>
+							</li>
+							<li>
 							   <a href="http://jibidev.fr/etat-sur-lavancement-dapocalyspace/"><img src="./img/orbit/01.08.13.png"></a>
 							  <div class="orbit-caption"><a href="http://jibidev.fr/etat-sur-lavancement-dapocalyspace/">État sur l'avancement du projet : découvrez les pages principales du jeu !</a></div>
 							</li>
@@ -42,7 +46,7 @@
 					Forcé de fuir votre planète natale, vous incarnez le nouveau dirigeant d'un groupe de survivant qui vient d'établir une nouvelle colonie sur une planète de ce nouveau système planètaire.</p><p>Ces années d'érrances vous ayant fait perdre la quasi-totalité de votre savoir, votre peuple a besoin de vous maintenant pour repeupler cette planète et faire revivre votre civilisation !
 				</p>
 				<p class="italic">
-					Conçu et imaginé par une équipe d'étudiants en école informatique puis repris par l'un d'eux, ApocalySpace est désormais disponible dans sa version stable : la 1.0 qui est régulièrement mise à jour. Projet sous licence libre GPL, vous pouvez nous retrouver sur <a href="https://github.com/JulienBernard/ApocalySpace">GitHub</a>. Enjoy!
+					Conçu et imaginé par une équipe d'étudiants en école informatique puis repris par l'un d'eux, ApocalySpace est désormais disponible dans sa version stable : la 1.6 qui est régulièrement mise à jour. Projet sous licence libre GPL, vous pouvez nous retrouver sur <a href="https://github.com/JulienBernard/ApocalySpace">GitHub</a>. Enjoy!
 				</p>
 				<h2><a href="histoire.php">EN SAVOIR PLUS</a> <a href="galerie.php">GALERIE</a> <a href="support.php">CONTACT</a></h2>
 			</article>
