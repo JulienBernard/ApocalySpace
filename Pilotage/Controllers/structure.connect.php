@@ -7,8 +7,8 @@
 		$arrayConstruction = array();
 		for( $i = 0 ; $i < count($onGoingBuilds) ; $i++ )
 		{
-			$buildingsData = $Data->getBuildingsList()[$onGoingBuilds[$i]['gb_buildId']-1];
-			
+			$list = $Data->getBuildingsList();
+			$buildingsData = $list[$onGoingBuilds[$i]['gb_buildId']-1];			
 			/* La construction est terminée */
 			if( time() >= (int)$onGoingBuilds[$i]['gb_endTime'] )
 			{
@@ -29,8 +29,9 @@
 
 	if( isset($_POST["extendBuilding"]) && is_numeric($_POST["extendBuilding"]) && $_POST["extendBuilding"] > 0 )
 	{
-		$buildingId = (int)htmlspecialchars($_POST["extendBuilding"]);
-		$buildingData = $Data->getBuildingsList()[$buildingId-1];
+		$buildingId = (int)htmlspecialchars($_POST["extendBuilding"]) - 1;
+		$list = $Data->getBuildingsList();
+		$buildingData = $list[$buildingId];
 		
 		if( empty($onGoingBuilds) )
 		{

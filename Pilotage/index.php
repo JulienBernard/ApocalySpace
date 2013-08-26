@@ -24,11 +24,18 @@
 	$Template->addScript("time.js");
 	$Template->addScript("jquery.min.js");
 	$Template->addScript("vendor/custom.modernizr.js");
+	$Template->addScript("redirection.js");
 	
 	/* Lancement du moteur [ne pas modifier] */
 	$Engine->startEngine( $Engine, $Template );
 
 	/* Sécurité de connexion */
 	if( Engine::isConnected() )
-		header('Location: ./index.connect.php');
+	{
+		?>
+		<script type="text/javascript">
+			redirection(0, 'index.connect.php');
+		</script>
+		<?php
+	}
 ?>

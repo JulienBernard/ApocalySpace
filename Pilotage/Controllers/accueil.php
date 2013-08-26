@@ -150,7 +150,7 @@
 						$Engine->createSession("ApocalySpaceCurrentPlanet", (int)Planet::getUserPrimaryPlanet($userId) );
 						$Engine->createSession("SpaceEngineConnected", (int)$userId);
 						
-						header('Location: index.connect.php');
+						$Engine->setSuccess("<span class='bold'>Connexion réussie.</span><br /><a href='index.connect.php'>Si la redirection ne se fait pas, cliquez ici</a> !");
 					}
 					else
 						$Engine->setError("Votre PSEUDONYME ou votre MOT DE PASSE ne correspondent pas.");
