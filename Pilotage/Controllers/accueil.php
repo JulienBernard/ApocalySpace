@@ -1,6 +1,7 @@
 <?php
 		
-	$active = true;
+	$activeSub = false;
+	$activeLog = true;
 
 	if( isset($_POST['subscribe']) )
 	{
@@ -10,7 +11,7 @@
 		$return = $Engine->checkParams( $fields );
 		
 		/* Champs valides */
-		if( $return == 1 && $active )
+		if( $return == 1 && $activeSub )
 		{
 			include_once(PATH_MODELS."myPDO.class.php");
 			include_once(PATH_MODELS."user.class.php");
@@ -101,7 +102,7 @@
 
 		}
 		/* Inscription désativée */
-		else if( !$active )
+		else if( !$activeSub )
 			$Engine->setInfo("L'inscription est momentanément désactivée. Revenez plus tard !");
 		/* Champs invalides */
 		else
@@ -124,7 +125,7 @@
 		$return = $Engine->checkParams( $fields );
 		
 		/* Champs valides */
-		if( $return == 1 && $active )
+		if( $return == 1 && $activeLog )
 		{
 			include_once(PATH_MODELS."myPDO.class.php");
 			include_once(PATH_MODELS."user.class.php");
@@ -162,7 +163,7 @@
 				$Engine->setError("Ce PSEUDONYME n'existe pas dans notre base de données.");
 		}
 		/* Connexion désativée */
-		else if( !$active )
+		else if( !$activeLog )
 			$Engine->setInfo("La connexion est momentanément désactivée. Revenez plus tard !");
 		/* Champs invalides */
 		else
