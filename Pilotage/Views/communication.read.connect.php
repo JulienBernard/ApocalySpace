@@ -15,7 +15,7 @@
 				<table style="margin: auto; width: 90%;">
 					<tbody>
 						<tr>
-							<td><?php echo nl2br(htmlentities($communication['com_message'])); ?></td>
+							<td><?php echo nl2br(htmlentities($communication['com_message'], null, "UTF-8")); ?></td>
 						</tr>
 					</tbody>
 					<tfoot>

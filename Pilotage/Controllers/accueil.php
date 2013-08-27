@@ -1,7 +1,7 @@
 <?php
 		
 	$activeSub = false;
-	$activeLog = true;
+	$activeLog = false;
 
 	if( isset($_POST['subscribe']) )
 	{
