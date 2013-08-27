@@ -113,7 +113,7 @@ class Planet
 		else
 			$natality = 12;
 		
-		$req = $sql->prepare('INSERT INTO planets VALUES(null, :name, :size, :population, :userId, :posX, :posY, :res1, :res2, :res3, :pr, :prod_res1, :prod_res2, :prod_res3, :prod_respr, :prod_time, :natality, :primary)');
+		$req = $sql->prepare('INSERT INTO planets VALUES(null, :name, :size, :population, :userId, :posX, :posY, :res1, :res2, :res3, :pr, :prod_res1, :prod_res2, :prod_res3, :prod_respr, :prod_time, :prod_natality, :natality, :primary)');
 		$result = $req->execute( array(
 			':name' => $name,
 			':size' => 100,
@@ -130,6 +130,7 @@ class Planet
 			':prod_res3' => 0,
 			':prod_respr' => 0,
 			':prod_time' => time(),
+			':prod_natality' => time(),
 			':natality' => $natality,
 			':primary' => $primary
 		));
