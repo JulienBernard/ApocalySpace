@@ -138,7 +138,7 @@
 				<span class="italic small">Citation de Napoléon Bonaparte</span>
 			</p>
 			<p class="large-4 columns">
-				ApocalySpace © 2012-2013 &nbsp;&nbsp;&nbsp; <a href="./docs/">Version 1.6</a><br />
+				ApocalySpace © 2012-2013 &nbsp;&nbsp;&nbsp; <a href="./docs/">Version 1.6.1</a><br />
 			<?php	
 				if( isset($timeStart) ){
 					$timeend = microtime(true);
