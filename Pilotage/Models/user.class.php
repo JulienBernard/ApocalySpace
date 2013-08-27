@@ -191,13 +191,15 @@ class User
 		return 0;
 	}
 	
-	/**
-	 *	Retourne le nombre de joueur
+	/** Retourne le nombre de joueur
+	 * @param int $activity		:	durée après laquelle le joueur est déclaré inactif (défaut 3 jour)
 	 */
-	public static function countPlayer() {
+	public static function countPlayer( $activity = 259200 ) {
+		$currentActivityTime = time() - $activity;
+	
 		$sql = MyPDO::get();
-		$req = $sql->prepare('SELECT id FROM users');
-		$req->execute();
+		$req = $sql->prepare('SELECT id, pl_prod_time FROM users JOIN planets ON pl_userId=id WHERE pl_prod_time >= :activityTime');
+		$req->execute(array(':activityTime' => $currentActivityTime));
 		return $req->rowCount();
 	}
 	
