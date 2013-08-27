@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `btop`
+-- Structure de la table `BtoP`
 --
 
-CREATE TABLE IF NOT EXISTS `btop` (
+CREATE TABLE IF NOT EXISTS `BtoP` (
   `buildingId` int(11) NOT NULL,
   `planetId` int(11) NOT NULL,
   `buildingLevel` int(11) DEFAULT '0',
@@ -132,10 +132,10 @@ CREATE TABLE IF NOT EXISTS `fleets` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `ftos`
+-- Structure de la table `FtoS`
 --
 
-CREATE TABLE IF NOT EXISTS `ftos` (
+CREATE TABLE IF NOT EXISTS `FtoS` (
   `fleetId` int(11) NOT NULL DEFAULT '0',
   `shipId` int(11) NOT NULL DEFAULT '0',
   `fleetQuantity` int(11) DEFAULT NULL,
@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `modules` (
 -- Structure de la table `mtou`
 --
 
-CREATE TABLE IF NOT EXISTS `mtou` (
+CREATE TABLE IF NOT EXISTS `MtoU` (
   `moduleId` int(11) NOT NULL DEFAULT '0',
   `userId` int(11) NOT NULL DEFAULT '0',
   `moduleType` int(11) DEFAULT NULL,
@@ -179,10 +179,10 @@ CREATE TABLE IF NOT EXISTS `mtou` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `ongoingbuilds`
+-- Structure de la table `ongoingBuilds`
 --
 
-CREATE TABLE IF NOT EXISTS `ongoingbuilds` (
+CREATE TABLE IF NOT EXISTS `ongoingBuilds` (
   `gb_id` int(11) NOT NULL AUTO_INCREMENT,
   `gb_buildType` int(11) NOT NULL,
   `gb_buildId` int(11) NOT NULL,
@@ -218,6 +218,7 @@ CREATE TABLE IF NOT EXISTS `planets` (
   `pl_prod_res3` int(11) NOT NULL DEFAULT '0',
   `pl_prod_pr` int(11) NOT NULL,
   `pl_prod_time` int(11) NOT NULL,
+  `pl_natality_time` int(11) NOT NULL,
   `pl_natality` int(11) NOT NULL,
   `pl_primary` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`pl_id`),
@@ -292,10 +293,10 @@ CREATE TABLE IF NOT EXISTS `technologies` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `ttou`
+-- Structure de la table `TtoU`
 --
 
-CREATE TABLE IF NOT EXISTS `ttou` (
+CREATE TABLE IF NOT EXISTS `TtoU` (
   `userId` int(11) NOT NULL DEFAULT '0',
   `techId` int(11) NOT NULL DEFAULT '0',
   `techLevel` int(11) DEFAULT '0',
@@ -326,11 +327,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 --
--- Contraintes pour la table `btop`
+-- Contraintes pour la table `BtoP`
 --
-ALTER TABLE `btop`
-  ADD CONSTRAINT `btop_ibfk_3` FOREIGN KEY (`buildingId`) REFERENCES `buildings` (`bl_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `btop_ibfk_4` FOREIGN KEY (`planetId`) REFERENCES `planets` (`pl_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `BtoP`
+  ADD CONSTRAINT `BtoP_ibfk_3` FOREIGN KEY (`buildingId`) REFERENCES `buildings` (`bl_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `BtoP_ibfk_4` FOREIGN KEY (`planetId`) REFERENCES `planets` (`pl_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `communications`
@@ -360,11 +361,11 @@ ALTER TABLE `fleets`
   ADD CONSTRAINT `fleets_ibfk_4` FOREIGN KEY (`fl_destinationPlanetId`) REFERENCES `planets` (`pl_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `ftos`
+-- Contraintes pour la table `FtoS`
 --
-ALTER TABLE `ftos`
-  ADD CONSTRAINT `ftos_ibfk_3` FOREIGN KEY (`fleetId`) REFERENCES `fleets` (`fl_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ftos_ibfk_4` FOREIGN KEY (`shipId`) REFERENCES `shipplans` (`spl_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `FtoS`
+  ADD CONSTRAINT `FtoS_ibfk_3` FOREIGN KEY (`fleetId`) REFERENCES `fleets` (`fl_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FtoS_ibfk_4` FOREIGN KEY (`shipId`) REFERENCES `shipplans` (`spl_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `mtou`
@@ -374,10 +375,10 @@ ALTER TABLE `mtou`
   ADD CONSTRAINT `mtou_ibfk_4` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `ongoingbuilds`
+-- Contraintes pour la table `ongoingBuilds`
 --
-ALTER TABLE `ongoingbuilds`
-  ADD CONSTRAINT `ongoingbuilds_ibfk_2` FOREIGN KEY (`gb_userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ongoingBuilds`
+  ADD CONSTRAINT `ongoingBuilds_ibfk_2` FOREIGN KEY (`gb_userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `planets`
@@ -406,11 +407,11 @@ ALTER TABLE `stock`
   ADD CONSTRAINT `stock_ibfk_4` FOREIGN KEY (`st_planetId`) REFERENCES `planets` (`pl_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `ttou`
+-- Contraintes pour la table `TtoU`
 --
-ALTER TABLE `ttou`
-  ADD CONSTRAINT `ttou_ibfk_3` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ttou_ibfk_4` FOREIGN KEY (`techId`) REFERENCES `technologies` (`th_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `TtoU`
+  ADD CONSTRAINT `TtoU_ibfk_3` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `TtoU_ibfk_4` FOREIGN KEY (`techId`) REFERENCES `technologies` (`th_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -21,6 +21,7 @@ class Planet
 	private $_planetProduction3;
 	private $_planetProductionPR;	// Point Recherche
 	private $_planetProductionTime;	// Dernière interaction avec la planète (pour le calcul de production).
+	private $_planetNatalityTime;	// Dernière interaction avec la planète (pour le calcul d'habitant).
 	private $_planetNatality;
 	private $_primaryPlanet;		// Si 1, cette planète est la planète primaire d'un joueur.
 	
@@ -39,6 +40,7 @@ class Planet
 		$this->_planetProduction3 = (int)$dataPlanet['pl_prod_res3'];
 		$this->_planetProductionPR = (int)$dataPlanet['pl_prod_pr'];
 		$this->_planetProductionTime = (int)$dataPlanet['pl_prod_time'];
+		$this->_planetNatalityTime = (int)$dataPlanet['pl_natality_time'];
 		$this->_planetNatality = (int)$dataPlanet['pl_natality'];
 		$this->_primaryPlanet = (int)$dataPlanet['pl_primary'];
 		
@@ -47,8 +49,8 @@ class Planet
 		$benefitRes2 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes2(), $this->getProdRes2Bonus() );
 		$benefitRes3 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes3(), $this->getProdRes3Bonus() );
 		$benefitResPR = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdResPR() );
-		$benefitPopulation = (int)$this->checkRessource( $this->getProductionTime(), $this->getNatality() );
-		
+		$benefitPopulation = (int)$this->checkPopulation( $this->getNatalityTime(), $this->getNatality() );
+				
 		/* Fichier des id des bâtiments */
 		include_once("./config_id.php");
 
@@ -236,6 +238,24 @@ class Planet
 	}
 	
 	/**
+	 * Vérifie si un changement de population a eu lieu (par seconde !).
+	 * @param int dbTime
+	 * @param int productionPerDay
+	 * @return int benefit				:	retourne le gain en habitant à rajouter
+	 */
+	public function checkPopulation( $dbTime, $productionPerDay, $bonus = 0 )
+	{
+		$productionPerSecond = round(($productionPerDay+$bonus) / (3600*24), 6);
+		$differentTime = round(time() - $dbTime, 6);
+		$benefit = $differentTime * $productionPerSecond;
+		
+		if( $benefit > 1 )
+			return round($benefit);
+		else
+			return 0;
+	}
+	
+	/**
 	 * Modifie dans la base de données les ressources et le timer de la planète
 	 * @param int planetId
 	 * @param int newRes1, newRes2, newRes3, newResPR
@@ -260,7 +280,7 @@ class Planet
 		$newTime = time();
 		$sql = MyPDO::get();
 
-		$rq = $sql->prepare('UPDATE planets SET pl_prod_time=:newTime, pl_natality=:newNatality WHERE pl_id=:idPlanet');
+		$rq = $sql->prepare('UPDATE planets SET pl_natality_time=:newTime, pl_natality=:newNatality WHERE pl_id=:idPlanet');
         $data = array(':idPlanet' => (int)$planetId, ':newTime' => (int)$newTime, ':newNatality' => (int)$newNatality );
 		$rq->execute($data);
 	}
@@ -273,7 +293,7 @@ class Planet
 		$newTime = time();
 		$sql = MyPDO::get();
 
-		$rq = $sql->prepare('UPDATE planets SET pl_prod_time=:newTime, pl_population=:newPopulation WHERE pl_id=:idPlanet');
+		$rq = $sql->prepare('UPDATE planets SET pl_natality_time=:newTime, pl_population=:newPopulation WHERE pl_id=:idPlanet');
         $data = array(':idPlanet' => (int)$planetId, ':newTime' => (int)$newTime, ':newPopulation' => (int)$newPopulation );
 		$rq->execute($data);	}
 	
@@ -460,5 +480,8 @@ class Planet
 	}
 	public function getProductionTime() {
 		return $this->_planetProductionTime;
+	}
+	public function getNatalityTime() {
+		return $this->_planetNatalityTime;
 	}
 }
