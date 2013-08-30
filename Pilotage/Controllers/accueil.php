@@ -21,7 +21,7 @@
 			$faction = (String)htmlspecialchars(strtolower($_POST['faction']));
 			
 			/* Cet username n'est pas déjà attribué à un autre joueur. */
-			if( !User::checkUsernameExist( $username ) )
+			if( User::checkUsernameExist( $username ) > 0 )
 			{
 				/* Cet username est supérieur à 4 caractères et inférieur à 20. */
 				if( User::checkUsernameLength( $username ) )

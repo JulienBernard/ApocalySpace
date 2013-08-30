@@ -91,15 +91,23 @@ class Communication
 		
 		// Si PDO renvoie une erreur
 		if( !$result )
+		{
 			die("<h1 style='color: white'>Oups !</h1>
 				<p style='color: white'>
 					Une erreur est survenue lors de la récupération de la communication.
 				</p>");
+		}
 		else {
-		
 			$array = array();
 			$row = $req->fetch();
-			$row['com_username'] = self::getUsernameById( $row['com_senderId'] );
+			
+			if( !isset($row['com_recipientId']) )
+				return 0;
+			
+			$row['com_username'] = self::getUsernameById( $row['com_recipientId'] );
+						
+			if( $row['com_username'] == -1 )
+				return 0;
 			
 			if( $row['com_recipientId'] != $userId )
 			{
@@ -128,10 +136,7 @@ class Communication
 		
 		// Si PDO renvoie une erreur
 		if( !$result )
-			die("<h1 style='color: white'>Oups !</h1>
-				<p style='color: white'>
-					Une erreur est survenue lors de la récupération des communications.
-				</p>");
+			return -1;
 		else {
 			$row = $req->fetch();
 			return $row['username'];
