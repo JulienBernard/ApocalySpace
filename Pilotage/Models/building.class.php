@@ -23,7 +23,7 @@ class Building
 	private $_buildingSuperficie = 100;
 
 	/* Constructeur de la classe */
-	public function __construct( $buildingId, $planetId, $buildTimeMultiplier ) {
+	public function __construct( $buildingId, $planetId, $buildTimeMultiplier, $globalSpeedMult = 1 ) {
 		$dataFromDb = $this->getBuildingData( $buildingId, $planetId );
 	
 		$this->_id = (int)$dataFromDb['bl_id'];
@@ -40,17 +40,17 @@ class Building
 
 		if( $this->_level == 0 )
 		{
-			$this->_cost1 = (int)$dataFromDb['bl_cost1'];
-			$this->_cost2 = (int)$dataFromDb['bl_cost2'];
-			$this->_cost3 = (int)$dataFromDb['bl_cost3'];
-			$this->_time = ((int)$dataFromDb['bl_buildingTime'] * (double)$this->_costMultiplier) * $buildTimeMultiplier;
+			$this->_cost1 = (int)$dataFromDb['bl_cost1'] / $globalSpeedMult;
+			$this->_cost2 = (int)$dataFromDb['bl_cost2'] / $globalSpeedMult;
+			$this->_cost3 = (int)$dataFromDb['bl_cost3'] / $globalSpeedMult;
+			$this->_time = (((int)$dataFromDb['bl_buildingTime'] * (double)$this->_costMultiplier) * $buildTimeMultiplier) / $globalSpeedMult;
 		}
 		else
 		{
-			$this->_cost1 = (int)$dataFromDb['bl_cost1'] * (int)$this->_level * (double)$this->_costMultiplier;
-			$this->_cost2 = (int)$dataFromDb['bl_cost2'] * (int)$this->_level * (double)$this->_costMultiplier;
-			$this->_cost3 = (int)$dataFromDb['bl_cost3'] * (int)$this->_level * (double)$this->_costMultiplier;
-			$this->_time = ((int)$this->_level * (int)$dataFromDb['bl_buildingTime'] * (double)$this->_costMultiplier) * $buildTimeMultiplier;
+			$this->_cost1 = ((int)$dataFromDb['bl_cost1'] * (int)$this->_level * (double)$this->_costMultiplier ) / $globalSpeedMult;
+			$this->_cost2 = ((int)$dataFromDb['bl_cost2'] * (int)$this->_level * (double)$this->_costMultiplier ) / $globalSpeedMult;
+			$this->_cost3 = ((int)$dataFromDb['bl_cost3'] * (int)$this->_level * (double)$this->_costMultiplier ) / $globalSpeedMult;
+			$this->_time = (((int)$this->_level * (int)$dataFromDb['bl_buildingTime'] * (double)$this->_costMultiplier) * $buildTimeMultiplier) / $globalSpeedMult;
 		}
 	}
 	

@@ -11,7 +11,7 @@ class Technology
 	private $_level;
 	private $_cost;
 	
-	public function __construct( $technologyId, $userId ) {
+	public function __construct( $technologyId, $userId, $globalSpeedMult = 1 ) {
 		$dataFromDb = $this->getTechnologyData( $technologyId, $userId );
 
 		$this->_id = (int)$dataFromDb['th_id'];
@@ -144,7 +144,7 @@ class Technology
 	}
 	
 	/* Setters */
-	public function setCost( $totalLevel, $costMultiplier ) {
-		$this->_cost = (182 * $totalLevel * $costMultiplier) + 100;
+	public function setCost( $totalLevel, $costMultiplier, $globalSpeedMult = 1 ) {
+		$this->_cost = ((182 * $totalLevel * $costMultiplier) + 100) / $globalSpeedMult;
 	}
 }

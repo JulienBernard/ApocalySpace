@@ -72,10 +72,14 @@ class Data {
 			$this->_buildTimeMultiplier = 1.05;
 		}
 		
+		/* Configuration générale */
+		$this->_mapSize = 100;
+		$this->_globalSpeedMult = 2;
+		
 		/* Insère les données des bâtiments dans le dictionnaire $_buildingsList */
 		if( $viewBuildings )
 			for( $i = 1 ; $i < 12 ; $i++ )
-				$this->_buildingsList[] = new Building( $i, $this->getPlanetId(), $this->_buildTimeMultiplier );
+				$this->_buildingsList[] = new Building( $i, $this->getPlanetId(), $this->_buildTimeMultiplier, $this->_globalSpeedMult );
 				
 		/* Insère les données des technologies dans le dictionnaire $_technologiesList */
 		if( $viewTechnologies )
@@ -88,20 +92,12 @@ class Data {
 			}
 			for( $i = 1 ; $i < 10 ; $i++ )
 			{
-				$this->_technologiesList[$i-1]->setCost( $countLevel, 3.2 );
+				$this->_technologiesList[$i-1]->setCost( $countLevel, 3.2, $this->_globalSpeedMult );
 			}
 		}
 		
 		/* Fichier des id des bâtiments */
 		include("./config_id.php");
-		
-		/* Configuration générale */
-		$officeAreasLevel = Building::getBuildingLevel($officeAreas, $this->getPlanetId());
-		$capitalLevel = Building::getBuildingLevel($capital, $this->getPlanetId());
-		
-		$this->_mapSize = 100;
-		$this->_globalSpeedMult = 2;
-		$this->_managePopulationMax = ($officeAreasLevel * 40) * 1.4;	/* Taux arbitraire (40 par niveau, multiplicateur de 1.4) */
 		
 		/* Données de la planète */
 		$productionTechnologyLevel = $this->getTechnologyLevel($mineProductionResearchId, $this->getId());
@@ -112,6 +108,9 @@ class Data {
 		$this->_totalProdRes2 = round(((int)$this->getProdRes2() + (int)$this->getProdRes2Bonus()) * $this->_productionMultiplier);
 		$this->_totalProdRes3 = round(((int)$this->getProdRes3() + (int)$this->getProdRes3Bonus()) * $this->_productionMultiplier);
 		$this->_totalProdResPR = round((int)$this->getProdPr());
+		$officeAreasLevel = Building::getBuildingLevel($officeAreas, $this->getPlanetId());
+		$capitalLevel = Building::getBuildingLevel($capital, $this->getPlanetId());
+		$this->_managePopulationMax = ($officeAreasLevel * 40) * 1.4;	/* Taux arbitraire (40 par niveau, multiplicateur de 1.4) */
 
 		/* Gestion de la natalité */
 		$overcrowding = 0;
