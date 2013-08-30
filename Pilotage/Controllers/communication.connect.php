@@ -11,7 +11,7 @@
 				<p class="smaller">
 					<br />
 					Vous n'avez pas accès à cette communication !<br />
-					<span class="bold">Cette communication est destinée à un autre joueu que vous.</span><br />
+					<span class="bold">Cette communication est destinée à un autre joueur que vous.</span><br />
 					<span class="smaller"><a href="communication.connect.php">(Ne pas attendre la redirection)</a></span>
 				</p>
 			</div>
