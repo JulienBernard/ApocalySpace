@@ -113,7 +113,7 @@ class Data {
 		$capitalLevel = Building::getBuildingLevel($capital, $this->getPlanetId());
 		
 		$this->_mapSize = 100;
-		$this->_globalSpeedMult = 1;
+		$this->_globalSpeedMult = 2;
 		$this->_managePopulationMax = ($officeAreasLevel * 40) * 1.4;	/* Taux arbitraire (40 par niveau, multiplicateur de 1.4) */
 		
 		/* Gestion de la natalité */
