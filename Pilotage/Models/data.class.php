@@ -95,19 +95,6 @@ class Data {
 		/* Fichier des id des bâtiments */
 		include("./config_id.php");
 		
-		/* Données de la planète */
-		$productionTechnologyLevel = $this->getTechnologyLevel($mineProductionResearchId, $this->getId());
-		$this->_planet->setProdRes1Bonus( round(((int)$this->getProdRes1()*(5*$productionTechnologyLevel)/100)) );
-		$this->_planet->setProdRes2Bonus( round(((int)$this->getProdRes2()*(5*$productionTechnologyLevel)/100)) );
-		$this->_planet->setProdRes3Bonus( round(((int)$this->getProdRes3()*(5*$productionTechnologyLevel)/100)) );
-		$this->_totalProdRes1 = round(((int)$this->getProdRes1() + (int)$this->getProdRes1Bonus()) * $this->_productionMultiplier);
-		$this->_totalProdRes2 = round(((int)$this->getProdRes2() + (int)$this->getProdRes2Bonus()) * $this->_productionMultiplier);
-		$this->_totalProdRes3 = round(((int)$this->getProdRes3() + (int)$this->getProdRes3Bonus()) * $this->_productionMultiplier);
-		$this->_totalProdResPR = round((int)$this->getProdPr());
-
-		/* Données sur l'utilisateur */
-		$this->_nbMessageNoRead = Communication::countUserMessage( (int)$_SESSION['SpaceEngineConnected'] );
-		
 		/* Configuration générale */
 		$officeAreasLevel = Building::getBuildingLevel($officeAreas, $this->getPlanetId());
 		$capitalLevel = Building::getBuildingLevel($capital, $this->getPlanetId());
@@ -116,6 +103,16 @@ class Data {
 		$this->_globalSpeedMult = 2;
 		$this->_managePopulationMax = ($officeAreasLevel * 40) * 1.4;	/* Taux arbitraire (40 par niveau, multiplicateur de 1.4) */
 		
+		/* Données de la planète */
+		$productionTechnologyLevel = $this->getTechnologyLevel($mineProductionResearchId, $this->getId());
+		$this->_planet->setProdRes1Bonus( round(((int)$this->getProdRes1()*(5*$productionTechnologyLevel)/100)) );
+		$this->_planet->setProdRes2Bonus( round(((int)$this->getProdRes2()*(5*$productionTechnologyLevel)/100)) );
+		$this->_planet->setProdRes3Bonus( round(((int)$this->getProdRes3()*(5*$productionTechnologyLevel)/100)) );
+		$this->_totalProdRes1 = round((((int)$this->getProdRes1() + (int)$this->getProdRes1Bonus()) * $this->_productionMultiplier) * $this->_globalSpeedMult);
+		$this->_totalProdRes2 = round((((int)$this->getProdRes2() + (int)$this->getProdRes2Bonus()) * $this->_productionMultiplier) * $this->_globalSpeedMult);
+		$this->_totalProdRes3 = round((((int)$this->getProdRes3() + (int)$this->getProdRes3Bonus()) * $this->_productionMultiplier) * $this->_globalSpeedMult);
+		$this->_totalProdResPR = round(((int)$this->getProdPr()) * $this->_globalSpeedMult);
+
 		/* Gestion de la natalité */
 		$overcrowding = 0;
 		$difPopulation = $this->_planet->getPopulation() - $this->_managePopulationMax;
