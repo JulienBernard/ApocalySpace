@@ -47,7 +47,7 @@
 				</table>
 				
 				<p>
-					<a href="#" data-dropdown="dropInfo3" id="step5">Envoyer une communication à un joueur</a>
+					<a href="communication.connect.php?write">Envoyer une communication à un joueur</a>
 				</p>
 				
 				<ul id="dropInfo1" class="f-dropdown content" data-dropdown-content>
@@ -55,9 +55,6 @@
 				</ul>
 				<ul id="dropInfo2" class="f-dropdown content" data-dropdown-content>
 					<p><span class="bold">Supprimer Communication</span><br /><br />Fonctionnalité à venir<br /><span class="italic">Priorité moyenne</span></p>
-				</ul>
-				<ul id="dropInfo3" class="f-dropdown content" data-dropdown-content>
-					<p><span class="bold">Envoyer Communication</span><br /><br />Fonctionnalité à venir<br /><span class="italic">Priorité haute</span></p>
 				</ul>
 			</article>
 			

@@ -78,7 +78,7 @@ class User
 		$rq->execute($data);
 		
 		if( $rq->rowCount() != 0)
-			return true;
+			return (int)$rq->fetch()['id'];
 		return false;
 	}
 	
