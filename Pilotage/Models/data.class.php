@@ -108,10 +108,10 @@ class Data {
 		$this->_planet->setProdRes1Bonus( round(((int)$this->getProdRes1()*(5*$productionTechnologyLevel)/100)) );
 		$this->_planet->setProdRes2Bonus( round(((int)$this->getProdRes2()*(5*$productionTechnologyLevel)/100)) );
 		$this->_planet->setProdRes3Bonus( round(((int)$this->getProdRes3()*(5*$productionTechnologyLevel)/100)) );
-		$this->_totalProdRes1 = round((((int)$this->getProdRes1() + (int)$this->getProdRes1Bonus()) * $this->_productionMultiplier) * $this->_globalSpeedMult);
-		$this->_totalProdRes2 = round((((int)$this->getProdRes2() + (int)$this->getProdRes2Bonus()) * $this->_productionMultiplier) * $this->_globalSpeedMult);
-		$this->_totalProdRes3 = round((((int)$this->getProdRes3() + (int)$this->getProdRes3Bonus()) * $this->_productionMultiplier) * $this->_globalSpeedMult);
-		$this->_totalProdResPR = round(((int)$this->getProdPr()) * $this->_globalSpeedMult);
+		$this->_totalProdRes1 = round(((int)$this->getProdRes1() + (int)$this->getProdRes1Bonus()) * $this->_productionMultiplier);
+		$this->_totalProdRes2 = round(((int)$this->getProdRes2() + (int)$this->getProdRes2Bonus()) * $this->_productionMultiplier);
+		$this->_totalProdRes3 = round(((int)$this->getProdRes3() + (int)$this->getProdRes3Bonus()) * $this->_productionMultiplier);
+		$this->_totalProdResPR = round((int)$this->getProdPr());
 
 		/* Gestion de la natalité */
 		$overcrowding = 0;
@@ -182,13 +182,13 @@ class Data {
 		return $this->_planet;
 	}
 	public function getProdRes1Bonus() {
-		return $this->_planet->getProdRes1Bonus();
+		return $this->_planet->getProdRes1Bonus() * $this->_globalSpeedMult;
 	}
 	public function getProdRes2Bonus() {
-		return $this->_planet->getProdRes2Bonus();
+		return $this->_planet->getProdRes2Bonus() * $this->_globalSpeedMult;
 	}
 	public function getProdRes3Bonus() {
-		return $this->_planet->getProdRes3Bonus();
+		return $this->_planet->getProdRes3Bonus() * $this->_globalSpeedMult;
 	}
 	public function getTotalProdRes1() {
 		return $this->_totalProdRes1;
@@ -243,7 +243,7 @@ class Data {
 		return $this->_planet->getPopulation();
 	}
 	public function getNatality() {
-		return $this->_planet->getNatality();
+		return $this->_planet->getNatality() * $this->_globalSpeedMult;
 	}
 	public function getManagePopulationMax() {
 		return $this->_managePopulationMax;
@@ -261,16 +261,16 @@ class Data {
 		return $this->_planet->getPR();
 	}
 	public function getProdRes1() {
-		return $this->_planet->getProdRes1();
+		return $this->_planet->getProdRes1() * $this->_globalSpeedMult;
 	}
 	public function getProdRes2() {
-		return $this->_planet->getProdRes2();
+		return $this->_planet->getProdRes2() * $this->_globalSpeedMult;
 	}
 	public function getProdRes3() {
-		return $this->_planet->getProdRes3();
+		return $this->_planet->getProdRes3() * $this->_globalSpeedMult;
 	}
 	public function getProdPr() {
-		return $this->_planet->getProdResPr();
+		return $this->_planet->getProdResPr() * $this->_globalSpeedMult;
 	}
 	public function getProductionTime() {
 		return $this->_planet->getProductionTime();
