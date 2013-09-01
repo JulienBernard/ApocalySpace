@@ -139,6 +139,8 @@ class Data {
 			$this->_planet->updateNatality( $this->getPlanetId(), $this->_natalityProduction );
 			$this->_planet->setNatality( $this->_natalityProduction );
 		}
+		
+		$this->_nbMessageNoRead = Communication::countUserMessage( $this->_user->getId() );
 	}
 	
 	/**
