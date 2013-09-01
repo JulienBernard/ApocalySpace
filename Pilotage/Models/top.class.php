@@ -22,7 +22,7 @@ class Top
 		else 
 		{
 			$this->_topName = "Classement démographique";
-			$this->_usersList = $this->getUsersList( $size, $startPosition );
+			$this->_usersList = $this->getUsers( $startPosition, $size );
 		}
 	}
 	
@@ -30,7 +30,7 @@ class Top
 	 * @param int $size				:	taille de la liste (plus elle est grande, plus la requête sera longue à effectuer !)
 	 * @param int $startPosition	:	position de départ
 	 */
-	private function getUsersList( $size = 10, $startPosition = 0 )
+	private function getUsers( $startPosition = 0, $size = 0 )
 	{
 		/* Si on arrive sur la page de classement "principale",
 			on effectue une recherche sur la moitié supérieur aux nombre d'habitants
@@ -43,10 +43,13 @@ class Top
 				FROM planets
 				JOIN users ON planets.pl_userId = users.id
 				WHERE planets.pl_population > (SELECT AVG(pl_population) FROM planets)
+				ORDER BY planets.pl_population DESC
+				LIMIT :startPosition, :size
 			');
-			$data = array();
-			$rq->execute($data) or die(print_r($rq->errorInfo()));
-
+			$rq->bindValue('startPosition', (int)$startPosition, PDO::PARAM_INT);
+			$rq->bindValue('size', (int)$size, PDO::PARAM_INT);
+			$rq->execute() or die(print_r($rq->errorInfo()));
+			
 			$array = array();
 			while( $row = $rq->fetch() )
 				$array[] = $row;
@@ -61,9 +64,12 @@ class Top
 					SELECT planets.pl_population, users.id, users.username, users.factionName
 					FROM planets
 					JOIN users ON planets.pl_userId = users.id
+					ORDER BY planets.pl_population DESC
+					LIMIT :startPosition, :size
 				');
-				$data = array();
-				$rq->execute($data) or die(print_r($rq->errorInfo()));
+				$rq->bindValue('startPosition', (int)$startPosition, PDO::PARAM_INT);
+				$rq->bindValue('size', (int)$size, PDO::PARAM_INT);
+				$rq->execute() or die(print_r($rq->errorInfo()));
 				
 				while( $row = $rq->fetch() )
 					$array[] = $row;
@@ -74,4 +80,10 @@ class Top
 		
 		}
 	}
+	
+	/* Getters */
+	public function getUsersList() {
+		return $this->_usersList;
+	}
+	
 }
