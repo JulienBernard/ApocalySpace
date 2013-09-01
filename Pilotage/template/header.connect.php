@@ -110,7 +110,7 @@
 			<div class="large-4 columns center">
 				<a href="#"><img id="img-friend" /></a>
 				<a href="#"><img id="img-map" /></a>
-				<a href="#"><img id="img-top" /></a>
+				<a href="top.connect.php"><img id="img-top" /></a>
 			</div>
 			<div class="large-4 columns center">
 				<a href="recherche.connect.php"><img id="img-techno" /></a>
