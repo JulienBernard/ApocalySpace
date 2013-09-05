@@ -3,11 +3,16 @@
 class Top
 {
 	private $_topName;
+	private $_size;
+	private $_startPosition;
 	private $_usersList = array();		// Informations sur les utilisateurs
 	private $_valueList = array();		// "Points" selon classement (niveau tech, res militaire, nb pop)
 
 	/* Constructeur de la classe */
 	public function __construct( $see = "demography", $startPosition = 0, $size = 10 ) {
+		$this->_startPosition = $startPosition;
+		$this->_size = $size;
+		
 		/* Compte les niveaux des technologies des utilisateurs */
 		if( $see == "technology" )
 		{
@@ -85,5 +90,10 @@ class Top
 	public function getUsersList() {
 		return $this->_usersList;
 	}
-	
+	public function getSize() {
+		return $this->_size;
+	}
+	public function getStartPosition() {
+		return $this->_startPosition;
+	}
 }

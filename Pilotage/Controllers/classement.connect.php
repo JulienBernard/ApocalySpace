@@ -12,7 +12,7 @@
 	}
 	else
 	{
-		$Top = new Top( "demography", 0, 10 );
+		$Top = new Top( "demography", 0, 2 );
 	}
 	
 	/* Inclusion de la vue */

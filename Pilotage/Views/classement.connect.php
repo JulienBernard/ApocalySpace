@@ -6,6 +6,14 @@
 			<article class="large-9 columns">
 				<h1 id="step1"><?php echo strtoupper($Template->getTitle()); ?></h1>
 				
+				
+				<dl class="sub-nav" style="width: 90%; margin: auto;">
+					<dt>Conditions de victoire : </dt>
+					<dd <?php if( !isset($_GET['technology']) && !isset($_GET['military']) ) echo 'class="active"'; ?>><a href="top.connect.php?demography">Démographique</a></dd>
+					<dd <?php if( isset($_GET['technology']) ) echo 'class="active"'; ?>><a href="top.connect.php?technology">Technologique</a></dd>
+					<dd <?php if( isset($_GET['military']) ) echo 'class="active"'; ?>><a href="top.connect.php?military">Militaire</a></dd>
+				</dl>
+				
 				<table style="margin: auto; width: 90%;">
 					<thead>
 						<tr>
@@ -28,7 +36,7 @@
 						
 						if( count($usersList) == 0 )
 						{
-							echo "<tr><td colspan='3'>Classement à venir.<br />Pagination à venir</td></tr>";
+							echo "<tr><td colspan='3'>Classement à venir.</td></tr>";
 						}
 						?>
 					</tbody>
@@ -41,11 +49,25 @@
 					</tfoot>
 				</table>
 				
-				<dl class="sub-nav" style="width: 90%; margin: auto;">
-					<dt>Conditions de victoire : </dt>
-					<dd <?php if( !isset($_GET['technology']) && !isset($_GET['military']) ) echo 'class="active"'; ?>><a href="top.connect.php?demography">Démographique</a></dd>
-					<dd <?php if( isset($_GET['technology']) ) echo 'class="active"'; ?>><a href="top.connect.php?technology">Technologique</a></dd>
-					<dd <?php if( isset($_GET['military']) ) echo 'class="active"'; ?>><a href="top.connect.php?military">Militaire</a></dd>
+				<dl class="sub-nav" style="width: 90%; margin: auto;">	
+					<dt>Pagination : </dt>
+					
+					<?php
+						$countPlayer = $Data->getUser()->countPlayer( 0, true );
+						if( $countPlayer > $Top->getSize() )
+						{
+							?>
+								<dd <?php if( !isset($_GET['p']) ) echo 'class="active"'; ?>><a href="top.connect.php">1</a></dd>
+							<?php
+							$countPage = ceil($countPlayer / $Top->getSize());
+							for( $i = 1 ; $i < $countPage ; $i++ )
+							{
+								?>
+								<dd <?php if( isset($_GET['p']) && $_GET['p'] == $i ) echo 'class="active"'; ?>><a href="top.connect.php?p=<?php echo $i; ?>"><?php echo $i+1; ?></a></dd>
+								<?php
+							}
+						}
+					?>
 				</dl>
 				
 				<ul id="dropInfo1" class="f-dropdown content" data-dropdown-content>
