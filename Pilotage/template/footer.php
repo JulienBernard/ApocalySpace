@@ -61,7 +61,7 @@
 				<span class="italic small">Citation de Napoléon Bonaparte</span>
 			</p>
 			<p class="large-4 columns">
-				ApocalySpace © 2012-2013 &nbsp;&nbsp;&nbsp; <a href="./docs/">Version 1.6.6</a>
+				ApocalySpace © 2012-2013 &nbsp;&nbsp;&nbsp; <a href="./docs/">Version 1.6.7</a>
 			</p>
 		</div>
 	</header>
