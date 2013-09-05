@@ -37,12 +37,13 @@ class Top
 	 */
 	private function getUsers( $startPosition = 0, $size = 0 )
 	{
+		$sql = MyPDO::get();
+
 		/* Si on arrive sur la page de classement "principale",
 			on effectue une recherche sur la moitié supérieur aux nombre d'habitants
 			moyen retournée par MySql [SELECT AVG(pl_population)] */
 		if( $startPosition == 0 )
 		{
-			$sql = MyPDO::get();
 			$rq = $sql->prepare('
 				SELECT planets.pl_population, users.id, users.username, users.factionName
 				FROM planets
@@ -79,11 +80,27 @@ class Top
 				while( $row = $rq->fetch() )
 					$array[] = $row;
 			}
-			return $array;
 		}
 		else {
-		
+			$rq = $sql->prepare('
+				SELECT planets.pl_population, users.id, users.username, users.factionName
+				FROM planets
+				JOIN users ON planets.pl_userId = users.id
+				ORDER BY planets.pl_population DESC
+				LIMIT :startPosition, :size
+			');
+			$rq->bindValue('startPosition', (int)$startPosition, PDO::PARAM_INT);
+			$rq->bindValue('size', (int)$size, PDO::PARAM_INT);
+			$rq->execute() or die(print_r($rq->errorInfo()));
+			
+			while( $row = $rq->fetch() )
+				$array[] = $row;
 		}
+		
+		if( isset($array) )
+			return $array;
+		else
+			return 0;
 	}
 	
 	/* Getters */

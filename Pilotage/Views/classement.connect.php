@@ -34,9 +34,11 @@
 						<?php
 						}
 						
-						if( count($usersList) == 0 )
+						
+						
+						if( count($usersList) == 0 OR $usersList == 0 )
 						{
-							echo "<tr><td colspan='3'>Classement à venir.</td></tr>";
+							echo "<tr><td colspan='3'><span class='bold'>Oups !</span><br />Vous êtes allé trop loin, cette partie du classement n'existe pas.</td></tr>";
 						}
 						?>
 					</tbody>
@@ -67,7 +69,9 @@
 								<?php
 							}
 						}
-					?>
+						else {
+							?><dd <?php if( !isset($_GET['p']) ) echo 'class="active"'; ?>><a href="top.connect.php">1</a></dd><?php
+						} ?>
 				</dl>
 				
 				<ul id="dropInfo1" class="f-dropdown content" data-dropdown-content>
