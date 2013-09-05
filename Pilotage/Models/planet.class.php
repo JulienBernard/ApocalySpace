@@ -25,6 +25,9 @@ class Planet
 	private $_planetNatality;
 	private $_primaryPlanet;		// Si 1, cette planète est la planète primaire d'un joueur.
 	
+	/* Config */
+	public $_managePopulationMax;
+	
 	/* Constructeur de la classe */
 	public function __construct( $dataPlanet )
 	{
@@ -53,6 +56,7 @@ class Planet
 				
 		/* Fichier des id des bâtiments */
 		include_once("./config_id.php");
+		$officeAreasLevel = Building::getBuildingLevel($officeAreas, $this->getPlanetId());
 
 		/* Ressources réelles */
 		$this->_planetResource1 = (int)$dataPlanet['pl_res1'] + $benefitRes1;
@@ -60,7 +64,8 @@ class Planet
 		$this->_planetResource3 = (int)$dataPlanet['pl_res3'] + $benefitRes3;
 		$this->_planetPR = (int)$dataPlanet['pl_pr'] + $benefitResPR;
 		$this->_planetPopulation = (int)$dataPlanet['pl_population'] + $benefitPopulation;
-		
+		$this->_managePopulationMax = ($officeAreasLevel * 40) * 1.4;	/* Taux arbitraire (40 par niveau, multiplicateur de 1.4) */
+
 		include_once(PATH_MODELS."building.class.php");
 		if( $this->_planetResource1 > pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$titaneStorageSizePerLevel )
 			$this->_planetResource1 = pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$titaneStorageSizePerLevel;
@@ -72,7 +77,14 @@ class Planet
 		if( $benefitRes1 >= 1 OR $benefitRes2 >= 1 OR $benefitRes3 >= 1 OR $benefitResPR >= 1 )
 			$this->updateRessource( $this->_planetId, $this->_planetResource1, $this->_planetResource2, $this->_planetResource3, $this->_planetPR );
 		if( $benefitPopulation != 0 )
+		{
 			$this->updatePopulation( $this->_planetId, $this->_planetPopulation );
+		}
+		else if( $this->_planetPopulation > $this->_managePopulationMax )
+		{
+			$this->updatePopulation( $this->_planetId, $this->_managePopulationMax+100 );
+			$this->_planetPopulation = $this->_managePopulationMax+100;
+		}
 	}
 	
 	/**
