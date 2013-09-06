@@ -7,7 +7,7 @@
 	 */
 
 	/* Le namePage permet d'identifier votre page. Il doit être être écrit en minuscule et tenir en un seul mot. */
-	$namePage = "accueil";
+	$namePage = "compte";
 	
 	/* Appel du moteur [ne pas modifier] */
 	include_once("./config.php");
@@ -16,7 +16,7 @@
 	$Template = new Template();
 	
 	/* Informations sur la page [valeurs à modifier] */
-	$Template->setTitle("Gestion Planetaire");
+	$Template->setTitle("Compte");
 	//$Template->setDescription("");
 	$Template->addCss("normalize.css");
 	$Template->addCss("foundation.css");
@@ -24,7 +24,8 @@
 	if( isset($_SESSION['ApocalySpaceHeaderAnimation']) && $_SESSION['ApocalySpaceHeaderAnimation'] == "fixe")
 		$Template->addCss("menuFixe.css");
 	else
-		$Template->addCss("menuFlottant.css");	$Template->addCss("faq.css");
+		$Template->addCss("menuFlottant.css");
+	$Template->addCss("faq.css");
 	$Template->addScript("time.js");
 	$Template->addScript("jquery.min.js");
 	$Template->addScript("vendor/custom.modernizr.js");
