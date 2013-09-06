@@ -22,7 +22,10 @@
 	$Template->addCss("normalize.css");
 	$Template->addCss("foundation.css");
 	$Template->addCss("apocalyspace.connect.css");
-	$Template->addCss("faq.css");
+	if( isset($_SESSION['ApocalySpaceHeaderAnimation']) && $_SESSION['ApocalySpaceHeaderAnimation'] == "fixe")
+		$Template->addCss("menuFixe.css");
+	else
+		$Template->addCss("menuFlottant.css");	$Template->addCss("faq.css");
 	$Template->addScript("jquery.min.js");
 	$Template->addScript("vendor/custom.modernizr.js");
 	
