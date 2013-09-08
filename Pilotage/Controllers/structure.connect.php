@@ -164,7 +164,7 @@
 			$list = $Data->getBuildingsList();
 			$buildingData = $list[$buildingId-1];
 			$populationManageNow = $Data->getNumberOfPopulationWhoAreManagedNow( $buildingId );
-			$populationManageNow += $changeValue;
+			$populationManageNow += ($buildingData->getPopulation() + $changeValue);
 
 			if( $changeValue <= (int)$buildingData->getMaxPopulation() && $populationManageNow <= (int)$Data->getPopulation() )
 			{
