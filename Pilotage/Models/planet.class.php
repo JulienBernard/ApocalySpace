@@ -328,9 +328,18 @@ class Planet
 			$rq = $sql->prepare('UPDATE planets SET pl_prod_res3=:newProd WHERE pl_id=:planetId');
 		if( $resId == 4 )
 			$rq = $sql->prepare('UPDATE planets SET pl_prod_pr=:newProd WHERE pl_id=:planetId');
-		
+
 		$data = array(':planetId' => $planetId, ':newProd' => $newProd);
 		$result = $rq->execute( $data );
+		
+		if( $resId == 1 )
+			$this->_planetProduction1 = $newProd;
+		if( $resId == 2 )
+			$this->_planetProduction2 = $newProd;
+		if( $resId == 3 )
+			$this->_planetProduction3 = $newProd;
+		if( $resId == 4 )
+			$this->_planetProductionPR = $newProd;
 	}
 	
 	/**

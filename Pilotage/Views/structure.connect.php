@@ -73,102 +73,123 @@
 			}
 		?>
 	</article>
-			
-		<!-- Foundation4 Joyride : Aide & Tuto de la page -->
-		<ol class="joyride-list" data-joyride>
-			<li data-id="step1" data-text="Continuer">
-				<h4>Oups !</h4><br />
-				<p>Il semble que cette page ne dispose pas encore d'aide !</p>
-			</li>
-			<li data-button="Merci !">
-				<h4>A vous de jouer !</h4><br />
-				<p>Vous savez tout sur cette page.</p>
-				<p>Encore besoin d'aide :<br />- <a data-reveal-id="FAQ">Lire la F.A.Q.</a><br />- <a href="communication.connect.php">Contactez Jibi !</a></p>
-			</li>
-		</ol>
-		
-		
-		<?php
-		for( $i = 1 ; $i <= 4 ; $i++ )
+	
+	<?php
+	for( $i = 1 ; $i <= 4 ; $i++ )
+	{
+		$buildings = $buildingsArray[$i];
+		for( $j = 0 ; $j < count($buildings) ; $j++ )
 		{
-			$buildings = $buildingsArray[$i];
-			for( $j = 0 ; $j < count($buildings) ; $j++ )
-			{
-				$canChange = false;
-				if( (int)$buildings[$j]->getSuperficie() != 0 )
-					$canChange = true;
-			?>
-				<div id="informationsModal<?php echo $i.'-'.$j; ?>" class="reveal-modal">
-					<h2><?php echo (String)$buildings[$j]->getName(); ?></h2>
-					<p class="lead"><?php echo (String)$buildings[$j]->getDescription(); ?></p>
-					<p>
-						<?php
-							if( $buildings[$j]->getType() == 2 || $buildings[$j]->getType() == 4 )
-							{
-								?>
-								<div data-alert class="success-box">
-									<p class="smaller">
-										La gestion de votre population est votre outil principal pour commander d'une main de fer votre empire.<br />
-										Vous pouvez attribuer à vos bâtiments autant d'habitants que vous le souhaitez dans les limites de leurs superficies.<br />
-										<span class="bold">Il y a actuellement <?php echo $Data->getPopulation(); ?> habitants sur votre planète et vous pouvez en administrer <?php echo $Data->getManagePopulationMax(); ?>.</span><br />
-										<a href="" class="right close">&times;</a>
-									</p>
+			$canChange = false;
+			if( (int)$buildings[$j]->getSuperficie() != 0 )
+				$canChange = true;
+		?>
+			<div id="informationsModal<?php echo $i.'-'.$j; ?>" class="reveal-modal">
+				<h2><?php echo (String)$buildings[$j]->getName(); ?></h2>
+				<p class="lead"><?php echo (String)$buildings[$j]->getDescription(); ?></p>
+				<p>
+					<?php
+						if( $buildings[$j]->getType() == 2 || $buildings[$j]->getType() == 4 )
+						{
+							?>
+							<div data-alert class="success-box">
+								<p class="smaller">
+									La gestion de votre population est votre outil principal pour commander d'une main de fer votre empire.<br />
+									Vous pouvez attribuer à vos bâtiments autant d'habitants que vous le souhaitez dans les limites de leurs superficies.<br />
+									<span class="bold">Il y a actuellement <?php echo $Data->getPopulation(); ?> habitants sur votre planète et vous pouvez en administrer <?php echo $Data->getManagePopulationMax(); ?>.</span><br />
+									<a href="" class="right close">&times;</a>
+								</p>
+							</div>
+
+							<form action="structure.connect.php" method="POST" class="custom">
+								<div class="row">
+									<div class="large-3 columns">&nbsp;</div>
+									<div class="large-6 columns">
+										<div data-alert class="info-box">
+											<p>
+												Cette structure gère <?php echo (int)$buildings[$j]->getPopulation(); ?> habitants sur <?php echo (int)$buildings[$j]->getMaxPopulation(); ?>.<br />
+												Il vous reste <?php echo (int)$difPopulation; ?> habitants à administrer.<br />
+												<a href="" class="right close">&times;</a>
+											</p>
+										</div>
+									</div>
+									<div class="large-3 columns">&nbsp;</div>
 								</div>
 								
-								<div data-alert class="info-box">
-									<p>
-										Cette structure gère <?php echo (int)$buildings[$j]->getPopulation(); ?> habitants sur <?php echo (int)$buildings[$j]->getMaxPopulation(); ?>.
-										<a href="" class="right close">&times;</a>
-									</p>
-								</div>
+								<div class="row">
+									<div class="large-3 columns">&nbsp;</div>
+									<div class="large-3 columns">
+										<label for="fastChangeValue">Administration rapide</label>
+										<select id="fastChangeValue" name="fastChangeValue">
+											<?php
+												for( $x = -100 ; $x <= 100 ; $x += 10 )
+												{
+													if( $x == 0 )
+														echo '<option value="'.$x.'" selected>Ne rien changer</option>';
+													else if( $x > 0 )
+														echo '<option value="'.$x.'">+'.$x.'</option>';
+													else
+														echo '<option value="'.$x.'">'.$x.'</option>';
 
-								<form action="index.connect.php" method="POST" class="custom">
-									<div class="large-2 columns">&nbsp;</div>
-									<div class="large-2 columns">
-										<label for="changeValueMore">Ajouter</label>
-										<select id="changeValueMore">
-											<?php
-												for( $x = 1 ; $x <= $difPopulation ; $x++ )
-												{
-													echo '<option value="'.$x.'">'.$x.'</option>';
 												}
 											?>
 										</select>
-										<input type="submit" <?php if( !$canChange ) echo 'disabled="disabled"'; ?> value="Ajouter" class="button prefix"/>
 									</div>
-									<div class="large-1 columns">&nbsp;</div>
-									<div class="large-2 columns">
-										<label for="changeValueLess">Enlever</label>
-										<select id="changeValueLess">
-											<?php
-												for( $x = 1 ; $x <= $buildings[$j]->getPopulation() ; $x++ )
-												{
-													echo '<option value="'.$x.'">-'.$x.'</option>';
-												}
-											?>
-										</select>
-										<input type="submit" <?php if( !$canChange ) echo 'disabled="disabled"'; ?> value="Enlever" class="button prefix"/>
-									</div>
-									<div class="large-1 columns">&nbsp;</div>
-									<div class="large-2 columns">
-										<label for="changeValueManualy">Manuellement</label>
-										<input type="text" class="center" name="changeValue" placeholder="<?php echo (int)$buildings[$j]->getPopulation(); ?>">
-										<input type="submit" <?php if( !$canChange ) echo 'disabled="disabled"'; ?> value="Modifier" class="button prefix"/>
+									<div class="large-3 columns">
+										<label for="manuallyChangeValue">Administration manuelle</label>
+										<input type="number" class="center" name="manuallyChangeValue" placeholder="<?php echo (int)$buildings[$j]->getPopulation(); ?>" id="manuallyChangeValue">
 									</div>
 									<input type="hidden" name="changePopulation" value="<?php echo (int)$buildings[$j]->getId(); ?>" />
-									<div class="large-2 columns">&nbsp;</div>
-								</form>
-								<?php
-							}
-							else
-								echo "Cette structure n'est pas administrable.";
-						?>
-					</p>
-					<a href="#" class="alert radius button close-reveal-modal">X</a>
-				</div>
-			<?php
-			}
+									<div class="large-3 columns">&nbsp;</div>
+								</div>
+
+								<div class="row">
+									<div class="large-3 columns">&nbsp;</div>
+									<div class="large-6 columns">
+										<input type="submit" <?php if( !$canChange ) echo 'disabled="disabled"'; ?> value="Mettre à jour" class="button prefix"/>
+									</div>
+									<div class="large-3 columns">&nbsp;</div>
+								</div>
+							</form>
+							<?php
+						}
+						else
+							echo "Cette structure n'est pas administrable.";
+					?>
+				</p>
+				<a href="#" class="alert radius button close-reveal-modal">X</a>
+			</div>
+		<?php
 		}
-		?>
-		
-		<?php include_once(PATH_VIEWS."faq.php"); ?>
+	}
+	?>
+			
+	<!-- Foundation4 Joyride : Aide & Tuto de la page -->
+	<ol class="joyride-list" data-joyride>
+		<li data-id="step1" data-text="Continuer">
+			<h4>Oups !</h4><br />
+			<p>Il semble que cette page ne dispose pas encore d'aide !</p>
+		</li>
+		<li data-button="Merci !">
+			<h4>A vous de jouer !</h4><br />
+			<p>Vous savez tout sur cette page.</p>
+			<p>Encore besoin d'aide :<br />- <a data-reveal-id="FAQ">Lire la F.A.Q.</a><br />- <a href="communication.connect.php">Contactez Jibi !</a></p>
+		</li>
+	</ol>
+	
+	
+	<div id="successModal" class="reveal-modal">
+		<h2>Administration de la structure</h2>
+		<p class="lead">Mise à jour effectuée avec succès !</p>
+		<p><?php echo $Engine->getSuccess(); ?></p>
+		<a href="#" class="success radius button close-reveal-modal">X</a>
+	</div>
+	
+	<div id="errorModal" class="reveal-modal">
+		<h2>Administration de la structure</h2>
+		<p class="lead">La mise à jour a rencontré un problème !</p>
+		<p><?php echo $Engine->getError(); ?></p>
+		<a href="#" class="alert radius button close-reveal-modal">X</a>
+	</div>
+	
+	<?php include_once(PATH_VIEWS."faq.php"); ?>
