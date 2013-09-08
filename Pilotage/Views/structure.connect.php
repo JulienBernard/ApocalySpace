@@ -36,17 +36,19 @@
 			<?php
 			}
 
+			$buildingsArray = array();
 			for( $i = 1 ; $i <= 4 ; $i++ )
 			{	?>
 				<ul class="large-ul">
 				<?php
 				$buildings = $Data->getBuildingsList( $i );
+				$buildingsArray[$i] = $buildings;
 				for( $j = 0 ; $j < count($buildings) ; $j++ )
 				{
 					$canBuy = true;
 				?>
 					<li>
-						<span class="float-left"><img src="./img/bat/<?php echo (String)$buildings[$j]->getPicture(); ?>" alt="[IMAGE]" /></span><?php echo (int)$buildings[$j]->getSuperficie(); ?> m²<br />
+						<span class="float-left"><a href="" data-reveal-id="informationsModal<?php echo $i.'-'.$j; ?>"><img src="./img/bat/<?php echo (String)$buildings[$j]->getPicture(); ?>" alt="[IMAGE]" /></a></span><?php echo (int)$buildings[$j]->getSuperficie(); ?> m²<br />
 						<span class="smaller">
 							<span class="<?php if( (int)$Data->getRes1() >= (int)$buildings[$j]->getCost1() ) echo 'good'; else { echo 'bad'; $canBuy = false; } ?>"><?php echo (int)$buildings[$j]->getCost1(); ?> Titane</span><br />
 							<span class="<?php if( (int)$Data->getRes2() >= (int)$buildings[$j]->getCost2() ) echo 'good'; else { echo 'bad'; $canBuy = false; } ?>"><?php echo (int)$buildings[$j]->getCost2(); ?> Béryl</span><br />
@@ -84,4 +86,89 @@
 				<p>Encore besoin d'aide :<br />- <a data-reveal-id="FAQ">Lire la F.A.Q.</a><br />- <a href="communication.connect.php">Contactez Jibi !</a></p>
 			</li>
 		</ol>
+		
+		
+		<?php
+		for( $i = 1 ; $i <= 4 ; $i++ )
+		{
+			$buildings = $buildingsArray[$i];
+			for( $j = 0 ; $j < count($buildings) ; $j++ )
+			{
+				$canChange = false;
+				if( (int)$buildings[$j]->getSuperficie() != 0 )
+					$canChange = true;
+			?>
+				<div id="informationsModal<?php echo $i.'-'.$j; ?>" class="reveal-modal">
+					<h2><?php echo (String)$buildings[$j]->getName(); ?></h2>
+					<p class="lead"><?php echo (String)$buildings[$j]->getDescription(); ?></p>
+					<p>
+						<?php
+							if( $buildings[$j]->getType() == 2 || $buildings[$j]->getType() == 4 )
+							{
+								?>
+								<div data-alert class="success-box">
+									<p class="smaller">
+										La gestion de votre population est votre outil principal pour commander d'une main de fer votre empire.<br />
+										Vous pouvez attribuer à vos bâtiments autant d'habitants que vous le souhaitez dans les limites de leurs superficies.<br />
+										<span class="bold">Il y a actuellement <?php echo $Data->getPopulation(); ?> habitants sur votre planète et vous pouvez en administrer <?php echo $Data->getManagePopulationMax(); ?>.</span><br />
+										<a href="" class="right close">&times;</a>
+									</p>
+								</div>
+								
+								<div data-alert class="info-box">
+									<p>
+										Cette structure gère <?php echo (int)$buildings[$j]->getPopulation(); ?> habitants sur <?php echo (int)$buildings[$j]->getMaxPopulation(); ?>.
+										<a href="" class="right close">&times;</a>
+									</p>
+								</div>
+
+								<form action="index.connect.php" method="POST" class="custom">
+									<div class="large-2 columns">&nbsp;</div>
+									<div class="large-2 columns">
+										<label for="changeValueMore">Ajouter</label>
+										<select id="changeValueMore">
+											<?php
+												for( $x = 1 ; $x <= $difPopulation ; $x++ )
+												{
+													echo '<option value="'.$x.'">'.$x.'</option>';
+												}
+											?>
+										</select>
+										<input type="submit" <?php if( !$canChange ) echo 'disabled="disabled"'; ?> value="Ajouter" class="button prefix"/>
+									</div>
+									<div class="large-1 columns">&nbsp;</div>
+									<div class="large-2 columns">
+										<label for="changeValueLess">Enlever</label>
+										<select id="changeValueLess">
+											<?php
+												for( $x = 1 ; $x <= $buildings[$j]->getPopulation() ; $x++ )
+												{
+													echo '<option value="'.$x.'">-'.$x.'</option>';
+												}
+											?>
+										</select>
+										<input type="submit" <?php if( !$canChange ) echo 'disabled="disabled"'; ?> value="Enlever" class="button prefix"/>
+									</div>
+									<div class="large-1 columns">&nbsp;</div>
+									<div class="large-2 columns">
+										<label for="changeValueManualy">Manuellement</label>
+										<input type="text" class="center" name="changeValue" placeholder="<?php echo (int)$buildings[$j]->getPopulation(); ?>">
+										<input type="submit" <?php if( !$canChange ) echo 'disabled="disabled"'; ?> value="Modifier" class="button prefix"/>
+									</div>
+									<input type="hidden" name="changePopulation" value="<?php echo (int)$buildings[$j]->getId(); ?>" />
+									<div class="large-2 columns">&nbsp;</div>
+								</form>
+								<?php
+							}
+							else
+								echo "Cette structure n'est pas administrable.";
+						?>
+					</p>
+					<a href="#" class="alert radius button close-reveal-modal">X</a>
+				</div>
+			<?php
+			}
+		}
+		?>
+		
 		<?php include_once(PATH_VIEWS."faq.php"); ?>

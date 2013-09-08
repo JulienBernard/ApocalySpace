@@ -24,7 +24,6 @@
 				$arrayConstruction[] = array( "name" => $buildingsData->getName(), "quantity" => $onGoingBuilds[$i]['gb_buildQuantity'], "endTime" => $onGoingBuilds[$i]['gb_endTime'] );
 			}
 		}
-
 	}
 
 	if( isset($_POST["extendBuilding"]) && is_numeric($_POST["extendBuilding"]) && $_POST["extendBuilding"] > 0 )
@@ -93,6 +92,9 @@
 		<?php
 		}
 	}
-
+	
+	$populationManageNow = (int)$Data->getNumberOfPopulationWhoAreManagedNow();
+	$difPopulation = (int)$Data->getPopulation() - (int)$populationManageNow;
+	
 	/* Inclusion de la vue */
 	include_once( $Engine->getViewPath() );

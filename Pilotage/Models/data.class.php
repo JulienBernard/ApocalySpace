@@ -312,7 +312,7 @@ class Data {
 	public function getNumberOfPopulationWhoAreManagedNow( $buildingId = null )
 	{
 		/* Validation des paramètres */
-		if( !is_numeric($buildingId) || $buildingId < 0 )
+		if( (!is_numeric($buildingId) && $buildingId != null)  || $buildingId < 0 )
 			return false;
 	
 		$array = $this->getBuildingsList();
