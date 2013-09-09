@@ -12,9 +12,12 @@
 				<h1><?php echo strtoupper($Template->getTitle()); ?></h1>
 				<div data-alert class="error-box">
 					<h1>ACTUALITE BETA (<a href="./docs/">Changelog</a>)</h1>
-					<span class="bold">Vous devez recréer votre compte !</span><br />
-					Pour pouvoir régler une bonne fois pour toute le taux de natalité et les bugs qui en résultaient, j'ai dû mettre à jour la base de données. Pour des soucis d'efficacité pour les tests il était préférable de vider la base de données.<br />
-					Merci de recréer votre compte pour ré accéder à la bêta !
+					<span class="bold">Passage à la 1.6.10 !</span><br />
+					- Taux de population maximum mise à jour<br />
+					- Les bonus de productions ne sont plus pris en compte en cas de surpopulation<br />
+					- Intégration de la gestion de la population sur la page Structure<br />
+					<br />
+					Et plein d'autres choses encore : <a href="./docs/">lire le changelog de la 1.6.10</a>
 					<a href="" class="right close">&times;</a>
 				</div>
 				<div id="orbit">
