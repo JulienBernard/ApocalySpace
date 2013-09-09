@@ -24,7 +24,6 @@
 				$arrayConstruction[] = array( "name" => $buildingsData->getName(), "quantity" => $onGoingBuilds[$i]['gb_buildQuantity'], "endTime" => $onGoingBuilds[$i]['gb_endTime'] );
 			}
 		}
-
 	}
 
 	if( isset($_POST["extendBuilding"]) && is_numeric($_POST["extendBuilding"]) && $_POST["extendBuilding"] > 0 )
@@ -93,6 +92,159 @@
 		<?php
 		}
 	}
+	else if( isset($_POST["changePopulation"]) && is_numeric($_POST["changePopulation"]) && $_POST["changePopulation"] > 0 )
+	{
+		if( isset($_POST["manuallyChangeValue"]) && is_numeric($_POST["manuallyChangeValue"]) && $_POST["manuallyChangeValue"] >= 0 )
+		{
+			$changeValue = (int)htmlspecialchars($_POST["manuallyChangeValue"]);
+			$buildingId = (int)htmlspecialchars($_POST["changePopulation"]);
+			$list = $Data->getBuildingsList();
+			$buildingData = $list[$buildingId-1];
+			$populationManageNow = $Data->getNumberOfPopulationWhoAreManagedNow( $buildingId );
+			$populationManageNow += $changeValue;
+			
+			if( $changeValue <= (int)$buildingData->getMaxPopulation() && $populationManageNow <= (int)$Data->getPopulation() )
+			{
+				/* Fichier des id des bâtiments */
+				include("./config_id.php");
+				/* Si on modifie un bâtiment de production, on modifie sa production ! */
+				if( $buildingId == $titaneMineId )
+				{	
+					$newProd = 100 + $changeValue * 16; // Production initiale + valeur selon population
+					$Data->getPlanet()->updateProduction( $Data->getPlanetId(), $newProd, 1 );
+				}
+				else if( $buildingId == $berylMineId )
+				{
+					$newProd = 60 + $changeValue * 12; // Production initiale + valeur selon population
+					$Data->getPlanet()->updateProduction( $Data->getPlanetId(), $newProd, 2 );
+				}
+				else if( $buildingId == $hydrogeneExtractorId )
+				{
+					$newProd = $changeValue * 8; // Production initiale + valeur selon population
+					$Data->getPlanet()->updateProduction( $Data->getPlanetId(), $newProd, 3 );
+				}
+				else if( $buildingId == $researchCenterId )
+				{
+					$newProd = $changeValue * 7; // Production initiale + valeur selon population
+					$Data->getPlanet()->updateProduction( $Data->getPlanetId(), $newProd, 4 );
+				}
+				
+				$buildingData->updateBuildingPopulation( $Data->getPlanetId(), $buildingId, $changeValue );
+				
+				/* Modification OK */
+				$Engine->setSuccess("Il y a désormais ".$changeValue." habitants qui travaille dans cette structure.");
+				?>
+				<script>
+					$(document).ready(function() {
+						$('#successModal').foundation('reveal', 'open');
+					});
+				</script>
+				<?php
+			}
+			else
+			{
+				/* Modification NO */
+				$Engine->setError("- Vous ne pouvez pas attribuer à une structure plus d'ouvriers qu'elle ne peut en accueilir<br />- Vous ne pouvez pas attribuer plus d'habitants que vous permet votre population totale");
+				?>
+				<script>
+					$(document).ready(function() {
+						$('#errorModal').foundation('reveal', 'open');
+					});
+				</script>
+				<?php
+			}
+		}
+		else if( isset($_POST["fastChangeValue"]) && $_POST["fastChangeValue"] != 0)
+		{
+			$changeValue = (int)htmlspecialchars($_POST["fastChangeValue"]);
+			if( $changeValue < -100 && $changeValue > 100 )
+				$changeValue = 0;
+				
+			$buildingId = (int)htmlspecialchars($_POST["changePopulation"]);
+			$list = $Data->getBuildingsList();
+			$buildingData = $list[$buildingId-1];
+			$populationManageNow = $Data->getNumberOfPopulationWhoAreManagedNow( $buildingId );
+			$populationManageNow += ($buildingData->getPopulation() + $changeValue);
 
+			if( $changeValue <= (int)$buildingData->getMaxPopulation() && $populationManageNow <= (int)$Data->getPopulation() )
+			{
+				/* Fichier des id des bâtiments */
+				include("./config_id.php");
+				/* Si on modifie un bâtiment de production, on modifie sa production ! */
+				if( $buildingId == $titaneMineId )
+				{	
+					$newProd = 100 + $changeValue * 16; // Production initiale + valeur selon population
+					$Data->getPlanet()->updateProduction( $Data->getPlanetId(), $newProd, 1 );
+				}
+				else if( $buildingId == $berylMineId )
+				{
+					$newProd = 60 + $changeValue * 12; // Production initiale + valeur selon population
+					$Data->getPlanet()->updateProduction( $Data->getPlanetId(), $newProd, 2 );
+				}
+				else if( $buildingId == $hydrogeneExtractorId )
+				{
+					$newProd = $changeValue * 8; // Production initiale + valeur selon population
+					$Data->getPlanet()->updateProduction( $Data->getPlanetId(), $newProd, 3 );
+				}
+				else if( $buildingId == $researchCenterId )
+				{
+					$newProd = $changeValue * 7; // Production initiale + valeur selon population
+					$Data->getPlanet()->updateProduction( $Data->getPlanetId(), $newProd, 4 );
+				}
+				
+				$buildingData->updateBuildingPopulation( $Data->getPlanetId(), $buildingId, $buildingData->getPopulation()+$changeValue );
+				
+				/* Modification OK */
+				$Engine->setSuccess("Il y a désormais ".($buildingData->getPopulation())." habitants qui travaille dans cette structure.");
+				?>
+				<script>
+					$(document).ready(function() {
+						$('#successModal').foundation('reveal', 'open');
+					});
+				</script>
+				<?php
+			}
+			else
+			{
+				/* Modification NO */
+				$Engine->setError("- Vous ne pouvez pas attribuer à une structure plus d'ouvriers qu'elle ne peut en accueilir<br />- Vous ne pouvez pas attribuer plus d'habitants que vous permet votre population totale");
+				?>
+				<script>
+					$(document).ready(function() {
+						$('#errorModal').foundation('reveal', 'open');
+					});
+				</script>
+				<?php
+			}
+		}
+		else if( $_POST["manuallyChangeValue"] < 0 )
+		{
+			/* Valeur incorrecte */
+			$Engine->setError("Votre structure ne peut - certes - gérer qu'un certain nombre d'habitants, mais elle ne peut certainement pas gérer un nombre négatif d'habitants !");
+			?>
+			<script>
+				$(document).ready(function() {
+					$('#errorModal').foundation('reveal', 'open');
+				});
+			</script>
+			<?php
+		}
+		else
+		{
+			/* Valeur incorrecte */
+			$Engine->setError("Aucun changement n'a été détecté.");
+			?>
+			<script>
+				$(document).ready(function() {
+					$('#errorModal').foundation('reveal', 'open');
+				});
+			</script>
+			<?php
+		}
+	}
+	
+	$populationManageNow = (int)$Data->getNumberOfPopulationWhoAreManagedNow();
+	$difPopulation = (int)$Data->getPopulation() - (int)$populationManageNow;
+	
 	/* Inclusion de la vue */
 	include_once( $Engine->getViewPath() );

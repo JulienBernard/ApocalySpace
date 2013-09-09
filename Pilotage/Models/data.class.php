@@ -101,16 +101,21 @@ class Data {
 		
 		/* Données de la planète */
 		$productionTechnologyLevel = $this->getTechnologyLevel($mineProductionResearchId, $this->getId());
-		$this->_planet->setProdRes1Bonus( round(((int)$this->getProdRes1()*(5*$productionTechnologyLevel)/100)) );
-		$this->_planet->setProdRes2Bonus( round(((int)$this->getProdRes2()*(5*$productionTechnologyLevel)/100)) );
-		$this->_planet->setProdRes3Bonus( round(((int)$this->getProdRes3()*(5*$productionTechnologyLevel)/100)) );
+		
+		/* Le joueur n'est pas en surpopulation maximum : il a droit aux bonus technologiques ! */
+		if( $this->getNatality() != 0 )
+		{
+			$this->_planet->setProdRes1Bonus( round(((int)$this->getProdRes1()*(5*$productionTechnologyLevel)/100)) );
+			$this->_planet->setProdRes2Bonus( round(((int)$this->getProdRes2()*(5*$productionTechnologyLevel)/100)) );
+			$this->_planet->setProdRes3Bonus( round(((int)$this->getProdRes3()*(5*$productionTechnologyLevel)/100)) );
+		}
 		$this->_totalProdRes1 = round(((int)$this->getProdRes1() + (int)$this->getProdRes1Bonus()) * $this->_productionMultiplier);
 		$this->_totalProdRes2 = round(((int)$this->getProdRes2() + (int)$this->getProdRes2Bonus()) * $this->_productionMultiplier);
 		$this->_totalProdRes3 = round(((int)$this->getProdRes3() + (int)$this->getProdRes3Bonus()) * $this->_productionMultiplier);
 		$this->_totalProdResPR = round((int)$this->getProdPr());
 		$officeAreasLevel = Building::getBuildingLevel($officeAreas, $this->getPlanetId());
 		$capitalLevel = Building::getBuildingLevel($capital, $this->getPlanetId());
-		$this->_managePopulationMax = $this->_planet->_managePopulationMax;	/* Taux arbitraire (40 par niveau, multiplicateur de 1.4) */
+		$this->_managePopulationMax = $this->_planet->_managePopulationMax;	/* Taux arbitraire (50 par niveau, multiplicateur de 1.4) */
 
 		/* Gestion de la natalité */
 		$overcrowding = 0;
@@ -141,8 +146,6 @@ class Data {
 		/* Si le taux a changé, on modifie dans la base de données */
 		if( $this->_natalityProduction != $this->getNatality() )
 		{
-			
-		
 			$this->_planet->updateNatality( $this->getPlanetId(), $this->_natalityProduction*$this->_globalSpeedMult );
 			$this->_planet->setNatality( $this->_natalityProduction );
 		}
@@ -312,7 +315,7 @@ class Data {
 	public function getNumberOfPopulationWhoAreManagedNow( $buildingId = null )
 	{
 		/* Validation des paramètres */
-		if( !is_numeric($buildingId) || $buildingId < 0 )
+		if( (!is_numeric($buildingId) && $buildingId != null)  || $buildingId < 0 )
 			return false;
 	
 		$array = $this->getBuildingsList();

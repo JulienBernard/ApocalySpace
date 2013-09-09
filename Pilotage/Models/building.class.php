@@ -205,6 +205,7 @@ class Building
 		}
 		else
 		{
+			$this->_population = $newValue;
 			return 1;
 		}
 	}
