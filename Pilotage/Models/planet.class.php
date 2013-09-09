@@ -64,7 +64,7 @@ class Planet
 		$this->_planetResource3 = (int)$dataPlanet['pl_res3'] + $benefitRes3;
 		$this->_planetPR = (int)$dataPlanet['pl_pr'] + $benefitResPR;
 		$this->_planetPopulation = (int)$dataPlanet['pl_population'] + $benefitPopulation;
-		$this->_managePopulationMax = ($officeAreasLevel * 40) * 1.5;	/* Taux arbitraire (40 par niveau, multiplicateur de 1.4) */
+		$this->_managePopulationMax = ($officeAreasLevel * 50) * 1.4;	/* Taux arbitraire (50 par niveau, multiplicateur de 1.4) */
 
 		include_once(PATH_MODELS."building.class.php");
 		if( $this->_planetResource1 > pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$titaneStorageSizePerLevel )

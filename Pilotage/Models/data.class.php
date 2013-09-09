@@ -115,7 +115,7 @@ class Data {
 		$this->_totalProdResPR = round((int)$this->getProdPr());
 		$officeAreasLevel = Building::getBuildingLevel($officeAreas, $this->getPlanetId());
 		$capitalLevel = Building::getBuildingLevel($capital, $this->getPlanetId());
-		$this->_managePopulationMax = $this->_planet->_managePopulationMax;	/* Taux arbitraire (40 par niveau, multiplicateur de 1.4) */
+		$this->_managePopulationMax = $this->_planet->_managePopulationMax;	/* Taux arbitraire (50 par niveau, multiplicateur de 1.4) */
 
 		/* Gestion de la natalité */
 		$overcrowding = 0;
