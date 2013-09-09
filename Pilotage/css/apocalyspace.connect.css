@@ -326,15 +326,6 @@ footer {
 	text-align: center;
 	padding-top: 0px;
 }
-
-#player-planet {
-	width: 100%;
-	height: 100px;
-	background-image: url(../img/player_planet.png);
-}
-	#player-planet:hover {
-		background-image: url(../img/player_planet_hover.png);
-	}
 	
 .player-planet-name {
 	color: #3d9bd3;
@@ -349,6 +340,29 @@ footer {
 	}
 	
 /* Structure, Gestion */
+
+.player-building{
+	position: relative;
+}
+	.player-building:hover .player-building-hidden {
+		opacity: 0.6;
+		background-color: black;
+		transition: all 1s;
+		color: white;
+		padding-top: 40px;
+	}
+	
+.player-building-hidden {
+	opacity: 0;
+	position: absolute;
+	background-color: black;
+	background-position: center;
+	width: 100%;
+	height: 100%;
+	transition: all 2s;
+	text-align: center;
+	padding-top: 0px;
+}
 
 article ul {
 	width: 100%;

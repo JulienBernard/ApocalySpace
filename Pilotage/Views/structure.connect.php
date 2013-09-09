@@ -48,7 +48,24 @@
 					$canBuy = true;
 				?>
 					<li>
-						<span class="float-left"><a href="" data-reveal-id="informationsModal<?php echo $i.'-'.$j; ?>"><img src="./img/bat/<?php echo (String)$buildings[$j]->getPicture(); ?>" alt="[IMAGE]" /></a></span><?php echo (int)$buildings[$j]->getSuperficie(); ?> m²<br />
+						<span class="float-left">
+							<?php
+							if( $buildings[$j]->getType() == 2 || $buildings[$j]->getType() == 4 )
+							{
+							?>
+								<div class="player-building">
+									<a href="" data-reveal-id="informationsModal<?php echo $i.'-'.$j; ?>">
+									<div class="player-building-hidden smaller"><?php echo strtoupper($buildings[$j]->getPopulation().'/'.$buildings[$j]->getMaxPopulation()); ?></div>
+									<p>
+										<img src="./img/bat/<?php echo (String)$buildings[$j]->getPicture(); ?>" alt="[Structure]" />
+									</p>
+									</a>
+								</div>
+							<?php } else { ?>
+								<img src="./img/bat/<?php echo (String)$buildings[$j]->getPicture(); ?>" alt="[IMAGE]" />
+							<?php } ?>
+						</span>
+						<?php echo (int)$buildings[$j]->getSuperficie(); ?> m²<br />
 						<span class="smaller">
 							<span class="<?php if( (int)$Data->getRes1() >= (int)$buildings[$j]->getCost1() ) echo 'good'; else { echo 'bad'; $canBuy = false; } ?>"><?php echo (int)$buildings[$j]->getCost1(); ?> Titane</span><br />
 							<span class="<?php if( (int)$Data->getRes2() >= (int)$buildings[$j]->getCost2() ) echo 'good'; else { echo 'bad'; $canBuy = false; } ?>"><?php echo (int)$buildings[$j]->getCost2(); ?> Béryl</span><br />

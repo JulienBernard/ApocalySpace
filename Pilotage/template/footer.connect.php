@@ -24,10 +24,8 @@
 						<span class="player-planet-text">
 							Coord : x <?php echo $Data->getPosX(); ?> | y <?php echo $Data->getPosY(); ?><br />
 							Population : <?php echo $Data->getPopulation(); ?> sur <?php echo $Data->getManagePopulationMax(); ?><br />
-							Natalité : <?php if( $Data->getPopulation() >= $Data->getManagePopulationMax() ) echo "<span class='bad'>"; echo $Data->getNatality(); ?> par jour<?php if( $Data->getPopulation() >= $Data->getManagePopulationMax() ) echo "</span>"; ?><br />
+							Natalité : <?php if( $Data->getPopulation() >= $Data->getManagePopulationMax() ) echo "<span class='bad'>"; echo $Data->getNatality(); ?> par jour<?php if( $Data->getPopulation() >= $Data->getManagePopulationMax() ) echo "<br /><span class='italic'>- Surpopulation détecté<br />- Recherches inopérantes.</span></span>"; ?><br />
 							<br />
-							<a href="structure.connect.php">Pas de construction en cours</a><br />
-							<a href="index.connect.php">Aucune activité spatiale détectée</a>
 						</span>
 					</p>
 				</div>
