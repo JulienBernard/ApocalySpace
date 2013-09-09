@@ -5,7 +5,7 @@
 			-->
 			<article class="large-9 columns">
 				<h1 id="step1"><?php echo strtoupper($Template->getTitle()); ?></h1>
-				<!--
+
 				<div data-alert class="info-box">
 					<p class="smaller-2">
 						<span class="important-alert">Une flotte en provenance de Prometheus entrera dans votre système planétaire dans 3h et 47min</span><br />
@@ -14,71 +14,24 @@
 						<a href="" class="right close">&times;</a>
 					</p>
 				</div>
-				-->
-				
-				<div data-alert class="success-box">
-					<p class="smaller">
-						La gestion de votre population est votre outil principal pour commander d'une main de fer votre empire.<br />
-						Vous pouvez attribuer à vos bâtiments autant d'habitants que vous le souhaitez dans les limites de leurs superficies.<br />
-						<span class="bold">Il y a actuellement <?php echo $Data->getPopulation(); ?> habitants sur votre planète et vous pouvez en administrer <?php echo $Data->getManagePopulationMax(); ?>.</span><br />
-						<a href="" class="right close">&times;</a>
-					</p>
-				</div>
-				
-				<ul>
-					<?php
-					$buildings = $Data->getBuildingsList( 2 );
-					for( $j = 0 ; $j < count($buildings) ; $j++ )
-					{
-						$canChange = false;
-						if( (int)$buildings[$j]->getSuperficie() != 0 )
-							$canChange = true;
-					?>
-						<li>
-							<span class="float-left"><img src="./img/bat/<?php echo (String)$buildings[$j]->getPicture(); ?>" alt="[IMAGE]" /></span><?php echo (int)$buildings[$j]->getSuperficie(); ?> m²<br />
-							<form action="index.connect.php" method="POST">
-								<div class="small-6 columns">
-									<input type="text" class="center" name="changeValue" placeholder="<?php echo (int)$buildings[$j]->getPopulation(); ?> / <?php echo (int)$buildings[$j]->getMaxPopulation(); ?>">
-									<input type="hidden" name="changePopulation" value="<?php echo (int)$buildings[$j]->getId(); ?>" />
-									<input type="submit" <?php if( !$canChange ) echo 'disabled="disabled"'; ?> value="Changer" class="button prefix"/>
-								</div>
-							</form>
-							<span class="smaller">
-								<span class="bold"><?php echo (String)$buildings[$j]->getName(); ?></span><br />
-								<?php echo (String)$buildings[$j]->getDescription(); ?>
-							</span>
-						</li>
-					<?php
-					}
-					?>
-				</ul>
-				<ul>
-					<?php
-					$buildings = $Data->getBuildingsList( 4 );
-					for( $j = 0 ; $j < count($buildings) ; $j++ )
-					{
-						$canChange = false;
-						if( (int)$buildings[$j]->getSuperficie() != 0 )
-							$canChange = true;
-					?>
-						<li>
-							<span class="float-left"><img src="./img/bat/<?php echo (String)$buildings[$j]->getPicture(); ?>" alt="[IMAGE]" /></span><?php echo (int)$buildings[$j]->getSuperficie(); ?> m²<br />
-							<form action="index.connect.php" method="POST">
-								<div class="small-6 columns">
-									<input type="text" class="center" name="changeValue" placeholder="<?php echo (int)$buildings[$j]->getPopulation(); ?> / <?php echo (int)$buildings[$j]->getMaxPopulation(); ?>">
-									<input type="hidden" name="changePopulation" value="<?php echo (int)$buildings[$j]->getId(); ?>" />
-									<input type="submit" <?php if( !$canChange ) echo 'disabled="disabled"'; ?> value="Changer" class="button prefix"/>
-								</div>
-							</form>
-							<span class="smaller">
-								<span class="bold"><?php echo (String)$buildings[$j]->getName(); ?></span><br />
-								<?php echo (String)$buildings[$j]->getDescription(); ?>
-							</span>
-						</li>
-					<?php
-					}
-					?>
-				</ul>
+
+				<p class="lead">
+					Page en cours de création.
+				</p>
+				<p>
+					La page Gestion Planétaire et le centre de commande de votre empire.<br />
+					Seul ou à plusieurs, c'est grâçe aux informations que vous verrez ici que vous allez prendre vos décisions les plus importantes !
+				</p>
+				<p class="small">
+					Retrouvez prochainement :<br />
+					- Statistique du serveur<br />
+					- % de victoire des trois factions (démographie, technologie, militaire)<br />
+					- Le choix de votre orientation en tant que joueur (Offensive, Productif, Défensif etc.)<br />
+					- Votre réputation dans la faction<br />
+					- Sondage de guerre<br />
+					- Amis connecté<br />
+					- Et plein d'autre chose encore !<br />
+				</p>
 			</article>
 			
 		<!-- Foundation4 Joyride : Aide & Tuto de la page -->

@@ -28,6 +28,7 @@
 	$Template->addScript("time.js");
 	$Template->addScript("jquery.min.js");
 	$Template->addScript("vendor/custom.modernizr.js");
+	$Template->addScript("foundation/foundation.forms.js");
 	$Template->addScript("redirection.js");
 
 	global $timeStart;

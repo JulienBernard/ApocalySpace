@@ -64,7 +64,7 @@ class Planet
 		$this->_planetResource3 = (int)$dataPlanet['pl_res3'] + $benefitRes3;
 		$this->_planetPR = (int)$dataPlanet['pl_pr'] + $benefitResPR;
 		$this->_planetPopulation = (int)$dataPlanet['pl_population'] + $benefitPopulation;
-		$this->_managePopulationMax = ($officeAreasLevel * 40) * 1.5;	/* Taux arbitraire (40 par niveau, multiplicateur de 1.4) */
+		$this->_managePopulationMax = ($officeAreasLevel * 50) * 1.4;	/* Taux arbitraire (50 par niveau, multiplicateur de 1.4) */
 
 		include_once(PATH_MODELS."building.class.php");
 		if( $this->_planetResource1 > pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$titaneStorageSizePerLevel )
@@ -328,9 +328,18 @@ class Planet
 			$rq = $sql->prepare('UPDATE planets SET pl_prod_res3=:newProd WHERE pl_id=:planetId');
 		if( $resId == 4 )
 			$rq = $sql->prepare('UPDATE planets SET pl_prod_pr=:newProd WHERE pl_id=:planetId');
-		
+
 		$data = array(':planetId' => $planetId, ':newProd' => $newProd);
 		$result = $rq->execute( $data );
+		
+		if( $resId == 1 )
+			$this->_planetProduction1 = $newProd;
+		if( $resId == 2 )
+			$this->_planetProduction2 = $newProd;
+		if( $resId == 3 )
+			$this->_planetProduction3 = $newProd;
+		if( $resId == 4 )
+			$this->_planetProductionPR = $newProd;
 	}
 	
 	/**
