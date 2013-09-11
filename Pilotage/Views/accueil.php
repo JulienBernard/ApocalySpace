@@ -12,10 +12,9 @@
 				<h1><?php echo strtoupper($Template->getTitle()); ?></h1>
 				<div data-alert class="error-box">
 					<h1>ACTUALITE BETA (<a href="./docs/">Changelog</a>)</h1>
-					<span class="bold">Passage à la 1.6.10 !</span><br />
-					- Taux de population maximum mise à jour<br />
-					- Les bonus de productions ne sont plus pris en compte en cas de surpopulation<br />
-					- Intégration de la gestion de la population sur la page Structure<br />
+					<span class="bold">Passage à la 1.6.11 !</span><br />
+					- Taux de natalité ajusté de 10 à 8<br />
+					- Taux de population maximum augmenté<br />
 					<br />
 					Et plein d'autres choses encore : <a href="./docs/">lire le changelog de la 1.6.10</a>
 					<a href="" class="right close">&times;</a>
