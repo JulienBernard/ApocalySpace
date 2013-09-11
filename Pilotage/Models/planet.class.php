@@ -53,10 +53,11 @@ class Planet
 		$benefitRes3 = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdRes3(), $this->getProdRes3Bonus() );
 		$benefitResPR = (int)$this->checkRessource( $this->getProductionTime(), $this->getProdResPR() );
 		$benefitPopulation = (int)$this->checkPopulation( $this->getNatalityTime(), $this->getNatality() );
-				
+
 		/* Fichier des id des bâtiments */
 		include_once("./config_id.php");
 		$officeAreasLevel = Building::getBuildingLevel($officeAreas, $this->getPlanetId());
+		$capitalLevel = Building::getBuildingLevel($capital, $this->getPlanetId());
 
 		/* Ressources réelles */
 		$this->_planetResource1 = (int)$dataPlanet['pl_res1'] + $benefitRes1;
@@ -64,7 +65,7 @@ class Planet
 		$this->_planetResource3 = (int)$dataPlanet['pl_res3'] + $benefitRes3;
 		$this->_planetPR = (int)$dataPlanet['pl_pr'] + $benefitResPR;
 		$this->_planetPopulation = (int)$dataPlanet['pl_population'] + $benefitPopulation;
-		$this->_managePopulationMax = ($officeAreasLevel * 50) * 1.4;	/* Taux arbitraire (50 par niveau, multiplicateur de 1.4) */
+		$this->_managePopulationMax = round(($officeAreasLevel * 1.3) / (0.7) * 50);
 
 		include_once(PATH_MODELS."building.class.php");
 		if( $this->_planetResource1 > pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$titaneStorageSizePerLevel )
@@ -121,9 +122,9 @@ class Planet
 		$initialY = (rand(0, 5) - 2)*2;
 		$coords = Map::getPlanetSlot( $initialX, $initialY );
 		if( $faction == "impériaux" )
-			$natality = 10;
+			$natality = 8;
 		else
-			$natality = 11;
+			$natality = 8;
 		
 		$req = $sql->prepare('INSERT INTO planets VALUES(null, :name, :size, :population, :userId, :posX, :posY, :res1, :res2, :res3, :pr, :prod_res1, :prod_res2, :prod_res3, :prod_respr, :prod_time, :prod_natality, :natality, :primary)');
 		$result = $req->execute( array(
