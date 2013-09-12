@@ -16,7 +16,7 @@
 	define("SQL_ENCODE", "utf8");
 	
 	/* Chemin d'accès du site */
-	define("BASE_SITE", "http://localhost:8000/Julien/ApocalySpace/ApocalySpace/Pilotage/");
+	define("BASE_SITE", "http://localhost:8000/Julien/ApocalySpace/ApocalySpace/Pilotage");
 	define('BASE_PATH', '/Julien/ApocalySpace/ApocalySpace/Pilotage/');
 	
 	/* Informations par défaut */
