@@ -2,15 +2,15 @@
 ==================================================
 
 ApocalySpace est un jeu en ligne jouable gratuitement et directement sur votre navigateur web mêlant stratégie et gestion dans l'espace. C'est un projet réalisé en 2012 par Benjamin Crosnier, Etienne Rocipon et Julien Bernard.<br />
-Le projet a été repris après l'arrêt de celui-ci par Julien EN 2013.<br />
 <br />
+Le projet a été repris après l'arrêt de celui-ci par Julien en 2013.<br />
 * Ce projet est sous licence GNU GPL.<br />
 * Le projet est disponible actuellement en version 1.6 : phase de Bêta fermée<br />
 
 
 Contribution et Démo
 --------------------------------------
-Projet entièrement libre sous licence [GNU GPL](http://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9rale_GNU), vous êtes encouragé à participer au projet de différentes manières :<br />
+Projet sous licence libre [GNU GPL](http://fr.wikipedia.org/wiki/Licence_publique_g%C3%A9n%C3%A9rale_GNU), vous êtes encouragé à participer au projet de différentes manières :<br />
 1. [En jouant à ApocalySpace, tout simplement](http://www.apocalyspace.fr)<br />
 2. [En démasquant les bugs](https://github.com/JulienBernard/ApocalySpace/issues)<br />
 3. [En participant au Wiki](https://github.com/JulienBernard/ApocalySpace/wiki/Accueil)<br />
@@ -64,9 +64,9 @@ Lancez dans navigateur préféré (Firefox <3):
 http://localhost/(..)/ApocalySpace/Pilotage/
 ```
 
-### Jouez!
+### Jouer !
 
-Ou commencez à développer votre propre jeu en modifiant les données contenues principalement dans `/Models/data.class.php`, `config_id.php` et dans la base de données.
+Ou commencer à développer votre propre jeu en modifiant les données contenues principalement dans `/Models/data.class.php`, `config_id.php` et dans la base de données.
 
 Changelog
 --------------------------------------
@@ -78,3 +78,8 @@ Changelog
 * (1.2) 02/06/13 : Ajout des pages Accueil / Histoire / Galerie / Support / Mentions / Histoire du projet<br />
 * (1.1) 02/06/13 : Intégration du SpaceEngine sur ApocalySpace. Intégration de Foundation4 sur le moteur<br />
 * (1.0) 01/06/13 : Développement du SpaceEngine, le moteur du site internet<br />
+
+Questions ?
+--------------------------------------
+
+Vous pouvez me contacter directement sur GitHub via les `issues` si vous démasquez un bug ou bien me joindre sur le jeu via mon pseudonyme `Jibi`.
