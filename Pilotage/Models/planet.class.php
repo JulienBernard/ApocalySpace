@@ -77,14 +77,15 @@ class Planet
 		/* Modification dans la base de données, si il y a modification ! */
 		if( $benefitRes1 >= 1 OR $benefitRes2 >= 1 OR $benefitRes3 >= 1 OR $benefitResPR >= 1 )
 			$this->updateRessource( $this->_planetId, $this->_planetResource1, $this->_planetResource2, $this->_planetResource3, $this->_planetPR );
-		if( $benefitPopulation != 0 )
-		{
-			$this->updatePopulation( $this->_planetId, $this->_planetPopulation );
-		}
-		else if( $this->_planetPopulation > $this->_managePopulationMax )
+		
+		if( $this->_planetPopulation > $this->_managePopulationMax )
 		{
 			$this->updatePopulation( $this->_planetId, $this->_managePopulationMax+100 );
 			$this->_planetPopulation = $this->_managePopulationMax+100;
+		}
+		else if( $benefitPopulation != 0 )
+		{
+			$this->updatePopulation( $this->_planetId, $this->_planetPopulation );
 		}
 	}
 	
