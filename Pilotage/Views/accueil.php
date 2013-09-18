@@ -12,11 +12,11 @@
 				<h1><?php echo strtoupper($Template->getTitle()); ?></h1>
 				<div data-alert class="error-box">
 					<h1>ACTUALITE BETA (<a href="./docs/">Changelog</a>)</h1>
-					<span class="bold">Passage à la 1.6.11 !</span><br />
-					- Taux de natalité ajusté de 10 à 8<br />
+					<span class="bold">Passage à la 1.6.12 !</span><br />
+					- La gestion de la population fonctionne correctement<br />
 					- Taux de population maximum augmenté<br />
 					<br />
-					Et plein d'autres choses encore : <a href="./docs/">lire le changelog de la 1.6.10</a>
+					Et plein d'autres choses encore : <a href="./docs/">lire le changelog de la 1.6.12</a>
 					<a href="" class="right close">&times;</a>
 				</div>
 				<div id="orbit">
