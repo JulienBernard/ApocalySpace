@@ -128,7 +128,6 @@ class Data {
 				$this->_natalityProduction = 0;
 			else if ( $difPopulation > 50 ) 
 			{
-			//($this->getTechnologyLevel($medicalResearchId, $this->getId())*1.05)
 				$overcrowding = round((($this->_planet->getPopulation() - $this->_managePopulationMax) - ($officeAreasLevel*11)) * $this->_globalSpeedMult);
 				$this->_natalityProduction = round( ($capitalLevel * 8) + ($this->getTechnologyLevel($medicalResearchId, $this->getId())*1.05) + $this->_globalSpeedMult - $overcrowding * $this->_birthrateMultiplier);
 			}
