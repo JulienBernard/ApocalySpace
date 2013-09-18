@@ -6,6 +6,7 @@
 		{
 			if( !$Engine->createSession("ApocalySpaceHeaderAnimation", $_POST['headerActived'] ) )
 				$_SESSION["ApocalySpaceHeaderAnimation"] = $_POST['headerActived'];
+				setcookie('ApocalySpaceHeaderAnimation', $_POST['headerActived'], time() + 365*24*3600, null, null, false, true);
 				
 			/* Modification OK */
 			$Engine->setSuccess("L'animation du menu du haut (header) est désormais : menu ".$_POST['headerActived'].".<br /><span class='bold'>Cette mise à jour nécessite de recharger la page. <a href='compte.connect.php'>Cliquer ici pour recharger la page</a>.</span>");

@@ -122,19 +122,19 @@ class Data {
 		$difPopulation = $this->_planet->getPopulation() - $this->_managePopulationMax;
 		
 		/* Si il y a surpopulation */
-		if( $this->_planet->getPopulation() > $this->_managePopulationMax )
+		if( $this->_planet->getPopulation() > (int)$this->_managePopulationMax )
 		{
 			if( $difPopulation >= 100 )
 				$this->_natalityProduction = 0;
 			else if ( $difPopulation > 50 ) 
 			{
-				$overcrowding = round(($this->_planet->getPopulation() - $this->_managePopulationMax) + ($officeAreasLevel*12) * $this->_globalSpeedMult);
-				$this->_natalityProduction = round(($capitalLevel * 8) + ($this->getTechnologyLevel($medicalResearchId, $this->getId()) * (0.05*12*$capitalLevel)) * $this->_globalSpeedMult - $overcrowding) * $this->_birthrateMultiplier;
+				$overcrowding = round((($this->_planet->getPopulation() - $this->_managePopulationMax) - ($officeAreasLevel*11)) * $this->_globalSpeedMult);
+				$this->_natalityProduction = round( ($capitalLevel * 8) + ($this->getTechnologyLevel($medicalResearchId, $this->getId())*1.05) + $this->_globalSpeedMult - $overcrowding * $this->_birthrateMultiplier);
 			}
 			else
 			{
-				$overcrowding = round(($this->_planet->getPopulation() - $this->_managePopulationMax) + ($officeAreasLevel*11) * $this->_globalSpeedMult);
-				$this->_natalityProduction = round(($capitalLevel * 8) + ($this->getTechnologyLevel($medicalResearchId, $this->getId()) * (0.05*12*$capitalLevel)) * $this->_globalSpeedMult - $overcrowding) * $this->_birthrateMultiplier;
+				$overcrowding = round(($this->_planet->getPopulation() - $this->_managePopulationMax) - ($officeAreasLevel*10) * $this->_globalSpeedMult);
+				$this->_natalityProduction = round( ($capitalLevel * 8) + ($this->getTechnologyLevel($medicalResearchId, $this->getId())*1.05) + $this->_globalSpeedMult - $overcrowding * $this->_birthrateMultiplier);
 			}
 		}
 		else

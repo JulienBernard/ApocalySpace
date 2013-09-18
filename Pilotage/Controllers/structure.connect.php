@@ -101,31 +101,31 @@
 			$list = $Data->getBuildingsList();
 			$buildingData = $list[$buildingId-1];
 			$populationManageNow = $Data->getNumberOfPopulationWhoAreManagedNow( $buildingId );
-			$populationManageNow += $changeValue;
+			$newPopulationManage = ($buildingData->getPopulation() + $changeValue);
 			
-			if( $changeValue <= (int)$buildingData->getMaxPopulation() && $populationManageNow <= (int)$Data->getPopulation() )
+			if( $newPopulationManage >= 0 && $changeValue <= (int)$buildingData->getMaxPopulation() && $populationManageNow <= (int)$Data->getPopulation() )
 			{
 				/* Fichier des id des bâtiments */
 				include("./config_id.php");
 				/* Si on modifie un bâtiment de production, on modifie sa production ! */
 				if( $buildingId == $titaneMineId )
 				{	
-					$newProd = 100 + $changeValue * 16; // Production initiale + valeur selon population
+					$newProd = 100 + $newPopulationManage * 16; // Production initiale + valeur selon population
 					$Data->getPlanet()->updateProduction( $Data->getPlanetId(), $newProd, 1 );
 				}
 				else if( $buildingId == $berylMineId )
 				{
-					$newProd = 60 + $changeValue * 12; // Production initiale + valeur selon population
+					$newProd = 60 + $newPopulationManage * 12; // Production initiale + valeur selon population
 					$Data->getPlanet()->updateProduction( $Data->getPlanetId(), $newProd, 2 );
 				}
 				else if( $buildingId == $hydrogeneExtractorId )
 				{
-					$newProd = $changeValue * 8; // Production initiale + valeur selon population
+					$newProd = $newPopulationManage * 8; // Production initiale + valeur selon population
 					$Data->getPlanet()->updateProduction( $Data->getPlanetId(), $newProd, 3 );
 				}
 				else if( $buildingId == $researchCenterId )
 				{
-					$newProd = $changeValue * 7; // Production initiale + valeur selon population
+					$newProd = $newPopulationManage * 7; // Production initiale + valeur selon population
 					$Data->getPlanet()->updateProduction( $Data->getPlanetId(), $newProd, 4 );
 				}
 				
@@ -164,31 +164,31 @@
 			$list = $Data->getBuildingsList();
 			$buildingData = $list[$buildingId-1];
 			$populationManageNow = $Data->getNumberOfPopulationWhoAreManagedNow( $buildingId );
-			$populationManageNow += ($buildingData->getPopulation() + $changeValue);
-
-			if( $changeValue <= (int)$buildingData->getMaxPopulation() && $populationManageNow <= (int)$Data->getPopulation() )
+			$newPopulationManage = ($buildingData->getPopulation() + $changeValue);
+			
+			if( $newPopulationManage >= 0 && $changeValue <= (int)$buildingData->getMaxPopulation() && $populationManageNow <= (int)$Data->getPopulation() )
 			{
 				/* Fichier des id des bâtiments */
 				include("./config_id.php");
 				/* Si on modifie un bâtiment de production, on modifie sa production ! */
 				if( $buildingId == $titaneMineId )
 				{	
-					$newProd = 100 + $changeValue * 16; // Production initiale + valeur selon population
+					$newProd = 100 + $newPopulationManage * 16; // Production initiale + valeur selon population
 					$Data->getPlanet()->updateProduction( $Data->getPlanetId(), $newProd, 1 );
 				}
 				else if( $buildingId == $berylMineId )
 				{
-					$newProd = 60 + $changeValue * 12; // Production initiale + valeur selon population
+					$newProd = 60 + $newPopulationManage * 12; // Production initiale + valeur selon population
 					$Data->getPlanet()->updateProduction( $Data->getPlanetId(), $newProd, 2 );
 				}
 				else if( $buildingId == $hydrogeneExtractorId )
 				{
-					$newProd = $changeValue * 8; // Production initiale + valeur selon population
+					$newProd = $newPopulationManage * 8; // Production initiale + valeur selon population
 					$Data->getPlanet()->updateProduction( $Data->getPlanetId(), $newProd, 3 );
 				}
 				else if( $buildingId == $researchCenterId )
 				{
-					$newProd = $changeValue * 7; // Production initiale + valeur selon population
+					$newProd = $newPopulationManage * 7; // Production initiale + valeur selon population
 					$Data->getPlanet()->updateProduction( $Data->getPlanetId(), $newProd, 4 );
 				}
 				

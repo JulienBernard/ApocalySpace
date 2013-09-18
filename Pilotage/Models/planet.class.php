@@ -65,7 +65,7 @@ class Planet
 		$this->_planetResource3 = (int)$dataPlanet['pl_res3'] + $benefitRes3;
 		$this->_planetPR = (int)$dataPlanet['pl_pr'] + $benefitResPR;
 		$this->_planetPopulation = (int)$dataPlanet['pl_population'] + $benefitPopulation;
-		$this->_managePopulationMax = round(($officeAreasLevel * 1.3) / (0.7) * 50);
+		$this->_managePopulationMax = round(($officeAreasLevel * 1.2) / (0.6) * 60);
 
 		include_once(PATH_MODELS."building.class.php");
 		if( $this->_planetResource1 > pow(2, Building::getBuildingLevel($titaneStorageId, $this->_planetId))*$titaneStorageSizePerLevel )
@@ -77,14 +77,16 @@ class Planet
 		/* Modification dans la base de données, si il y a modification ! */
 		if( $benefitRes1 >= 1 OR $benefitRes2 >= 1 OR $benefitRes3 >= 1 OR $benefitResPR >= 1 )
 			$this->updateRessource( $this->_planetId, $this->_planetResource1, $this->_planetResource2, $this->_planetResource3, $this->_planetPR );
-		if( $benefitPopulation != 0 )
+		
+		if( (int)$this->_planetPopulation > (int)$this->_managePopulationMax )
+		{
+			if( (int)$this->_planetPopulation > (int)$this->_managePopulationMax + 100 )
+				$this->_planetPopulation = $this->_managePopulationMax + 100;
+			$this->updatePopulation( $this->_planetId, $this->_planetPopulation );
+		} 
+		else if( $benefitPopulation != 0 )
 		{
 			$this->updatePopulation( $this->_planetId, $this->_planetPopulation );
-		}
-		else if( $this->_planetPopulation > $this->_managePopulationMax )
-		{
-			$this->updatePopulation( $this->_planetId, $this->_managePopulationMax+100 );
-			$this->_planetPopulation = $this->_managePopulationMax+100;
 		}
 	}
 	
