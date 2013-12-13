@@ -5,7 +5,11 @@ ApocalySpace est un jeu en ligne jouable gratuitement et directement sur votre n
 <br />
 Le projet a été repris après l'arrêt de celui-ci par Julien en 2013.<br />
 * Ce projet est sous licence GNU GPL.<br />
-* Le projet est disponible actuellement en version 1.6 : phase de Bêta fermée<br />
+* La dernière version stable du projet est la version : 1.6<br />
+
+**Dernière actualités**
+* Ouverture de la prochaine version BETA publique courant janvier 2014
+* Passage en version 1.7 dans les prochains jours (nouveau design, légère modification sur le gameplay)
 
 
 Contribution et Démo
