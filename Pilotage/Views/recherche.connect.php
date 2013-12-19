@@ -14,7 +14,7 @@
 					</p>
 				</div>
 
-				<section class="ac-container">
+				<section class="ac-container"style="background: none;">
 					<?php
 					$technologies = $Data->getTechnologiesList();
 					for( $j = 0 ; $j < count($technologies) ; $j++ )

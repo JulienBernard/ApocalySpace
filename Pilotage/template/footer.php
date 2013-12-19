@@ -48,8 +48,9 @@
 				</div>
 			</nav>
 		</div>
+		</div>
 	</section>
-</section>
+</main>
 
 <footer>
 	<header>

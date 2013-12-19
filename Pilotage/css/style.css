@@ -1,0 +1,184 @@
+/* 2013 apocalyspace.css | General overlay on Foundation 4 | Author: Julien Bernard */
+
+body {
+	width: 100%;
+	height: 100%;
+}
+
+html {
+	background-image: url("../img/bg.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* ==========================================================================
+   Fonts
+   ========================================================================== */
+
+@font-face{
+	font-family: 'LCD';
+	src: url('lcd.eot');
+	src: url('lcd.eot?#iefix') format('embedded-opentype'),
+		url('lcd.woff') format('woff'),
+		url('lcd.ttf') format('truetype'),
+		url('lcd.svg#webfont') format('svg');
+	}
+	
+@font-face{
+	font-family: 'MALGUN';
+	src: url('malgun.eot');
+	src: url('malgun.eot?#iefix') format('embedded-opentype'),
+		url('malgun.woff') format('woff'),
+		url('malgun.ttf') format('truetype'),
+		url('malgun.svg#webfont') format('svg');
+	}
+	
+@font-face{
+	font-family: 'FUDD';
+	src: url('fudd.eot');
+	src: url('fudd.eot?#iefix') format('embedded-opentype'),
+		url('fudd.woff') format('woff'),
+		url('fudd.ttf') format('truetype'),
+		url('fudd.svg#webfont') format('svg');
+	}
+
+/* ==========================================================================
+   General design
+   ========================================================================== */
+   
+a:hover {
+	color: #dc633d;
+}
+	
+.bold {
+	font-weight: bold;
+}
+.italic {
+	font-style: italic;
+}
+.center {
+	text-align: center;
+}
+.right {
+	text-align: right;
+}
+.smaller {
+	font-size: 12px;
+}
+.smaller-2 {
+	font-size: 14px;
+}
+	.important-alert {
+		color: #d3563d;
+	}
+	.important-return {
+		color: #d3873d;
+	}
+	.important-send {
+		color: #3d9bd3;
+	}
+	
+.good {
+	color: #62c917;
+}
+.bad {
+	color: #d3563d;
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+   
+#navigation {
+	background: #111;
+	opacity: 1;
+	color: #ededed;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 75px;
+	height: 100%;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    transition: 0.5s;
+	border-left: 1px solid #bdc3c7;
+}
+	#navigation img, #informations img {
+		width: 45px;
+		padding-left: 5px;
+	}
+	#navigation li, #informations li {
+		list-style: none;
+		padding: 10px;
+	}
+	#navigation li:hover, #informations li:hover {
+		background: #000;
+	}
+	#navigation:hover , #informations:hover{
+		opacity: 1;
+	}
+	#navigation a, #informations a {
+		color: #ecf0f1;
+		font-family: MALGUN;
+		font-size: 19px;
+	}
+	#navigation .copyright a, #informations .copyright a {
+		color: #bdc3c7;
+		font-family: MALGUN;
+		font-size: 13px;
+	}
+	#navigation .border-top, #informations .border-top {
+		border-top: 1px solid #030303;
+	}
+	#navigation .border-bottom, #informations .border-bottom {
+		border-bottom: 1px solid #222;
+	}
+	#navigation .border-top-bottom , #informations .border-top-bottom {
+		border-top: 1px solid #030303;
+		border-bottom: 1px solid #222;
+	}
+	#navigation .f-bottom, #informations  .f-bottom {
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+	}
+	
+	#navigation span, #informations span {
+		padding: 0;
+		position: absolute;
+		overflow: hidden;
+		height: 100%;
+		-webkit-transition: 0.5s;
+		-moz-transition: 0.5s;
+		transition: 0.5s;
+		display: none;
+		border-right: 1px solid #bdc3c7;
+	}
+	#navigation:hover span, #informations:hover span {
+		display: block;
+		width: 225px;
+		overflow: visible;
+		background: #111;
+		height: 100%;
+		-webkit-transition: 0.5s;
+		-moz-transition: 0.5s;
+		transition: 0.5s;
+	}
+	#navigation > span, #informations > span {
+		background: red;
+	}
+	#navigation:hover , #informations:hover {
+		text-decoration:none;
+		width: 225px;
+		-webkit-transition: 0.5s;
+		-moz-transition: 0.5s;
+		transition: 0.5s;
+	}
+	#navigation:hover .first, #informations:hover .first {
+		display: none;
+	}
+	.copyright {
+		font-size: 12px;
+		font-family: MALGUN;
+		color: #95a5a6;
+	} 

@@ -20,11 +20,7 @@
 	//$Template->setDescription("");
 	$Template->addCss("normalize.css");
 	$Template->addCss("foundation.css");
-	$Template->addCss("apocalyspace.connect.css");
-	if( isset($_COOKIE['ApocalySpaceHeaderAnimation']) && $_COOKIE['ApocalySpaceHeaderAnimation'] == "fixe")
-		$Template->addCss("menuFixe.css");
-	else
-		$Template->addCss("menuFlottant.css");	$Template->addCss("faq.css");
+	$Template->addCss("apocalyspace.css");
 	$Template->addCss("accordion.connect.css");
 	$Template->addScript("time.js");
 	$Template->addScript("jquery.min.js");

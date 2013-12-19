@@ -81,37 +81,55 @@
 	Section principale qui sépare le header du site du corps du site.
 	Main section to separate the header part with the body part of the website.
 -->
-<section id="main" style="padding-top: 0;">
-
-	<header>
-		<div id="header_infobar">ACCUEIL</div>
-		<a href=""><div id="header_infobar_logo"></div></a>
-		<div id="header_infobar_border"></div>
-		<div id="header_image">
-			<div id="header_image_left"></div>
-			<div id="header_image_right"></div>
-		</div>
-		
-		<!--
-			Affiche flèche + message si le curseur est au dessus du header.
-			Display arrow + message if cursor is hovering the header.
-		-->
-		<div class="row">
-			<div class="large-4 columns"></div>
-			<div class="large-8 columns">
-				<p>POUR AFFICHER, CLIQUER OU ALLER VERS LE BAS<br /><img src="img/arrow.png" /></p>
-			</div>
-		</div>
-	</header>
-	
+<main id="main" style="padding-top: 0;">
 	<section>
-		<div class="row">
-			<nav class="large-12 breadcrumbs" id="links">
+		<!-- Desktop navigation -->
+		<nav id="navigation" class="hide-for-large-down">
+			<ul class="first">
+				<li><img src="./img/arrow.png" alt="->" /></li>
+				<li class="border-bottom"></li>
+				<li class="border-top-bottom"><img src="./img/home.png" alt="[H]" /></li>
+				<li class="border-top-bottom"><img src="./img/about.png" alt="[A]" /></li>
+				<li class="border-top-bottom"><img src="./img/gallery.png" alt="[G]" /></li>
+				<li class="border-top-bottom"><img src="./img/contact.png" alt="[C]" /></li>
+				<li class="border-top"></li>
+				<div class="f-bottom">
+					<li class="border-bottom"></li>
+					<li class="border-top-bottom"><img src="./img/players.png" alt="[H]" /></li>
+					<li class="border-top-bottom"><img src="./img/privacy.png" alt="[C]" /></li>
+					<li class="border-top center copyright">Version<br /><a href="#">1.7</a></li>
+				</div>
+			</ul>
+			<ul>
+				<span>
+					<li><img src="./img/arrow.png" alt="->" /><a href="#" style="padding: 0;">&nbsp;<img src="./img/logo.png" style="width: 150px;" alt="->" /></a></li>
+					<li class="border-bottom"></li>
+					<li class="border-top-bottom"><a href="index.php"><img src="./img/home.png" alt="[H]" />&nbsp;&nbsp;&nbsp;Home</a></li>
+					<li class="border-top-bottom"><a href="histoire.php"><img src="./img/about.png" alt="[A]" />&nbsp;&nbsp;&nbsp;About</a></li>
+					<li class="border-top-bottom"><a href="galerie.php"><img src="./img/gallery.png" alt="[G]" />&nbsp;&nbsp;&nbsp;Gallery</a></li>
+					<li class="border-top-bottom"><a href="support.php"><img src="./img/contact.png" alt="[C]" />&nbsp;&nbsp;&nbsp;Contact</a></li>
+					<li class="border-top"></li>
+					<div class="f-bottom">
+						<li class="border-bottom"></li>
+						<li class="border-top-bottom center">12 : 55 : 45</li>
+						<li class="border-top-bottom"><a href="#"><img src="./img/players.png" alt="[H]" />&nbsp;&nbsp;&nbsp;Players: 7</a></li>
+						<li class="border-top-bottom"><a href="#"><img src="./img/privacy.png" alt="[C]" />&nbsp;&nbsp;&nbsp;Privacy</a></li>
+						<li class="border-top center copyright">© ApocalySpace</a> 2012-2013<br /><a href="https://github.com/JulienBernard/ApocalySpace/blob/master/README.md" target="_blank">Version 1.7</a> - <a href="#">Changelog</a></li>
+					</div>
+				</span>
+			</ul>
+		</nav>
+		<!-- End Desktop navigation -->
+		<!-- Mobile or Desktop < 1280 navigation -->
+		<div class="row show-for-large-down">
+			<nav class="large-12 breadcrumbs">
 				<a href="index.php" <?php if( $Engine->getNamepage() == "accueil" ) echo 'class="current"'; ?>>Accueil</a>
 				<a href="histoire.php" <?php if( $Engine->getNamepage() == "histoire" ) echo 'class="current"'; ?>>Histoire</a>
 				<a href="galerie.php" <?php if( $Engine->getNamepage() == "galerie" ) echo 'class="current"'; ?>>Galerie</a>
 				<a href="support.php" <?php if( $Engine->getNamepage() == "support" ) echo 'class="current"'; ?>>Contact et Support</a>
 			</nav>
+			<br />
 		</div>
-		<br />
-	
+		<!-- End Mobile or Desktop <1280 navigation -->
+
+		

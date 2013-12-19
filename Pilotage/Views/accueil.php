@@ -1,4 +1,5 @@
-		<div class="row">
+		<div class="main-Body">
+			<div class="row">
 			<!--
 				Bloc principal du corps du site.
 				Main body of website.
@@ -19,7 +20,9 @@
 					Et plein d'autres choses encore : <a href="./docs/">lire le changelog de la 1.6.12</a>
 					<a href="" class="right close">&times;</a>
 				</div>
-				<div id="orbit">
+				
+				<!-- Desktop navigation -->
+				<div id="orbit" class="hide-for-small">
 					<div class="orbit-container">
 						<ul data-orbit="" class="orbit-slides-container" data-options="timer_speed:5000; bullets:false;">
 							<li class="active">

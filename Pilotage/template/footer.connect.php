@@ -124,7 +124,7 @@
 			</nav>
 		</div>
 	</section>
-</section>
+</main>
 
 <footer>
 	<header>

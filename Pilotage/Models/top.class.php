@@ -35,7 +35,7 @@ class Top
 	 * @param int $size				:	taille de la liste (plus elle est grande, plus la requête sera longue à effectuer !)
 	 * @param int $startPosition	:	position de départ
 	 */
-	private function getUsers( $startPosition = 0, $size = 0 )
+	private function getUsers( $startPosition = 0, $size = 10 )
 	{
 		$sql = MyPDO::get();
 
