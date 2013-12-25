@@ -104,10 +104,10 @@
 				<span>
 					<li><img src="./img/arrow.png" alt="->" /><a href="#" style="padding: 0;">&nbsp;<img src="./img/logo.png" style="width: 150px;" alt="->" /></a></li>
 					<li class="border-bottom"></li>
-					<li class="border-top-bottom"><a href="index.php"><img src="./img/home.png" alt="[H]" />&nbsp;&nbsp;&nbsp;Home</a></li>
-					<li class="border-top-bottom"><a href="histoire.php"><img src="./img/about.png" alt="[A]" />&nbsp;&nbsp;&nbsp;About</a></li>
-					<li class="border-top-bottom"><a href="galerie.php"><img src="./img/gallery.png" alt="[G]" />&nbsp;&nbsp;&nbsp;Gallery</a></li>
-					<li class="border-top-bottom"><a href="support.php"><img src="./img/contact.png" alt="[C]" />&nbsp;&nbsp;&nbsp;Contact</a></li>
+					<li class="border-top-bottom"><a href="index.php"><img src="./img/home.png" alt="[H]" />&nbsp;&nbsp;&nbsp;Accueil</a></li>
+					<li class="border-top-bottom"><a href="histoire.php"><img src="./img/about.png" alt="[A]" />&nbsp;&nbsp;&nbsp;Histoire</a></li>
+					<li class="border-top-bottom"><a href="galerie.php"><img src="./img/gallery.png" alt="[G]" />&nbsp;&nbsp;&nbsp;Galerie</a></li>
+					<li class="border-top-bottom"><a href="support.php"><img src="./img/contact.png" alt="[S]" />&nbsp;&nbsp;&nbsp;Support</a></li>
 					<li class="border-top"></li>
 					<div class="f-bottom">
 						<li class="border-bottom"></li>
@@ -123,10 +123,10 @@
 		<!-- Mobile or Desktop < 1280 navigation -->
 		<div class="small-nav show-for-large-down">
 			<nav class="large-12">
-				<a href="index.php" <?php if( $Engine->getNamepage() == "accueil" ) echo 'class="current"'; ?>>Accueil</a> /
-				<a href="histoire.php" <?php if( $Engine->getNamepage() == "histoire" ) echo 'class="current"'; ?>>Histoire</a> /
-				<a href="galerie.php" <?php if( $Engine->getNamepage() == "galerie" ) echo 'class="current"'; ?>>Galerie</a> /
-				<a href="support.php" <?php if( $Engine->getNamepage() == "support" ) echo 'class="current"'; ?>>Contact et Support</a>
+				<a href="index.php"><img src="./img/home.png" width="40" alt="[H]" />&nbsp;&nbsp;<?php if( $Engine->getNamepage() == "accueil" ) echo 'Accueil'; ?></a>
+				<a href="histoire.php"><img src="./img/about.png" width="30" alt="[A]" />&nbsp;&nbsp;<?php if( $Engine->getNamepage() == "histoire" ) echo 'Histoire'; ?></a>
+				<a href="galerie.php"><img src="./img/gallery.png" width="30" alt="[G]" />&nbsp;&nbsp;<?php if( $Engine->getNamepage() == "galerie" ) echo 'Galerie'; ?></a>
+				<a href="support.php"><img src="./img/contact.png" width="30" alt="[S]" />&nbsp;&nbsp;<?php if( $Engine->getNamepage() == "support" ) echo 'Support'; ?></a>
 			</nav>
 			<br />
 		</div>
