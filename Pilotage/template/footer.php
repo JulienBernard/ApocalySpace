@@ -1,90 +1,24 @@
-﻿			<!--
-				Bloc droit du site.
-				Right block of website.
-			-->
-			<nav class="large-3 columns">
-				<h1>CONNEXION</h1>
-				<div class="row">
-					<form action="index.php" method="POST">
-					<div class="small-1 columns"></div>
-					<div class="small-11 columns">
-						<input type="text" name="username" placeholder="Pseudonyme">
-						<input type="password" name="password" placeholder="Mot de passe">
-						<input type="submit" name="signin" value="Se connecter" class="button prefix"/>
-					</div>
-					</form>
-				</div>
-				<h1>INSCRIPTION <span class="smaller"><a href="histoire.php#factions">Que choisir ?</a></span></h1>
-				<div class="row">
-					<form action="index.php" method="POST" class="custom">
-					<div class="small-1 columns"></div>
-					<div class="small-11 columns">
-						<input type="text" name="username" placeholder="Pseudonyme">
-						<input type="password" name="password" placeholder="Mot de passe">
-						<select id="customDropdown1" name="faction" class="medium">
-							<option DISABLED>Choix de faction (choix définitif)</option>
-							<option>Impériaux</option>
-							<option SELECTED>Vagabonds</option>
-							<option>Républicains</option>
-						</select>
-						<input type="submit" name="subscribe" value="S'inscrire" class="button prefix"/>
-					</div>
-					</form>
-				</div>
-				<h1>INFOS SERVEURS</h1>
-				<div class="row">
-					<div class="small-1 columns"></div>
-					<p class="small-11 columns">
-						<span class='smaller'>
-						<?php
-							date_default_timezone_set('Europe/Paris');
-							include_once(PATH_MODELS."myPDO.class.php");
-							include_once(PATH_MODELS."user.class.php");
-							echo "Il y a ".User::countPlayer()." joueurs actifs.<br />";
-							echo "L'heure du serveur est <span id='serverTime'>".date( "H:i:s", time() )."</span><br />";
-						?>
-						</span>
-					</p>
-				</div>
-			</nav>
-		</div>
-		</div>
+﻿		</div>
 	</section>
 </main>
 
-<footer>
-	<header>
-		<div class="row">
-			<div id="returnTop" class="large-1 columns">
-			</div>
-			<p class="large-7 columns">
-				« Ce n’est pas possible ; cela n’est pas français. »<br />
-				<span class="italic small">Citation de Napoléon Bonaparte</span>
-			</p>
-			<p class="large-4 columns">
-				ApocalySpace © 2012-2013 &nbsp;&nbsp;&nbsp; <a href="./docs/">Version 1.6.12</a>
-			</p>
-		</div>
-	</header>
+<footer class="hide-for-large-down">
+</footer>
+
+<footer class="show-for-large-down">
 	<section>
 		<div class="row">
-			<nav class="large-8 columns center">
+			<nav class="large-6 columns center">
 				<p>
-					<br />
-					<a href="index.php" class="current">Accueil</a> / 
-					<a href="histoire.php">Histoire</a> /
-					<a href="galerie.php">Galerie</a> /
-					<a href="support.php" class="unavailable">Contact et Support</a>
+					<a id="returnTop">Retourner en haut</a> - <a href="https://github.com/JulienBernard/ApocalySpace">Dépôt sur GitHub</a><br />
+					Apocalyspace est un projet libre développé par Julien Bernard.
 				</p>
 			</nav>
-			<article class="large-4 columns center">
-				<p>
-					Projet sous licence GPL réalisé initialement par
-					<a href="http://jibidev.fr/a-propos">Julien Bernard</a>, Benjamin Crosnier et Etienne Rocipon.<br />
-					<br />
-					Le projet est désormais repris par Julien.<br />
-					<a href="support.php">Contact</a> - <a href="histoire_projet.php">Histoire du projet</a> - <a href="mentions.php">Mentions légales</a>
-				</p>
+			<article class="large-6 columns center">
+					<p>
+						Apocalyspace 2012 - 2014<br />
+						<a href="#">Contact</a> - <a href="#">Privacy</a> - <a href="./docs/">Version 1.7</a>
+					</p>
 			</article>
 		</div>
 	</section>

@@ -121,11 +121,11 @@
 		</nav>
 		<!-- End Desktop navigation -->
 		<!-- Mobile or Desktop < 1280 navigation -->
-		<div class="row show-for-large-down">
-			<nav class="large-12 breadcrumbs">
-				<a href="index.php" <?php if( $Engine->getNamepage() == "accueil" ) echo 'class="current"'; ?>>Accueil</a>
-				<a href="histoire.php" <?php if( $Engine->getNamepage() == "histoire" ) echo 'class="current"'; ?>>Histoire</a>
-				<a href="galerie.php" <?php if( $Engine->getNamepage() == "galerie" ) echo 'class="current"'; ?>>Galerie</a>
+		<div class="small-nav show-for-large-down">
+			<nav class="large-12">
+				<a href="index.php" <?php if( $Engine->getNamepage() == "accueil" ) echo 'class="current"'; ?>>Accueil</a> /
+				<a href="histoire.php" <?php if( $Engine->getNamepage() == "histoire" ) echo 'class="current"'; ?>>Histoire</a> /
+				<a href="galerie.php" <?php if( $Engine->getNamepage() == "galerie" ) echo 'class="current"'; ?>>Galerie</a> /
 				<a href="support.php" <?php if( $Engine->getNamepage() == "support" ) echo 'class="current"'; ?>>Contact et Support</a>
 			</nav>
 			<br />
