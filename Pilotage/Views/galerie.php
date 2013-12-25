@@ -3,7 +3,7 @@
 				Bloc principal du corps du site.
 				Main body of website.
 			-->
-			<article class="large-9 columns">
+			<article class="large-12 columns">
 				<h1><?php echo strtoupper($Template->getTitle()); ?></h1>
 				<p>
 					Cette galerie vous permet d'avoir un aperçu de la qualité du jeu.

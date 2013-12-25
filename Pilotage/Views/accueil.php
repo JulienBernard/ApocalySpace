@@ -9,51 +9,16 @@
 				else if( $Engine->getSuccess() != null ) { echo '<div data-alert class="success-box">'.$Engine->getSuccess().'<a href="" class="right close">&times;</a></div>'; }
 				if( $Engine->getInfo() != null ) { echo '<div data-alert class="info-box">'.$Engine->getInfo().'<a href="" class="right close">&times;</a></div>'; }
 			?>
-			<article class="large-9 columns">
+			<article class="large-12 columns">
 				<h1><?php echo strtoupper($Template->getTitle()); ?></h1>
 				<div data-alert class="error-box">
-					<h1>ACTUALITE BETA (<a href="./docs/">Changelog</a>)</h1>
-					<span class="bold">Passage à la 1.6.12 !</span><br />
-					- La gestion de la population fonctionne correctement<br />
-					- Taux de population maximum augmenté<br />
-					<br />
-					Et plein d'autres choses encore : <a href="./docs/">lire le changelog de la 1.6.12</a>
 					<a href="" class="right close">&times;</a>
+					<h1>DERNIERE ACTUALITE - <a href="./docs/">Changelog</a></h1>
+					<span class="bold">Passage à la version 1.7 !</span><br />
+					- Nouveau design 'responsive'<br />
+					- Bonne année !
 				</div>
-				
-				<!-- Desktop navigation -->
-				<div id="orbit" class="hide-for-small">
-					<div class="orbit-container">
-						<ul data-orbit="" class="orbit-slides-container" data-options="timer_speed:5000; bullets:false;">
-							<li class="active">
-							   <a href="http://jibidev.fr/apocalyspace-ouverture-de-la-beta-fermee/"><img src="./img/orbit/26.08.13.png"></a>
-							  <div class="orbit-caption"><a href="http://jibidev.fr/apocalyspace-ouverture-de-la-beta-fermee/">Sortie de la V1.6 : participez dès maintenant à la bêta fermée !</a></div>
-							</li>
-							<li>
-							   <a href="http://jibidev.fr/etat-sur-lavancement-dapocalyspace/"><img src="./img/orbit/01.08.13.png"></a>
-							  <div class="orbit-caption"><a href="http://jibidev.fr/etat-sur-lavancement-dapocalyspace/">État sur l'avancement du projet : découvrez les pages principales du jeu !</a></div>
-							</li>
-							<li>
-							   <a href="http://jibidev.fr/category/apocalyspace/"><img src="./img/orbit/hackathon.png"></a>
-							  <div class="orbit-caption"><a href="http://jibidev.fr/category/apocalyspace/">Lancement de la phase de développement : suivez les 2 premiers jours sur le dév blog !</a></div>
-							</li>
-							<li>
-							   <a href="https://twitter.com/ApocalySpace"><img src="./img/orbit/welcome.png"></a>
-							  <div class="orbit-caption"><a href="https://twitter.com/ApocalySpace">Bienvenue sur ApocalySpace.fr ! Retrouvez toute l'actualité du projet (en cours) sur Twitter !</a></div>
-							</li>
-							<li>
-							  <img src="./img/orbit/developers.png">
-							  <div class="orbit-caption">Pour les joueurs comme pour les développeurs : appuyez sur Ctrl + U !</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div data-alert class="info-box">
-					<span class="important"><span class="bold">ApocalySpace</span> est un <span class="bold">jeu de stratégie et de gestion</span> en ligne gratuit.</span><br />
-					<span class="bold">Space Opéra</span> d'un nouveau genre, <span class="bold">ApocalySpace</span> se démarque par<br />
-					sa <span class="bold">communauté</span>, son <span class="bold">originalité</span> et sa <span class="bold">simplicité</span> !
-					<a href="" class="right close">&times;</a>
-				</div>
+	
 				<p>
 					Forcé de fuir votre planète natale, vous incarnez le nouveau dirigeant d'un groupe de survivant qui vient d'établir une nouvelle colonie sur une planète de ce nouveau système planètaire.</p><p>Ces années d'érrances vous ayant fait perdre la quasi-totalité de votre savoir, votre peuple a besoin de vous maintenant pour repeupler cette planète et faire revivre votre civilisation !
 				</p>
