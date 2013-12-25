@@ -92,12 +92,12 @@ a:hover {
 	font-size: 15px;
 	font-family: MALGUN;
 	line-height: 20px;
-	color: #424242;
+	color: #ededed;
 	margin-bottom: 20px;
 	letter-spacing: 0.2px;
 }
 	.info-box .important{
-		color: #3d9bd3;
+		color: #ededed;
 		font-size: 16px;
 		line-height: 25px;
 	}
@@ -110,12 +110,12 @@ a:hover {
 	background: url("../img/bg_box_red.png") repeat;
 	border: 1px solid #faa33d;
 	padding: 10px;
-	text-align: center;
+	padding-left: 20px;
 	font-weight: normal;
 	font-size: 15px;
 	font-family: MALGUN;
 	line-height: 20px;
-	color: #424242;
+	color: #ededed;
 	margin-bottom: 20px;
 	letter-spacing: 0.2px;
 }
@@ -125,7 +125,13 @@ a:hover {
 		line-height: 25px;
 	}
 	.error-box a {
-		color: #faa33d;
+		color: #ededed;
+	}
+	.error-box a:hover {
+		color : #61c2ed;
+	}
+	.error-box h1 {
+		color: #ededed;
 	}
 .success-box {
 	width: 100%;
@@ -223,10 +229,19 @@ a:hover {
 	margin-bottom: 30px;
 }
 
+#main article {
+	background-image: url("../img/main-bg.png");
+	background-repeat: repeat;
+	color: #ededed;
+	margin-top: 15px;
+	margin-bottom: -20px;
+	padding-left: 20px;
+	padding-top: 10px;
+}
 article p {
 	font-size: 16px;
 	line-height: 18px;
-	color: #333333;
+	color: #ededed;
 	margin-bottom: 15px;
 	font-family: MALGUN;
 }
@@ -234,20 +249,23 @@ article p {
 		font-size: 14px;
 		line-height: 16px;
 	}
+	article h1 {
+		color: #ededed;
+	}
 	article h2 {
 		font-family: MALGUN;
 		font-size: 20px;
 		font-weight: normal;
 		text-align: center;
-		color: #e8653c;
+		color: #ededed;
 	}
 	article h2 a {
 		padding-left: 15px;
 		padding-right: 15px;
-		color: #e8653c;
+		color: #61c2ed;
 	}
 	article h2 a:hover {
-		color: #61c2ed;
+		color: #e8653c;
 	}
 	article .small {
 		font-size: 14px;
@@ -258,6 +276,23 @@ article p {
    Navigation
    ========================================================================== */
    
+.small-nav {
+	width: 100%;
+	min-height: 44px;
+	background-color: #121212;
+	margin-top: -20px;
+	padding-top: 12px;
+	font-family: MALGUN;
+	text-align: center;
+	border-bottom: 1px solid #666666;
+}
+	.small-nav a {
+		padding-right: 10px;
+		padding-left: 10px;
+		padding-top: 12px;
+		padding-bottom: 12px;
+	}
+
 #navigation {
 	background: #111;
 	opacity: 1;
@@ -359,25 +394,11 @@ article p {
 footer {
 	width: 100%;
 	background: black;
-	border-top: 5px solid #999999;
+	border-top: 2px solid #999999;
 	padding: 0;
-	padding-bottom: 26px;
 }
-	footer header {
-		padding-top: 10px;
-		background: #333333;
-	}
-	footer header p {
-		line-height: 18px;
-		color: #828282;
-		font-size: 13px;
-		font-family: Verdana, MALGUN;
-	}
-	footer header .small {
-		font-size: 11px;
-	}
 	footer section {
-		padding-top: 30px;
+		padding-top: 10px;
 	}
 	footer section p {
 		line-height: 18px;
@@ -385,7 +406,7 @@ footer {
 		font-size: 12px;
 		font-family: MALGUN;
 	}
-	footer section nav p {
+	footer section nav a {
 		text-transform: uppercase;
 	}
 	footer header a {
