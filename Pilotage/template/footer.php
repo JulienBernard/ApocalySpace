@@ -10,7 +10,7 @@
 		<div class="row">
 			<nav class="large-6 columns center">
 				<p>
-					<a id="returnTop">Retourner en haut</a> - <a href="https://github.com/JulienBernard/ApocalySpace">Dépôt sur GitHub</a><br />
+					<a style="cursor: pointer;" id="returnTop">Retourner en haut</a> - <a href="https://github.com/JulienBernard/ApocalySpace">Dépôt sur GitHub</a><br />
 					Apocalyspace est un projet libre développé par Julien Bernard.
 				</p>
 			</nav>
