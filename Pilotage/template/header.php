@@ -122,11 +122,14 @@
 		<!-- End Desktop navigation -->
 		<!-- Mobile or Desktop < 1280 navigation -->
 		<div class="small-nav show-for-large-down">
-			<nav class="large-12">
+			<nav class="large-10 columns">
 				<a href="index.php"><img src="./img/home.png" width="40" alt="[H]" />&nbsp;&nbsp;<?php if( $Engine->getNamepage() == "accueil" ) echo 'Accueil'; ?></a>
 				<a href="histoire.php"><img src="./img/about.png" width="30" alt="[A]" />&nbsp;&nbsp;<?php if( $Engine->getNamepage() == "histoire" ) echo 'Histoire'; ?></a>
 				<a href="galerie.php"><img src="./img/gallery.png" width="30" alt="[G]" />&nbsp;&nbsp;<?php if( $Engine->getNamepage() == "galerie" ) echo 'Galerie'; ?></a>
 				<a href="support.php"><img src="./img/contact.png" width="30" alt="[S]" />&nbsp;&nbsp;<?php if( $Engine->getNamepage() == "support" ) echo 'Support'; ?></a>
+			</nav>
+			<nav class="large-2 columns">
+				<a href="#" data-reveal-id="registerModal">inscrivez-vous</a>
 			</nav>
 			<br />
 		</div>

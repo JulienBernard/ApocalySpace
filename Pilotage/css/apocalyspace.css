@@ -278,10 +278,10 @@ article p {
    
 .small-nav {
 	width: 100%;
-	min-height: 44px;
+	min-height: 65px;
 	background-color: #121212;
 	margin-top: -20px;
-	padding-top: 16px;
+	padding-top: 14px;
 	font-family: MALGUN;
 	text-align: center;
 	border-bottom: 1px solid #666666;
