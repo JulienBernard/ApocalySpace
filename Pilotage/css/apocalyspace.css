@@ -204,7 +204,7 @@ a:hover {
    Section (body)
    ========================================================================== */
 
-#main section {
+#main #main-section {
 	width: 100%;
 	height: auto;
 	padding-top: 20px;
@@ -215,7 +215,7 @@ a:hover {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-	#main section h1 {
+	#main #main-section h1 {
 		font-size: 18px;
 		letter-spacing: 1px;
 		font-weight: normal;
@@ -226,6 +226,31 @@ a:hover {
 		transition: all 1s ease;
 		opacity: 0.1;
 	}
+	
+#main-section .section-container {
+	border: 1px solid #555;
+	min-width: 100%;
+}
+#main-section .section-container .content  {
+	background: #333;
+	border: none;
+}
+#main-section .section-container a  {
+	background: #555;
+	color: #ededed;
+}
+#main-section .section-container a:hover  {
+	background: #333;
+}
+#main-section .section-container .active a  {
+	background: #444;
+}
+#main-section .section-container section {
+	background: #333;
+}
+#main-section .section-container .title {
+	border: none;
+}
 	
 #orbit {
 	background: #e8e5d6;

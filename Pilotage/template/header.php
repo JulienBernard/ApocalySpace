@@ -82,7 +82,7 @@
 	Main section to separate the header part with the body part of the website.
 -->
 <main id="main" style="padding-top: 0;">
-	<section>
+	<section id="main-section">
 		<!-- Desktop navigation -->
 		<nav id="navigation" class="hide-for-large-down">
 			<ul class="first">
