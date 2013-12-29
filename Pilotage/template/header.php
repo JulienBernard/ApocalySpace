@@ -108,13 +108,13 @@
 					<li class="border-top-bottom"><a href="histoire.php"><img src="./img/about.png" alt="[A]" />&nbsp;&nbsp;&nbsp;Histoire</a></li>
 					<li class="border-top-bottom"><a href="galerie.php"><img src="./img/gallery.png" alt="[G]" />&nbsp;&nbsp;&nbsp;Galerie</a></li>
 					<li class="border-top-bottom"><a href="support.php"><img src="./img/contact.png" alt="[S]" />&nbsp;&nbsp;&nbsp;Support</a></li>
-					<li class="border-top"></li>
+					<li class="border-top center"><div class="small alert button" data-reveal-id="registerModal">Inscription</div><div class="small button" data-reveal-id="loginModal">Connexion</div></li>
 					<div class="f-bottom">
 						<li class="border-bottom"></li>
 						<li class="border-top-bottom center">12 : 55 : 45</li>
 						<li class="border-top-bottom"><a href="#"><img src="./img/players.png" alt="[H]" />&nbsp;&nbsp;&nbsp;Players: 7</a></li>
 						<li class="border-top-bottom"><a href="#"><img src="./img/privacy.png" alt="[C]" />&nbsp;&nbsp;&nbsp;Privacy</a></li>
-						<li class="border-top center copyright">© ApocalySpace</a> 2012-2013<br /><a href="https://github.com/JulienBernard/ApocalySpace/blob/master/README.md" target="_blank">Version 1.7</a> - <a href="#">Changelog</a></li>
+						<li class="border-top center copyright">© ApocalySpace</a> 2012-2014<br /><a href="">Contact</a> - <a href="./docs/">Version 1.7</a></li>
 					</div>
 				</span>
 			</ul>

@@ -2,10 +2,7 @@
 	</section>
 </main>
 
-<footer class="hide-for-large-down">
-</footer>
-
-<footer class="show-for-large-down">
+<footer>
 	<section>
 		<div class="row">
 			<nav class="large-6 columns center">
@@ -16,7 +13,7 @@
 			</nav>
 			<article class="large-6 columns center">
 					<p>
-						Apocalyspace 2012 - 2014<br />
+						© Apocalyspace 2012 - 2014<br />
 						<a href="#">Contact</a> - <a href="#">Privacy</a> - <a href="./docs/">Version 1.7</a>
 					</p>
 			</article>
