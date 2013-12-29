@@ -10,7 +10,7 @@
 		<div class="row">
 			<nav class="large-6 columns center">
 				<p>
-					<a style="cursor: pointer;" id="returnTop">Retourner en haut</a> - <a href="https://github.com/JulienBernard/ApocalySpace">Dépôt sur GitHub</a><br />
+					<a class="pointer" id="returnTop">Retourner en haut</a> - <a href="https://github.com/JulienBernard/ApocalySpace">Dépôt sur GitHub</a><br />
 					Apocalyspace est un projet libre développé par Julien Bernard.
 				</p>
 			</nav>
@@ -25,59 +25,93 @@
 </footer>
 
 	<!-- Modals -->
-	<div id="loginModal" class="large-12 small-6 reveal-modal">
-		<h2>Se connecter</h2>
-		<p class="lead">Merci de renseigner votre nom d'utilisateur et votre mot de passe pour vous connecter.</p>
+	<div id="loginModal" class="small reveal-modal">
+		<a class="close-reveal-modal">&#215;</a>
+		<h2 class="center">Connexion</h2>
+		<p class="secondary center">Déjà un compte sur ApocalySpace. Super, connecte-toi !</p>
 		
 		<form action="index.php" method="POST">
-			<div class="row">
-				<div class="large-4 columns">
-					<label for="usr">Nom d'utilisateur</label>
+			<div class="row large-10 collapse">
+				<div class="large-2 columns">
+					<span class="prefix"><label for="usr"><img src="./img/login.png" width="22" style="margin-top: -4px;" /></label></span>
+				</div>
+				<div class="large-9 columns">
 					<input id="usr" type="text" name="username" placeholder="Nom d'utilisateur" />
 				</div>
-				<div class="large-4 columns">
-					<label for="pwd">Mot de passe</label>
-					<input id="pwd" type="password" name="password" placeholder="Mot de passe" />
+				<div class="large-1 columns">
+					<span class="postfix">*</span>
 				</div>
-				<div class="large-4 columns">
-					<br />
-					<input class="small button" type="submit" name="login" value="Se connecter" />
+				<div class="large-2 columns">
+					<span class="prefix"><label for="pws"><img src="./img/password.png" width="22" style="margin-top: -4px;" /></label></span>
+				</div>
+				<div class="large-9 columns">
+					<input id="pws" type="password" name="password" placeholder="Mot de passe" />
+				</div>
+				<div class="large-1 columns">
+					<span class="postfix">*</span>
+				</div>
+				<div class="large-12 columns">
+					<p class="smaller secondary center">
+						Impossible de retrouver ton mot de passe ? <a href="">Pas de panique !</a>
+					</p>
+					<input class="large-12 button" type="submit" name="login" value="Se connecter" />
+					<a class="smaller pointer" data-reveal-id="registerModal">Pas de compte ? Je m'inscris !</a>
+					<p class="smaller right">* Informations requises</p>
 				</div>
 			</div>
 		</form>
 	</div>
-	<div id="registerModal" class="large-12 small-6 reveal-modal">
-		<h2>Rejoignez la communauté d'ApocalySpace !</h2>
-		<p>
-			Merci de choisir un nom d'utilisateur, la faction et le mot de passe qui sera associés à votre compte. <a href="histoire.php">Comment choisir ma faction ?</a>
-		</p>
+	
+	<div id="registerModal" class="small reveal-modal">
+		<a class="close-reveal-modal">&#215;</a>
+		<h2 class="center">Inscription</h2>
+		<p class="secondary center">Imaginer votre propre empire en moins d'une minute !</p>
 
 		<form action="index.php" method="POST">
-			<div class="row large-8">
-				<div class="large-6 columns">
-					<label for="username">Nom d'utilisateur</label>
-					<input id="username" type="text" name="username" placeholder="Nom d'utilisateur" title="Votre nom d'utilisateur doit être supérieur à 3 caractères et être inférieur à 100 caractères." />
+			<div class="row large-10 collapse">
+				<div class="large-2 columns">
+					<span class="prefix"><label for="username"><img src="./img/login.png" width="22" style="margin-top: -4px;" /></label></span>
 				</div>
-				<div class="large-6 columns">
-					<label for="pwd2">Mot de passe</label>
-					<input id="pwd2" type="password" name="password" placeholder="Mot de passe" title="Votre mot de passe doit être supérieur à 3 caractères et être inférieur à 100 caractères." />
+				<div class="large-9 columns">
+					<input id="username" type="text" name="username" placeholder="Nom d'utilisateur" />
 				</div>
-				<div class="large-4 columns"></div>
-			</div>
-			<div class="row large-8">
-				<div class="large-12">
-					<span class="button" id="fI" style="cursor: pointer;">Impériaux</span>
-					<span class="button" id="fV" style="cursor: pointer;">Vagabonds</span>
-					<span class="button" id="fR" style="cursor: pointer;">Républicains</span>
+				<div class="large-1 columns">
+					<span class="postfix">*</span>
 				</div>
-				<div class="large-12">
-					<br />
+				<div class="large-2 columns">
+					<span class="prefix"><label for="password"><img src="./img/password.png" width="22" style="margin-top: -4px;" /></label></span>
+				</div>
+				<div class="large-9 columns">
+					<input id="password" type="password" name="password" placeholder="Mot de passe" />
+				</div>
+				<div class="large-1 columns">
+					<span class="postfix">*</span>
+				</div>
+				<div class="large-2 columns">
+					<span class="prefix"><label for="empire"><img src="./img/empire.png" width="24" style="margin-top: -4px;" /></label></span>
+				</div>
+				<div class="large-9 columns">
+					<input id="empire" type="text" name="empire" placeholder="Nom de votre empire" />
+				</div>
+				<div class="large-1 columns">
+					<span class="postfix">*</span>
+				</div>
+				<div class="large-12 center">
+					<span class="small button" id="fI">Impériaux</span>
+					<span class="small button" id="fV">Vagabonds</span>
+					<span class="small button" id="fR">Républicains</span>
+				</div>
+				<div class="large-12 columns">
+					<p class="smaller secondary center">
+						Besoin d'aide ? <a href="galerie.php">Visite la galerie</a>, <a href="">lis la FAQ</a> ou <a href="histoire.php">savoure l'histoire du jeu</a> !
+					</p>
 					<input type="hidden" id="faction" name="faction" value="vagabonds" />
-					<input class="small button" type="submit" name="subscribe" value="Valider mon inscription" />
+					<input class="large-12 success button" type="submit" name="subscribe" value="Commencer l'aventure !" />
+					<a class="smaller pointer" data-reveal-id="loginModal">J'ai déjà un compte. Je me connecte !</a>
+					<p class="smaller right">* Informations requises</p>
 				</div>
 			</div>
 		</form>
-		<a class="close-reveal-modal">&#215;</a>
 	</div>
 
 	<!--
@@ -103,14 +137,25 @@
 			$('#returnTop').click(function() {
 				$('html,body').animate({scrollTop: $("#main").offset().top}, 'slow');
 			});
+			
+			/* Provisoire */
 			$('#fI').click(function() {
 				$('#faction').val('imp');
+				$('#fI').css("background","#2980b9");
+				$('#fV').css("background","#46B8EA");
+				$('#fR').css("background","#46B8EA");
 			});
 			$('#fV').click(function() {
 				$('#faction').val('vag');
+				$('#fI').css("background","#46B8EA");
+				$('#fV').css("background","#2980b9");
+				$('#fR').css("background","#46B8EA");
 			});
 			$('#fR').click(function() {
 				$('#faction').val('rep');
+				$('#fI').css("background","#46B8EA");
+				$('#fV').css("background","#46B8EA");
+				$('#fR').css("background","#2980b9");
 			});
 		})
 								

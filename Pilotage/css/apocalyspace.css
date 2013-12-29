@@ -81,6 +81,12 @@ a:hover {
 .bad {
 	color: #d3563d;
 }
+.secondary {
+	color: #666;
+}
+.pointer {
+	cursor: pointer;
+}
 
 .info-box {
 	width: 100%;
