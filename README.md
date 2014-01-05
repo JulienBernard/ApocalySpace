@@ -72,17 +72,6 @@ http://localhost/(..)/ApocalySpace/Pilotage/
 
 Ou commencer à développer votre propre jeu en modifiant les données contenues principalement dans `/Models/data.class.php`, `config_id.php` et dans la base de données.
 
-Changelog
---------------------------------------
-
-* (1.6) 25/08/13 : Mise en service de la BETA FERME<br />
-* (1.5) 03/08/13 : Ajout de la classe Data, début de l'intégration du code<br />
-* (1.4) 01/07/13 : Ajout des classes User, Planet et Map<br />
-* (1.3) 24/06/13 : Intégration du nouveau moteur du SpaceEngine<br />
-* (1.2) 02/06/13 : Ajout des pages Accueil / Histoire / Galerie / Support / Mentions / Histoire du projet<br />
-* (1.1) 02/06/13 : Intégration du SpaceEngine sur ApocalySpace. Intégration de Foundation4 sur le moteur<br />
-* (1.0) 01/06/13 : Développement du SpaceEngine, le moteur du site internet<br />
-
 Questions ?
 --------------------------------------
 
