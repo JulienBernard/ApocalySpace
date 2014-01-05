@@ -1,29 +1,20 @@
 		<div class="main-Body">
 			<div class="row">
-			<!--
-				Bloc principal du corps du site.
-				Main body of website.
-			-->
-			<?php
-				if( $Engine->getError()!= null ) { echo '<div data-alert class="error-box">'.$Engine->getError().'<a href="" class="right close">&times;</a></div>'; }
-				else if( $Engine->getSuccess() != null ) { echo '<div data-alert class="success-box">'.$Engine->getSuccess().'<a href="" class="right close">&times;</a></div>'; }
-				if( $Engine->getInfo() != null ) { echo '<div data-alert class="info-box">'.$Engine->getInfo().'<a href="" class="right close">&times;</a></div>'; }
-			?>
-			<article class="large-12 columns">
-				<h1><?php echo strtoupper($Template->getTitle()); ?></h1>
-				<div data-alert class="error-box">
-					<a href="" class="right close">&times;</a>
-					<h1>DERNIERE ACTUALITE - <a href="./docs/">Changelog</a></h1>
-					<span class="bold">Passage à la version 1.7 !</span><br />
-					- Nouveau design 'responsive'<br />
-					- Bonne année !
-				</div>
-	
-				<p>
-					Forcé de fuir votre planète natale, vous incarnez le nouveau dirigeant d'un groupe de survivant qui vient d'établir une nouvelle colonie sur une planète de ce nouveau système planètaire.</p><p>Ces années d'érrances vous ayant fait perdre la quasi-totalité de votre savoir, votre peuple a besoin de vous maintenant pour repeupler cette planète et faire revivre votre civilisation !
-				</p>
-				<p class="italic">
-					Conçu et imaginé par une équipe d'étudiants en école informatique puis repris par l'un d'eux, ApocalySpace est désormais disponible dans sa version stable : la 1.6 qui est régulièrement mise à jour. Projet sous licence libre GPL, vous pouvez nous retrouver sur <a href="https://github.com/JulienBernard/ApocalySpace">GitHub</a>. Enjoy!
-				</p>
-				<h2><a href="histoire.php">EN SAVOIR PLUS</a> <a href="galerie.php">GALERIE</a> <a href="support.php">CONTACT</a></h2>
-			</article>
+				<article class="large-12 columns">
+					<h1><?php echo strtoupper($Template->getTitle()); ?></h1>
+					<div data-alert class="error-box">
+						<a href="" class="right close">&times;</a>
+						<h1>DERNIERE ACTUALITE - <a href="./docs/">Changelog</a></h1>
+						<span class="bold">Passage à la version 1.7 !</span><br />
+						- Nouveau design 'responsive'<br />
+						- Bonne année !
+					</div>
+		
+					<p>
+						Forcé de fuir votre planète natale, vous incarnez le nouveau dirigeant d'un groupe de survivant qui vient d'établir une nouvelle colonie sur une planète de ce nouveau système planètaire.</p><p>Ces années d'érrances vous ayant fait perdre la quasi-totalité de votre savoir, votre peuple a besoin de vous maintenant pour repeupler cette planète et faire revivre votre civilisation !
+					</p>
+					<p class="italic">
+						Conçu et imaginé par une équipe d'étudiants en école informatique puis repris par l'un d'eux, ApocalySpace est désormais disponible dans sa version stable : la 1.6 qui est régulièrement mise à jour. Projet sous licence libre GPL, vous pouvez nous retrouver sur <a href="https://github.com/JulienBernard/ApocalySpace">GitHub</a>. Enjoy!
+					</p>
+					<h2><a href="histoire.php">EN SAVOIR PLUS</a> <a href="galerie.php">GALERIE</a> <a href="support.php">CONTACT</a></h2>
+				</article>

@@ -8,6 +8,7 @@
 	 */
 	
 	session_start();
+	header('Content-Type: text/html; charset=utf-8');
 	
 	/* Configuration de la base de données */
 	define("SQL_DSN", "mysql:host=localhost;dbname=apocalyspace");

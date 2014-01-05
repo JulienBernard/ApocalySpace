@@ -1,7 +1,7 @@
 <?php
 		
-	$activeSub = true;
-	$activeLog = true;
+	$activeSub = false;
+	$activeLog = false;
 
 	if( isset($_POST['subscribe']) )
 	{
@@ -117,7 +117,7 @@
 			$Engine->setError($str);
 		}
 	}
-	else if( isset($_POST['signin']) )
+	else if( isset($_POST['login']) )
 	{
 		echo "<script>$('html,body').animate({scrollTop: $('#links').offset().top}, 'slow');</script>";
 
@@ -175,6 +175,16 @@
 				$str = $str."MOT DE PASSE";
 			$Engine->setError($str);
 		}
+	}
+	if( $Engine->getSuccess() != null || $Engine->getInfo() != null || $Engine->getError() != null )
+	{
+		?>
+		<script>
+			$(document).ready(function() {
+				$('#engineModal').foundation('reveal', 'open');
+			});
+		</script>
+		<?php
 	}
 	
 	/* Inclusion de la vue */

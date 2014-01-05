@@ -1,4 +1,4 @@
-﻿		</div>
+		</div>
 	</section>
 </main>
 
@@ -109,6 +109,15 @@
 				</div>
 			</div>
 		</form>
+	</div>
+	
+	<div id="engineModal" class="small reveal-modal">
+		<a class="close-reveal-modal">&#215;</a>
+		<?php
+			if( $Engine->getError()!= null ) { echo '<h2 class="center">Une erreur est survenue ...</h2><p class="center">'.$Engine->getError().'</p>'; }
+			else if( $Engine->getSuccess() != null ) { echo '<h2 class="center">C\'est fait !</h2><p class="center">'.$Engine->getSuccess().'</p>'; }
+			else if( $Engine->getInfo() != null ) { echo '<h2 class="center">Hum ...</h2><p class="center">'.$Engine->getInfo().'</p>'; }
+		?>
 	</div>
 
 	<!--

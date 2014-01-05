@@ -41,7 +41,7 @@
 <head>
 	<title><?php echo DEFAULT_TITLE.$Template->getTitle(); ?></title>
 	<meta name="viewport" content="width=device-width" />
-	<meta charset="utf-8" />
+	<meta charset="UTF-8" />
 	<meta name="Author" lang="fr" content="Julien BERNARD">
 	
 	<base href="<?php echo BASE_SITE; ?>" />
