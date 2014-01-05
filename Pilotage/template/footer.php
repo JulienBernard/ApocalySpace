@@ -14,7 +14,7 @@
 			<article class="large-6 columns center">
 					<p>
 						© Apocalyspace 2012 - 2014<br />
-						<a href="#">Contact</a> - <a href="#">Privacy</a> - <a href="./docs/">Version 1.7</a>
+						<a href="support.php">Contact</a> - <a href="support.php">Privacy</a> - <a href="./docs/">Version 1.7</a>
 					</p>
 			</article>
 		</div>
@@ -93,7 +93,7 @@
 				<div class="large-1 columns">
 					<span class="postfix">*</span>
 				</div>
-				<div class="large-12 center">
+				<div class="large-12 columns center">
 					<span class="small button" id="fI">Impériaux</span>
 					<span class="small button" id="fV">Vagabonds</span>
 					<span class="small button" id="fR">Républicains</span>

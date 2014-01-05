@@ -22,5 +22,4 @@
 					<a href="" class="right close">&times;</a>
 				</div>
 				<br />
-				<h2><a href="histoire.php">HISTOIRE</a> <a href="histoire_projet.php">HISTOIRE DU PROJET</a> <a href="galerie.php">GALERIE</a></h2>
 			</article>

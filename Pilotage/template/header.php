@@ -97,7 +97,7 @@
 					<li class="border-bottom"></li>
 					<li class="border-top-bottom"><img src="./img/players.png" alt="[H]" /></li>
 					<li class="border-top-bottom"><img src="./img/privacy.png" alt="[C]" /></li>
-					<li class="border-top center copyright">Version<br /><a href="#">1.7</a></li>
+					<li class="border-top center copyright">Version<br />1.7</li>
 				</div>
 			</ul>
 			<ul>
@@ -112,9 +112,9 @@
 					<div class="f-bottom">
 						<li class="border-bottom"></li>
 						<li class="border-top-bottom center">12 : 55 : 45</li>
-						<li class="border-top-bottom"><a href="#"><img src="./img/players.png" alt="[H]" />&nbsp;&nbsp;&nbsp;Players: 7</a></li>
-						<li class="border-top-bottom"><a href="#"><img src="./img/privacy.png" alt="[C]" />&nbsp;&nbsp;&nbsp;Privacy</a></li>
-						<li class="border-top center copyright">© ApocalySpace</a> 2012-2014<br /><a href="">Contact</a> - <a href="./docs/">Version 1.7</a></li>
+						<li class="border-top-bottom"><a href="support.php"><img src="./img/players.png" alt="[H]" />&nbsp;&nbsp;&nbsp;Players: 7</a></li>
+						<li class="border-top-bottom"><a href="support.php"><img src="./img/privacy.png" alt="[C]" />&nbsp;&nbsp;&nbsp;Privacy</a></li>
+						<li class="border-top center copyright">© ApocalySpace</a> 2012-2014<br /><a href="support.php">Contact</a> - <a href="./docs/">Version 1.7</a></li>
 					</div>
 				</span>
 			</ul>
