@@ -14,7 +14,7 @@
 			<article class="large-6 columns center">
 					<p>
 						© Apocalyspace 2012 - 2014<br />
-						<a href="support.php">Contact</a> - <a href="support.php">Privacy</a> - <a href="./docs/">Version 1.7</a>
+						<a href="support.php">Contact</a> - <a href="support.php">Privacy</a> - <a href="./docs/">Version 1.7.1</a>
 					</p>
 			</article>
 		</div>
@@ -49,9 +49,9 @@
 				</div>
 				<div class="large-12 columns">
 					<p class="smaller secondary center">
-						Impossible de retrouver ton mot de passe ? <a href="">Pas de panique !</a>
+						Impossible de retrouver ton mot de passe ? <a href="" data-reveal-id="lostModal">Pas de panique !</a>
 					</p>
-					<input class="large-12 button" type="submit" name="login" value="Se connecter" />
+					<input class="large-12 button" type="submit" disabled="disabled" name="login" value="Se connecter" />
 					<a class="smaller pointer" data-reveal-id="registerModal">Pas de compte ? Je m'inscris !</a>
 					<p class="smaller right">* Informations requises</p>
 				</div>
@@ -60,6 +60,14 @@
 	</div>
 	
 	<div id="registerModal" class="small reveal-modal">
+		<a class="close-reveal-modal">&#215;</a>
+		<h2 class="center">L'ultime bêta arrive !!</h2>
+		<h4 class="center">Inscriptions disponibles début 2014</h4>
+		<br />
+		<p class="center">Retrouvez la communauté d'ApocalySpace et inscrivez-vous à la prochaine et dernière bêta avant la version finale !</p>
+		<a class="smaller pointer" data-reveal-id="loginModal">J'ai déjà un compte. Je me connecte !</a>
+	</div>
+	<!--<div id="registerModal" class="small reveal-modal">
 		<a class="close-reveal-modal">&#215;</a>
 		<h2 class="center">Inscription</h2>
 		<p class="secondary center">Imaginer votre propre empire en moins d'une minute !</p>
@@ -105,6 +113,33 @@
 					<input type="hidden" id="faction" name="faction" value="vagabonds" />
 					<input class="large-12 success button" type="submit" name="subscribe" value="Commencer l'aventure !" />
 					<a class="smaller pointer" data-reveal-id="loginModal">J'ai déjà un compte. Je me connecte !</a>
+					<p class="smaller right">* Informations requises</p>
+				</div>
+			</div>
+		</form>
+	</div>-->
+	
+	<div id="lostModal" class="small reveal-modal">
+		<a class="close-reveal-modal">&#215;</a>
+		<h2 class="center">Nouveau mot de passe</h2>
+		<p class="secondary center">L'option de récupération par email doit être activée pour tenter de récupérer votre mot de passe suite à un oubli !</p>
+		<form action="index.php" method="POST">
+			<div class="row large-10 collapse">
+				<div class="large-2 columns">
+					<span class="prefix"><label for="mail"><img src="./img/empire.png" width="22" style="margin-top: -4px;" /></label></span>
+				</div>
+				<div class="large-9 columns">
+					<input id="mail" type="text" name="email" placeholder="Mail de récupération" />
+				</div>
+				<div class="large-1 columns">
+					<span class="postfix">*</span>
+				</div>
+				<div class="large-12 columns">
+					<p class="smaller secondary center">
+						Je m'en souviens : <a class="pointer" data-reveal-id="loginModal">je me connecte !</a>
+					</p>
+					<input class="large-12 button" type="submit" disabled="disabled" name="resetPassword" value="Je veux changer mon mot de passe !" />
+					<a href="support.php" class="smaller">Option désactivée ? Je contacte le support !</a>
 					<p class="smaller right">* Informations requises</p>
 				</div>
 			</div>
