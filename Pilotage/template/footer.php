@@ -51,7 +51,7 @@
 					<p class="smaller secondary center">
 						Impossible de retrouver ton mot de passe ? <a href="" data-reveal-id="lostModal">Pas de panique !</a>
 					</p>
-					<input class="large-12 button" type="submit" disabled="disabled" name="login" value="Se connecter" />
+					<input class="large-12 button" type="submit" name="login" value="Se connecter" />
 					<a class="smaller pointer" data-reveal-id="registerModal">Pas de compte ? Je m'inscris !</a>
 					<p class="smaller right">* Informations requises</p>
 				</div>

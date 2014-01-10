@@ -25,10 +25,10 @@ class User
 		if( !is_string($username) || !is_string($password) || empty($username) || empty($password) )
 			return false;
 		
+		$salt = "$2a$10$".FIRST_SALT."$";
 		$sql = MyPDO::get();
-		
 		$rq = $sql->prepare('SELECT id FROM users WHERE username=:username AND passwordHash=:password');
-		$data = array(':username' => (String)$username, ':password' => (String)crypt($password, "$2a$10$".START_SALT."".END_SALT));
+		$data = array(':username' => (String)$username, ':password' => (String)md5(crypt($password, $salt).SECOND_SALT));
 		$rq->execute($data);
 
 		if( $rq->rowCount() != 0)
