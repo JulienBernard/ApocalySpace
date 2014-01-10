@@ -121,19 +121,34 @@
 		</nav>
 		<!-- End Desktop navigation -->
 		<!-- Mobile or Desktop < 1280 navigation -->
-		<div class="small-nav show-for-large-down">
-			<nav class="large-9 columns">
+		<div class="small-nav show-for-large-down hide-for-small">
+			<nav class="large-8 columns">
 				<a href="index.php"><img src="./img/home.png" width="40" alt="[H]" />&nbsp;&nbsp;<?php if( $Engine->getNamepage() == "accueil" ) echo 'Accueil'; ?></a>
 				<a href="histoire.php"><img src="./img/about.png" width="30" alt="[A]" />&nbsp;&nbsp;<?php if( $Engine->getNamepage() == "histoire" ) echo 'Histoire'; ?></a>
 				<a href="galerie.php"><img src="./img/gallery.png" width="30" alt="[G]" />&nbsp;&nbsp;<?php if( $Engine->getNamepage() == "galerie" ) echo 'Galerie'; ?></a>
 				<a href="support.php"><img src="./img/contact.png" width="30" alt="[S]" />&nbsp;&nbsp;<?php if( $Engine->getNamepage() == "support" ) echo 'Support'; ?></a>
 			</nav>
-			<nav class="large-3 columns">
+			<nav class="large-4 columns">
 				<span class="small alert button" data-reveal-id="registerModal">Inscription</span>
 				<span class="small button" data-reveal-id="loginModal">Connexion</span>
 			</nav>
 			<br />
 		</div>
-		<!-- End Mobile or Desktop <1280 navigation -->
+		<!-- End Mobile or Desktop < 1280 navigation -->
+		<!-- Mobile or Desktop < 1280 navigation -->
+		<div class="small-nav show-for-small">
+			<nav class="large-12">
+				<a href="index.php"><img src="./img/home.png" width="40" alt="[Home]" /></a>
+				<a href="histoire.php"><img src="./img/about.png" width="30" alt="[Story]" /></a>
+				<a href="galerie.php"><img src="./img/gallery.png" width="30" alt="[Gallery]" /></a>
+				<a href="support.php"><img src="./img/contact.png" width="30" alt="[Contact]" /></a>
+			</nav>
+			<nav class="large-12">
+				<span class="small alert button" data-reveal-id="registerModal">Inscription</span>
+				<span class="small button" data-reveal-id="loginModal">Connexion</span>
+			</nav>
+			<br />
+		</div>
+		<!-- End Mobile or Desktop < 1280 navigation -->
 
 		
