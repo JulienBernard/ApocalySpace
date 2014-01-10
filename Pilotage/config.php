@@ -23,6 +23,8 @@
 	/* Informations par défaut */
 	define("DEFAULT_DESCRIPTION", "ApocalySpace est un jeu en ligne jouable gratuitement et directement sur votre navigateur web mêlant stratégie et gestion dans l'espace.");
 	define("DEFAULT_TITLE", "ApocalySpace - ");
+	define("FIRST_SALT", "Se8SpdLz6q8F5");
+	define("SECOND_SALT", "F4sDme2sEos69D0");
 	
 	/* Chemin d'accès MVC */
 	define("PATH_MODELS", "./Models/");

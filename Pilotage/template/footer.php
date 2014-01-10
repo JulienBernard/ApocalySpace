@@ -59,15 +59,15 @@
 		</form>
 	</div>
 	
-	<div id="registerModal" class="small reveal-modal">
+	<!--<div id="registerModal" class="small reveal-modal">
 		<a class="close-reveal-modal">&#215;</a>
 		<h2 class="center">L'ultime bêta arrive !!</h2>
 		<h4 class="center">Inscriptions disponibles début 2014</h4>
 		<br />
 		<p class="center">Retrouvez la communauté d'ApocalySpace et inscrivez-vous à la prochaine et dernière bêta avant la version finale !</p>
 		<a class="smaller pointer" data-reveal-id="loginModal">J'ai déjà un compte. Je me connecte !</a>
-	</div>
-	<!--<div id="registerModal" class="small reveal-modal">
+	</div>-->
+	<div id="registerModal" class="small reveal-modal">
 		<a class="close-reveal-modal">&#215;</a>
 		<h2 class="center">Inscription</h2>
 		<p class="secondary center">Imaginer votre propre empire en moins d'une minute !</p>
@@ -78,7 +78,7 @@
 					<span class="prefix"><label for="username"><img src="./img/login.png" width="22" style="margin-top: -4px;" /></label></span>
 				</div>
 				<div class="large-9 columns">
-					<input id="username" type="text" name="username" placeholder="Nom d'utilisateur" />
+					<input id="username" type="text" name="username" placeholder="Nom d'utilisateur" data-dropdown="dropUsername" />
 				</div>
 				<div class="large-1 columns">
 					<span class="postfix">*</span>
@@ -87,16 +87,16 @@
 					<span class="prefix"><label for="password"><img src="./img/password.png" width="22" style="margin-top: -4px;" /></label></span>
 				</div>
 				<div class="large-9 columns">
-					<input id="password" type="password" name="password" placeholder="Mot de passe" />
+					<input id="password" type="password" name="password" placeholder="Mot de passe" data-dropdown="dropPassword" />
 				</div>
 				<div class="large-1 columns">
 					<span class="postfix">*</span>
 				</div>
 				<div class="large-2 columns">
-					<span class="prefix"><label for="empire"><img src="./img/empire.png" width="24" style="margin-top: -4px;" /></label></span>
+					<span class="prefix"><label for="empireName"><img src="./img/empire.png" width="24" style="margin-top: -4px;" /></label></span>
 				</div>
 				<div class="large-9 columns">
-					<input id="empire" type="text" name="empire" placeholder="Nom de votre empire" />
+					<input id="empireName" type="text" name="empireName" placeholder="Nom de votre empire" data-dropdown="dropEmpire" />
 				</div>
 				<div class="large-1 columns">
 					<span class="postfix">*</span>
@@ -117,7 +117,16 @@
 				</div>
 			</div>
 		</form>
-	</div>-->
+	</div>
+	<ul id="dropUsername" class="f-dropdown" data-dropdown-content>
+		<p class="smaller">De 4 à 30 caractères.</p>
+	</ul>
+	<ul id="dropPassword" class="f-dropdown" data-dropdown-content>
+		<p class="smaller">De 6 à 60 caractères.</p>
+	</ul>
+	<ul id="dropEmpire" class="f-dropdown" data-dropdown-content>
+		<p class="smaller">De 4 à 30 caractères.</p>
+	</ul>
 	
 	<div id="lostModal" class="small reveal-modal">
 		<a class="close-reveal-modal">&#215;</a>

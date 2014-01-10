@@ -28,7 +28,7 @@ class User
 		$sql = MyPDO::get();
 		
 		$rq = $sql->prepare('SELECT id FROM users WHERE username=:username AND passwordHash=:password');
-		$data = array(':username' => (String)$username, ':password' => (String)md5('apocalyspace'.$password.'aime42'));
+		$data = array(':username' => (String)$username, ':password' => (String)crypt($password, "$2a$10$".START_SALT."".END_SALT));
 		$rq->execute($data);
 
 		if( $rq->rowCount() != 0)
@@ -77,10 +77,9 @@ class User
 		$data = array(':username' => (String)$username);
 		$rq->execute($data);
 		
-		if( $rq->rowCount() != 0)
+		if( $rq->rowCount() > 0)
 		{
-			$row = $rq->fetch();
-			return (int)$row['id'];
+			return true;
 		}
 		return false;
 	}
@@ -90,17 +89,17 @@ class User
 	 * @param String username
 	 */
 	public static function checkUsernameLength( $username ) {
-		if( strlen($username) < 4 || strlen($username) > 20 )
+		if( strlen($username) < 4 || strlen($username) > 30 )
 			return false;
 		return true;
 	}
 	
 	/**
-	 * Vérifie si le password est supérieur à 6 caractères.
+	 * Vérifie si le password est supérieur à 6 caractères et inférieur à 60.
 	 * @param String password
 	 */
 	public static function checkPasswordLength( $password ) {
-		if( strlen($password) < 6 )
+		if( strlen($password) < 6 || strlen($password) > 60)
 			return false;
 		return true;
 	}
@@ -109,20 +108,23 @@ class User
 	 * Enregistre le nouvel utilisateur dans la base de donnée.
 	 * @param String username
 	 * @param String password
+	 * @param String empireName
 	 * @param String faction
 	 * return int lastInsertId	Retourne le dernier ID inséré dans la bdd, ici l'user id !
 	 */
-	public static function addUser( $username, $password, $faction ) {
+	public static function addUser( $username, $password, $empireName, $faction ) {
 		
 		/* Validation des paramètres */
-		if( !is_string($username) || !is_string($password) || !is_string($faction) || empty($username) || empty($password) || empty($faction)  )
+		if( !is_string($username) || !is_string($password) || !is_string($faction) || !is_string($empireName) || empty($username) || empty($password) || empty($empireName) || empty($faction)  )
 			return false;
 		
+		$salt = "$2a$10$".FIRST_SALT."$";
 		$sql = MyPDO::get();
-		$req = $sql->prepare('INSERT INTO users VALUES("", :username, :password, :faction)');
+		$req = $sql->prepare('INSERT INTO users VALUES("", :username, :password, :empireName, :faction)');
 		$result = $req->execute( array(
 			':username' => $username,
-			':password' => md5('apocalyspace'.$password.'aime42'),
+			':password' => md5(crypt($password, $salt).SECOND_SALT),
+			':empireName' => $empireName,
 			':faction' => $faction
 		));
 		

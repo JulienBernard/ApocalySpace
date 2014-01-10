@@ -11,8 +11,8 @@
 						- Ouverture de la phase d'inscription à la prochaine bêta<br />
 						- Bonne année 2014 !
 					</div>
-		
-					<p>
+
+					<p>	
 						Forcé de fuir votre planète natale, vous incarnez le nouveau dirigeant d'un groupe de survivant qui vient d'établir une nouvelle colonie sur une planète de ce nouveau système planètaire.
 					</p>
 					<p>

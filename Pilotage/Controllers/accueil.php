@@ -1,13 +1,13 @@
 <?php
 		
-	$activeSub = false;
-	$activeLog = false;
+	$activeSub = true;
+	$activeLog = true;
 
 	if( isset($_POST['subscribe']) )
 	{
 		echo "<script>$('html,body').animate({scrollTop: $('#links').offset().top}, 'slow');</script>";
 
-		$fields = array('username' => $_POST['username'], 'password' => $_POST['password'], 'faction' => $_POST['faction']);
+		$fields = array('username' => $_POST['username'], 'password' => $_POST['password'], 'empireName' => $_POST['empireName'], 'faction' => $_POST['faction']);
 		$return = $Engine->checkParams( $fields );
 		
 		/* Champs valides */
@@ -18,19 +18,20 @@
 			
 			$username = (String)htmlspecialchars(strtolower($_POST['username']));
 			$password = (String)htmlspecialchars($_POST['password']);
+			$empireName = (String)htmlspecialchars($_POST['empireName']);
 			$faction = (String)htmlspecialchars(strtolower($_POST['faction']));
 			
 			/* Cet username n'est pas déjà attribué à un autre joueur. */
-			if( User::checkUsernameExist( $username ) > 0 )
+			if( !User::checkUsernameExist( $username ) )
 			{
-				/* Cet username est supérieur à 4 caractères et inférieur à 20. */
-				if( User::checkUsernameLength( $username ) )
+				/* Cet username/nom d'empire est supérieur à 4 caractères et inférieur à 30. */
+				if( User::checkUsernameLength( $username ) && User::checkUsernameLength( $empireName ) )
 				{
 					/* Ce password est supérieur à 6 caractères. */
 					if( User::checkPasswordLength( $password ) )
 					{
 						/* Inscription valide : enregistrement de l'utilisateur dans la base de donnée ! */
-						$result = User::addUser( $username, $password, $faction );
+						$result = User::addUser( $username, $password, $empireName, $faction );
 						
 						/* Echec ! */
 						if( $result == 0 )
@@ -67,23 +68,22 @@
 										$subject = "Bonjour commandant !";
 										$message = "Commandant ".$username.",
 										
-										Bonjour et bienvenu dans vos nouveaux quartiers, j'espère qu'ils vous conviendront.
+										Bonjour et bienvenue dans vos nouveaux quartiers, j'espère qu'ils vous conviendront.
 										
-										Nous avons très peu de choses à notre disposition mais l'équipage et moi-même avons foi en vous commandant. Oui, notre peuple va enfin pouvoir revivre !
+										Nous avons très peu de choses à notre disposition mais l'équipage et moi-même avons foi en vous commandant. Oui, ".$empireName." va enfin pouvoir revivre !
 										
 										Certains de nos camarades on d'ors et déjà commencer à installer notre camp.										
 										
-										Bien des années ont passé mon commandant. Si vous avez besoin de conseils n'hésitez pas à cliquer sur le bouton symbolisant un '?' qui se trouve en dessous de l'heure sur la droite !										
+										Bien des années ont passé mon commandant ".$username.". Si vous avez besoin de conseils n'hésitez pas à cliquer sur le bouton symbolisant un '?'.										
 										
-										Bonne chance !
+										Courage, nous y arriverons !
 										
 										Votre conseiller, Jibi.";
 										
 										Communication::addCommunications( $message, $subject, "", $userId, 1);
 									
 										/* Message de confirmation */
-										$Engine->setSuccess("Votre inscription a été validée.");
-										$Engine->setInfo("Bonjour <span class='italic'>commandant ".ucfirst ($username)."</span> !<br />Identifiez-vous pour votre première connexion.");
+										$Engine->setSuccess("Votre inscription a été validée.<br />".ucfirst ($username)."</span>, identifiez-vous pour votre première connexion.");
 									}
 									else
 										$Engine->setError("Une erreur est survenue lors de l'initialisation de votre planète. Merci de bien vouloir contacter l'équipe et signaler cette erreur !");
@@ -95,11 +95,10 @@
 						$Engine->setError("Votre MOT DE PASSE doit être supérieur à 6 caractères.");
 				}
 				else
-					$Engine->setError("Votre PSEUDONYME doit être supérieur à 4 caractères et être inférieur à 20 caractères.");
+					$Engine->setError("Votre PSEUDONYME/NOM EMPIRE doit être supérieur à 4 caractères et être inférieur à 30 caractères.");
 			}
 			else
 				$Engine->setError("Ce PSEUDONYME existe déjà. Veuillez en choisir un autre.");
-
 		}
 		/* Inscription désativée */
 		else if( !$activeSub )
@@ -111,7 +110,9 @@
 			if( $return['username'] == 0 )
 				$str = $str."PSEUDONYME, ";
 			if( $return['password'] == 0 )
-				$str = $str."MOT DE PASSE";
+				$str = $str."MOT DE PASSE, ";
+			if( $return['empireName'] == 0 )
+				$str = $str."NOM EMPIRE";
 			if( $return['faction'] == 0 )
 				$str = $str."FACTION";
 			$Engine->setError($str);

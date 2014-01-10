@@ -120,7 +120,7 @@ class Planet
 	public static function addPlanet( $userId, $faction, $primary = 0, $name = 'P042' ) {
 		$sql = MyPDO::get();
 		
-		$initialX = (rand(0, 5) - 2)*2; 
+		$initialX = (rand(0, 5) - 2)*2;
 		$initialY = (rand(0, 5) - 2)*2;
 		$coords = Map::getPlanetSlot( $initialX, $initialY );
 		if( $faction == "impériaux" )
@@ -136,9 +136,9 @@ class Planet
 			':userId' => $userId,
 			':posX' => $coords[0],
 			':posY' => $coords[1],
-			':res1' => 900,
-			':res2' => 600,
-			':res3' => 100,
+			':res1' => 1000,
+			':res2' => 800,
+			':res3' => 200,
 			':pr' => 0,
 			':prod_res1' => 100,
 			':prod_res2' => 60,
