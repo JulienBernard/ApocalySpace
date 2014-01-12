@@ -13,12 +13,12 @@
 	/* Configuration de la base de données */
 	define("SQL_DSN", "mysql:host=localhost;dbname=apocalyspace");
 	define("SQL_USER", "root");
-	define("SQL_PASS", "root");
+	define("SQL_PASS", "");
 	define("SQL_ENCODE", "utf8");
 	
 	/* Chemin d'accès du site */
-	define("BASE_SITE", "http://localhost/Perso/ApocalySpace/Pilotage/");
-	define('BASE_PATH', '/Perso/ApocalySpace/Pilotage/');
+	define("BASE_SITE", "http://localhost:8000/Julien/ApocalySpace/ApocalySpace/Pilotage/");
+	define('BASE_PATH', 'Julien/ApocalySpace/ApocalySpace/Pilotage/');
 	
 	/* Informations par défaut */
 	define("DEFAULT_DESCRIPTION", "ApocalySpace est un jeu en ligne jouable gratuitement et directement sur votre navigateur web mêlant stratégie et gestion dans l'espace.");

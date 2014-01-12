@@ -7,14 +7,14 @@
 		<div class="row">
 			<nav class="large-6 columns center">
 				<p>
-					<a class="pointer" id="returnTop">Retourner en haut</a> - <a href="https://github.com/JulienBernard/ApocalySpace">Dépôt sur GitHub</a><br />
-					Apocalyspace est un projet libre développé par Julien Bernard.
+					<a class="pointer" id="returnTop">Retourner en haut</a> - <a href="https://github.com/JulienBernard/ApocalySpace/tree/1.7">Dépôt sur GitHub</a><br />
+					Apocalyspace est un projet libre de jeu en ligne développé par Julien Bernard.
 				</p>
 			</nav>
 			<article class="large-6 columns center">
 					<p>
 						© Apocalyspace 2012 - 2014<br />
-						<a href="support.php">Contact</a> - <a href="support.php">Privacy</a> - <a href="./docs/">Version 1.7.1</a>
+						<a href="support.php">Contact</a> - <a target="blank" href="https://github.com/JulienBernard/ApocalySpace/blob/master/README.md">Privacy</a> - <a href="./docs/">Version 1.7.1</a>
 					</p>
 			</article>
 		</div>

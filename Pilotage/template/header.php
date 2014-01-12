@@ -91,7 +91,7 @@
 				<li class="border-top-bottom"><img src="./img/home.png" alt="[H]" /></li>
 				<li class="border-top-bottom"><img src="./img/about.png" alt="[A]" /></li>
 				<li class="border-top-bottom"><img src="./img/gallery.png" alt="[G]" /></li>
-				<li class="border-top-bottom"><img src="./img/contact.png" alt="[C]" /></li>
+				<li class="border-top-bottom"><img src="./img/contact.png" alt="[S]" /></li>
 				<li class="border-top"></li>
 				<div class="f-bottom">
 					<li class="border-bottom"></li>
@@ -114,13 +114,13 @@
 						<li class="border-top-bottom center">12 : 55 : 45</li>
 						<li class="border-top-bottom"><a href="support.php"><img src="./img/players.png" alt="[H]" />&nbsp;&nbsp;&nbsp;Players: 7</a></li>
 						<li class="border-top-bottom"><a href="support.php"><img src="./img/privacy.png" alt="[C]" />&nbsp;&nbsp;&nbsp;Privacy</a></li>
-						<li class="border-top center copyright">© ApocalySpace</a> 2012-2014<br /><a href="support.php">Contact</a> - <a href="./docs/">Version 1.7</a></li>
+						<li class="border-top center copyright">© ApocalySpace</a> 2012-2014<br /><a href="./docs/">Version 1.7</a> - <a href="https://github.com/JulienBernard/ApocalySpace/blob/1.7/CHANGELOG.md" target="blank">Changelog</a></li>
 					</div>
 				</span>
 			</ul>
 		</nav>
 		<!-- End Desktop navigation -->
-		<!-- Mobile or Desktop < 1280 navigation -->
+		<!-- Mobile or Desktop < 1440 navigation -->
 		<div class="small-nav show-for-large-down hide-for-small">
 			<nav class="large-8 columns">
 				<a href="index.php"><img src="./img/home.png" width="40" alt="[H]" />&nbsp;&nbsp;<?php if( $Engine->getNamepage() == "accueil" ) echo 'Accueil'; ?></a>
@@ -134,7 +134,7 @@
 			</nav>
 			<br />
 		</div>
-		<!-- End Mobile or Desktop < 1280 navigation -->
+		<!-- End Mobile or Desktop < 1440 navigation -->
 		<!-- Mobile or Desktop < 1280 navigation -->
 		<div class="small-nav show-for-small">
 			<nav class="large-12">

@@ -122,49 +122,33 @@
 					</table>
 				</div>
 			</nav>
+
+
 		</div>
 	</section>
 </main>
 
 <footer>
-	<header>
-		<div class="row">
-			<div id="returnTop" class="large-1 columns">
-			</div>
-			<p class="large-7 columns">
-				« Ce n’est pas possible ; cela n’est pas français. »<br />
-				<span class="italic small">Citation de Napoléon Bonaparte</span>
-			</p>
-			<p class="large-4 columns">
-				ApocalySpace © 2012-2013 &nbsp;&nbsp;&nbsp; <a href="./docs/">Version 1.6.12</a><br />
-			<?php	
-				if( isset($timeStart) ){
-					$timeend = microtime(true);
-					$mtime = $timeend - $timeStart;
-					$execution = number_format($mtime, 3);
-					echo 'Généré en '.$execution.'s';
-				}
-			?>
-			</p>
-		</div>
-	</header>
 	<section>
 		<div class="row">
-			<nav class="large-8 columns center">
+			<nav class="large-6 columns center">
 				<p>
-					<br />
-					<a href="deconnexion.connect.php">Déconnexion</a> / 
-					<a href="support.connect.php">Contact et Support</a>
+					<a href="deconnexion.connect.php">Déconnexion</a> - <a class="pointer">
+					<?php	
+						if( isset($timeStart) ){
+							$timeend = microtime(true);
+							$mtime = $timeend - $timeStart;
+							$execution = number_format($mtime, 3);
+							echo 'Généré en '.$execution.'s';
+						}
+					?></a><br />
+					Apocalyspace est un projet libre de jeu en ligne développé par Julien Bernard.
 				</p>
 			</nav>
-			<article class="large-4 columns center">
-				<p>
-					Projet sous licence GPL réalisé initialement par
-					<a href="http://jibidev.fr/a-propos">Julien Bernard</a>, Benjamin Crosnier et Etienne Rocipon.<br />
-					<br />
-					Le projet est désormais repris par Julien.<br />
-					<a href="support.php">Contact</a> - <a href="histoire_projet.php">Histoire du projet</a> - <a href="mentions.php">Mentions légales</a>
-				</p>
+			<article class="large-6 columns center">
+					<p>
+						© Apocalyspace 2012 - 2014<br />
+						<a href="support.php">Contact</a> - <a target="blank" href="https://github.com/JulienBernard/ApocalySpace/blob/master/README.md">Privacy</a> - <a href="./docs/">Version 1.7.1</a>					</p>
 			</article>
 		</div>
 	</section>

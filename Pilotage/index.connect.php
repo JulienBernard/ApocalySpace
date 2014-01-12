@@ -16,7 +16,7 @@
 	$Template = new Template();
 	
 	/* Informations sur la page [valeurs à modifier] */
-	$Template->setTitle("Gestion Planetaire");
+	$Template->setTitle("Vue Strategique");
 	//$Template->setDescription("");
 	$Template->addCss("normalize.css");
 	$Template->addCss("foundation.css");

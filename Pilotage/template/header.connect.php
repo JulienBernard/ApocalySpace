@@ -95,7 +95,7 @@
 	Main section to separate the header part with the body part of the website.
 -->
 <main id="main" style="padding-top: 0;">
-	<section>
+	<section id="main-section">
 		<!-- Desktop navigation -->
 		<nav id="navigation" class="hide-for-large-down">
 			<ul class="first">
@@ -104,14 +104,12 @@
 				<li class="border-top-bottom"><img src="./img/gallery.png" alt="[H]" /></li>
 				<li class="border-top-bottom"><img src="./img/home.png" alt="[A]" /></li>
 				<li class="border-top-bottom"><img src="./img/about.png" alt="[G]" /></li>
-				<li class="border-top-bottom"><img src="./img/contact.png" alt="[C]" /></li>
 				<li class="border-top-bottom"><img src="./img/about.png" alt="[C]" /></li>
 				<li class="border-top"></li>
 				<div class="f-bottom">
 					<li class="border-bottom"></li>
-					<li class="border-top-bottom"><img src="./img/players.png" alt="[H]" /></li>
 					<li class="border-top-bottom"><img src="./img/privacy.png" alt="[C]" /></li>
-					<li class="border-top center copyright">Version<br /><a href="#">1.7</a></li>
+					<li class="border-top center copyright">Version<br />1.7</li>
 				</div>
 			</ul>
 			<ul>
@@ -121,33 +119,51 @@
 					<li class="border-top-bottom"><a href="index.connect.php"><img src="./img/gallery.png" alt="[H]" />&nbsp;&nbsp;&nbsp;Vue stratégique</a></li>
 					<li class="border-top-bottom"><a href="structure.connect.php"><img src="./img/home.png" alt="[G]" />&nbsp;&nbsp;&nbsp;Capitale</a></li>
 					<li class="border-top-bottom"><a href="recherche.connect.php"><img src="./img/about.png" alt="[A]" />&nbsp;&nbsp;&nbsp;Technologies</a></li>
-					<li class="border-top-bottom"><a href="support.connect.php"><img src="./img/contact.png" alt="[C]" />&nbsp;&nbsp;&nbsp;Contact</a></li>
 					<li class="border-top-bottom"><a href="top.connect.php"><img src="./img/about.png" alt="[C]" />&nbsp;&nbsp;&nbsp;Classement</a></li>
 					<li class="border-top"></li>
 					<div class="f-bottom">
+						<li class="border-bottom center">12 : 55 : 45</li>
 						<li class="border-bottom center">&nbsp;&nbsp;&nbsp;
 							<a href="compte.connect.php"><img id="img-account" /></a>
 							<a href="communication.connect.php" <?php if( $Data->getNbMessageNoRead() != 0 ) echo 'class="img-message-new"'; else echo 'class="img-message"'; ?>><img id="img-message" /></a>
 							<a href="deconnexion.connect.php"><img id="img-exit" /></a>
 						</li>
-						<li class="border-top-bottom center">12 : 55 : 45</li>
-						<li class="border-top-bottom"><a href="#"><img src="./img/players.png" alt="[H]" />&nbsp;&nbsp;&nbsp;Players: 7</a></li>
-						<li class="border-top-bottom"><a href="#"><img src="./img/privacy.png" alt="[C]" />&nbsp;&nbsp;&nbsp;Privacy</a></li>
-						<li class="border-top center copyright">© ApocalySpace</a> 2012-2013<br /><a href="https://github.com/JulienBernard/ApocalySpace/blob/master/README.md" target="_blank">Version 1.7</a> - <a href="#">Changelog</a></li>
+						<li class="border-top center copyright">© ApocalySpace</a> 2012-2014<br /><a href="./docs/">Version 1.7</a> - <a href="https://github.com/JulienBernard/ApocalySpace/blob/1.7/CHANGELOG.md" target="blank">Changelog</a></li>
 					</div>
 				</span>
 			</ul>
 		</nav>
 		<!-- End Desktop navigation -->
-		<!-- Mobile or Desktop < 1280 navigation -->
-		<div class="row show-for-large-down">
-			<nav class="large-12 breadcrumbs">
-				<a href="index.php" <?php if( $Engine->getNamepage() == "accueil" ) echo 'class="current"'; ?>>Accueil</a>
-				<a href="histoire.php" <?php if( $Engine->getNamepage() == "histoire" ) echo 'class="current"'; ?>>Histoire</a>
-				<a href="galerie.php" <?php if( $Engine->getNamepage() == "galerie" ) echo 'class="current"'; ?>>Galerie</a>
-				<a href="support.php" <?php if( $Engine->getNamepage() == "support" ) echo 'class="current"'; ?>>Contact et Support</a>
+		<!-- Mobile or Desktop < 1440 navigation -->
+		<div class="small-nav show-for-large-down hide-for-small">
+			<nav class="large-8 columns">
+				<a href="index.connect.php"><img src="./img/gallery.png" width="40" alt="[V]" />&nbsp;&nbsp;<?php if( $Engine->getNamepage() == "accueil" ) echo 'Vue stratégique'; ?></a>
+				<a href="structure.connect.php"><img src="./img/home.png" width="30" alt="[C]" />&nbsp;&nbsp;<?php if( $Engine->getNamepage() == "structure" ) echo 'Capitale'; ?></a>
+				<a href="recherche.connect.php"><img src="./img/about.png" width="30" alt="[T]" />&nbsp;&nbsp;<?php if( $Engine->getNamepage() == "recherche" ) echo 'Technologies'; ?></a>
+				<a href="top.connect.php"><img src="./img/about.png" width="30" alt="[C]" />&nbsp;&nbsp;<?php if( $Engine->getNamepage() == "classement" ) echo 'Classement'; ?></a>
+			</nav>
+			<nav class="large-4 columns">
+				<a href="compte.connect.php"><img id="img-account" style="margin-top: 10px" /></a>
+				<a href="communication.connect.php" <?php if( $Data->getNbMessageNoRead() != 0 ) echo 'class="img-message-new"'; else echo 'class="img-message"'; ?>><img id="img-message" style="margin-top: 5px" /></a>
+				<a href="deconnexion.connect.php"><img id="img-exit" style="margin-top: 10px" /></a>
 			</nav>
 			<br />
 		</div>
-		<!-- End Mobile or Desktop <1280 navigation -->
+		<!-- End Mobile or Desktop < 1440 navigation -->
+		<!-- Mobile or Desktop < 1280 navigation -->
+		<div class="small-nav show-for-small">
+			<nav class="large-12">
+				<a href="index.connect.php">Vue stratégique</a>
+				<a href="structure.connect.php">Capitale</a>
+				<a href="recherche.connect.php">Technologies</a>
+				<a href="top.connect.php">Classement</a>
+			</nav>
+			<nav class="large-12">
+				<a href="compte.connect.php"><img id="img-account" style="margin-top: 20px" /></a>
+				<a href="communication.connect.php" <?php if( $Data->getNbMessageNoRead() != 0 ) echo 'class="img-message-new"'; else echo 'class="img-message"'; ?>><img id="img-message" style="margin-top: 15px" /></a>
+				<a href="deconnexion.connect.php"><img id="img-exit" style="margin-top: 15px" /></a>
+			</nav>
+			<br />
+		</div>
+		<!-- End Mobile or Desktop < 1280 navigation -->
 	
