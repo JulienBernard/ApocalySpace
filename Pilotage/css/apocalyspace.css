@@ -204,9 +204,30 @@ a:hover {
    Section (body)
    ========================================================================== */
 
+   /* A CHANGER : moche mais rapide à faire ^^ */
+@media screen and (min-height: 900px) {
+	#main #main-section {
+		height: 800px;
+	}
+}
+@media screen and (min-height: 800px) and (max-height: 900px) {
+	#main #main-section {
+		height: 700px;
+	}
+}
+@media screen and (min-height: 700px) and (max-height: 800px) {
+	#main #main-section {
+		height: 600px;
+	}
+}
+@media screen and (max-height: 700px) {
+	#main #main-section {
+		height: auto;
+	}
+}
+   
 #main #main-section {
 	width: 100%;
-	height: auto;
 	padding-top: 20px;
 	background: #fafafa;
 	padding-bottom: 40px;
@@ -450,14 +471,6 @@ footer {
 	}
 	footer article a:hover {
 		color: #61c2ed;
-	}
-	footer header .row div {
-		height: 23px;
-		margin-top: 5px;
-		background: url("../img/arrow_top.png") right no-repeat;
-	}
-	footer header .row div:hover {
-		background: url("../img/arrow_top_hover.png") right no-repeat;
 	}
 
 /* ==========================================================================
