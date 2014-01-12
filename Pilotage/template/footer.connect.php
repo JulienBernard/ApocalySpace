@@ -165,7 +165,6 @@
 	</script>
 	
 	<script src="js/foundation.min.js"></script>
-	<script src="js/foundation/foundation.orbit.js"></script>
 	
 	<script>
 		$(function(){
@@ -183,7 +182,7 @@
 			});
 			
 		})
-								
+		
 		window.onload = function(){
 			setInterval("displayServerTime()", 1000);
 		}

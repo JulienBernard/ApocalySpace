@@ -205,7 +205,12 @@ a:hover {
    ========================================================================== */
 
    /* A CHANGER : moche mais rapide à faire ^^ */
-@media screen and (min-height: 1000px) {
+@media screen and (min-height: 1100px) {
+	#main #main-section {
+		height: 1000px;
+	}
+}
+@media screen and (min-height: 1000px) and (max-height: 1100px) {
 	#main #main-section {
 		height: 900px;
 	}
@@ -213,16 +218,6 @@ a:hover {
 @media screen and (min-height: 900px) and (max-height: 1000px) {
 	#main #main-section {
 		height: 800px;
-	}
-}
-@media screen and (min-height: 800px) and (max-height: 900px) {
-	#main #main-section {
-		height: 700px;
-	}
-}
-@media screen and (min-height: 700px) and (max-height: 800px) {
-	#main #main-section {
-		height: 600px;
 	}
 }
 @media screen and (max-height: 700px) {
@@ -349,6 +344,15 @@ article p {
 		padding-top: 12px;
 		padding-bottom: 12px;
 	}
+	
+.ressource-nav {
+	width: 50%;
+	padding-top: 14px;
+	font-family: MALGUN;
+	text-align: center;
+	margin: auto;
+	margin-top: -20px;
+}
 
 #navigation {
 	background: #111;

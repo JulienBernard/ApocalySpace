@@ -77,16 +77,12 @@
 			';
 		}
 		
-		//var_dump($Data);
+		include("./config_id.php");
+		// Calcul des % de stockage
+		$titanePourcent = 100-(pow(2, Building::getBuildingLevel($titaneStorageId, $Data->getPlanetId()))*$titaneStorageSizePerLevel - $Data->getRes1())/(pow(2, Building::getBuildingLevel($titaneStorageId, $Data->getPlanetId()))*$titaneStorageSizePerLevel)*100;
+		$berylPourcent = 100-(pow(2, Building::getBuildingLevel($berylStorageId, $Data->getPlanetId()))*$berylStorageSizePerLevel - $Data->getRes2())/(pow(2, Building::getBuildingLevel($berylStorageId, $Data->getPlanetId()))*$berylStorageSizePerLevel)*100;
+		$hydroPourcent = 100-(pow(2, Building::getBuildingLevel($hydrogeneStorageId, $Data->getPlanetId()))*$hydrogeneStorageSizePerLevel - $Data->getRes3())/(pow(2, Building::getBuildingLevel($hydrogeneStorageId, $Data->getPlanetId()))*$hydrogeneStorageSizePerLevel)*100;		
 	?>
-	
-	<script type="text/javascript">
-	window.onload = function(){
-		setInterval("displayServerTime()", 1000);
-	}
-	var ctime = '<?php echo date( "F d, Y H:i:s", time() ); ?>';
-	var sdate = new Date(ctime);
-</script>
 </head>
 <body>
 
@@ -96,6 +92,25 @@
 -->
 <main id="main" style="padding-top: 0;">
 	<section id="main-section">
+		<!-- Ressources informations -->
+		<div class="ressource-nav center">
+			<div class="large-1 columns">&nbsp;</div>
+			<div class="large-3 columns" data-dropdown="dropTitane"><div class="smaller" style="width: 100%; position: absolute; z-index: 1; margin-top: 5px; margin-left: 10px; text-align: center; color: #EDEDED;">Titane (<?php echo $Data->getRes1(); ?>)</div><div class="progress large-12 alert round" style="padding: 1px; border: 1px solid #E8653C;"><span class="meter smaller" style="width: <?php echo $titanePourcent; ?>%;"></span></div></div>
+			<div class="large-3 columns" data-dropdown="dropBeryl"><div class="smaller" style="width: 100%; position: absolute; z-index: 1; margin-top: 5px; margin-left: 10px; text-align: center; color: #EDEDED;">Béryl (<?php echo $Data->getRes2(); ?>)</div><div class="progress large-12 success round" style="padding: 1px; border: 1px solid #69B52C;"><span class="meter smaller" style="width: <?php echo $berylPourcent; ?>%;"></span></div></div>
+			<div class="large-3 columns" data-dropdown="dropHydro"><div class="smaller" style="width: 100%; position: absolute; z-index: 1; margin-top: 5px; margin-left: 10px; text-align: center; color: #EDEDED;">Hydrogène (<?php echo $Data->getRes3(); ?>)</div><div class="progress large-12 info round" style="padding: 1px; border: 1px solid #61C2ED;"><span class="meter smaller" style="width: <?php echo $hydroPourcent; ?>%;"></span></div></div>
+			<div class="large-1 columns">&nbsp;</div>
+		</div>
+		
+		<ul id="dropTitane" class="f-dropdown" data-dropdown-content>
+			<p class="smaller"><strong>Titane :</strong> <?php echo $Data->getRes1(); ?> / <?php echo pow(2, Building::getBuildingLevel($titaneStorageId, $Data->getPlanetId()))*$titaneStorageSizePerLevel; ?></p>
+		</ul>
+		<ul id="dropBeryl" class="f-dropdown" data-dropdown-content>
+			<p class="smaller"><strong>Béryl :</strong> <?php echo $Data->getRes2(); ?> / <?php echo pow(2, Building::getBuildingLevel($berylStorageId, $Data->getPlanetId()))*$berylStorageSizePerLevel; ?></p>
+		</ul>
+		<ul id="dropHydro" class="f-dropdown" data-dropdown-content>
+			<p class="smaller"><strong>Hydrogène :</strong> <?php echo $Data->getRes3(); ?> / <?php echo pow(2, Building::getBuildingLevel($hydrogeneStorageId, $Data->getPlanetId()))*$hydrogeneStorageSizePerLevel; ?></p>
+		</ul>
+	
 		<!-- Desktop navigation -->
 		<nav id="navigation" class="hide-for-large-down">
 			<ul class="first">
@@ -122,7 +137,7 @@
 					<li class="border-top-bottom"><a href="top.connect.php"><img src="./img/about.png" alt="[C]" />&nbsp;&nbsp;&nbsp;Classement</a></li>
 					<li class="border-top"></li>
 					<div class="f-bottom">
-						<li class="border-bottom center">12 : 55 : 45</li>
+						<li class="border-bottom center" id="serverTime" style="text-align: center; margin-top: 0px;"><?php echo date( "H:i:s", time()+3600 ); ?></lo>
 						<li class="border-bottom center">&nbsp;&nbsp;&nbsp;
 							<a href="compte.connect.php"><img id="img-account" /></a>
 							<a href="communication.connect.php" <?php if( $Data->getNbMessageNoRead() != 0 ) echo 'class="img-message-new"'; else echo 'class="img-message"'; ?>><img id="img-message" /></a>
@@ -166,4 +181,4 @@
 			<br />
 		</div>
 		<!-- End Mobile or Desktop < 1280 navigation -->
-	
+		

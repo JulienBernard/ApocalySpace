@@ -25,8 +25,7 @@ function padZeroes( number, maxlength )
 function displayServerTime() { // Show & update the time
 	sdate.setSeconds(sdate.getSeconds()+1);
 	//var datestr = montharray[sdate.getMonth()]+" "+padLength(serverdate.getDate())+", "+sdate.getFullYear()
-	var timestr = padLength(sdate.getHours())+":"+padLength(sdate.getMinutes())+":"+padLength(sdate.getSeconds());
-	
+	var timestr = padLength(sdate.getHours()+1)+":"+padLength(sdate.getMinutes())+":"+padLength(sdate.getSeconds());
 	document.getElementById("serverTime").innerHTML = timestr;
 }
 
