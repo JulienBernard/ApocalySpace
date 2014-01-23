@@ -25,6 +25,7 @@
 	$Template->addScript("jquery.min.js");
 	$Template->addScript("vendor/custom.modernizr.js");
 	$Template->addScript("redirection.js");
+	$Template->addScript("charts.js");
 
 	global $timeStart;
 	$timeStart = microtime(true);
